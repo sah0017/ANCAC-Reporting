@@ -1,5 +1,5 @@
 <?php
-	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/ulogin.php");
+	require("./ulogin.php");
         $page_title = 'ANCAC Network Calendar';
 
 /**
@@ -263,7 +263,7 @@ function print_header($includes = '', $HeadX = '', $BodyX = '',
 
  // Start the header & specify the charset
  // The charset is defined in the translation file
-require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/networkcalendar/includes/header2.php");
+require("./networkcalendar/includes/header2.php");
 
 
  if ( ! empty ( $LANGUAGE ) ) {

@@ -1,7 +1,7 @@
 <?
-	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/ulogin.php");
+	require("./ulogin.php");
 	$page_title = 'ANCAC: Account Administration';
-	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/header.php");
+	require("./header.php");
 
 ?>
 
@@ -38,5 +38,5 @@
 </table>
 
 <?
-  	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/footer.php");
+  	require("./footer.php");
 ?>

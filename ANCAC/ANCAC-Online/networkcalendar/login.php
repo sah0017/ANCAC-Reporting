@@ -1,5 +1,5 @@
 <?php
-require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/ulogin.php");
+require("./ulogin.php");
 $page_title = 'ANCAC Network Calendar';
 
 include "includes/config.php";
@@ -200,7 +200,7 @@ if ( ! empty ( $CUSTOM_HEADER ) && $CUSTOM_HEADER == 'Y' ) {
 ?>
 
 <?php 
-require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/networkcalendar/includes/header2.php");
+require("./networkcalendar/includes/header2.php");
  echo "<h2>";
 // If Application Name is set to Title then get translation
 // If not, use the Admin defined Application Name

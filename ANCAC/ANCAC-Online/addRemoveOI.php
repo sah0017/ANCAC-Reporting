@@ -1,6 +1,6 @@
 <?
 
-	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/ulogin.php");
+	require("./ulogin.php");
 
 	require("/home/cluster1/data/a/p/a1224426/data/dbconn.php");
 
@@ -150,7 +150,7 @@
 
 	$page_title = 'Add or Remove Other Incomes for '.$CenterName;
 
-	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/header.php");
+	require("./header.php");
 
 
 
@@ -457,7 +457,7 @@
 
 <?
 
-	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/footer.php");
+	require("./footer.php");
 
 ?>
 

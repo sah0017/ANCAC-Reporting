@@ -1,6 +1,6 @@
 <?php
 
-require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/ulogin.php");
+require("./ulogin.php");
 
 /**
  * MercuryBoard
@@ -87,7 +87,7 @@ if ($mercury->sets['output_buffer'] && isset($mercury->server['HTTP_ACCEPT_ENCOD
 	ob_start('ob_gzhandler');
 }
 
-require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/messageboard/header3.php");
+require("./messageboard/header3.php");
 header( 'P3P: CP="CAO PSA OUR"' );
 //session_start();
 $mercury->user_cl = new user($mercury);

@@ -1,5 +1,5 @@
 <?
-	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/ulogin.php");
+	require("./ulogin.php");
 	//require("/home/cust1/user1224426/data/dbconn.php");
 	
 	$From = $_GET['from'];
@@ -17,7 +17,7 @@
                  $page_title = 'Select a Year: Diversity Action Plan';
 
 
-	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/header.php");
+	require("./header.php");
 
 ?>
 
@@ -87,6 +87,6 @@
 </table></div>
 </body>
 <?
-	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/footer.php");
+	require("./footer.php");
 ?>
 

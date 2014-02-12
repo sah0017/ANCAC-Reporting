@@ -1,5 +1,5 @@
 <?
-	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/ulogin.php");
+	require("./ulogin.php");
 	require("/home/cluster1/data/a/p/a1224426/data/dbconn.php");
         //set the fiscalYear
         switch (date("m")){
@@ -50,7 +50,7 @@
         $CenterName = $rowCenter->CenterName;
 
 	$page_title = 'ANCAC: Diversity Action Plan Report for '.$CenterName;
-	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/header.php");
+	require("./header.php");
 
 	function printPercent($TopNumber, $BottomNumber){
                 $percent = ($TopNumber/$BottomNumber) * 100;
@@ -509,7 +509,7 @@
 </table>
 </body>
 <?
-	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/footer.php");
+	require("./footer.php");
 ?>
 
 

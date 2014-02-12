@@ -1,5 +1,5 @@
 <?
-	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/ulogin.php");
+	require("./ulogin.php");
 	require("/home/cluster1/data/a/p/a1224426/data/dbconn.php");
 
 	//set the fiscalYear
@@ -49,7 +49,7 @@
         $CenterName = $rowCenter->CenterName;
 
 	$page_title = 'Board of Directors List for '.$CenterName;
-	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/header.php");
+	require("./header.php");
 
 ?>
 
@@ -293,6 +293,6 @@
 </table></div>
 </body>
 <?
-	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/footer.php");
+	require("./footer.php");
 ?>
 

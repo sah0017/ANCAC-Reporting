@@ -1,7 +1,7 @@
 <?
-	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/ulogin.php");
+	require("./ulogin.php");
 	$page_title = 'ANCAC: Shared Documents Menu';
-	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/header.php");
+	require("./header.php");
 ?>
 
 <table class='login' align=center width="293"><tr>

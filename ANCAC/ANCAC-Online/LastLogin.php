@@ -1,7 +1,7 @@
 <?
-	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/ulogin.php");
+	require("./ulogin.php");
 	$page_title = 'ANCAC: Last Login';
-	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/header.php");
+	require("./header.php");
 	
 	$sql = "SELECT centers.CenterName, directors.name, directors.lastlogin FROM centers JOIN directors ON centers.center = directors.center WHERE centers.center not in (0,99)";
         $result = @mysql_query($sql) or mysql_error();
@@ -49,5 +49,5 @@
 </table>
 
 <?
-  	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/footer.php");
+  	require("./footer.php");
 ?>
