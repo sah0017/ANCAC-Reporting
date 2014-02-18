@@ -1,6 +1,6 @@
 <?php
 	require("./ulogin.php");
-	require("/home/cluster1/data/a/p/a1224426/data/dbconn.php");
+	require("./dbconn.php");
 
 	$page_title = 'ANCAC: All Diversity Action Plans';
 	require("./header.php");

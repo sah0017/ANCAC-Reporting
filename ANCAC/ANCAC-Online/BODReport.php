@@ -1,6 +1,6 @@
 <?
 	require("./ulogin.php");
-	require("/home/cluster1/data/a/p/a1224426/data/dbconn.php");
+	require("./dbconn.php");
 	
 	if($_SESSION['admin'] > 0){
                 if(isset($_POST['center']))

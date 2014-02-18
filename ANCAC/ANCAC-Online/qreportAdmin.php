@@ -1,6 +1,6 @@
 <?
 	require("./ulogin.php");
-	require("/home/cluster1/data/a/p/a1224426/data/dbconn.php");
+	require("./dbconn.php");
 	$From = $_GET['from'];
 	if($From == 1)
 	         $page_title = 'ANCAC: Admin Year to Date Reports';
