@@ -1,6 +1,9 @@
 <?
   require("./dbconn.php");
-
+  require("./PasswordHash.php");
+  
+  $hasher = new PasswordHash(8, false);
+  
 // open a session (save load time on reading in all files)
   session_start();
   header("Cache-control: private"); // IE 6 Fix.
@@ -32,8 +35,9 @@
         {
 
 //----- Select one user's password from the database
+			$hash=$hasher->HashPassword($_POST['password']);
             $sql = "SELECT password,username,name,directors.center,user_level,CenterName FROM directors JOIN centers ON directors.center = centers.center ".
-				   "WHERE username = '".$_POST['username']."' and password = '".$_POST['password']."'";
+				   "WHERE username = '".$_POST['username']."' and password = '".$hash."'";
             $result = @mysql_query($sql) or mysql_error();
             $row = mysql_fetch_object($result);
             $cookie = 2;
