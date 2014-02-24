@@ -90,7 +90,7 @@
                 echo '<p>2. <a href="AllYTDReport.php">Print current all Year to Date reports (all Centers)</a><br><br></p>';
 		echo '<p>&nbsp;</p>';
 		echo '<p>&nbsp;</p>';
-		echo '<p>0. <a href="/ANCAC-Online/index.php">Return to Main Menu</p>';
+		echo '<p>0. <a href="./index.php">Return to Main Menu</p>';
 		echo '<p>&nbsp;</p>';
 		echo '</td>';
 	}
@@ -137,7 +137,7 @@
                 }
                 echo '<p>3. <a href="selectYear.php">View / Print the Year to Date report for your Center</a><br><br></p>';
                 echo '<p>&nbsp;</p>';
-		echo '<p>0. <a href="/ANCAC-Online/index.php">Return to Main Menu</p>';
+		echo '<p>0. <a href="./index.php">Return to Main Menu</p>';
                 echo '<p>&nbsp;</p>';
       		echo '</td>';
 	}

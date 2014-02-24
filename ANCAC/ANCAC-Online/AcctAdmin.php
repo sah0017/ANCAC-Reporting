@@ -20,7 +20,7 @@
 		echo '<td>';
 		echo '<p>1. Will add items here<br><br></p>';
 		echo '<p>&nbsp;</p>';
-		echo '<p>0. <a href="/ANCAC-Online/index.php">Return to Main Menu</p>';
+		echo '<p>0. <a href="./index.php">Return to Main Menu</p>';
 		echo '<p>&nbsp;</p>';
 		echo '</td>';
 	}

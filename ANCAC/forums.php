@@ -18,12 +18,12 @@
                            <center>
                             Welcome to the ANCAC-Online Forums.   <br><br><br>  Please remember to respect each other and<br>respect the privacy of your clients.<br><br><br>
 
-                            <form action='/ANCAC-Online/messageboard/index.php?a=login&amp;s=on' method='post'>
+                            <form action='./messageboard/index.php?a=login&amp;s=on' method='post'>
                                    <?
                                    echo "<input type='hidden' name='user' value=".$_SESSION['U1'].">";
                                    echo "<input type='hidden' name='pass' value=".$_SESSION['P1'].">";
                                   ?>
-                                  <input type='hidden' name='request_uri' value='/ANCAC-Online/messageboard/index.php'>
+                                  <input type='hidden' name='request_uri' value='./messageboard/index.php'>
                                   <input type='submit' name='submit' value='Click Here to Enter Forums'>
                             </form>
 

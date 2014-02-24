@@ -24,7 +24,7 @@
 		echo '<p>4. <a href="selectYearGT.php?from=6">Print submitted Budget Request (all Centers)</a></p>';
 		echo '<p>5. <a href="selectYearGT.php?from=7">Print submitted Diversity Action Plans (all Centers)</a></p>';
 		echo '<p>&nbsp;</p>';
-		echo '<p>0. <a href="/ANCAC-Online/index.php">Return to Main Menu</p>';
+		echo '<p>0. <a href="./index.php">Return to Main Menu</p>';
 		echo '<p>&nbsp;</p>';
 	}
 	else

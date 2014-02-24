@@ -60,7 +60,7 @@ class home extends admin
 
 								<div class='fieldset'>
 									<div class='legend'>Members</div><br />
-									<a href=http://www.alabamacacs.org/ANCAC-Online/messageboard/index.php?a=register>Add a member</a></br />
+									<a href=http://www.alabamacacs.org./messageboard/index.php?a=register>Add a member</a></br />
 									<a href='$this->self?a=members&amp;s=profile'>Edit a member</a><br />
 									<a href='$this->self?a=members&amp;s=delete'>Delete a member</a><br />
 									<a href='$this->self?a=members&amp;s=perms'>Edit a member's permissions</a><br />

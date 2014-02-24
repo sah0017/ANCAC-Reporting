@@ -224,11 +224,11 @@
 
         //Send them back
         if ($_SESSION['admin'] == 1)
-                header('Location: http://www.alabamacacs.org/ANCAC-Online/eoyreports.php?center='.$centerID);
+                header('Location: http://www.alabamacacs.org./eoyreports.php?center='.$centerID);
         else{
                 if (($_SESSION['admin'] == 2) || ($Available == 1)){
                         if ($error == 1)
-                                echo '"<script>alert(\'To submit your Diversity Action Plan you must:\n\n'.$errMessage.'\'); window.location.href = \'http://www.alabamacacs.org/ANCAC-Online/divAction.php?center='.$centerID.'\';</script>"';
+                                echo '"<script>alert(\'To submit your Diversity Action Plan you must:\n\n'.$errMessage.'\'); window.location.href = \'http://www.alabamacacs.org./divAction.php?center='.$centerID.'\';</script>"';
                         else{
                                 $sqlUpdate = "UPDATE eoyChecks SET DiversityActPlan = '1', ".
                                         "username = '".$_SESSION['user']."', datemod = NOW() ".
@@ -236,10 +236,10 @@
 
                                 $resultUpdate = @mysql_query($sqlUpdate);
 
-                                header('Location: http://www.alabamacacs.org/ANCAC-Online/eoyreports.php?center='.$centerID);
+                                header('Location: http://www.alabamacacs.org./eoyreports.php?center='.$centerID);
                         }
                 }
                 else
-                        header('Location: http://www.alabamacacs.org/ANCAC-Online/eoyreports.php?center='.$centerID);
+                        header('Location: http://www.alabamacacs.org./eoyreports.php?center='.$centerID);
         }
 ?>

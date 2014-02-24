@@ -121,7 +121,7 @@
         }
 
         if ($_SESSION['admin'] == 1)
-                header('Location: http://www.alabamacacs.org/ANCAC-Online/eoyreports.php?center='.$centerID);
+                header('Location: http://www.alabamacacs.org./eoyreports.php?center='.$centerID);
         else{
                 if (($_SESSION['admin'] == 2) || ($Available == 1)){
                         //No errors occurred
@@ -132,13 +132,13 @@
 
                                 $resultUpdate = @mysql_query($sqlUpdate);
 
-                                header('Location: http://www.alabamacacs.org/ANCAC-Online/eoyreports.php?center='.$centerID);
+                                header('Location: http://www.alabamacacs.org./eoyreports.php?center='.$centerID);
                         }
                         else{
-                                echo '"<script>alert(\'To submit your Estimated Budget you must:\n\n'.$errMessage.'\'); window.location.href = \'http://www.alabamacacs.org/ANCAC-Online/eoyreports.php?center='.$centerID.'\';</script>"';
+                                echo '"<script>alert(\'To submit your Estimated Budget you must:\n\n'.$errMessage.'\'); window.location.href = \'http://www.alabamacacs.org./eoyreports.php?center='.$centerID.'\';</script>"';
                         }
                 }
                 else
-                        header('Location: http://www.alabamacacs.org/ANCAC-Online/eoyreports.php?center='.$centerID);
+                        header('Location: http://www.alabamacacs.org./eoyreports.php?center='.$centerID);
         }
 ?>
