@@ -35,14 +35,14 @@
         {
 
 //----- Select one user's password from the database
-			$hash=$hasher->HashPassword($_POST['password']);
             $sql = "SELECT password,username,name,directors.center,user_level,CenterName FROM directors JOIN centers ON directors.center = centers.center ".
-				   "WHERE username = '".$_POST['username']."' and password = '".$hash."'";
+				   "WHERE username = '".$_POST['username']."'";
             $result = @mysql_query($sql) or mysql_error();
             $row = mysql_fetch_object($result);
             $cookie = 2;
-
-            if($row->username != $_POST['username'] || !$_POST['username'] || !$_POST['password'])
+            
+            $check = $hasher->CheckPassword($_POST['password'], $row->password);
+            if(!$check)
             {
                 echo "<p>Wrong password for ".$_POST['username'];
                 exit;
