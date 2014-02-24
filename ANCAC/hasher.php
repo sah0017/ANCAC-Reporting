@@ -1,20 +1,21 @@
-<?
+<?php
 require("./dbconn.php");
 require("./PasswordHash.php");
 
 $hasher = new PasswordHash(8, false);
+echo("changing table  ");
+$sqlAlter = "ALTER TABLE `directors` CHANGE `password` `password` VARCHAR( 72 ) NOT NULL DEFAULT''";
+mysql_query($sqlAlter);
 
 $sql = "SELECT password FROM directors";
 $result = @mysql_query($sql) or mysql_error();
-echo($result);
 while ($row = mysql_fetch_object($result)) {
-	
+	echo("hashing...");
 	
 	$hash=$hasher->HashPassword($row->password);
-echo($hash."  "."|".$row->password."|");
 	$sqlUpdate = "UPDATE directors SET password = '".$hash."' WHERE password = '".$row->password."'";
 //	echo($sqlUpdate);
-	$resultUpdate = @mysql_query($sqlUpdate) or mysql_error();
-	echo($resultUpdate);
+	mysql_query($sqlUpdate);
 }
+echo("   done");
 ?>
