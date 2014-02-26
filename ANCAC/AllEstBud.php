@@ -1,14 +1,14 @@
-<?PHPphp
-	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/ulogin.php");
-	require("/home/cluster1/data/a/p/a1224426/data/dbconn.php");
+<?PHP
+	require("/ulogin.php");
+	require("/dbconn.php");
 
 	$page_title = 'ANCAC: Estimated Budget for All 4 Quarters';
-	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/header.php");
+	require("/header.php");
 
         $fiscalYear = $_POST['year'];
 ?>
 
-<?PHPphp
+<?PHP
                 $sql = "SELECT centers.center, centers.CenterName FROM `centers` JOIN `eoyChecks` ON centers.center = eoyChecks.center".
                         " AND eoyChecks.fiscalyear = '".$fiscalYear."' AND eoyChecks.EstBudget = '1'".
                         "  WHERE centers.center not in (0,99) order by centers.center";
@@ -16,12 +16,12 @@
 ?>
                 <center>
 		<table class="OutlineTable" width="85%">
-                        <tr><td class="login-header" colspan="5">All Submitted Estimated Budget for All 4 Quarters - FY <?PHPphp echo $fiscalYear; ?></td></tr>
-                        <tr align="left"><td colspan="5"><b>Date: </b><?PHPphp echo date("M d Y"); ?></td></tr>
+                        <tr><td class="login-header" colspan="5">All Submitted Estimated Budget for All 4 Quarters - FY <?PHP echo $fiscalYear; ?></td></tr>
+                        <tr align="left"><td colspan="5"><b>Date: </b><?PHP echo date("M d Y"); ?></td></tr>
                         <tr><td colspan="5">&nbsp;</td></tr>
                 </table>
                 <table class="Admin" width="85%">
-<?PHPphp
+<?PHP
 		while ($row = mysql_fetch_object($result)) {
                          $sql = "SELECT fiTotal,extForenEval,intCounsSes,personnelCosts,empBenefits,travelInState,travelOutState,repairsAndMx,".
               "rentalsLease,utilComm,profServ,suppMatOper,tranEqpPurch,otherEqpPurch,debtService,misc,genFund,chilFirstTrust,".

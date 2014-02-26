@@ -1,8 +1,8 @@
 <?PHP
-	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/ulogin.php");
-	require("/home/cluster1/data/a/p/a1224426/data/dbconn.php");
+	require("/ulogin.php");
+	require("/dbconn.php");
 	
-	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/Variables.php");
+	require("/Variables.php");
 
 	//set the center that is being edited for
 	if($_SESSION['admin'] > 0){
@@ -107,7 +107,7 @@
         $CenterName = $rowCenter->CenterName;
 
 	$page_title = 'ANCAC: Editing Quarter ending '.$Ending.' for '.$CenterName;
-	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/header.php");
+	require("/header.php");
 
 ?>
 
@@ -633,7 +633,7 @@
 </table>
 </body>
 <?PHP
-	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/footer.php");
+	require("/footer.php");
 ?>
 
 

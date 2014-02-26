@@ -1,6 +1,6 @@
 <?PHP
-	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/ulogin.php");
-	require("/home/cluster1/data/a/p/a1224426/data/dbconn.php");
+	require("/ulogin.php");
+	require("/dbconn.php");
         //set the fiscalYear
         switch (date("m")){
                 case 10:
@@ -60,7 +60,7 @@
         $CenterName = $rowCenter->CenterName;
 
 	$page_title = 'ANCAC: Diversity Action Plan for '.$CenterName;
-	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/header.php");
+	require("/header.php");
 
 	function printPercent($TopNumber, $BottomNumber){
                 $percent = ($TopNumber/$BottomNumber) * 100;
@@ -102,13 +102,13 @@
                 <table width="100%" class="Admin">
                 <tr><td colspan="10" style="font-size: 14px"><b><center>Cultural Diversity Action Plan</center></b></td></tr>
                 <tr><td colspan="10"><br />The CAC promotes policies and practices that are culturally competent.  Cultural competency is defined as the capacity to function in more than one culture, requiring the ability to appreciate, understand, and interact with members of diverse populations within our community.<br />&nbsp;</td></tr>
-                <tr><td colspan="6"><b>Child Advocacy Center: </b><?PHPphp echo $CenterName; ?></td><td colspan="4"><b>Reporting Date: </b><?PHPphp echo date("M d Y"); ?></td></tr>
-                <tr><td colspan="10"><b>County(ies) Served Per CAC Incorporation/Bylaws: </b><?PHPphp echo $Counties; ?></td></tr>
+                <tr><td colspan="6"><b>Child Advocacy Center: </b><?PHP echo $CenterName; ?></td><td colspan="4"><b>Reporting Date: </b><?PHP echo date("M d Y"); ?></td></tr>
+                <tr><td colspan="10"><b>County(ies) Served Per CAC Incorporation/Bylaws: </b><?PHP echo $Counties; ?></td></tr>
                 <tr><td colspan="10">&nbsp;</td></tr>
                 <tr><td colspan="10" style="font-size: 14px"><b><center>Breakdown</center></b></td></tr>
                 <tr class="BoldText"><td colspan="2">&nbsp;</td><td colspan="2"><center>Caucasian</center></td><td colspan="2"><center>African American</center></td><td colspan="2"><center>Other</center></td><td colspan="2">&nbsp;</td></tr>
                 <tr class="BoldText"><td>Current Statistical Makeup</td><td><center>Total</center></td><td><center>#</center></td><td><center>%</center></td><td><center>#</center></td><td><center>%</center></td><td><center>#</center></td><td><center>%</center></td><td colspan="2">&nbsp;</td></tr>
-                <?PHPphp
+                <?PHP
                         $sqlCounty = "SELECT county".
                                 " FROM countyLU ".
                                 "WHERE center = ".$centerID;
@@ -181,7 +181,7 @@
                 ?>
                 <tr><td colspan="8">&nbsp;</td><td colspan="2"><center><b>Gender Ratio</b></center></td></tr>
                 <tr class="BoldText"><td>Total County / Community Population</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td><center>Female</center></td><td><center>Male</center></td></tr>
-                <?PHPphp
+                <?PHP
                         $sqlCenterValues = "SELECT fullTimeCauc, fullTimeAfrAmer, fullTimeOther, fullTimeMale, fullTimeFemale, ".
                                 "partTimeCauc, partTimeAfrAmer, partTimeOther, partTimeMale, partTimeFemale, bodCauc, bodAfrAmer, ".
                                 "bodOther, bodMale, bodFemale, volCauc, volAfrAmer, volOther, volMale, volFemale, internCauc, ".
@@ -253,260 +253,260 @@
                         if ($rowCenterValues->VbodOther != - 99)
                                 $TotalVbod = $TotalVbod + $rowCenterValues->VbodOther;
                 ?>
-                <tr align="center"><td align="left">Full Time Employees</td><td><?PHPphp echo $TotalfullTime; ?></td>
-                <td><?PHPphp echo '<input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
+                <tr align="center"><td align="left">Full Time Employees</td><td><?PHP echo $TotalfullTime; ?></td>
+                <td><?PHP echo '<input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
                                 onkeypress="return blockNonNumbers(this, event, false, false);" class="TextInput" name="fullTimeCauc"
                                 value="';
                                 if(isset($rowCenterValues->fullTimeCauc) && ($rowCenterValues->fullTimeCauc != - 99)) echo $rowCenterValues->fullTimeCauc;
                                 echo '" />';
                     ?></td>
-                <td><?PHPphp if ($TotalfullTime != 0){
+                <td><?PHP if ($TotalfullTime != 0){
                                         if(isset($rowCenterValues->fullTimeCauc) && ($rowCenterValues->fullTimeCauc != - 99)) printPercent($rowCenterValues->fullTimeCauc,$TotalfullTime);
                                         else echo 'N/A';
                           }
                           else
                                 echo 'N/A';
                      ?>
-                </td><td><?PHPphp echo '<input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
+                </td><td><?PHP echo '<input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
                                 onkeypress="return blockNonNumbers(this, event, false, false);" class="TextInput" name="fullTimeAfrAmer"
                                 value="';
                                 if(isset($rowCenterValues->fullTimeAfrAmer) && ($rowCenterValues->fullTimeAfrAmer != - 99)) echo $rowCenterValues->fullTimeAfrAmer;
                                 echo '" />';
                          ?></td>
-                <td><?PHPphp if ($TotalfullTime != 0){
+                <td><?PHP if ($TotalfullTime != 0){
                                         if(isset($rowCenterValues->fullTimeAfrAmer) && ($rowCenterValues->fullTimeAfrAmer != - 99)) printPercent($rowCenterValues->fullTimeAfrAmer,$TotalfullTime);
                                         else echo 'N/A';
                           }
                           else
                                 echo 'N/A';
                      ?>
-                </td><td><?PHPphp echo '<input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
+                </td><td><?PHP echo '<input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
                                 onkeypress="return blockNonNumbers(this, event, false, false);" class="TextInput" name="fullTimeOther"
                                 value="';
                                 if(isset($rowCenterValues->fullTimeOther) && ($rowCenterValues->fullTimeOther != - 99)) echo $rowCenterValues->fullTimeOther;
                                 echo '" />';
                            ?></td>
-                <td><?PHPphp if ($TotalfullTime != 0){
+                <td><?PHP if ($TotalfullTime != 0){
                                         if(isset($rowCenterValues->fullTimeOther) && ($rowCenterValues->fullTimeOther != - 99)) printPercent($rowCenterValues->fullTimeOther,$TotalfullTime);
                                         else echo 'N/A';
                           }
                           else
                                 echo 'N/A';
                      ?>
-                </td><td><?PHPphp echo '<input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
+                </td><td><?PHP echo '<input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
                                 onkeypress="return blockNonNumbers(this, event, false, false);" class="TextInput" name="fullTimeFemale"
                                 value="';
                                 if(isset($rowCenterValues->fullTimeFemale) && ($rowCenterValues->fullTimeFemale != - 99)) echo $rowCenterValues->fullTimeFemale;
                                 echo '" />';
-                         ?></td><td><?PHPphp echo '<input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
+                         ?></td><td><?PHP echo '<input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
                                 onkeypress="return blockNonNumbers(this, event, false, false);" class="TextInput" name="fullTimeMale"
                                 value="';
                                 if(isset($rowCenterValues->fullTimeMale) && ($rowCenterValues->fullTimeMale != - 99)) echo $rowCenterValues->fullTimeMale;
                                 echo '" />';
                          ?></td></tr>
                 <!-- Part Time Employees -->
-                <tr align="center"><td align="left">Part Time Employees</td><td><?PHPphp echo $TotalpartTime; ?></td>
-                <td><?PHPphp echo '<input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
+                <tr align="center"><td align="left">Part Time Employees</td><td><?PHP echo $TotalpartTime; ?></td>
+                <td><?PHP echo '<input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
                                 onkeypress="return blockNonNumbers(this, event, false, false);" class="TextInput" name="partTimeCauc"
                                 value="';
                                 if(isset($rowCenterValues->partTimeCauc) && ($rowCenterValues->partTimeCauc != - 99)) echo $rowCenterValues->partTimeCauc;
                                 echo '" />';
                     ?></td>
-                <td><?PHPphp if ($TotalpartTime != 0){
+                <td><?PHP if ($TotalpartTime != 0){
                                         if(isset($rowCenterValues->partTimeCauc) && ($rowCenterValues->partTimeCauc != - 99)) printPercent($rowCenterValues->partTimeCauc,$TotalpartTime);
                                         else echo 'N/A';
                           }
                           else
                                 echo 'N/A';
                      ?>
-                </td><td><?PHPphp echo '<input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
+                </td><td><?PHP echo '<input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
                                 onkeypress="return blockNonNumbers(this, event, false, false);" class="TextInput" name="partTimeAfrAmer"
                                 value="';
                                 if(isset($rowCenterValues->partTimeAfrAmer) && ($rowCenterValues->partTimeAfrAmer != - 99)) echo $rowCenterValues->partTimeAfrAmer;
                                 echo '" />';
                          ?></td>
-                <td><?PHPphp if ($TotalpartTime != 0){
+                <td><?PHP if ($TotalpartTime != 0){
                                         if(isset($rowCenterValues->partTimeAfrAmer) && ($rowCenterValues->partTimeAfrAmer != - 99)) printPercent($rowCenterValues->partTimeAfrAmer,$TotalpartTime);
                                         else echo 'N/A';
                           }
                           else
                                 echo 'N/A';
                      ?>
-                </td><td><?PHPphp echo '<input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
+                </td><td><?PHP echo '<input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
                                 onkeypress="return blockNonNumbers(this, event, false, false);" class="TextInput" name="partTimeOther"
                                 value="';
                                 if(isset($rowCenterValues->partTimeOther) && ($rowCenterValues->partTimeOther != - 99)) echo $rowCenterValues->partTimeOther;
                                 echo '" />';
                            ?></td>
-                <td><?PHPphp if ($TotalpartTime != 0){
+                <td><?PHP if ($TotalpartTime != 0){
                                         if(isset($rowCenterValues->partTimeOther) && ($rowCenterValues->partTimeOther != - 99)) printPercent($rowCenterValues->partTimeOther,$TotalpartTime);
                                         else echo 'N/A';
                           }
                           else
                                 echo 'N/A';
                      ?>
-                </td><td><?PHPphp echo '<input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
+                </td><td><?PHP echo '<input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
                                 onkeypress="return blockNonNumbers(this, event, false, false);" class="TextInput" name="partTimeFemale"
                                 value="';
                                 if(isset($rowCenterValues->partTimeFemale) && ($rowCenterValues->partTimeFemale != - 99)) echo $rowCenterValues->partTimeFemale;
                                 echo '" />';
-                         ?></td><td><?PHPphp echo '<input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
+                         ?></td><td><?PHP echo '<input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
                                 onkeypress="return blockNonNumbers(this, event, false, false);" class="TextInput" name="partTimeMale"
                                 value="';
                                 if(isset($rowCenterValues->partTimeMale) && ($rowCenterValues->partTimeMale != - 99)) echo $rowCenterValues->partTimeMale;
                                 echo '" />';
                          ?></td></tr>
                 <!-- Board of Directors -->
-                <tr align="center"><td align="left">Board of Directors</td><td><?PHPphp echo $Totalbod; ?></td>
-                <td><?PHPphp echo '<input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
+                <tr align="center"><td align="left">Board of Directors</td><td><?PHP echo $Totalbod; ?></td>
+                <td><?PHP echo '<input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
                                 onkeypress="return blockNonNumbers(this, event, false, false);" class="TextInput" name="bodCauc"
                                 value="';
                                 if(isset($rowCenterValues->bodCauc) && ($rowCenterValues->bodCauc != - 99)) echo $rowCenterValues->bodCauc;
                                 echo '" />';
                     ?></td>
-                <td><?PHPphp if ($Totalbod != 0){
+                <td><?PHP if ($Totalbod != 0){
                                         if(isset($rowCenterValues->bodCauc) && ($rowCenterValues->bodCauc != - 99)) printPercent($rowCenterValues->bodCauc,$Totalbod);
                                         else echo 'N/A';
                           }
                           else
                                 echo 'N/A';
                      ?>
-                </td><td><?PHPphp echo '<input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
+                </td><td><?PHP echo '<input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
                                 onkeypress="return blockNonNumbers(this, event, false, false);" class="TextInput" name="bodAfrAmer"
                                 value="';
                                 if(isset($rowCenterValues->bodAfrAmer) && ($rowCenterValues->bodAfrAmer != - 99)) echo $rowCenterValues->bodAfrAmer;
                                 echo '" />';
                          ?></td>
-                <td><?PHPphp if ($Totalbod != 0){
+                <td><?PHP if ($Totalbod != 0){
                                         if(isset($rowCenterValues->bodAfrAmer) && ($rowCenterValues->bodAfrAmer != - 99)) printPercent($rowCenterValues->bodAfrAmer,$Totalbod);
                                         else echo 'N/A';
                           }
                           else
                                 echo 'N/A';
                      ?>
-                </td><td><?PHPphp echo '<input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
+                </td><td><?PHP echo '<input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
                                 onkeypress="return blockNonNumbers(this, event, false, false);" class="TextInput" name="bodOther"
                                 value="';
                                 if(isset($rowCenterValues->bodOther) && ($rowCenterValues->bodOther != - 99)) echo $rowCenterValues->bodOther;
                                 echo '" />';
                            ?></td>
-                <td><?PHPphp if ($Totalbod != 0){
+                <td><?PHP if ($Totalbod != 0){
                                         if(isset($rowCenterValues->bodOther) && ($rowCenterValues->bodOther != - 99)) printPercent($rowCenterValues->bodOther,$Totalbod);
                                         else echo 'N/A';
                           }
                           else
                                 echo 'N/A';
                      ?>
-                </td><td><?PHPphp echo '<input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
+                </td><td><?PHP echo '<input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
                                 onkeypress="return blockNonNumbers(this, event, false, false);" class="TextInput" name="bodFemale"
                                 value="';
                                 if(isset($rowCenterValues->bodFemale) && ($rowCenterValues->bodFemale != -99)) echo $rowCenterValues->bodFemale;
                                 echo '" />';
-                         ?></td><td><?PHPphp echo '<input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
+                         ?></td><td><?PHP echo '<input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
                                 onkeypress="return blockNonNumbers(this, event, false, false);" class="TextInput" name="bodMale"
                                 value="';
                                 if(isset($rowCenterValues->bodMale) && ($rowCenterValues->bodMale != - 99)) echo $rowCenterValues->bodMale;
                                 echo '" />';
                          ?></td></tr>
                 <!-- Volunteers -->
-                <tr align="center"><td align="left">Volunteers</td><td><?PHPphp echo $Totalvol; ?></td>
-                <td><?PHPphp echo '<input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
+                <tr align="center"><td align="left">Volunteers</td><td><?PHP echo $Totalvol; ?></td>
+                <td><?PHP echo '<input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
                                 onkeypress="return blockNonNumbers(this, event, false, false);" class="TextInput" name="volCauc"
                                 value="';
                                 if(isset($rowCenterValues->volCauc) && ($rowCenterValues->volCauc != - 99)) echo $rowCenterValues->volCauc;
                                 echo '" />';
                     ?></td>
-                <td><?PHPphp if ($Totalvol != 0){
+                <td><?PHP if ($Totalvol != 0){
                                         if(isset($rowCenterValues->volCauc) && ($rowCenterValues->volCauc != - 99)) printPercent($rowCenterValues->volCauc,$Totalvol);
                                         else echo 'N/A';
                           }
                           else
                                 echo 'N/A';
                      ?>
-                </td><td><?PHPphp echo '<input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
+                </td><td><?PHP echo '<input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
                                 onkeypress="return blockNonNumbers(this, event, false, false);" class="TextInput" name="volAfrAmer"
                                 value="';
                                 if(isset($rowCenterValues->volAfrAmer) && ($rowCenterValues->volAfrAmer != - 99)) echo $rowCenterValues->volAfrAmer;
                                 echo '" />';
                          ?></td>
-                <td><?PHPphp if ($Totalvol != 0){
+                <td><?PHP if ($Totalvol != 0){
                                         if(isset($rowCenterValues->volAfrAmer) && ($rowCenterValues->volAfrAmer != - 99)) printPercent($rowCenterValues->volAfrAmer,$Totalvol);
                                         else echo 'N/A';
                           }
                           else
                                 echo 'N/A';
                      ?>
-                </td><td><?PHPphp echo '<input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
+                </td><td><?PHP echo '<input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
                                 onkeypress="return blockNonNumbers(this, event, false, false);" class="TextInput" name="volOther"
                                 value="';
                                 if(isset($rowCenterValues->volOther) && ($rowCenterValues->volOther != - 99)) echo $rowCenterValues->volOther;
                                 echo '" />';
                            ?></td>
-                <td><?PHPphp if ($Totalvol != 0){
+                <td><?PHP if ($Totalvol != 0){
                                         if(isset($rowCenterValues->volOther) && ($rowCenterValues->volOther != - 99)) printPercent($rowCenterValues->volOther,$Totalvol);
                                         else echo 'N/A';
                           }
                           else
                                 echo 'N/A';
                      ?>
-                </td><td><?PHPphp echo '<input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
+                </td><td><?PHP echo '<input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
                                 onkeypress="return blockNonNumbers(this, event, false, false);" class="TextInput" name="volFemale"
                                 value="';
                                 if(isset($rowCenterValues->volFemale) && ($rowCenterValues->volFemale != - 99)) echo $rowCenterValues->volFemale;
                                 echo '" />';
-                         ?></td><td><?PHPphp echo '<input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
+                         ?></td><td><?PHP echo '<input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
                                 onkeypress="return blockNonNumbers(this, event, false, false);" class="TextInput" name="volMale"
                                 value="';
                                 if(isset($rowCenterValues->volMale) && ($rowCenterValues->volMale != - 99)) echo $rowCenterValues->volMale;
                                 echo '" />';
                          ?></td></tr>
                 <!-- Interns -->
-                <tr align="center"><td align="left">Interns</td><td><?PHPphp echo $Totalintern; ?></td>
-                <td><?PHPphp echo '<input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
+                <tr align="center"><td align="left">Interns</td><td><?PHP echo $Totalintern; ?></td>
+                <td><?PHP echo '<input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
                                 onkeypress="return blockNonNumbers(this, event, false, false);" class="TextInput" name="internCauc"
                                 value="';
                                 if(isset($rowCenterValues->internCauc) && ($rowCenterValues->internCauc != - 99)) echo $rowCenterValues->internCauc;
                                 echo '" />';
                     ?></td>
-                <td><?PHPphp if ($Totalintern != 0){
+                <td><?PHP if ($Totalintern != 0){
                                         if(isset($rowCenterValues->internCauc) && ($rowCenterValues->internCauc != - 99)) printPercent($rowCenterValues->internCauc,$Totalintern);
                                         else echo 'N/A';
                           }
                           else
                                 echo 'N/A';
                      ?>
-                </td><td><?PHPphp echo '<input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
+                </td><td><?PHP echo '<input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
                                 onkeypress="return blockNonNumbers(this, event, false, false);" class="TextInput" name="internAfrAmer"
                                 value="';
                                 if(isset($rowCenterValues->internAfrAmer) && ($rowCenterValues->internAfrAmer != - 99)) echo $rowCenterValues->internAfrAmer;
                                 echo '" />';
                          ?></td>
-                <td><?PHPphp if ($Totalintern != 0){
+                <td><?PHP if ($Totalintern != 0){
                                         if(isset($rowCenterValues->internAfrAmer) && ($rowCenterValues->internAfrAmer != - 99)) printPercent($rowCenterValues->internAfrAmer,$Totalintern);
                                         else echo 'N/A';
                           }
                           else
                                 echo 'N/A';
                      ?>
-                </td><td><?PHPphp echo '<input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
+                </td><td><?PHP echo '<input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
                                 onkeypress="return blockNonNumbers(this, event, false, false);" class="TextInput" name="internOther"
                                 value="';
                                 if(isset($rowCenterValues->internOther) && ($rowCenterValues->internOther != - 99)) echo $rowCenterValues->internOther;
                                 echo '" />';
                            ?></td>
-                <td><?PHPphp if ($Totalintern != 0){
+                <td><?PHP if ($Totalintern != 0){
                                         if(isset($rowCenterValues->internOther) && ($rowCenterValues->internOther != - 99)) printPercent($rowCenterValues->internOther,$Totalintern);
                                         else echo 'N/A';
                           }
                           else
                                 echo 'N/A';
                      ?>
-                </td><td><?PHPphp echo '<input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
+                </td><td><?PHP echo '<input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
                                 onkeypress="return blockNonNumbers(this, event, false, false);" class="TextInput" name="internFemale"
                                 value="';
                                 if(isset($rowCenterValues->internFemale) && ($rowCenterValues->internFemale != - 99)) echo $rowCenterValues->internFemale;
                                 echo '" />';
-                         ?></td><td><?PHPphp echo '<input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
+                         ?></td><td><?PHP echo '<input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
                                 onkeypress="return blockNonNumbers(this, event, false, false);" class="TextInput" name="internMale"
                                 value="';
                                 if(isset($rowCenterValues->internMale) && ($rowCenterValues->internMale != - 99)) echo $rowCenterValues->internMale;
@@ -516,156 +516,156 @@
                 <tr class="BoldText"><td colspan="2">&nbsp;</td><td colspan="2"><center>Caucasian</center></td><td colspan="2"><center>African American</center></td><td colspan="2"><center>Other</center></td><td colspan="2">&nbsp;</td></tr>
                 <tr class="BoldText"><td>Vacancies Filled during Reporting Period</td><td><center>Total</center></td><td><center>#</center></td><td><center>%</center></td><td><center>#</center></td><td><center>%</center></td><td><center>#</center></td><td><center>%</center></td><td colspan="2">&nbsp;</td></tr>
                 <!-- Full Time EMployees Vacancy -->
-                <tr align="center"><td align="left">Full Time Employees</td><td><?PHPphp echo $TotalVfullTime; ?></td>
-                <td><?PHPphp echo '<input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
+                <tr align="center"><td align="left">Full Time Employees</td><td><?PHP echo $TotalVfullTime; ?></td>
+                <td><?PHP echo '<input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
                                 onkeypress="return blockNonNumbers(this, event, false, false);" class="TextInput" name="VfullTimeCauc"
                                 value="';
                                 if(isset($rowCenterValues->VfullTimeCauc) && ($rowCenterValues->VfullTimeCauc != - 99)) echo $rowCenterValues->VfullTimeCauc;
                                 echo '" />';
                     ?></td>
-                <td><?PHPphp if ($TotalVfullTime != 0){
+                <td><?PHP if ($TotalVfullTime != 0){
                                         if(isset($rowCenterValues->VfullTimeCauc) && ($rowCenterValues->VfullTimeCauc != - 99)) printPercent($rowCenterValues->VfullTimeCauc,$TotalVfullTime);
                                         else echo 'N/A';
                           }
                           else
                                 echo 'N/A';
                      ?>
-                </td><td><?PHPphp echo '<input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
+                </td><td><?PHP echo '<input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
                                 onkeypress="return blockNonNumbers(this, event, false, false);" class="TextInput" name="VfullTimeAfrAmer"
                                 value="';
                                 if(isset($rowCenterValues->VfullTimeAfrAmer) && ($rowCenterValues->VfullTimeAfrAmer != - 99)) echo $rowCenterValues->VfullTimeAfrAmer;
                                 echo '" />';
                          ?></td>
-                <td><?PHPphp if ($TotalVfullTime != 0){
+                <td><?PHP if ($TotalVfullTime != 0){
                                         if(isset($rowCenterValues->VfullTimeAfrAmer) && ($rowCenterValues->VfullTimeAfrAmer != - 99)) printPercent($rowCenterValues->VfullTimeAfrAmer,$TotalVfullTime);
                                         else echo 'N/A';
                           }
                           else
                                 echo 'N/A';
                      ?>
-                </td><td><?PHPphp echo '<input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
+                </td><td><?PHP echo '<input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
                                 onkeypress="return blockNonNumbers(this, event, false, false);" class="TextInput" name="VfullTimeOther"
                                 value="';
                                 if(isset($rowCenterValues->VfullTimeOther) && ($rowCenterValues->VfullTimeOther != - 99)) echo $rowCenterValues->VfullTimeOther;
                                 echo '" />';
                            ?></td>
-                <td><?PHPphp if ($TotalVfullTime != 0){
+                <td><?PHP if ($TotalVfullTime != 0){
                                         if(isset($rowCenterValues->VfullTimeOther) && ($rowCenterValues->VfullTimeOther != - 99)) printPercent($rowCenterValues->VfullTimeOther,$TotalVfullTime);
                                         else echo 'N/A';
                           }
                           else
                                 echo 'N/A';
                      ?>
-                </td><td><?PHPphp echo '<input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
+                </td><td><?PHP echo '<input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
                                 onkeypress="return blockNonNumbers(this, event, false, false);" class="TextInput" name="VfullTimeFemale"
                                 value="';
                                 if(isset($rowCenterValues->VfullTimeFemale) && ($rowCenterValues->VfullTimeFemale != - 99)) echo $rowCenterValues->VfullTimeFemale;
                                 echo '" />';
-                         ?></td><td><?PHPphp echo '<input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
+                         ?></td><td><?PHP echo '<input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
                                 onkeypress="return blockNonNumbers(this, event, false, false);" class="TextInput" name="VfullTimeMale"
                                 value="';
                                 if(isset($rowCenterValues->VfullTimeMale) && ($rowCenterValues->VfullTimeMale != - 99)) echo $rowCenterValues->VfullTimeMale;
                                 echo '" />';
                          ?></td></tr>
                 <!-- Part Time Employees Vacancy -->
-                <tr align="center"><td align="left">Part Time Employees</td><td><?PHPphp echo $TotalVpartTime; ?></td>
-                <td><?PHPphp echo '<input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
+                <tr align="center"><td align="left">Part Time Employees</td><td><?PHP echo $TotalVpartTime; ?></td>
+                <td><?PHP echo '<input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
                                 onkeypress="return blockNonNumbers(this, event, false, false);" class="TextInput" name="VpartTimeCauc"
                                 value="';
                                 if(isset($rowCenterValues->VpartTimeCauc) && ($rowCenterValues->VpartTimeCauc != - 99)) echo $rowCenterValues->VpartTimeCauc;
                                 echo '" />';
                     ?></td>
-                <td><?PHPphp if ($TotalVpartTime != 0){
+                <td><?PHP if ($TotalVpartTime != 0){
                                         if(isset($rowCenterValues->VpartTimeCauc) && ($rowCenterValues->VpartTimeCauc != - 99)) printPercent($rowCenterValues->VpartTimeCauc,$TotalVpartTime);
                                         else echo 'N/A';
                           }
                           else
                                 echo 'N/A';
                      ?>
-                </td><td><?PHPphp echo '<input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
+                </td><td><?PHP echo '<input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
                                 onkeypress="return blockNonNumbers(this, event, false, false);" class="TextInput" name="VpartTimeAfrAmer"
                                 value="';
                                 if(isset($rowCenterValues->VpartTimeAfrAmer) && ($rowCenterValues->VpartTimeAfrAmer != - 99)) echo $rowCenterValues->VpartTimeAfrAmer;
                                 echo '" />';
                          ?></td>
-                <td><?PHPphp if ($TotalVpartTime != 0){
+                <td><?PHP if ($TotalVpartTime != 0){
                                         if(isset($rowCenterValues->VpartTimeAfrAmer) && ($rowCenterValues->VpartTimeAfrAmer != - 99)) printPercent($rowCenterValues->VpartTimeAfrAmer,$TotalVpartTime);
                                         else echo 'N/A';
                           }
                           else
                                 echo 'N/A';
                      ?>
-                </td><td><?PHPphp echo '<input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
+                </td><td><?PHP echo '<input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
                                 onkeypress="return blockNonNumbers(this, event, false, false);" class="TextInput" name="VpartTimeOther"
                                 value="';
                                 if(isset($rowCenterValues->VpartTimeOther) && ($rowCenterValues->VpartTimeOther != - 99)) echo $rowCenterValues->VpartTimeOther;
                                 echo '" />';
                            ?></td>
-                <td><?PHPphp if ($TotalVpartTime != 0){
+                <td><?PHP if ($TotalVpartTime != 0){
                                         if(isset($rowCenterValues->VpartTimeOther) && ($rowCenterValues->VpartTimeOther != - 99)) printPercent($rowCenterValues->VpartTimeOther,$TotalVpartTime);
                                         else echo 'N/A';
                           }
                           else
                                 echo 'N/A';
                      ?>
-                </td><td><?PHPphp echo '<input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
+                </td><td><?PHP echo '<input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
                                 onkeypress="return blockNonNumbers(this, event, false, false);" class="TextInput" name="VpartTimeFemale"
                                 value="';
                                 if(isset($rowCenterValues->VpartTimeFemale) && ($rowCenterValues->VpartTimeFemale != - 99)) echo $rowCenterValues->VpartTimeFemale;
                                 echo '" />';
-                         ?></td><td><?PHPphp echo '<input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
+                         ?></td><td><?PHP echo '<input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
                                 onkeypress="return blockNonNumbers(this, event, false, false);" class="TextInput" name="VpartTimeMale"
                                 value="';
                                 if(isset($rowCenterValues->VpartTimeMale) && ($rowCenterValues->VpartTimeMale != - 99)) echo $rowCenterValues->VpartTimeMale;
                                 echo '" />';
                          ?></td></tr>
                 <!-- Board of Directors Vacancy -->
-                <tr align="center"><td align="left">Board of Directors</td><td><?PHPphp echo $TotalVbod; ?></td>
-                <td><?PHPphp echo '<input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
+                <tr align="center"><td align="left">Board of Directors</td><td><?PHP echo $TotalVbod; ?></td>
+                <td><?PHP echo '<input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
                                 onkeypress="return blockNonNumbers(this, event, false, false);" class="TextInput" name="VbodCauc"
                                 value="';
                                 if(isset($rowCenterValues->VbodCauc) && ($rowCenterValues->VbodCauc != - 99)) echo $rowCenterValues->VbodCauc;
                                 echo '" />';
                     ?></td>
-                <td><?PHPphp if ($TotalVbod != 0){
+                <td><?PHP if ($TotalVbod != 0){
                                         if(isset($rowCenterValues->VbodCauc) && ($rowCenterValues->VbodCauc != - 99)) printPercent($rowCenterValues->VbodCauc,$TotalVbod);
                                         else echo 'N/A';
                           }
                           else
                                 echo 'N/A';
                      ?>
-                </td><td><?PHPphp echo '<input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
+                </td><td><?PHP echo '<input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
                                 onkeypress="return blockNonNumbers(this, event, false, false);" class="TextInput" name="VbodAfrAmer"
                                 value="';
                                 if(isset($rowCenterValues->VbodAfrAmer) && ($rowCenterValues->VbodAfrAmer != - 99)) echo $rowCenterValues->VbodAfrAmer;
                                 echo '" />';
                          ?></td>
-                <td><?PHPphp if ($TotalVbod != 0){
+                <td><?PHP if ($TotalVbod != 0){
                                         if(isset($rowCenterValues->VbodAfrAmer) && ($rowCenterValues->VbodAfrAmer != - 99)) printPercent($rowCenterValues->VbodAfrAmer,$TotalVbod);
                                         else echo 'N/A';
                           }
                           else
                                 echo 'N/A';
                      ?>
-                </td><td><?PHPphp echo '<input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
+                </td><td><?PHP echo '<input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
                                 onkeypress="return blockNonNumbers(this, event, false, false);" class="TextInput" name="VbodOther"
                                 value="';
                                 if(isset($rowCenterValues->VbodOther) && ($rowCenterValues->VbodOther != - 99)) echo $rowCenterValues->VbodOther;
                                 echo '" />';
                            ?></td>
-                <td><?PHPphp if ($TotalVbod != 0){
+                <td><?PHP if ($TotalVbod != 0){
                                         if(isset($rowCenterValues->VbodOther) && ($rowCenterValues->VbodOther != - 99)) printPercent($rowCenterValues->VbodOther,$TotalVbod);
                                         else echo 'N/A';
                           }
                           else
                                 echo 'N/A';
                      ?>
-                </td><td><?PHPphp echo '<input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
+                </td><td><?PHP echo '<input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
                                 onkeypress="return blockNonNumbers(this, event, false, false);" class="TextInput" name="VbodFemale"
                                 value="';
                                 if(isset($rowCenterValues->VbodFemale) && ($rowCenterValues->VbodFemale != - 99)) echo $rowCenterValues->VbodFemale;
                                 echo '" />';
-                         ?></td><td><?PHPphp echo '<input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
+                         ?></td><td><?PHP echo '<input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
                                 onkeypress="return blockNonNumbers(this, event, false, false);" class="TextInput" name="VbodMale"
                                 value="';
                                 if(isset($rowCenterValues->VbodMale) && ($rowCenterValues->VbodMale != - 99)) echo $rowCenterValues->VbodMale;
@@ -686,7 +686,7 @@
 		</tr>
 		<tr>
 		      <td>
-		              <center><div class=nav><?PHPphp echo '<a href="eoyreports.php?center='.$centerID.'">Return to End of Year Reports Main Menu</a>'; ?></div></center>
+		              <center><div class=nav><?PHP echo '<a href="eoyreports.php?center='.$centerID.'">Return to End of Year Reports Main Menu</a>'; ?></div></center>
 		      </td>
 		</tr>
 		</table>
@@ -696,7 +696,7 @@
 </table>
 </body>
 <?PHP
-	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/footer.php");
+	require("/footer.php");
 ?>
 
 

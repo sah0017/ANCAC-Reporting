@@ -1,11 +1,11 @@
 <?PHP
-	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/ulogin.php");
-	require("/home/cluster1/data/a/p/a1224426/data/dbconn.php");
+	require("/ulogin.php");
+	require("/dbconn.php");
 
 	$page_title = 'ANCAC: All Centers Year to Date Report';
-	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/header.php");
-        require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/buildReport.php");
-        require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/buildReport08.php");
+	require("/header.php");
+        require("/buildReport.php");
+        require("/buildReport08.php");
 
          switch (date("m")){
                 case 10:

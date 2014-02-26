@@ -1,6 +1,6 @@
 <?PHP
-	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/ulogin.php");
-	require("/home/cluster1/data/a/p/a1224426/data/dbconn.php");
+	require("/ulogin.php");
+	require("/dbconn.php");
 	
 	if($_SESSION['admin'] > 0){
                 if(isset($_POST['center']))
@@ -19,8 +19,8 @@
         $CenterName = $rowCenter->CenterName;
 
 	$page_title = 'ANCAC: Year to Date Report for '.$CenterName;
-	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/header.php");
-        require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/buildReport.php");
+	require("/header.php");
+        require("/buildReport.php");
 
         //Get the fiscal year from the select Year page drop down
         if(isset($_POST['year']))
@@ -65,6 +65,6 @@
 </table></div>
 </body>
 <?PHP
-	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/footer.php");
+	require("/footer.php");
 ?>
 

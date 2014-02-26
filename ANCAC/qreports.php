@@ -1,9 +1,9 @@
 <?PHP
-	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/ulogin.php");
+	require("/ulogin.php");
 	$page_title = 'ANCAC: Quarterly Reports Menu';
-	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/header.php");
+	require("/header.php");
 	
-	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/Variables.php");
+	require("/Variables.php");
 
 	$TOPAvailable = 0;
 	$TOPBudget = 0;
@@ -150,5 +150,5 @@
 </table>
 
 <?PHP
-  	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/footer.php");
+  	require("/footer.php");
 ?>

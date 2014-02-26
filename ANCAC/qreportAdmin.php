@@ -1,6 +1,6 @@
 <?PHP
-	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/ulogin.php");
-	require("/home/cluster1/data/a/p/a1224426/data/dbconn.php");
+	require("/ulogin.php");
+	require("/dbconn.php");
 	$From = $_GET['from'];
 	if($From == 1)
 	         $page_title = 'ANCAC: Admin Year to Date Reports';
@@ -16,7 +16,7 @@
                 $page_title = 'ANCAC : Received Snail-Mail Documents';
         if($From == 9)
                 $page_title = 'ANCAC : Board of Directors Report';
-	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/header.php");
+	require("/header.php");
 ?>
 
 <table class='OutlineTable' align=center width="95%">
@@ -90,5 +90,5 @@
 </tr>
 </table></div>
 <?PHP
-	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/footer.php");
+	require("/footer.php");
 ?>

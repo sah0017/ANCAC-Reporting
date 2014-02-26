@@ -1,6 +1,6 @@
 <?PHP
-	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/ulogin.php");
-	require("/home/cluster1/data/a/p/a1224426/data/dbconn.php");
+	require("/ulogin.php");
+	require("/dbconn.php");
 
 	//set the fiscalYear
         switch (date("m")){
@@ -49,7 +49,7 @@
         $CenterName = $rowCenter->CenterName;
 
 	$page_title = 'Board of Directors List for '.$CenterName;
-	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/header.php");
+	require("/header.php");
 
 ?>
 
@@ -283,7 +283,7 @@
 ?>
                 <tr>
 		      <td>
-		              <center><div class=nav><?PHPphp echo '<br><br><a href="eoyreports.php?center='.$center.'">Return to End of Year Reports Main Menu</a>'; ?></div></center>
+		              <center><div class=nav><?PHP echo '<br><br><a href="eoyreports.php?center='.$center.'">Return to End of Year Reports Main Menu</a>'; ?></div></center>
 		      </td>
 		</tr>
 		</table>
@@ -293,6 +293,6 @@
 </table></div>
 </body>
 <?PHP
-	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/footer.php");
+	require("/footer.php");
 ?>
 

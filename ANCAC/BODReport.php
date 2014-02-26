@@ -1,6 +1,6 @@
 <?PHP
-	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/ulogin.php");
-	require("/home/cluster1/data/a/p/a1224426/data/dbconn.php");
+	require("/ulogin.php");
+	require("/dbconn.php");
 	
 	if($_SESSION['admin'] > 0){
                 if(isset($_POST['center']))
@@ -19,7 +19,7 @@
         $CenterName = $rowCenter->CenterName;
 
 	$page_title = 'ANCAC: Board of Directors for '.$CenterName;
-	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/header.php");
+	require("/header.php");
 
         //Get the fiscal year from the select Year page drop down
         if(isset($_POST['year']))
@@ -67,7 +67,7 @@
 		</tr>
 		<tr>
 		      <td>
-		              <center><div class=nav><?PHPphp echo '<a href="eoyreports.php?center='.$center.'">Return to End of Year Reports Main Menu</a>'; ?></div></center>
+		              <center><div class=nav><?PHP echo '<a href="eoyreports.php?center='.$center.'">Return to End of Year Reports Main Menu</a>'; ?></div></center>
 		      </td>
 		</tr>
 		</table>
@@ -77,6 +77,6 @@
 </table></div>
 </body>
 <?PHP
-	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/footer.php");
+	require("/footer.php");
 ?>
 

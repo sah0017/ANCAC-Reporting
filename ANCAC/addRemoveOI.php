@@ -1,8 +1,8 @@
 <?PHP
 
-	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/ulogin.php");
+	require("/ulogin.php");
 
-	require("/home/cluster1/data/a/p/a1224426/data/dbconn.php");
+	require("/dbconn.php");
 
 
 
@@ -150,7 +150,7 @@
 
 	$page_title = 'Add or Remove Other Incomes for '.$CenterName;
 
-	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/header.php");
+	require("/header.php");
 
 
 
@@ -437,7 +437,7 @@
 
 		      <td colspan="2">
 
-		              <center><div class=nav><?PHPphp echo '<a href="eoyreports.php?center='.$center.'">Return to End of Year Reports Main Menu</a>'; ?></div></center>
+		              <center><div class=nav><?PHP echo '<a href="eoyreports.php?center='.$center.'">Return to End of Year Reports Main Menu</a>'; ?></div></center>
 
 		      </td>
 
@@ -457,7 +457,7 @@
 
 <?PHP
 
-	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/footer.php");
+	require("/footer.php");
 
 ?>
 

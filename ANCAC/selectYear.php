@@ -1,5 +1,5 @@
 <?PHP
-	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/ulogin.php");
+	require("/ulogin.php");
 	//require("/home/cust1/user1224426/data/dbconn.php");
 	
 	if(isset($_GET['from']))
@@ -20,7 +20,7 @@
         if($From == 2)
                  $page_title = 'Select a Year: Board of Directors Report';
 
-	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/header.php");
+	require("/header.php");
 
 ?>
 
@@ -40,7 +40,7 @@
                         ?>
 
                                 <p>Select Year:  <select name="year" id="year">
-                                                  <?PHPphp
+                                                  <?PHP
                                                        switch (date("m")){
                                                         case 10:
                                                         case 11:
@@ -84,6 +84,6 @@
 </table></div>
 </body>
 <?PHP
-	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/footer.php");
+	require("/footer.php");
 ?>
 
