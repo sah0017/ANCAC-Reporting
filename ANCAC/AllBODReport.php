@@ -1,4 +1,4 @@
-<?php
+<?PHPphp
 	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/ulogin.php");
 	require("/home/cluster1/data/a/p/a1224426/data/dbconn.php");
 
@@ -8,7 +8,7 @@
         $fiscalYear = $_POST['year'];
 ?>
 
-<?php
+<?PHPphp
                 $sql = "SELECT centers.center, centers.CenterName FROM `centers` JOIN `eoyChecks` ON centers.center = eoyChecks.center".
                         " AND eoyChecks.fiscalyear = '".$fiscalYear."' AND eoyChecks.BoardOfDir = '1'".
                         "  WHERE centers.center not in (0,99) order by centers.center";
@@ -16,10 +16,10 @@
 ?>
                 <center>
 		<table class="OutlineTable" width="85%">
-		        <tr><td class="login-header" colspan="6">All Submitted Board of Directors Listings - FY <?php echo $fiscalYear; ?></td></tr>
-                        <tr align="left"><td colspan="6"><b>Date: </b><?php echo date("M d Y"); ?></td></tr>
+		        <tr><td class="login-header" colspan="6">All Submitted Board of Directors Listings - FY <?PHPphp echo $fiscalYear; ?></td></tr>
+                        <tr align="left"><td colspan="6"><b>Date: </b><?PHPphp echo date("M d Y"); ?></td></tr>
                         <tr><td colspan="6">&nbsp;</td></tr>
-<?php
+<?PHPphp
 		while ($row = mysql_fetch_object($result)) {
                         $sqlBODCY = "SELECT name, boardPosition, occupation, address, phone, yearsOnBoard, BODID".
                                 " FROM boardOfDirItem WHERE center = '".$row->center."' AND fiscalyear = '".$fiscalYear."'";

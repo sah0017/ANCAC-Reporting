@@ -1,4 +1,4 @@
-<?
+<?PHP
 	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/ulogin.php");
 	//require("/home/cust1/user1224426/data/dbconn.php");
 	
@@ -32,7 +32,7 @@
 		<table border="0" width="300px" id="table1">
 		<tr>
 		    <td>
-		        <? if($From == 2) echo '<form action="GrandTotal.php" method="post">'; 
+		        <?PHP if($From == 2) echo '<form action="GrandTotal.php" method="post">'; 
                            if($From == 3) echo '<form action="EstBudgetTotals.php" method="post">';
                            
                            if($From == 4) echo '<form action="AllBODReport.php" method="post">';
@@ -41,7 +41,7 @@
                            if($From == 7) echo '<form action="AllDAP.php" method="post">';
                         ?>
                                 <p>Select Year:  <select name="year" id="year">
-                                                  <?php
+                                                  <?PHPphp
                                                         switch (date("m")){
                                                         case 10:
                                                         case 11:
@@ -86,7 +86,7 @@
 </tr>
 </table></div>
 </body>
-<?
+<?PHP
 	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/footer.php");
 ?>
 

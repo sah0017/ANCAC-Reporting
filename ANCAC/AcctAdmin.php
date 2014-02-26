@@ -1,4 +1,4 @@
-<?
+<?PHP
 	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/ulogin.php");
 	$page_title = 'ANCAC: Account Administration';
 	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/header.php");
@@ -14,7 +14,7 @@
                <div align="center">
 	            <table border="0" width="80%" id="table1">
 		           <tr><br>
-<?
+<?PHP
 	if($_SESSION['admin'] > 0)
 	{
 		echo '<td>';
@@ -37,6 +37,6 @@
       </tr>
 </table>
 
-<?
+<?PHP
   	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/footer.php");
 ?>

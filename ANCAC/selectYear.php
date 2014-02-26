@@ -1,4 +1,4 @@
-<?
+<?PHP
 	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/ulogin.php");
 	//require("/home/cust1/user1224426/data/dbconn.php");
 	
@@ -35,12 +35,12 @@
 		<table border="0" width="300px" id="table1">
 		<tr>
 		    <td>
-		        <? if($From == 1) echo '<form action="centerReportAdmin.php" method="post">';
+		        <?PHP if($From == 1) echo '<form action="centerReportAdmin.php" method="post">';
                            if($From == 2) echo '<form action="BODReport.php" method="post">';
                         ?>
 
                                 <p>Select Year:  <select name="year" id="year">
-                                                  <?php
+                                                  <?PHPphp
                                                        switch (date("m")){
                                                         case 10:
                                                         case 11:
@@ -73,7 +73,7 @@
                                                   ?>
                                                 </select></p>
                                 <p><input type="submit" name="submit" value="View Report" /></p>
-                                <input type="hidden" name="center" value="<? echo $center; ?>" />
+                                <input type="hidden" name="center" value="<?PHP echo $center; ?>" />
                           </form>
 		    </td>
 		</tr>
@@ -83,7 +83,7 @@
 </tr>
 </table></div>
 </body>
-<?
+<?PHP
 	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/footer.php");
 ?>
 

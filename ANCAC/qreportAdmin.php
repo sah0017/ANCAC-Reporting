@@ -1,4 +1,4 @@
-<?
+<?PHP
 	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/ulogin.php");
 	require("/home/cluster1/data/a/p/a1224426/data/dbconn.php");
 	$From = $_GET['from'];
@@ -21,7 +21,7 @@
 
 <table class='OutlineTable' align=center width="95%">
 <tr>
-    <?
+    <?PHP
       if($From == 1)
                echo '<td class="login-header" colspan="2" align=center>View, Edit, or Print Year to Date Report<br /></td>';
       if($From == 2)
@@ -48,7 +48,7 @@
 					<tr align="left">
 						<td colspan="4"><b>Select a Center:</b></td>
 					</tr>
-<?
+<?PHP
 	if($_SESSION['admin'] > 0){
 		$sql = "SELECT center,CenterName FROM centers WHERE center not in (0)";
 		$result= @mysql_query($sql) or mysql_error();
@@ -89,6 +89,6 @@
 	</td>
 </tr>
 </table></div>
-<?
+<?PHP
 	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/footer.php");
 ?>

@@ -1,4 +1,4 @@
-<?
+<?PHP
 
 	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/ulogin.php");
 
@@ -164,7 +164,7 @@
 
 <tr>
 
-	<td class='login-header' colspan='2' align=center>Add or Remove Other Expense Categories - FY <? echo $fiscalYear; ?><br></td>
+	<td class='login-header' colspan='2' align=center>Add or Remove Other Expense Categories - FY <?PHP echo $fiscalYear; ?><br></td>
 
 </tr>
 
@@ -182,7 +182,7 @@
 
 		<table border="0" width="600px" id="table1">
 
-<?
+<?PHP
 
         $sqlOE = "SELECT OExpenseID, ExpenseName FROM otherExpenseLU WHERE center = '".$center."' AND fiscalyear = '".$fiscalYear."'";
 
@@ -382,7 +382,7 @@
 
 		    <td colspan="2">
 
-		      <? if ($EOYAvailable == 1){
+		      <?PHP if ($EOYAvailable == 1){
 
                           echo '<form action="addRemoveEx.php?A=A&center='.$center.'" method="post">';
 
@@ -420,7 +420,7 @@
 
 		      <td colspan="2">
 
-		              <center><div class=nav><?php echo '<a href="eoyreports.php?center='.$center.'">Return to End of Year Reports Main Menu</a>'; ?></div></center>
+		              <center><div class=nav><?PHPphp echo '<a href="eoyreports.php?center='.$center.'">Return to End of Year Reports Main Menu</a>'; ?></div></center>
 
 		      </td>
 
@@ -438,7 +438,7 @@
 
 </body>
 
-<?
+<?PHP
 
 	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/footer.php");
 

@@ -1,4 +1,4 @@
-<?php
+<?PHPphp
 	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/ulogin.php");
 	require("/home/cluster1/data/a/p/a1224426/data/dbconn.php");
 
@@ -13,7 +13,7 @@
          }
 ?>
 
-<?php
+<?PHPphp
                 $sql = "SELECT centers.center, centers.CenterName FROM `centers` JOIN `eoyChecks` ON centers.center = eoyChecks.center".
                         " AND eoyChecks.fiscalyear = '".$fiscalYear."' AND eoyChecks.DiversityActPlan = '1'".
                         "  WHERE centers.center not in (0,99) order by centers.center";
@@ -21,11 +21,11 @@
 ?>
                 <center>
 		<table class="OutlineTable" width="85%">
-		        <tr><td class="login-header" colspan="6">All Submitted Diversity Action Plans - FY <?php echo $fiscalYear; ?></td></tr>
-                        <tr align="left"><td colspan="6"><b>Date: </b><?php echo date("M d Y"); ?></td></tr>
+		        <tr><td class="login-header" colspan="6">All Submitted Diversity Action Plans - FY <?PHPphp echo $fiscalYear; ?></td></tr>
+                        <tr align="left"><td colspan="6"><b>Date: </b><?PHPphp echo date("M d Y"); ?></td></tr>
                         <tr><td colspan="6">&nbsp;</td></tr>
                         <tr><td colspan="6">
-<?php
+<?PHPphp
 		while ($row = mysql_fetch_object($result)) {
                         //grab all the counties for a given Center
 			$sqlCounty = "SELECT county".

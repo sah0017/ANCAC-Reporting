@@ -1,4 +1,4 @@
-<?
+<?PHP
 	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/ulogin.php");
 	require("/home/cluster1/data/a/p/a1224426/data/dbconn.php");
 
@@ -56,13 +56,13 @@
 <body>
 <table class='OutlineTable' align=center width="75%">
 <tr>
-	<td class='login-header' colspan='2' align=center>Board of Directors List - FY <? echo $fiscalYear; ?><br></td>
+	<td class='login-header' colspan='2' align=center>Board of Directors List - FY <?PHP echo $fiscalYear; ?><br></td>
 </tr>
 <tr>
 	<td class='login' align=left><br>
 	<div align="center">
 		<table border="0" width="100%" id="table1">
-<?
+<?PHP
         //DATA MANIPULATION START HERE
         if (isset($_POST['submitted'])){
           if ($_GET['A'] == 'H'){ //START OF THE HEADER MANIPULATION
@@ -283,7 +283,7 @@
 ?>
                 <tr>
 		      <td>
-		              <center><div class=nav><?php echo '<br><br><a href="eoyreports.php?center='.$center.'">Return to End of Year Reports Main Menu</a>'; ?></div></center>
+		              <center><div class=nav><?PHPphp echo '<br><br><a href="eoyreports.php?center='.$center.'">Return to End of Year Reports Main Menu</a>'; ?></div></center>
 		      </td>
 		</tr>
 		</table>
@@ -292,7 +292,7 @@
 </tr>
 </table></div>
 </body>
-<?
+<?PHP
 	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/footer.php");
 ?>
 

@@ -1,4 +1,4 @@
-<?
+<?PHP
 	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/ulogin.php");
 	$page_title = 'ANCAC: Help';
 	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/header.php");
@@ -29,7 +29,7 @@
        </tr> 
 </table>
 
-<?
+<?PHP
 	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/footer.php");
 ?>
 

@@ -1,4 +1,4 @@
-<?
+<?PHP
 	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/ulogin.php");
 	require("/home/cluster1/data/a/p/a1224426/data/dbconn.php");
 
@@ -88,13 +88,13 @@
 
 <table class='login' align=center width="550">
        <tr>
-          <? echo '<td class="login-header" colspan="2" align=center>ANCAC: End Of Year Reports Menu for Center: '.$row1->centerName.'<br /></td>'; ?>
+          <?PHP echo '<td class="login-header" colspan="2" align=center>ANCAC: End Of Year Reports Menu for Center: '.$row1->centerName.'<br /></td>'; ?>
        </tr>
        <tr>
            <td class='login' align=left><br>
                <div align="center">
 	            <table border="0" width="95%" id="table1">
-<?
+<?PHP
                 if ($EOYAvailable == 1 || $Admin == 1){
                         echo '<tr><td align="center">Due Date</td><td align="center">Completed</td><td>Task</td></tr>';
                         echo '<tr><td colspan="3">&nbsp;</td></tr>';
@@ -259,6 +259,6 @@
       </tr>
 </table>
 
-<?
+<?PHP
   	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/footer.php");
 ?>

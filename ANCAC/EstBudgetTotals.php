@@ -1,4 +1,4 @@
-<?
+<?PHP
 	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/ulogin.php");
 	require("/home/cluster1/data/a/p/a1224426/data/dbconn.php");
 
@@ -17,7 +17,7 @@
          }
 ?>
 
-<?              //Initialze the GRAND TOTAL variables
+<?PHP              //Initialze the GRAND TOTAL variables
                 $GRANDTOTAL1fiTotal = 0;
                 $GRANDTOTAL1extForenEval = 0;
                 $GRANDTOTAL1intCounsSes = 0;
