@@ -2,6 +2,8 @@
 	require("./dbconn.php");
 	require("./PasswordHash.php");
 	$hasher = new PasswordHash(8, false);
+
+
  function randomPassword() {
     $alphabet = "abcdefghijklmnopqrstuwxyzABCDEFGHIJKLMNOPQRSTUWXYZ0123456789";
     $pass = array(); //remember to declare $pass as an array
@@ -13,20 +15,6 @@
     return implode($pass); //turn the array into a string
  }
 
-
-  session_start();
-  header("Cache-control: private"); // IE 6 Fix.
-
-  if ($_COOKIE['DVDAdmin']) {
-	$_SESSION['user'] = $_COOKIE['DVDAdmin'];
-  }
-
-//---GET SESSION DATA
-    $validuser = $_SESSION['user'];
-    if(!$validuser)
-    {
-//--- Make it so this works for every page by finding the current filename.
-        $self = $_SERVER['PHP_SELF'];
 
 if($_POST['Reset'] != 1)
 {
@@ -41,6 +29,7 @@ if($_POST['Reset'] != 1)
 }
 else
 {
+//	$admin_email = "ki4dfh@gmail.com";
 	$admin_email = "gsouth@alabamacacs.org";
 	$sql="SELECT email FROM directors WHERE username = '".$_POST['username']."'";
 	$result = @mysql_query($sql) or mysql_error();
@@ -53,20 +42,22 @@ else
 
 //		echo("User:".$_POST['username']."  New Password:".$password);
 		$email_body = "A password reset was requested for ".$_POST['username'].".\nThe new password is: ".$password."\n\nThis is an automated message, for any problems, contact ".$admin_email;
-		$success = mail("ANCAC_DONOTREPLY@alabamacacs.org","ANCAC Password reset for ".$_POST['username'],$email_body, "From: \"ANCAC Online\" <ANCAC_DONOTREPLY@alabamacacs.org>\r\nReply-To:ANCAC_DONOTREPLY@alabamacacs.org\r\nBcc:$to,$admin_email");
+		$success = mail($to,"ANCAC Password reset for ".$_POST['username'],$email_body, "From: \"ANCAC Online\" <ANCAC_DONOTREPLY@alabamacacs.org>\r\nReply-To:ANCAC_DONOTREPLY@alabamacacs.org\r\nBcc:$admin_email");
+		$success = 1;
 //		echo $to;
 		if ($success == 1){
-        	                echo "Your email was sent successfully.</br>";
+        	                echo "</br>Your email was sent successfully.</br>";
 				$sqlUpdate = "UPDATE directors SET password = '".$hasher->HashPassword($password)."' WHERE username = '".$_POST['username']."'";
-			$resultUpdate = @mysql_query($sqlUpdate) or mysql_error();
+//				echo $sqlUpdate;
+				$resultUpdate = @mysql_query($sqlUpdate) or mysql_error();
 		}
                  else
                         echo "Your email was NOT sent.  Please contact ".$admin_email."</br>";
 	}
 	else
 		echo "ERROR: username not found</br>";
-	echo "<a href=./index.php> Return to login page.</a>";
+	echo "</br><a href=./index.php> Return to login page.</a>";
 
 
 }
-}
+//}
