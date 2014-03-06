@@ -1,4 +1,4 @@
-<?
+<?php
   require("./dbconn.php");
   require("./PasswordHash.php");
   

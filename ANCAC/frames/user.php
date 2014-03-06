@@ -1,4 +1,4 @@
-<?
+<?php
 	require("/home/cust1/user1224426/html/WEBPROJ/ulogin.php");
 	require("/home/cust1/user1224426/data/dbconn.php");
 	

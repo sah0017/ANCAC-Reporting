@@ -1,4 +1,4 @@
-<?
+<?php
 	require("./ulogin.php");
 	require("./dbconn.php");
 
@@ -59,7 +59,7 @@
 		<table border="0" width="100%" id="table1">
 		<tr>
 			<td>
-<?
+<?php
         if (isset($_POST['submitted'])){
                  //SET THE VARIABLES TO USE WHEN UPDATING/INSERTING
                  if ($_POST['AllocationReq'] == 'yes') $AllocationReq = 1;
@@ -138,7 +138,7 @@
 		</tr>
 		<tr>
 		    <td>
-		        <?
+		        <?php
 		              if($_SESSION['admin'] == 2){
                                 echo '<form action="SnailMail.php?center='.$center.'" method="post">';
                                 echo '<p><input type="checkbox" name="AllocationReq" value="yes" ';
@@ -181,7 +181,7 @@
 </tr>
 </table></div>
 </body>
-<?
+<?php
 	require("./footer.php");
 ?>
 

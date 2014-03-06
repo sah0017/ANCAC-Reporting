@@ -1,4 +1,4 @@
-<?
+<?php
 	require("./ulogin.php");
 	require("./dbconn.php");
 
@@ -35,7 +35,7 @@
          }
 ?>
 
-<?
+<?php
                 $sql = "SELECT centers.center, centers.CenterName FROM `centers` JOIN `actualExpenditures` ON centers.center = actualExpenditures.center".
                         " AND actualExpenditures.fiscalyear = '".$fiscalYear."' AND actualExpenditures.quarter = '".$currentQuarter."' AND actualExpenditures.completed = 'COM'".
                         "  WHERE centers.center not in (0,99) order by centers.center";

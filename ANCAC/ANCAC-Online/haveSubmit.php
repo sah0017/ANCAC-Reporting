@@ -1,4 +1,4 @@
-<?
+<?php
 	require("./ulogin.php");
 	require("./dbconn.php");
         $page_title = 'ANCAC: Current Quarterly Report Submissions';
@@ -48,7 +48,7 @@
 			<td>
 				<table width="100%">
 				<tr align="left" valign="top">
-<?
+<?php
 	if($_SESSION['admin'] > 0){
 		$sql = "SELECT CenterName FROM centers JOIN actualExpenditures ON centers.center = actualExpenditures.center and actualExpenditures.fiscalyear = ".$fiscalYear." and actualExpenditures.quarter = ".$currentQuarter." and actualExpenditures.completed = 'COM' WHERE centers.center not in (0,99)";
 		$result= @mysql_query($sql) or mysql_error();
@@ -101,6 +101,6 @@
 	</td>
 </tr>
 </table></div>
-<?
+<?php
 	require("./footer.php");
 ?>

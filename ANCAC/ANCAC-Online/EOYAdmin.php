@@ -1,4 +1,4 @@
-<?
+<?php
 	require("./ulogin.php");
 	$page_title = 'ANCAC: EOY Admin Menu';
 	require("./header.php");
@@ -14,7 +14,7 @@
                <div align="center">
 	            <table border="0" width="80%" id="table1">
 		           <tr><br>
-<?
+<?php
 	if($_SESSION['admin'] > 1)
 	{
 		echo '<td>';
@@ -40,6 +40,6 @@
       </tr>
 </table>
 
-<?
+<?php
   	require("./footer.php");
 ?>

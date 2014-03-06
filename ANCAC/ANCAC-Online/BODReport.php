@@ -1,4 +1,4 @@
-<?
+<?php
 	require("./ulogin.php");
 	require("./dbconn.php");
 	
@@ -39,7 +39,7 @@
 		<table border="0" width="100%" id="table1">
 		<tr>
 			<td>
-<?
+<?php
                 $sqlBODCY = "SELECT name, boardPosition, occupation, address, phone, yearsOnBoard, BODID".
                         " FROM boardOfDirItem WHERE center = '".$center."' AND fiscalyear = '".$fiscalYear."'";
                 $resultBODCY = @mysql_query($sqlBODCY) or mysql_error();
@@ -76,7 +76,7 @@
 </tr>
 </table></div>
 </body>
-<?
+<?php
 	require("./footer.php");
 ?>
 

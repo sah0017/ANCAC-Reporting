@@ -1,4 +1,4 @@
-<?
+<?php
 	require("./ulogin.php");
 	require("./dbconn.php");
 
@@ -63,7 +63,7 @@
 		<table border="0" width="100%" id="table1">
 		<tr>
 			<td>
-<?
+<?php
                 $sqlBODCY = "SELECT sum(genFund) as genFund, sum(chilFirstTrust) as chilFirstTrust, sum(unitedWay) as unitedWay,".
                         " sum(adeca) as adeca, sum(natlChilAlliance) as natlChilAlliance, sum(chilTrustFund) as chilTrustFund,".
                         " sum(deptOfHR) as deptOfHR, sum(countyComm) as countyComm, sum(cityCouncil) as cityCouncil,".
@@ -199,7 +199,7 @@
 </tr>
 </table></div>
 </body>
-<?
+<?php
 	require("./footer.php");
 ?>
 

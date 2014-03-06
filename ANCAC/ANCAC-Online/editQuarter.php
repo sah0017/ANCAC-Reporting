@@ -1,4 +1,4 @@
-<?
+<?php
 	require("./ulogin.php");
 	require("./dbconn.php");
 	
@@ -162,7 +162,7 @@
                         ?>
 
                 <table width="100%" class="Admin">
-                <?
+                <?php
 	          if($_SESSION['admin'] > 1)
         	  {
         		echo '<tr><td colspan="3"><center>';
@@ -416,7 +416,7 @@
                                 onkeypress="return blockNonNumbers(this, event, true, false);" class="TextInput" name="misc"
                                 value="<? if(isset($row1QActual->misc)){if ($row1QActual->misc != -99.99){ echo $row1QActual->misc; $ExpenseAct[] = $row1QActual->misc;}} ?>" /></td>
                 </tr>
-                <?
+                <?php
                         //check to see if they have any other Expense entered
                         $sqlOE = "SELECT OExpenseID, ExpenseName FROM otherExpenseLU WHERE center = '".$centerID."' AND fiscalyear = '".$fiscalYear."' ORDER BY OExpenseID";
                         $resultOE = @mysql_query($sqlOE) or mysql_error();
@@ -573,7 +573,7 @@
                                 onkeypress="return blockNonNumbers(this, event, true, false);" class="TextInput" name="bankInterest"
                                 value="<? if(isset($row1QActual->bankInterest)){if ($row1QActual->bankInterest != -99.99){ echo $row1QActual->bankInterest; $FundsAct[] = $row1QActual->bankInterest;}} ?>" /></td>
                 </tr>
-                <?
+                <?php
                         //check to see if they have any other incomes entered
                         $sqlOI = "SELECT OIncomeID, IncomeName FROM otherIncomeLU WHERE center = '".$centerID."' AND fiscalyear = '".$fiscalYear."' ORDER BY OIncomeID";
                         $resultOI = @mysql_query($sqlOI) or mysql_error();
@@ -632,7 +632,7 @@
 </tr>
 </table>
 </body>
-<?
+<?php
 	require("./footer.php");
 ?>
 

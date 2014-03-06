@@ -1,4 +1,4 @@
-<?
+<?php
 
 	require("./ulogin.php");
 
@@ -183,7 +183,7 @@
 
 		<table border="0" width="600px" id="table1">
 
-<?
+<?php
 
         $sqlOI = "SELECT OIncomeID, IncomeName FROM otherIncomeLU WHERE center = '".$center."' AND fiscalyear = '".$fiscalYear."'";
 
@@ -455,7 +455,7 @@
 
 </body>
 
-<?
+<?php
 
 	require("./footer.php");
 

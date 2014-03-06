@@ -1,4 +1,4 @@
-<?
+<?php
 	require("./ulogin.php");
 	require("./dbconn.php");
 
@@ -94,7 +94,7 @@
            <td class='login' align=left><br>
                <div align="center">
 	            <table border="0" width="95%" id="table1">
-<?
+<?php
                 if ($EOYAvailable == 1 || $Admin == 1){
                         echo '<tr><td align="center">Due Date</td><td align="center">Completed</td><td>Task</td></tr>';
                         echo '<tr><td colspan="3">&nbsp;</td></tr>';
@@ -259,6 +259,6 @@
       </tr>
 </table>
 
-<?
+<?php
   	require("./footer.php");
 ?>

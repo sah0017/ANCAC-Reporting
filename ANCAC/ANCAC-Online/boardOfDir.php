@@ -1,4 +1,4 @@
-<?
+<?php
 	require("./ulogin.php");
 	require("./dbconn.php");
 
@@ -62,7 +62,7 @@
 	<td class='login' align=left><br>
 	<div align="center">
 		<table border="0" width="100%" id="table1">
-<?
+<?php
         //DATA MANIPULATION START HERE
         if (isset($_POST['submitted'])){
           if ($_GET['A'] == 'H'){ //START OF THE HEADER MANIPULATION
@@ -292,7 +292,7 @@
 </tr>
 </table></div>
 </body>
-<?
+<?php
 	require("./footer.php");
 ?>
 

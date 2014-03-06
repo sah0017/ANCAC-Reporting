@@ -1,4 +1,4 @@
-<?
+<?php
 	require("./ulogin.php");
 	$page_title = 'ANCAC-Online Forums';
 	require("./header.php");
@@ -19,7 +19,7 @@
                             Welcome to the ANCAC-Online Forums.   <br><br><br>  Please remember to respect each other and<br>respect the privacy of your clients.<br><br><br>
 
                             <form action='./messageboard/index.php?a=login&amp;s=on' method='post'>
-                                   <?
+                                   <?php
                                    echo "<input type='hidden' name='user' value=".$_SESSION['U1'].">";
                                    echo "<input type='hidden' name='pass' value=".$_SESSION['P1'].">";
                                   ?>
@@ -35,6 +35,6 @@
       </tr>
 </table>
 
-<?
+<?php
   	require("./footer.php");
 ?>

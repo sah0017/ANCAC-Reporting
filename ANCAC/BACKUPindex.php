@@ -1,4 +1,4 @@
-<?
+<?php
 	require("./ulogin.php");
 	$page_title = 'ANCAC: Main Menu';
 	require("./header.php");
@@ -31,7 +31,7 @@
 	<table border="0" width="80%" id="table1">
 		<tr>
 			<td>
-<?
+<?php
 	if($_SESSION['admin'] > 1)
 	{
 		echo '<br><u>Admin Functions:</u>';
@@ -48,7 +48,7 @@
 ?>
 
 
-<?
+<?php
 	if($_SESSION['admin'] > 0)
 	{
 		echo '<br><u>Special Functions:</u>';
@@ -89,6 +89,6 @@
 </div>
 <p>&nbsp;</td></tr> </table></div>
 
-<?
+<?php
 	require("./footer.php");
 ?>

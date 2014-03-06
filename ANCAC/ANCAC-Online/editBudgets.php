@@ -1,4 +1,4 @@
-<?
+<?php
 	require("./ulogin.php");
 	require("./dbconn.php");
         //set the fiscalYear
@@ -420,7 +420,7 @@
                                 onkeypress="return blockNonNumbers(this, event, true, false);" class="TextInput" name="misc4"
                                 value="<? if(isset($row4QBudgeted->misc)){ echo $row4QBudgeted->misc; $ExpenseBud4[] = $row4QBudgeted->misc;} ?>" /></td>
                 </tr>
-                <?
+                <?php
                         //check to see if they have any other expenses entered
                         $sqlOE = "SELECT OExpenseID, ExpenseName FROM otherExpenseLU WHERE center = '".$centerID."' AND fiscalyear = '".$fiscalYear."' ORDER BY OExpenseID";
                         $resultOE = @mysql_query($sqlOE) or mysql_error();
@@ -727,7 +727,7 @@
                                 onkeypress="return blockNonNumbers(this, event, true, false);" class="TextInput" name="bankInterest4"
                                 value="<? if(isset($row4QBudgeted->bankInterest)){ echo $row4QBudgeted->bankInterest; $FundsBud4[] = $row4QBudgeted->bankInterest;} ?>" /></td>
                 </tr>
-                <?
+                <?php
                         //check to see if they have any other incomes entered
                         $sqlOI = "SELECT OIncomeID, IncomeName FROM otherIncomeLU WHERE center = '".$centerID."' AND fiscalyear = '".$fiscalYear."' ORDER BY OIncomeID";
                         $resultOI = @mysql_query($sqlOI) or mysql_error();
@@ -831,7 +831,7 @@
 </tr>
 </table>
 </body>
-<?
+<?php
 	require("./footer.php");
 ?>
 

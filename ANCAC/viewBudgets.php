@@ -1,4 +1,4 @@
-<?
+<?php
 	require("./ulogin.php");
 	require("./dbconn.php");
         //set the fiscalYear
@@ -274,7 +274,7 @@
                         <td><? if(isset($row3QBudgeted->misc)){ echo $row3QBudgeted->misc; $ExpenseBud3[] = $row3QBudgeted->misc;} ?></td>
                         <td><? if(isset($row4QBudgeted->misc)){ echo $row4QBudgeted->misc; $ExpenseBud4[] = $row4QBudgeted->misc;} ?></td>
                 </tr>
-                <?
+                <?php
                         //check to see if they have any other expenses entered
                         $sqlOE = "SELECT OExpenseID, ExpenseName FROM otherExpenseLU WHERE center = '".$centerID."' AND fiscalyear = '".$fiscalYear."' ORDER BY OExpenseID";
                         $resultOE = @mysql_query($sqlOE) or mysql_error();
@@ -453,7 +453,7 @@
                         <td><? if(isset($row3QBudgeted->bankInterest)){ echo $row3QBudgeted->bankInterest; $FundsBud3[] = $row3QBudgeted->bankInterest;} ?></td>
                         <td><? if(isset($row4QBudgeted->bankInterest)){ echo $row4QBudgeted->bankInterest; $FundsBud4[] = $row4QBudgeted->bankInterest;} ?></td>
                 </tr>
-                <?
+                <?php
                         //check to see if they have any other incomes entered
                         $sqlOI = "SELECT OIncomeID, IncomeName FROM otherIncomeLU WHERE center = '".$centerID."' AND fiscalyear = '".$fiscalYear."' ORDER BY OIncomeID";
                         $resultOI = @mysql_query($sqlOI) or mysql_error();
@@ -533,7 +533,7 @@
 </tr>
 </table>
 </body>
-<?
+<?php
 	require("./footer.php");
 ?>
 

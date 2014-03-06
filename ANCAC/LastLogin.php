@@ -1,4 +1,4 @@
-<?
+<?php
 	require("./ulogin.php");
 	$page_title = 'ANCAC: Last Login';
 	require("./header.php");
@@ -24,7 +24,7 @@
 		           <tr>
 		              <td><b>Center</b></td><td><center><b>Director Name</b></center></td><td><center><b>Last Login</b></center></td>
 		           </tr>
-<?
+<?php
 	if($_SESSION['admin'] > 0)
 	{
 		while ($row = mysql_fetch_object($result)) {
@@ -48,6 +48,6 @@
       </tr>
 </table>
 
-<?
+<?php
   	require("./footer.php");
 ?>

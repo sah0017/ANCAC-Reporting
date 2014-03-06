@@ -1,4 +1,4 @@
-<?
+<?php
 	require("./ulogin.php");
 	$page_title = 'ANCAC: Help';
 	require("./header.php");
@@ -29,7 +29,7 @@
        </tr> 
 </table>
 
-<?
+<?php
 	require("./footer.php");
 ?>
 

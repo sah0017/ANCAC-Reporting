@@ -1,4 +1,4 @@
-<?
+<?php
 	require("/home/cust1/user1224426/html/WEBPROJ/ulogin.php");
 	require("/home/cust1/user1224426/data/dbconn.php");
 
@@ -69,7 +69,7 @@ link="#7D0000" vlink="#7D0000" alink="#7D0000" background="http://www.dvdcc.com/
 <TD WIDTH=100% align="left" valign="top">
      <p><p align=right><font color=#000000 size="2"><b><a href=main.php>Home</a></b></font><BR><BR>  
 
-<?
+<?php
 	if(!$_SESSION['admin'])
 	{
 		echo '<p><p align=right><font color=#000000 size="2"><b>Reviews</b></font><br>';

@@ -1,4 +1,4 @@
-<?
+<?php
 	require("./ulogin.php");
 	require("./dbconn.php");
 	
@@ -40,7 +40,7 @@
 		<table border="0" width="100%" id="table1">
 		<tr>
 			<td>
-<?
+<?php
 		echo '<table width="100%">';
 		echo '<tr align="left">';
 		echo '<td colspan="3"><br><b>Name of Child Advocacy Center: </b>'.$CenterName.'</td>';
@@ -64,7 +64,7 @@
 </tr>
 </table></div>
 </body>
-<?
+<?php
 	require("./footer.php");
 ?>
 

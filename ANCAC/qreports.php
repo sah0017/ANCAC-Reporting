@@ -1,4 +1,4 @@
-<?
+<?php
 	require("./ulogin.php");
 	$page_title = 'ANCAC: Quarterly Reports Menu';
 	require("./header.php");
@@ -81,7 +81,7 @@
                <div align="center">
 	            <table border="0" width="80%" id="table1">
 		           <tr><br><p>Reminder: Quarterly information needs to be submitted no later than the 10th during the months of January, April, July & October.</p><br><br>
-<?
+<?php
 	if($_SESSION['admin'] == 2)
 	{
 		echo '<td>';
@@ -149,6 +149,6 @@
       </tr>
 </table>
 
-<?
+<?php
   	require("./footer.php");
 ?>

@@ -1,4 +1,4 @@
-<?
+<?php
 	require("./ulogin.php");
 	require("./dbconn.php");
 
@@ -23,7 +23,7 @@
 		<table border="0" width="100%" id="table1">
 		<tr>
 			<td>
-<?
+<?php
         if (isset($_POST['submitted'])){
              //Initialize the error array
              $errors = array();
@@ -101,7 +101,7 @@
 		</tr>
 		<tr>
 		    <td>
-		        <?
+		        <?php
 		              if($_SESSION['admin'] == 2){
                                 echo '<form action="email.php" method="post">';
                                 echo '<p><b>Subject Line:</b><br />ANCAC-Online: <input type="text" name="email_subject" maxlength="50" size="75" value="';
@@ -125,7 +125,7 @@
 </tr>
 </table></div>
 </body>
-<?
+<?php
 	require("./footer.php");
 ?>
 

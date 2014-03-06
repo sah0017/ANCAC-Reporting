@@ -1,4 +1,4 @@
-<?
+<?php
 	require("./ulogin.php");
 	//require("/home/cust1/user1224426/data/dbconn.php");
 	
@@ -83,7 +83,7 @@
 </tr>
 </table></div>
 </body>
-<?
+<?php
 	require("./footer.php");
 ?>
 

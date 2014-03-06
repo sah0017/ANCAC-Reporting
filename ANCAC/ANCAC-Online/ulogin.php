@@ -1,4 +1,4 @@
-<?
+<?php
   require("./dbconn.php");
 
 // open a session (save load time on reading in all files)

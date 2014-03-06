@@ -1,4 +1,4 @@
-<?
+<?php
 	require("./ulogin.php");
 	require("./dbconn.php");
         //set the fiscalYear
@@ -201,7 +201,7 @@
 </tr>
 </table>
 </body>
-<?
+<?php
 	require("./footer.php");
 ?>
 
