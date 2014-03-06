@@ -1,7 +1,7 @@
 <?php
-	require("./ulogin.php");
+	require("../ulogin.php");
 	$page_title = 'ANCAC: Shared Documents Menu';
-	require("./header.php");
+	require("../header.php");
 ?>
 
 <table class='login' align=center width="293"><tr>

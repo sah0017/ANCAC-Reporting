@@ -1,6 +1,6 @@
 <?php
 
-require("./ulogin.php");
+require("../ulogin.php");
 
 /**
  * MercuryBoard

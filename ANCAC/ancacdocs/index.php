@@ -1,10 +1,10 @@
 <?php
 
-	require("./ulogin.php");
+	require("../ulogin.php");
 
 	$page_title = 'ANCAC: Shared Documents Menu';
 
-	require("./header.php");
+	require("../header.php");
 
 ?>
 
@@ -36,7 +36,7 @@
 
 			<p>&nbsp;</p>
 
-			<p>0. <a href="./index.php">Return to Main Menu</a></p>
+			<p>0. <a href="../index.php">Return to Main Menu</a></p>
 
 			<p>&nbsp;</p>
 
