@@ -1,6 +1,6 @@
-<?
-	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/ulogin.php");
-	require("/home/cluster1/data/a/p/a1224426/data/dbconn.php");
+<?PHP
+	require("ulogin.php");
+	require($root."dbconn.php");
         //set the fiscalYear
         switch (date("m")){
                 case 10:
@@ -63,14 +63,14 @@
         $CenterName = $rowCenter->CenterName;
 
 	$page_title = 'ANCAC: Editing Budgets for Childrens First Plan of Investment for '.$CenterName;
-	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/header.php");
+	require($root."header.php");
 
 ?>
 
 <body>
 <table class='OutlineTable' align=center width="95%">
 <tr>
-	<td class='login-header' colspan='2' align=center><? echo $CenterName; ?> Editing Budgets for Childrens First Plan of Investment - FY <? echo $fiscalYear; ?><br></td>
+	<td class='login-header' colspan='2' align=center><?PHP echo $CenterName; ?> Editing Budgets for Childrens First Plan of Investment - FY <?PHP echo $fiscalYear; ?><br></td>
 </tr>
 <tr>
 	<td class='login' align=left>
@@ -79,7 +79,7 @@
 		<tr>
 			<td>
 			<form action="updateBudgetsTOP.php" method="post">
-			<? //grab the budgeted information to display
+			<?PHP //grab the budgeted information to display
 			     $sql = "SELECT fiTotal,extForenEval,intCounsSes".
               " FROM budgetedPerfStats ".
               "WHERE budgetedPerfStats.center = ".$centerID." AND budgetedPerfStats.fiscalyear = ".$fiscalYear.
@@ -135,63 +135,63 @@
                         <td align="left">1) Number of children receiving an initial forensic interview at the CAC</td>
                         <td><input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
                                 onkeypress="return blockNonNumbers(this, event, false, false);" class="TextInput" name="fiTotal1"
-                                value="<? if(isset($row1QBudgeted->fiTotal)) echo $row1QBudgeted->fiTotal; ?>" /></td>
+                                value="<?PHP if(isset($row1QBudgeted->fiTotal)) echo $row1QBudgeted->fiTotal; ?>" /></td>
                         <td><input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
                                 onkeypress="return blockNonNumbers(this, event, false, false);" class="TextInput" name="fiTotal2"
-                                value="<? if(isset($row2QBudgeted->fiTotal)) echo $row2QBudgeted->fiTotal; ?>" /></td>
+                                value="<?PHP if(isset($row2QBudgeted->fiTotal)) echo $row2QBudgeted->fiTotal; ?>" /></td>
                         <td><input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
                                 onkeypress="return blockNonNumbers(this, event, false, false);" class="TextInput" name="fiTotal3"
-                                value="<? if(isset($row3QBudgeted->fiTotal)) echo $row3QBudgeted->fiTotal; ?>" /></td>
+                                value="<?PHP if(isset($row3QBudgeted->fiTotal)) echo $row3QBudgeted->fiTotal; ?>" /></td>
                         <td><input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
                                 onkeypress="return blockNonNumbers(this, event, false, false);" class="TextInput" name="fiTotal4"
-                                value="<? if(isset($row4QBudgeted->fiTotal)) echo $row4QBudgeted->fiTotal; ?>" /></td>
+                                value="<?PHP if(isset($row4QBudgeted->fiTotal)) echo $row4QBudgeted->fiTotal; ?>" /></td>
                 </tr>
                 <tr align="center">
                         <td align="left">2) Number of children receiving <u>initial</u> extended forensic evaluations at the CAC</td>
                         <td><input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
                                 onkeypress="return blockNonNumbers(this, event, false, false);" class="TextInput" name="extForenEval1"
-                                value="<? if(isset($row1QBudgeted->extForenEval)) echo $row1QBudgeted->extForenEval; ?>" /></td>
+                                value="<?PHP if(isset($row1QBudgeted->extForenEval)) echo $row1QBudgeted->extForenEval; ?>" /></td>
                         <td><input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
                                 onkeypress="return blockNonNumbers(this, event, false, false);" class="TextInput" name="extForenEval2"
-                                value="<? if(isset($row2QBudgeted->extForenEval)) echo $row2QBudgeted->extForenEval; ?>" /></td>
+                                value="<?PHP if(isset($row2QBudgeted->extForenEval)) echo $row2QBudgeted->extForenEval; ?>" /></td>
                         <td><input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
                                 onkeypress="return blockNonNumbers(this, event, false, false);" class="TextInput" name="extForenEval3"
-                                value="<? if(isset($row3QBudgeted->extForenEval)) echo $row3QBudgeted->extForenEval; ?>" /></td>
+                                value="<?PHP if(isset($row3QBudgeted->extForenEval)) echo $row3QBudgeted->extForenEval; ?>" /></td>
                         <td><input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
                                 onkeypress="return blockNonNumbers(this, event, false, false);" class="TextInput" name="extForenEval4"
-                                value="<? if(isset($row4QBudgeted->extForenEval)) echo $row4QBudgeted->extForenEval; ?>" /></td>
+                                value="<?PHP if(isset($row4QBudgeted->extForenEval)) echo $row4QBudgeted->extForenEval; ?>" /></td>
                 </tr>
                 <tr align="center">
                         <td align="left">3) Number of children receiving <u>initial</u> counseling sessions at the CAC</td>
                         <td><input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
                                 onkeypress="return blockNonNumbers(this, event, false, false);" class="TextInput" name="intCounsSes1"
-                                value="<? if(isset($row1QBudgeted->intCounsSes)) echo $row1QBudgeted->intCounsSes; ?>" /></td>
+                                value="<?PHP if(isset($row1QBudgeted->intCounsSes)) echo $row1QBudgeted->intCounsSes; ?>" /></td>
                         <td><input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
                                 onkeypress="return blockNonNumbers(this, event, false, false);" class="TextInput" name="intCounsSes2"
-                                value="<? if(isset($row2QBudgeted->intCounsSes)) echo $row2QBudgeted->intCounsSes; ?>" /></td>
+                                value="<?PHP if(isset($row2QBudgeted->intCounsSes)) echo $row2QBudgeted->intCounsSes; ?>" /></td>
                         <td><input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
                                 onkeypress="return blockNonNumbers(this, event, false, false);" class="TextInput" name="intCounsSes3"
-                                value="<? if(isset($row3QBudgeted->intCounsSes)) echo $row3QBudgeted->intCounsSes; ?>" /></td>
+                                value="<?PHP if(isset($row3QBudgeted->intCounsSes)) echo $row3QBudgeted->intCounsSes; ?>" /></td>
                         <td><input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
                                 onkeypress="return blockNonNumbers(this, event, false, false);" class="TextInput" name="intCounsSes4"
-                                value="<? if(isset($row4QBudgeted->intCounsSes)) echo $row4QBudgeted->intCounsSes; ?>" /></td>
+                                value="<?PHP if(isset($row4QBudgeted->intCounsSes)) echo $row4QBudgeted->intCounsSes; ?>" /></td>
                 </tr>
                 <tr>
                         <td colspan="5"><br></td>
                 </tr>
                 </table>
-                                <? if ($ThisAvailable == 1){
+                                <?PHP if ($ThisAvailable == 1){
                                         if ($_SESSION['admin'] != 1)
                                                 echo '<p><input type="submit" name="submit" value="Update Budgets for Childrens First Plan of Investment" /></p>';
                                 }
                                 ?>
-                                <input type="hidden" name="centerID" value="<? echo $centerID; ?>" />
-                                <input type="hidden" name="fiscalYear" value="<? echo $fiscalYear; ?>" />
-                                <input type="hidden" name="Update1" value="<? echo $Update1; ?>" />
-                                <input type="hidden" name="Update2" value="<? echo $Update2; ?>" />
-                                <input type="hidden" name="Update3" value="<? echo $Update3; ?>" />
-                                <input type="hidden" name="Update4" value="<? echo $Update4; ?>" />
-                                <input type="hidden" name="CY" value="<? echo $CY; ?>" />
+                                <input type="hidden" name="centerID" value="<?PHP echo $centerID; ?>" />
+                                <input type="hidden" name="fiscalYear" value="<?PHP echo $fiscalYear; ?>" />
+                                <input type="hidden" name="Update1" value="<?PHP echo $Update1; ?>" />
+                                <input type="hidden" name="Update2" value="<?PHP echo $Update2; ?>" />
+                                <input type="hidden" name="Update3" value="<?PHP echo $Update3; ?>" />
+                                <input type="hidden" name="Update4" value="<?PHP echo $Update4; ?>" />
+                                <input type="hidden" name="CY" value="<?PHP echo $CY; ?>" />
                         </form>
 			</td>
 		</tr>
@@ -201,8 +201,8 @@
 </tr>
 </table>
 </body>
-<?
-	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/footer.php");
+<?PHP
+	require($root."footer.php");
 ?>
 
 

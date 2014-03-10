@@ -1,9 +1,9 @@
-<?
-	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/ulogin.php");
-	require("/home/cluster1/data/a/p/a1224426/data/dbconn.php");
+<?PHP
+	require("ulogin.php");
+	require($root."dbconn.php");
 
 	$page_title = 'Snail Mail Documents';
-	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/header.php");
+	require($root."header.php");
 	
 	switch (date("m")){
           case 10:
@@ -51,7 +51,7 @@
 <body>
 <table class='OutlineTable' align=center width="640px">
 <tr>
-        <? echo '<td class="login-header" colspan="2" align=center>Snail Mail Documents for '.$row1->centerName.'<br /></td>'; ?>
+        <?PHP echo '<td class="login-header" colspan="2" align=center>Snail Mail Documents for '.$row1->centerName.'<br /></td>'; ?>
 </tr>
 <tr>
 	<td class='login' align=left><br>
@@ -59,7 +59,7 @@
 		<table border="0" width="100%" id="table1">
 		<tr>
 			<td>
-<?
+<?PHP
         if (isset($_POST['submitted'])){
                  //SET THE VARIABLES TO USE WHEN UPDATING/INSERTING
                  if ($_POST['AllocationReq'] == 'yes') $AllocationReq = 1;
@@ -138,7 +138,7 @@
 		</tr>
 		<tr>
 		    <td>
-		        <?
+		        <?PHP
 		              if($_SESSION['admin'] == 2){
                                 echo '<form action="SnailMail.php?center='.$center.'" method="post">';
                                 echo '<p><input type="checkbox" name="AllocationReq" value="yes" ';
@@ -181,7 +181,7 @@
 </tr>
 </table></div>
 </body>
-<?
-	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/footer.php");
+<?PHP
+	require($root."footer.php");
 ?>
 

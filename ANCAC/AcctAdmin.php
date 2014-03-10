@@ -1,8 +1,8 @@
-<?
-	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/ulogin.php");
-	require("/home/cluster1/data/a/p/a1224426/data/dbconn.php");
+<?PHP
+	require("ulogin.php");
+	require($root."dbconn.php");
 	$page_title = 'ANCAC: Account Administration';
-	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/header.php");
+	require($root."header.php");
 
 ?>
 
@@ -14,7 +14,7 @@
            <td class='login' align=left><br>
                <div align="center">
 	            <table border="0" width="80%" id="table1" class="Admin">
-<?
+<?PHP
 	if($_SESSION['admin'] > 0)
 	{
              $sql = "SELECT directors.RID,directors.name,directors.username,directors.email,directors.center,directors.user_level,directors.password, centers.CenterName FROM directors left join centers on directors.center = centers.center";
@@ -47,6 +47,6 @@
       </tr>
 </table>
 
-<?
-  	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/footer.php");
+<?PHP
+  	require($root."footer.php");
 ?>

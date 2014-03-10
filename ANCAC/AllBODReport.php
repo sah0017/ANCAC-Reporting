@@ -1,9 +1,9 @@
 <?php
-	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/ulogin.php");
-	require("/home/cluster1/data/a/p/a1224426/data/dbconn.php");
+	require("ulogin.php");
+	require($root."dbconn.php");
 
 	$page_title = 'ANCAC: All Board of Directors Listings';
-	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/header.php");
+	require($root."header.php");
 
         $fiscalYear = $_POST['year'];
 ?>

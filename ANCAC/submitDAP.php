@@ -1,6 +1,6 @@
-<?
-	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/ulogin.php");
-	require("/home/cluster1/data/a/p/a1224426/data/dbconn.php");
+<?PHP
+	require("ulogin.php");
+	require($root."dbconn.php");
 
 	switch (date("m")){
                 case 10:

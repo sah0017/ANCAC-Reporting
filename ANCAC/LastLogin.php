@@ -1,7 +1,7 @@
-<?
-	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/ulogin.php");
+<?PHP
+	require("ulogin.php");
 	$page_title = 'ANCAC: Last Login';
-	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/header.php");
+	require($root."header.php");
 	
 	$sql = "SELECT centers.CenterName, directors.name, directors.lastlogin FROM centers JOIN directors ON centers.center = directors.center WHERE centers.center not in (0,99)";
         $result = @mysql_query($sql) or mysql_error();
@@ -19,12 +19,12 @@
                <div align="center">
 	            <table border="0" width="100%" id="table1" class="Admin">
 	                   <tr align="center">
-	                       <td colspan="3"><b>Date: </b><? echo $today; ?></td>
+	                       <td colspan="3"><b>Date: </b><?PHP echo $today; ?></td>
 	                   </tr>
 		           <tr>
 		              <td><b>Center</b></td><td><center><b>Director Name</b></center></td><td><center><b>Last Login</b></center></td>
 		           </tr>
-<?
+<?PHP
 	if($_SESSION['admin'] > 0)
 	{
 		while ($row = mysql_fetch_object($result)) {
@@ -48,6 +48,6 @@
       </tr>
 </table>
 
-<?
-  	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/footer.php");
+<?PHP
+  	require($root."footer.php");
 ?>

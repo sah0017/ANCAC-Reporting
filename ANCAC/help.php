@@ -1,7 +1,7 @@
-<?
-	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/ulogin.php");
+<?PHP
+	require("ulogin.php");
 	$page_title = 'ANCAC: Help';
-	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/header.php");
+	require($root."header.php");
 ?>
 
 <table class='login' align=center width="293">
@@ -29,7 +29,7 @@
        </tr> 
 </table>
 
-<?
-	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/footer.php");
+<?PHP
+	require($root."footer.php");
 ?>
 

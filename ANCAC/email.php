@@ -1,9 +1,9 @@
-<?
-	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/ulogin.php");
-	require("/home/cluster1/data/a/p/a1224426/data/dbconn.php");
+<?PHP
+	require("ulogin.php");
+	require($root."dbconn.php");
 
 	$page_title = 'Email Entire Network';
-	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/header.php");
+	require($root."header.php");
 	
 	$t=getdate();
         $today=date('F d, Y H:i A',$t[0]);
@@ -23,7 +23,7 @@
 		<table border="0" width="100%" id="table1">
 		<tr>
 			<td>
-<?
+<?PHP
         if (isset($_POST['submitted'])){
              //Initialize the error array
              $errors = array();
@@ -101,7 +101,7 @@
 		</tr>
 		<tr>
 		    <td>
-		        <?
+		        <?PHP
 		              if($_SESSION['admin'] == 2){
                                 echo '<form action="email.php" method="post">';
                                 echo '<p><b>Subject Line:</b><br />ANCAC-Online: <input type="text" name="email_subject" maxlength="50" size="75" value="';
@@ -125,7 +125,7 @@
 </tr>
 </table></div>
 </body>
-<?
-	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/footer.php");
+<?PHP
+	require($root."footer.php");
 ?>
 

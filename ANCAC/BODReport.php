@@ -1,6 +1,6 @@
-<?
-	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/ulogin.php");
-	require("/home/cluster1/data/a/p/a1224426/data/dbconn.php");
+<?PHP
+	require("ulogin.php");
+	require($root."dbconn.php");
 	
 	if($_SESSION['admin'] > 0){
                 if(isset($_POST['center']))
@@ -19,7 +19,7 @@
         $CenterName = $rowCenter->CenterName;
 
 	$page_title = 'ANCAC: Board of Directors for '.$CenterName;
-	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/header.php");
+	require($root."header.php");
 
         //Get the fiscal year from the select Year page drop down
         if(isset($_POST['year']))
@@ -31,7 +31,7 @@
 <body>
 <table class='OutlineTable' align=center width="95%">
 <tr>
-	<td class='login-header' colspan='2' align=center>List of Board Members for <? echo $CenterName; ?> - FY <? echo $fiscalYear; ?><br /></td>
+	<td class='login-header' colspan='2' align=center>List of Board Members for <?PHP echo $CenterName; ?> - FY <?PHP echo $fiscalYear; ?><br /></td>
 </tr>
 <tr>
 	<td class='login' align=left>
@@ -39,7 +39,7 @@
 		<table border="0" width="100%" id="table1">
 		<tr>
 			<td>
-<?
+<?PHP
                 $sqlBODCY = "SELECT name, boardPosition, occupation, address, phone, yearsOnBoard, BODID".
                         " FROM boardOfDirItem WHERE center = '".$center."' AND fiscalyear = '".$fiscalYear."'";
                 $resultBODCY = @mysql_query($sqlBODCY) or mysql_error();
@@ -67,7 +67,7 @@
 		</tr>
 		<tr>
 		      <td>
-		              <center><div class=nav><?php echo '<a href="eoyreports.php?center='.$center.'">Return to End of Year Reports Main Menu</a>'; ?></div></center>
+		              <center><div class=nav><?PHP echo '<a href="eoyreports.php?center='.$center.'">Return to End of Year Reports Main Menu</a>'; ?></div></center>
 		      </td>
 		</tr>
 		</table>
@@ -76,7 +76,7 @@
 </tr>
 </table></div>
 </body>
-<?
-	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/footer.php");
+<?PHP
+	require($root."footer.php");
 ?>
 

@@ -1,6 +1,6 @@
-<?
-	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/ulogin.php");
-	require("/home/cluster1/data/a/p/a1224426/data/dbconn.php");
+<?PHP
+	require("ulogin.php");
+	require($root."dbconn.php");
 
 	//set the fiscalYear
         switch (date("m")){
@@ -49,20 +49,20 @@
         $CenterName = $rowCenter->CenterName;
 
 	$page_title = 'Board of Directors List for '.$CenterName;
-	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/header.php");
+	require($root."header.php");
 
 ?>
 
 <body>
 <table class='OutlineTable' align=center width="75%">
 <tr>
-	<td class='login-header' colspan='2' align=center>Board of Directors List - FY <? echo $fiscalYear; ?><br></td>
+	<td class='login-header' colspan='2' align=center>Board of Directors List - FY <?PHP echo $fiscalYear; ?><br></td>
 </tr>
 <tr>
 	<td class='login' align=left><br>
 	<div align="center">
 		<table border="0" width="100%" id="table1">
-<?
+<?PHP
         //DATA MANIPULATION START HERE
         if (isset($_POST['submitted'])){
           if ($_GET['A'] == 'H'){ //START OF THE HEADER MANIPULATION
@@ -283,7 +283,7 @@
 ?>
                 <tr>
 		      <td>
-		              <center><div class=nav><?php echo '<br><br><a href="eoyreports.php?center='.$center.'">Return to End of Year Reports Main Menu</a>'; ?></div></center>
+		              <center><div class=nav><?PHP echo '<br><br><a href="eoyreports.php?center='.$center.'">Return to End of Year Reports Main Menu</a>'; ?></div></center>
 		      </td>
 		</tr>
 		</table>
@@ -292,7 +292,7 @@
 </tr>
 </table></div>
 </body>
-<?
-	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/footer.php");
+<?PHP
+	require($root."footer.php");
 ?>
 

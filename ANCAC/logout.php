@@ -1,4 +1,4 @@
-<?
+<?PHP
 // open a session (save load time on reading in all files)
   session_start();
   header("Cache-control: private"); // IE 6 Fix.

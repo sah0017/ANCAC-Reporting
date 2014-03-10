@@ -1,7 +1,7 @@
-<?
-	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/ulogin.php");
+<?PHP
+	require("ulogin.php");
 	$page_title = 'ANCAC: Main Menu';
-	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/header.php");
+	require($root."header.php");
 
 	switch (date("m")){
                 case 10:
@@ -35,7 +35,7 @@
 	<table border="0" width="80%" id="table1">
 		<tr>
 			<td>
-<?
+<?PHP
 	if($_SESSION['admin'] > 1)
 	{
 		echo '<br><u>Admin Functions:</u>';
@@ -52,7 +52,7 @@
 ?>
 
 
-<?
+<?PHP
 	if($_SESSION['admin'] > 0)
 	{
 		echo '<br><u>Special Functions:</u>';
@@ -69,9 +69,9 @@
 
 ?>
 
-			<? if ($_SESSION['admin'] == 1) echo '<p>1. Quarterly Reports (Unavailable)</p>';
+			<?PHP if ($_SESSION['admin'] == 1) echo '<p>1. Quarterly Reports (Unavailable)</p>';
 			     else echo '<p>1. <a href=qreports.php>Quarterly Reports</a></p>'; ?>
-			<? if ($_SESSION['admin'] > 1) echo '<p>2. <a href="qreportAdmin.php?from=7">End of Year Reports</a></p>';
+			<?PHP if ($_SESSION['admin'] > 1) echo '<p>2. <a href="qreportAdmin.php?from=7">End of Year Reports</a></p>';
                            else {
                              if ($EOYAvailable == 1) echo '<p>2. <a href=eoyreports.php>End of Year Reports</a></p>';
 			     else echo '<p>2. End of Year Reports (Unavailable)</p>';
@@ -88,6 +88,6 @@
 </div>
 <p>&nbsp;</td></tr> </table></div>
 
-<?
-	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/footer.php");
+<?PHP
+	require($root."footer.php");
 ?>
