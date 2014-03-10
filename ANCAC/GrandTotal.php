@@ -8,12 +8,12 @@
         $fiscalYear = $_POST['year'];
 
          function printHeaders(){
-                echo '<tr class="BoldText" align="center"><td align="left" width="28%">Center</td><td>QTR</td><td class="TotalCell">FI</td><td>0-6</td><td>7-12</td><td>13-18</td><td>M</td><td>F</td><td>AA</td><td>ASN</td><td>CAU.</td><td>HISP.</td>'.
-                        '<td>OTHER</td><td class="TotalCell">E.F.A.</td><td class="TotalCell">I.C.S.</td><td>T.C.S.</td><td>M.D.T.</td><td>PROS.</td><td>EXAM</td><td class="TotalCell">TOT. SVCS.</td></tr>';
+                echo '<tr class="BoldText" align="center"><td align="left" width="28%">Center</td><td>QTR</td><td class="TotalCell">FI</td><td>0-6</td><td>7-12</td><td>13-18</td><td>M</td><td>F</td><td>AA</td><td>ASN</td><td>CAU.</td><td>HISP.</td>'. //MH 3/10/14
+                        '<td>OTHER</td><td class="TotalCell">E.F.A.</td><td class="TotalCell">I.C.S.</td><td>T.C.S.</td><td>M.D.T.</td><td>PROS.</td><td>EXAM</td><td class="TotalCell">TOT. SVCS.</td></tr>'; //MH 3/10/14
          }
          function printTotalHeaders($Title){
-                echo '<tr class="BoldText" align="center"><td align="left" width="28%" colspan="2">'.$Title.'</td><td class="TotalCell">FI</td><td>0-6</td><td>7-12</td><td>13-18</td><td>M</td><td>F</td><td>AA</td><td>ASN</td><td>CAU.</td><td>HISP.</td>'.
-                        '<td>OTHER</td><td class="TotalCell">E.F.A.</td><td class="TotalCell">I.C.S.</td><td>T.C.S.</td><td>M.D.T.</td><td>PROS.</td><td>EXAM</td><td class="TotalCell">TOT. SVCS.</td></tr>';
+                echo '<tr class="BoldText" align="center"><td align="left" width="28%" colspan="2">'.$Title.'</td><td class="TotalCell">FI</td><td>0-6</td><td>7-12</td><td>13-18</td><td>M</td><td>F</td><td>AA</td><td>ASN</td><td>CAU.</td><td>HISP.</td>'. //MH 3/10/14
+                        '<td>OTHER</td><td class="TotalCell">E.F.A.</td><td class="TotalCell">I.C.S.</td><td>T.C.S.</td><td>M.D.T.</td><td>PROS.</td><td>EXAM</td><td class="TotalCell">TOT. SVCS.</td></tr>'; //MH 3/10/14
          }
          function removeDefaults($testValue){
                 if ($testValue == -99)
@@ -97,7 +97,9 @@
                 $GRANDTOTAL4medExamRefl = 0;
                 $GRANDTOTAL4TotalService = 0;
                 
-                echo '<center><h2><b>ANCAC: Grand Total Report for FY '.$fiscalYear.'</b></h2></center>';
+                echo '<center><h2><b>ANCAC: Grand Total Report for FY '.$fiscalYear.'</b></h2></center>'; //MH 3/10/14
+
+		//MH 3/10/14
 
                 //start of the Full Member Totals
                 $sqlFullMember = "SELECT center, CenterName FROM `centers` WHERE center not in (0,99) AND centerlevel = 'Full Member' order by center";
