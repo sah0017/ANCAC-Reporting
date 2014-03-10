@@ -1,4 +1,4 @@
-<?PHP
+<?
   //require("/home/cust1/user1224426/data/dbconn.php");
 
 //$TrnType = either 'FULL' or 'CURRENT'

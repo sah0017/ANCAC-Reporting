@@ -1,13 +1,14 @@
-<?PHP
-	require("/ulogin.php");
-	require("/dbconn.php");
+<?
+	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/ulogin.php");
+	require("/home/cluster1/data/a/p/a1224426/data/dbconn.php");
 
         switch (date("m")){
                 case 10:
-                        if (date("j") < 11)
-                                $Available = 1;
-                        else
-                                $Available = 0;
+                        $Available = 1;
+                        //if (date("j") < 11)
+                        //        $Available = 1;
+                        //else
+                        //        $Available = 0;
                         $fiscalYear = date("Y") + 1;
                         break;
                 case 11:

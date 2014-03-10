@@ -1,7 +1,7 @@
-<?PHP
-	require("/ulogin.php");
+<?
+	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/ulogin.php");
 	$page_title = 'ANCAC: EOY Admin Menu';
-	require("/header.php");
+	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/header.php");
 
 ?>
 
@@ -14,7 +14,7 @@
                <div align="center">
 	            <table border="0" width="80%" id="table1">
 		           <tr><br>
-<?PHP
+<?
 	if($_SESSION['admin'] > 1)
 	{
 		echo '<td>';
@@ -40,6 +40,6 @@
       </tr>
 </table>
 
-<?PHP
-  	require("/footer.php");
+<?
+  	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/footer.php");
 ?>

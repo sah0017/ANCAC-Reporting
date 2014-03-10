@@ -1,8 +1,8 @@
-<?PHP
+<?
 
-	require("/ulogin.php");
+	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/ulogin.php");
 
-	require("/dbconn.php");
+	require("/home/cluster1/data/a/p/a1224426/data/dbconn.php");
 
 
 
@@ -11,14 +11,14 @@
         switch (date("m")){
 
                 case 10:
-
-                        if (date("j") < 11)
-
-                                $EOYAvailable = 1;
-
-                        else
-
-                                $EOYAvailable = 0;
+                        $EOYAvailable = 1;
+                        //if (date("j") < 11)
+                        //
+                        //        $EOYAvailable = 1;
+                        //
+                        //else
+                        //
+                        //        $EOYAvailable = 0;
 
                         $fiscalYear = date("Y") + 1;
 
@@ -150,7 +150,7 @@
 
 	$page_title = 'Add or Remove Other Expenses for '.$CenterName;
 
-	require("/header.php");
+	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/header.php");
 
 
 
@@ -164,7 +164,7 @@
 
 <tr>
 
-	<td class='login-header' colspan='2' align=center>Add or Remove Other Expense Categories - FY <?PHP echo $fiscalYear; ?><br></td>
+	<td class='login-header' colspan='2' align=center>Add or Remove Other Expense Categories - FY <? echo $fiscalYear; ?><br></td>
 
 </tr>
 
@@ -182,7 +182,7 @@
 
 		<table border="0" width="600px" id="table1">
 
-<?PHP
+<?
 
         $sqlOE = "SELECT OExpenseID, ExpenseName FROM otherExpenseLU WHERE center = '".$center."' AND fiscalyear = '".$fiscalYear."'";
 
@@ -382,7 +382,7 @@
 
 		    <td colspan="2">
 
-		      <?PHP if ($EOYAvailable == 1){
+		      <? if ($EOYAvailable == 1){
 
                           echo '<form action="addRemoveEx.php?A=A&center='.$center.'" method="post">';
 
@@ -420,7 +420,7 @@
 
 		      <td colspan="2">
 
-		              <center><div class=nav><?PHP echo '<a href="eoyreports.php?center='.$center.'">Return to End of Year Reports Main Menu</a>'; ?></div></center>
+		              <center><div class=nav><?php echo '<a href="eoyreports.php?center='.$center.'">Return to End of Year Reports Main Menu</a>'; ?></div></center>
 
 		      </td>
 
@@ -438,9 +438,9 @@
 
 </body>
 
-<?PHP
+<?
 
-	require("/footer.php");
+	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/footer.php");
 
 ?>
 

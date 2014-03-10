@@ -1,8 +1,8 @@
-<?PHP
-	require("/ulogin.php");
-	require("/dbconn.php");
+<?
+	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/ulogin.php");
+	require("/home/cluster1/data/a/p/a1224426/data/dbconn.php");
         $page_title = 'ANCAC: Current Quarterly Report Submissions';
-	require("/header.php");
+	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/header.php");
 	
 	switch (date("m")){
                 case 10:
@@ -38,7 +38,7 @@
 
 <table class='OutlineTable' align=center width="600px">
 <tr>
-    <td class="login-header" colspan="2" align=center>ANCAC Centers: Quarterly Report Submissions for Quarter ending <?PHP echo $Ending; ?><br></td>
+    <td class="login-header" colspan="2" align=center>ANCAC Centers: Quarterly Report Submissions for Quarter ending <? echo $Ending; ?><br></td>
 </tr>
 <tr>
 	<td class='login' align=left><br>
@@ -48,7 +48,7 @@
 			<td>
 				<table width="100%">
 				<tr align="left" valign="top">
-<?PHP
+<?
 	if($_SESSION['admin'] > 0){
 		$sql = "SELECT CenterName FROM centers JOIN actualExpenditures ON centers.center = actualExpenditures.center and actualExpenditures.fiscalyear = ".$fiscalYear." and actualExpenditures.quarter = ".$currentQuarter." and actualExpenditures.completed = 'COM' WHERE centers.center not in (0,99)";
 		$result= @mysql_query($sql) or mysql_error();
@@ -101,6 +101,6 @@
 	</td>
 </tr>
 </table></div>
-<?PHP
-	require("/footer.php");
+<?
+	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/footer.php");
 ?>

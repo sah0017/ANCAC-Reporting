@@ -1,7 +1,8 @@
-<?PHP
-	require("/ulogin.php");
+<?
+	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/ulogin.php");
+	require("/home/cluster1/data/a/p/a1224426/data/dbconn.php");
 	$page_title = 'ANCAC: Account Administration';
-	require("/header.php");
+	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/header.php");
 
 ?>
 
@@ -12,31 +13,40 @@
        <tr>
            <td class='login' align=left><br>
                <div align="center">
-	            <table border="0" width="80%" id="table1">
-		           <tr><br>
-<?PHP
+	            <table border="0" width="80%" id="table1" class="Admin">
+<?
 	if($_SESSION['admin'] > 0)
 	{
-		echo '<td>';
-		echo '<p>1. Will add items here<br><br></p>';
-		echo '<p>&nbsp;</p>';
-		echo '<p>0. <a href="/ANCAC-Online/index.php">Return to Main Menu</p>';
-		echo '<p>&nbsp;</p>';
-		echo '</td>';
+             $sql = "SELECT directors.RID,directors.name,directors.username,directors.email,directors.center,directors.user_level,directors.password, centers.CenterName FROM directors left join centers on directors.center = centers.center";
+	     $result= @mysql_query($sql) or mysql_error();
+	     
+	     echo '<tr><td colspan="6" align="center"><a href="AddAccount.php">Add a new log in</a></td></tr>';
+
+	     echo '<tr><td><b>Center</b></td><td><b>Name</b></td><td><b>User Name</b></td><td><b>Email</b></td><td><b>Password</b></td><td>&nbsp;</td></tr>';
+
+	     while ($row = mysql_fetch_object($result)) {
+	           echo '<tr align="left">';
+	           echo '<td>'.$row->CenterName.'</td>';
+	           echo '<td>'.$row->name.'</td>';
+	           echo '<td>'.$row->username.'</td>';
+	           echo '<td>'.$row->email.'</td>';
+                   echo '<td>'.$row->password.'</td>';
+                   echo '<td><a href="editAccount.php?RID='.$row->RID.'">Edit Center</a></td>';
+                   echo '</tr>';
+		}
 	}
 	else
 	{
-                echo '<td>';
-		echo '<p>You do not have Administration access</p></td>';
+                echo '<tr><td>';
+		echo '<p>You do not have Administration access</p></td></tr>';
 	}
 ?>
-                             </tr>
 	           </table>
             </div>
          </td>
       </tr>
 </table>
 
-<?PHP
-  	require("/footer.php");
+<?
+  	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/footer.php");
 ?>

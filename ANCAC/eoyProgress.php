@@ -1,9 +1,9 @@
-<?PHP
-	require("/ulogin.php");
-	require("/dbconn.php");
+<?
+	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/ulogin.php");
+	require("/home/cluster1/data/a/p/a1224426/data/dbconn.php");
 
 	$page_title = 'ANCAC: End of Year Reporting Progress';
-	require("/header.php");
+	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/header.php");
 
         $fiscalYear = date("Y") + 1;
         $flag_Image = '<img src="images/Flag.gif" />';
@@ -16,14 +16,14 @@
         <center>
         <table width="85%" class="Admin">
                 <tr class="BoldText"><td class="login-header" colspan="10"><center><h3>ANCAC: End of Year Reporting Progress</h3></center></td></tr>
-                <tr align="left"><td colspan="5"><b>Year: </b><?PHP echo $fiscalYear; ?></td><td colspan="5"><b>Date: </b><?PHP echo date("M d Y"); ?></td></tr>
+                <tr align="left"><td colspan="5"><b>Year: </b><?php echo $fiscalYear; ?></td><td colspan="5"><b>Date: </b><?php echo date("M d Y"); ?></td></tr>
                 <tr><td colspan="10">&nbsp;</td></tr>
         <!-- Headers for the Main Table -->
                 <tr class="BoldText" align="center">
                         <td align="left">Name of Child Advocacy Center</td><td>4th Quarter</td><td>Other Income</td><td>Other Expense</td><td>Estimated Budget</td><td>BOD List</td>
                         <td>Diversity Action Plan</td><td>Snail Mail Allocation</td><td>Snail Mail Audit</td><td>Snail Mail Standards</td>
                 </tr>
-                <?PHP
+                <?php
                         while ($row = mysql_fetch_object($result)) {
                                 //Get the completed Portions
                                 $sqlChecks = "SELECT OtherIncome, OtherExpense, EstBudget, BoardOfDir, DiversityActPlan, AllocationReq, Audit, AnnualStan,".

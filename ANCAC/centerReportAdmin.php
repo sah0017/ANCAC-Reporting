@@ -1,6 +1,6 @@
-<?PHP
-	require("/ulogin.php");
-	require("/dbconn.php");
+<?
+	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/ulogin.php");
+	require("/home/cluster1/data/a/p/a1224426/data/dbconn.php");
 	
 	if($_SESSION['admin'] > 0){
                 if(isset($_POST['center']))
@@ -19,8 +19,8 @@
         $CenterName = $rowCenter->CenterName;
 
 	$page_title = 'ANCAC: Year to Date Report for '.$CenterName;
-	require("/header.php");
-        require("/buildReport.php");
+	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/header.php");
+        require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/buildReport.php");
 
         //Get the fiscal year from the select Year page drop down
         if(isset($_POST['year']))
@@ -40,7 +40,7 @@
 		<table border="0" width="100%" id="table1">
 		<tr>
 			<td>
-<?PHP
+<?
 		echo '<table width="100%">';
 		echo '<tr align="left">';
 		echo '<td colspan="3"><br><b>Name of Child Advocacy Center: </b>'.$CenterName.'</td>';
@@ -64,7 +64,7 @@
 </tr>
 </table></div>
 </body>
-<?PHP
-	require("/footer.php");
+<?
+	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/footer.php");
 ?>
 

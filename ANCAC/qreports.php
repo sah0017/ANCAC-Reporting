@@ -1,9 +1,9 @@
-<?PHP
-	require("/ulogin.php");
+<?
+	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/ulogin.php");
 	$page_title = 'ANCAC: Quarterly Reports Menu';
-	require("/header.php");
+	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/header.php");
 	
-	require("/Variables.php");
+	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/Variables.php");
 
 	$TOPAvailable = 0;
 	$TOPBudget = 0;
@@ -81,7 +81,7 @@
                <div align="center">
 	            <table border="0" width="80%" id="table1">
 		           <tr><br><p>Reminder: Quarterly information needs to be submitted no later than the 10th during the months of January, April, July & October.</p><br><br>
-<?PHP
+<?
 	if($_SESSION['admin'] == 2)
 	{
 		echo '<td>';
@@ -149,6 +149,6 @@
       </tr>
 </table>
 
-<?PHP
-  	require("/footer.php");
+<?
+  	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/footer.php");
 ?>

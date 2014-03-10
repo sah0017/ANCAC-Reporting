@@ -1,7 +1,7 @@
-<?PHP
-	require("/ulogin.php");
+<?
+	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/ulogin.php");
 	$page_title = 'ANCAC: Main Menu';
-	require("/header.php");
+	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/header.php");
 
 	switch (date("m")){
                 case 10:
@@ -11,7 +11,6 @@
  //                               $EOYAvailable = 1;
   //                      else
    //                             $EOYAvailable = 0;
-   // test comment
                         break;
                 case 1:
                 case 2:
@@ -36,7 +35,7 @@
 	<table border="0" width="80%" id="table1">
 		<tr>
 			<td>
-<?PHP
+<?
 	if($_SESSION['admin'] > 1)
 	{
 		echo '<br><u>Admin Functions:</u>';
@@ -53,7 +52,7 @@
 ?>
 
 
-<?PHP
+<?
 	if($_SESSION['admin'] > 0)
 	{
 		echo '<br><u>Special Functions:</u>';
@@ -63,15 +62,16 @@
 		echo '<p>4. <a href="qreportAdmin.php?from=9">View / Print ANCAC Board of Directors</a></p>';
 		echo '<p>5. Add/Delete Shared Documents</p>';
 		echo '<p>6. Add/Edit/Delete Job Announcements</p>';
+		echo '<p>7. <a href="eoyProgress.php">Check the End of Year Status</a></p>';
 		echo '<br><br>';
 
 	}
 
 ?>
 
-			<?PHP if ($_SESSION['admin'] == 1) echo '<p>1. Quarterly Reports (Unavailable)</p>';
+			<? if ($_SESSION['admin'] == 1) echo '<p>1. Quarterly Reports (Unavailable)</p>';
 			     else echo '<p>1. <a href=qreports.php>Quarterly Reports</a></p>'; ?>
-			<?PHP if ($_SESSION['admin'] > 1) echo '<p>2. <a href="qreportAdmin.php?from=7">End of Year Reports</a></p>';
+			<? if ($_SESSION['admin'] > 1) echo '<p>2. <a href="qreportAdmin.php?from=7">End of Year Reports</a></p>';
                            else {
                              if ($EOYAvailable == 1) echo '<p>2. <a href=eoyreports.php>End of Year Reports</a></p>';
 			     else echo '<p>2. End of Year Reports (Unavailable)</p>';
@@ -88,6 +88,6 @@
 </div>
 <p>&nbsp;</td></tr> </table></div>
 
-<?PHP
-	require("/footer.php");
+<?
+	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/footer.php");
 ?>

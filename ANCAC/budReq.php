@@ -1,6 +1,6 @@
-<?PHP
-	require("/ulogin.php");
-	require("/dbconn.php");
+<?
+	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/ulogin.php");
+	require("/home/cluster1/data/a/p/a1224426/data/dbconn.php");
 
 	if($_SESSION['admin'] > 0){
                 if(isset($_POST['center']))
@@ -19,7 +19,7 @@
         $CenterName = $rowCenter->CenterName;
 
 	$page_title = 'ANCAC: Budget Request Report for '.$CenterName;
-	require("/header.php");
+	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/header.php");
 
         //Get the fiscal year from the select Year page drop down
         //COMMENT :: THIS WAS REMOVED BUT IF WE WANT TO SELECT THE YEAR JUST CHANGE IT BACK
@@ -55,7 +55,7 @@
 <body>
 <table class='OutlineTable' align=center width="55%">
 <tr>
-	<td class='login-header' colspan='2' align=center>Budget Request for <?PHP echo $CenterName; ?> - FY <?PHP echo $lastYear.' - '.$fiscalYear; ?><br /></td>
+	<td class='login-header' colspan='2' align=center>Budget Request for <? echo $CenterName; ?> - FY <? echo $lastYear.' - '.$fiscalYear; ?><br /></td>
 </tr>
 <tr>
 	<td class='login' align=left>
@@ -63,7 +63,7 @@
 		<table border="0" width="100%" id="table1">
 		<tr>
 			<td>
-<?PHP
+<?
                 $sqlBODCY = "SELECT sum(genFund) as genFund, sum(chilFirstTrust) as chilFirstTrust, sum(unitedWay) as unitedWay,".
                         " sum(adeca) as adeca, sum(natlChilAlliance) as natlChilAlliance, sum(chilTrustFund) as chilTrustFund,".
                         " sum(deptOfHR) as deptOfHR, sum(countyComm) as countyComm, sum(cityCouncil) as cityCouncil,".
@@ -190,7 +190,7 @@
 		</tr>
 		<tr>
 		      <td>
-		              <center><div class=nav><?PHP echo '<a href="eoyreports.php?center='.$center.'">Return to End of Year Reports Main Menu</a>'; ?></div></center>
+		              <center><div class=nav><?php echo '<a href="eoyreports.php?center='.$center.'">Return to End of Year Reports Main Menu</a>'; ?></div></center>
 		      </td>
 		</tr>
 		</table>
@@ -199,7 +199,7 @@
 </tr>
 </table></div>
 </body>
-<?PHP
-	require("/footer.php");
+<?
+	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/footer.php");
 ?>
 

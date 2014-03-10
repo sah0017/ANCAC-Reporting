@@ -1,6 +1,6 @@
-<?PHP
-	require("/ulogin.php");
-	require("/dbconn.php");
+<?
+	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/ulogin.php");
+	require("/home/cluster1/data/a/p/a1224426/data/dbconn.php");
 
 	$sqlCenter = "SELECT CenterName FROM centers ".
              "WHERE center = '".$_SESSION['center']."'";
@@ -9,7 +9,7 @@
         $CenterName = $rowCenter->CenterName;
 
 	$page_title = 'ANCAC: Quarterly Report for '.$CenterName;
-	require("/header.php");
+	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/header.php");
 
         switch (date("m")){
                 case 10:
@@ -54,7 +54,7 @@
 		<table border="0" width="100%" id="table1">
 		<tr>
 			<td>
-<?PHP
+<?
      $sql = "SELECT fiTotal,extForenEval,intCounsSes,personnelCosts,empBenefits,travelInState,travelOutState,repairsAndMx,".
           "rentalsLease,utilComm,profServ,suppMatOper,tranEqpPurch,otherEqpPurch,debtService,misc,genFund,chilFirstTrust,".
           "capOutlay,unitedWay,adeca,natlChilAlliance,chilTrustFund,deptOfHR,countyComm,cityCouncil,localGrants,".
@@ -624,7 +624,7 @@
 </tr>
 </table></div>
 </body>
-<?PHP
-	require("/footer.php");
+<?
+	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/footer.php");
 ?>
 

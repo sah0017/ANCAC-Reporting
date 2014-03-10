@@ -1,14 +1,14 @@
-<?PHP
-	require("/ulogin.php");
-	require("/dbconn.php");
+<?php
+	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/ulogin.php");
+	require("/home/cluster1/data/a/p/a1224426/data/dbconn.php");
 
 	$page_title = 'ANCAC: Estimated Budget for All 4 Quarters';
-	require("/header.php");
+	require("/home/cluster1/data/a/p/a1224426/html/ANCAC-Online/header.php");
 
         $fiscalYear = $_POST['year'];
 ?>
 
-<?PHP
+<?php
                 $sql = "SELECT centers.center, centers.CenterName FROM `centers` JOIN `eoyChecks` ON centers.center = eoyChecks.center".
                         " AND eoyChecks.fiscalyear = '".$fiscalYear."' AND eoyChecks.EstBudget = '1'".
                         "  WHERE centers.center not in (0,99) order by centers.center";
@@ -16,12 +16,12 @@
 ?>
                 <center>
 		<table class="OutlineTable" width="85%">
-                        <tr><td class="login-header" colspan="5">All Submitted Estimated Budget for All 4 Quarters - FY <?PHP echo $fiscalYear; ?></td></tr>
-                        <tr align="left"><td colspan="5"><b>Date: </b><?PHP echo date("M d Y"); ?></td></tr>
+                        <tr><td class="login-header" colspan="5">All Submitted Estimated Budget for All 4 Quarters - FY <?php echo $fiscalYear; ?></td></tr>
+                        <tr align="left"><td colspan="5"><b>Date: </b><?php echo date("M d Y"); ?></td></tr>
                         <tr><td colspan="5">&nbsp;</td></tr>
                 </table>
                 <table class="Admin" width="85%">
-<?PHP
+<?php
 		while ($row = mysql_fetch_object($result)) {
                          $sql = "SELECT fiTotal,extForenEval,intCounsSes,personnelCosts,empBenefits,travelInState,travelOutState,repairsAndMx,".
               "rentalsLease,utilComm,profServ,suppMatOper,tranEqpPurch,otherEqpPurch,debtService,misc,genFund,chilFirstTrust,".
@@ -370,22 +370,22 @@
                 /* <!--
                 <tr align="center">
                         <td align="center"><b>Total Expenditures</b></td>
-                        <td align="right"><b><?PHP $totExpendsBudget = 0;
+                        <td align="right"><b><? $totExpendsBudget = 0;
                                 foreach ($ExpenseBud1 as $floatFund){
                                         $totExpendsBudget = $totExpendsBudget + $floatFund;
                                 }
                                 echo number_format($totExpendsBudget, 2); ?></b></td>
-                        <td align="right"><b><?PHP $totExpendsBudget = 0;
+                        <td align="right"><b><? $totExpendsBudget = 0;
                                 foreach ($ExpenseBud2 as $floatFund){
                                         $totExpendsBudget = $totExpendsBudget + $floatFund;
                                 }
                                 echo number_format($totExpendsBudget, 2); ?></b></td>
-                        <td align="right"><b><?PHP $totExpendsBudget = 0;
+                        <td align="right"><b><? $totExpendsBudget = 0;
                                 foreach ($ExpenseBud3 as $floatFund){
                                         $totExpendsBudget = $totExpendsBudget + $floatFund;
                                 }
                                 echo number_format($totExpendsBudget, 2); ?></b></td>
-                        <td align="right"><b><?PHP $totExpendsBudget = 0;
+                        <td align="right"><b><? $totExpendsBudget = 0;
                                 foreach ($ExpenseBud4 as $floatFund){
                                         $totExpendsBudget = $totExpendsBudget + $floatFund;
                                 }
@@ -648,22 +648,22 @@
                 //THIS IS THE COMMENTED OUT TOTAL STUFF
                 /* <tr align="center">
                         <td align="center"><b>Total Funds</b></td>
-                        <td align="right"><b><?PHP $totFundsBudget = 0;
+                        <td align="right"><b><? $totFundsBudget = 0;
                                 foreach ($FundsBud1 as $floatFund){
                                         $totFundsBudget = $totFundsBudget + $floatFund;
                                 }
                                 echo number_format($totFundsBudget, 2); ?></b></td>
-                        <td align="right"><b><?PHP $totFundsBudget = 0;
+                        <td align="right"><b><? $totFundsBudget = 0;
                                 foreach ($FundsBud2 as $floatFund){
                                         $totFundsBudget = $totFundsBudget + $floatFund;
                                 }
                                 echo number_format($totFundsBudget, 2); ?></b></td>
-                        <td align="right"><b><?PHP $totFundsBudget = 0;
+                        <td align="right"><b><? $totFundsBudget = 0;
                                 foreach ($FundsBud3 as $floatFund){
                                         $totFundsBudget = $totFundsBudget + $floatFund;
                                 }
                                 echo number_format($totFundsBudget, 2); ?></b></td>
-                        <td align="right"><b><?PHP $totFundsBudget = 0;
+                        <td align="right"><b><? $totFundsBudget = 0;
                                 foreach ($FundsBud4 as $floatFund){
                                         $totFundsBudget = $totFundsBudget + $floatFund;
                                 }
