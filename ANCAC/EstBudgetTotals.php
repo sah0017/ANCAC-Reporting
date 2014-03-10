@@ -35,8 +35,8 @@
                 $GRANDTOTAL4intCounsSes = 0;
                 $GRANDTOTAL4TotalService = 0;
 
-                echo '<center><h2><b>ANCAC: Estimated Budget Totals Report for FY '.$fiscalYear.'</b></h2></center>';
-                echo '<center><h3>Children\'s First Plan of Investment</h3></center>';
+                echo '<center><h2><b>ANCAC: Estimated Budget Totals Report for FY '.$fiscalYear.'</b></h2></center>'; //MH 3/10/14
+                echo '<center><h3>Children\'s First Plan of Investment</h3></center>'; //MH 3/10/14
 
                 //start of the Full Member Totals
                 $sqlFullMember = "SELECT center, CenterName FROM `centers` WHERE center not in (0,99) AND centerlevel = 'Full Member' order by center";
