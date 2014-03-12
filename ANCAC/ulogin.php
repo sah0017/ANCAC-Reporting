@@ -1,5 +1,8 @@
 <?PHP
-  require("./Variables.php");
+  if(file_exists("./Variables.php"))
+	require("./Variables.php");
+  else
+	require("../Variables.php");
   require($root."dbconn.php");
   require($root."PasswordHash.php");
 

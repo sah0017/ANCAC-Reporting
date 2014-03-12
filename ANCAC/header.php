@@ -16,18 +16,18 @@
 <html>
       <head>
             <title><?PHP echo $page_title; ?></title>
-            <SCRIPT language="JavaScript" SRC="javaScriptFunctions.js"></SCRIPT>
-            <?php echo '<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
-						<script src="dropit.js"></script>
-						<link rel="stylesheet" href="dropit.css" type="text/css" />';
+            <?php echo'<SCRIPT language="JavaScript" SRC="'.$webroot.'javaScriptFunctions.js"></SCRIPT>
+             			<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+						<script src="'.$webroot.'dropit.js"></script>
+						<link rel="stylesheet" href="'.$webroot.'dropit.css" type="text/css" />';
            ?>
            <script>
            		$(document).ready(function() {
         	    	$('.menu').dropit({ action: 'hover' });;
         		}); 
            </script>
-      		<link rel='stylesheet' href='login.css' type='text/css' media='screen'>
-      		<link rel='stylesheet' href='print.css' type='text/css' media='print'>
+      		<link rel='stylesheet' href='<?php echo $webroot?>login.css' type='text/css' media='screen'>
+      		<link rel='stylesheet' href='<?php echo $webroot?>print.css' type='text/css' media='print'>
       </head>
 
 <div class=nav>
@@ -36,9 +36,9 @@
 			<div class='userInfo'>Logged in as: <?PHP echo $_SESSION['name']." (".$_SESSION['CenterName'].")"; ?></div>
 			<div class='userInfo'>ANCAC</div>
 			<div class='userInfo pageTitle'><?PHP echo $page_title;?></div>
-			<div class='userInfo returnToMain'><a href=index.php>Return to Main Menu</a></div>
-			<div class='userInfo help'><a href=help.php>Help</a></div>
-			<div class='userInfo logoutButton'><a href=logout.php>Logout</a></div>
+			<div class='userInfo returnToMain'><a href=<?php echo $webroot?>index.php>Return to Main Menu</a></div>
+			<div class='userInfo help'><a href=<?php echo $webroot?>help.php>Help</a></div>
+			<div class='userInfo logoutButton'><a href=<?php echo $webroot?>logout.php>Logout</a></div>
 		</div>
 	</div>
 	
