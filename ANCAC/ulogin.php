@@ -27,7 +27,8 @@
                  "<tr><td class='login-left' align=right>User Name:&nbsp</td><td class='login-right'>".
                  "<input type=text NAME=username></td></tr><tr>".
                  "<td class='login-left' align=right>Password:&nbsp</td><td class='login-right'><input type=password NAME=password></td></tr>";
-            echo "<tr><td colspan='2' class='login' align=center><input type=hidden value=on name=keeplog></td></tr><tr><td colspan='2' class='login' align=center><input type='SUBMIT' value='Login'><br><br></td></tr></form></table></div><br><br>Note: This application requires cookies to be enabled.";
+            echo "<tr><td colspan='2' class='login' align=center><input type=hidden value=on name=keeplog></td></tr><tr><td colspan='2' class='login' align=center><input type='SUBMIT' value='Login'><br><br></td></tr>".
+            "<tr><br><br><td colspan='2' class='login'><br><br><a href=forgotpw.php>Forgot Password</a></td></tr></form></table></div><br><br>Note: This application requires cookies to be enabled.";
             exit;
         }
         else
