@@ -1,4 +1,4 @@
-<?	require("../Variables.php");
+<?php	require("../Variables.php");
 
 	require($root."ulogin.php");
 	$page_title = 'ANCAC: Shared Documents Menu';
@@ -17,7 +17,7 @@
 			<p>&nbsp;</p>
 			<p>0. <a href="index.php">Return to Documents Menu</a></p>
 			<p>&nbsp;</p>
-
+			<?php 					if($_SESSION['admin'] > 0){				echo('<form enctype="multipart/form-data" action="upload.php?d=1" method="POST">				<input type="hidden" name="MAX_FILE_SIZE" value="100000" />				Add a file: <input name="uploadedfile" type="file" /><input type="submit" value="Upload" />				</form>');			}			?>
 			</td>
 		</tr>
 	</table>

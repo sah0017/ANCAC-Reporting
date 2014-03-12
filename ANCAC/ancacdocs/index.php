@@ -1,4 +1,4 @@
-<?
+<?php
 	require("../Variables.php");
 	require($root."ulogin.php");
 
