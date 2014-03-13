@@ -16,7 +16,8 @@
 
 <?php
 			foreach(glob('files/minutes/*.*') as $file){
-			echo ("<p><a href=".str_replace(' ','%20',$file)." target=2>".basename($file)."</a></p>");
+			echo ("<p><a href=".str_replace(' ','%20',$file)." target=2>".basename($file)."</a>".
+					"&nbsp&nbsp&nbsp<a href=\"delete.php?f=".basename($file)."&d=3\">Delete</a></p>");
 			}
 ?>
 

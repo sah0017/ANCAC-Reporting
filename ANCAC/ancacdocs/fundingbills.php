@@ -13,7 +13,7 @@
 		<tr>
 			<td>
 			<br><b>ANCAC FUNDING BILLS</b><br><br><br>
-			<?php			foreach(glob('files/fundingbills/*.*') as $file){			echo ("<p><a href=".str_replace(' ','%20',$file)." target=2>".basename($file)."</a></p>");			}			?>
+			<?php			foreach(glob('files/fundingbills/*.*') as $file){			echo ("<p><a href=".str_replace(' ','%20',$file)." target=2>".basename($file)."</a></p>".					"&nbsp&nbsp&nbsp<a href=\"delete.php?f=".basename($file)."&d=1\">Delete</a></p>");						}			?>
 
 			<p>&nbsp;</p>
 			<p>0. <a href="index.php">Return to Documents Menu</a></p>
