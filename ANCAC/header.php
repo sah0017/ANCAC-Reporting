@@ -48,21 +48,19 @@
 		    <li>
 		        <a href="#">Reports</a>
 		        <ul>
-		            <li><a href="#">Enter/Update Quaterly Numbers</a></li>
-		            <li><a href="#">Enter Annual Budget Numbers</a></li>
-		            <li><a href="#">Print YTD Reports</a></li>
+		            <li><a href="qreports.php">Enter/Update Quaterly Numbers</a></li>
+		            <li><a href="eoyreports.php">Enter Annual Budget Numbers</a></li>
+		            <li><a href="selectYear.php">Print YTD Reports</a></li>
 		        </ul>
 		    </li>
 		</ul>
 		
 		<ul class="menu">
 		    <li>
-		        <a href="#">Dropdown2</a>
+		        <a href="#">Special Functions</a>
 		        <ul>
-		            <li><a href="#">Some Action 1</a></li>
-		            <li><a href="#">Some Action 2</a></li>
-		            <li><a href="#">Some Action 3</a></li>
-		            <li><a href="#">Some Action 4</a></li>
+		            <li><a href="ancacdocs/">View/Update Shared Docs</a></li>
+		            <li><a href="#">Update Center Info</a></li>
 		        </ul>
 		    </li>
 		</ul>
@@ -71,24 +69,25 @@
 		if($_SESSION['admin'] > 1){
 			echo '<ul class="menu">
 			    <li>
-			        <a href="#">Dropdown3</a>
+			        <a href="#">Admin</a>
 			        <ul>
-			            <li><a href="#">Some Action 1</a></li>
-			            <li><a href="#">Some Action 2</a></li>
-			            <li><a href="#">Some Action 3</a></li>
-			            <li><a href="#">Some Action 4</a></li>
+			            <li><a href="AcctAdmin.php">Center Administration</a></li>
+			            <li><a href="LastLogin.php">View Last Login for Ctrs</a></li>
+			            <li><a href="email.php">E-mail Entire Network</a></li>
+			            <li><a href="qreportAdmin.php?from=8">Received Snail Mail Docs</a></li>
 			        </ul>
 			    </li>
 			</ul>
 			
 			<ul class="menu">
 			    <li>
-			        <a href="#">Dropdown4</a>
+			        <a href="#">Reporting</a>
 			        <ul>
-			            <li><a href="#">Some Action 1</a></li>
-			            <li><a href="#">Some Action 2</a></li>
-			            <li><a href="#">Some Action 3</a></li>
-			            <li><a href="#">Some Action 4</a></li>
+			            <li><a href="haveSubmit.php">View Current Qtr Unsumitted Centers</a></li>
+			            <li><a href="selectYearGT.php?from=2">Veiw/Print ANCAC Grant Total Rpt</a></li>
+			            <li><a href="selectYearGT.php?from=3">Veiw/Print Estimated Budget Total Rpt</a></li>
+			            <li><a href="qreportAdmin.php?from=9">Veiw/Print ANCAC Board of Directors</a></li>
+						<li><a href="eoyProgress.php">Check EOY Status</a></li>
 			        </ul>
 			    </li>
 			</ul>';
