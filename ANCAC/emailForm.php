@@ -37,6 +37,14 @@
 		
 		$body = $result->$bodyColumn;
 		
+		switch($sendTo){
+			case 0:
+				$sql = 'SELECT email from directors WHERE center NOT IN ("99")';
+				break;
+			case 1:
+				$sql = 'SELECT email from directors WHERE center NOT IN ("99")';
+				break;
+		}
 		
 	}
 	//This page allows the user to input the info they want sent out in the reminder email for end of year reports
@@ -100,5 +108,5 @@
 		echo $output;
 		
 		require("/footer.php");
-	}
+	}//end outside else
 ?> 
