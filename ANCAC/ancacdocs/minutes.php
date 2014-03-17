@@ -1,4 +1,5 @@
-<?
+<?php
+	require("../Variables.php");
 	require($root."ulogin.php");
 	$page_title = 'ANCAC: Shared Documents Menu';
 	require($root."header.php");
@@ -13,29 +14,26 @@
 			<td>
 			<br><b>ANCAC BOARD MINUTES</b><br><br><br>
 
-			<p><u>FY 08-09:</u></p>
-			<p><a target="1a" href="011309_ANCAC_Board_Minutes.pdf">January 13, 
-			2009</a></p>
-			<p>&nbsp;</p>
-			<p><u>FY 07-08:</u></p>
-			<p><a target="4" href="092208_ANCAC_Board_Minutes.pdf">September 22, 
-			2008</a><p><a target="3" href="072208_ANCAC_Board_Minutes.pdf">July 
-			22, 2008</a><p><a target="2" href="042208_ANCAC_Board_Minutes.pdf">
-			April 22, 2008</a><p>
-			<a target="1" href="011508_ANCAC_Board_Minutes.pdf">January 15, 2008</a><p>
-			<br><br>
-
-			<p><u>FY 06-07:</u></p>
-			<p><a href="092407_ANCAC_Board_Minutes.pdf" target=2>September 24, 2007</a></p>
-			<p><a href="052207_ANCAC_Board_Minutes.pdf" target=3>May 22, 2007</a></p>
-			<p><a href="021307_ANCAC_Board_Minutes.pdf" target=4>February 13, 2007</a></p>
-			<p><a target="5" href="101706_ANCAC_Board_Minutes.pdf">October 17, 2006</a></p>
-			<br><br><br>
+<?php
+			foreach(glob('files/minutes/*.*') as $file){
+			echo ("<p><a href=".str_replace(' ','%20',$file)." target=2>".basename($file)."</a>".
+					"&nbsp&nbsp&nbsp<a href=\"delete.php?f=".basename($file)."&d=3\">Delete</a></p>");
+			}
+?>
 
 			<p>&nbsp;</p>
 			<p>0. <a href="index.php">Return to Documents Menu</a></p>
 			<p>&nbsp;</p>
 
+			<?php 		
+			if($_SESSION['admin'] > 0){
+				echo('<form enctype="multipart/form-data" action="upload.php?d=3" method="POST">
+				<input type="hidden" name="MAX_FILE_SIZE" value="100000" />
+				Add a file: <input name="uploadedfile" type="file" /><input type="submit" value="Upload" />
+				</form>');
+			}
+			?>
+			
 			</td>
 		</tr>
 	</table>

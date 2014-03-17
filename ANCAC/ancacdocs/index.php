@@ -1,5 +1,5 @@
-<?
-
+<?php
+	require("../Variables.php");
 	require($root."ulogin.php");
 
 	$page_title = 'ANCAC: Shared Documents Menu';
@@ -36,7 +36,7 @@
 
 			<p>&nbsp;</p>
 
-			<p>0. <a href="/ANCAC-Online/index.php">Return to Main Menu</a></p>
+			<p>0. <a href="../index.php">Return to Main Menu</a></p>
 
 			<p>&nbsp;</p>
 
