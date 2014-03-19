@@ -12,6 +12,15 @@ include_once "ez_sql_mysqli.php";
 // at the same time - db_user / db_password / db_name / db_host
 $db = new ezSQL_mysqli('ancac','','ancac','localhost');
 
+//This is needed since we are calling from a command line, but to keep compatibility with calling from a web enviroment
+foreach ($argv as $arg) {
+	$e=explode("=",$arg);
+	if(count($e)==2)
+		$_GET[$e[0]]=$e[1];
+	else
+		$_GET[$e[0]]=0;
+}
+
 //TESTING
 $_GET['emailToSend'] = "5DaysPriorToDeadline";
 //The page is called by the cron job to send a message
