@@ -1,4 +1,7 @@
 <?php
+
+chdir(dirname(__FILE__)); //since we call from a cron job, we have to change the current directory we are working in
+
 // Include ezSQL core
 include_once "ez_sql_core.php";
 
