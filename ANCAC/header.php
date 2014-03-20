@@ -50,7 +50,7 @@
 		        <ul>
 		            <li><a href="qreports.php">Enter/Update Quaterly Numbers</a></li>
 		            <li><a href="eoyreports.php">Enter Annual Budget Numbers</a></li>
-		            <li><a href="selectYear.php">Print YTD Reports</a></li>
+		            <li><a href="selectYear.php">Print Year To Date Reports</a></li>
 		        </ul>
 		    </li>
 		</ul>
@@ -84,10 +84,10 @@
 			        <a href="#">Reporting</a>
 			        <ul>
 			            <li><a href="haveSubmit.php">View Current Qtr Unsumitted Centers</a></li>
-			            <li><a href="selectYearGT.php?from=2">Veiw/Print ANCAC Grant Total Rpt</a></li>
-			            <li><a href="selectYearGT.php?from=3">Veiw/Print Estimated Budget Total Rpt</a></li>
+			            <li><a href="selectYearGT.php?from=2">Veiw/Print ANCAC Grant Total Report</a></li>
+			            <li><a href="selectYearGT.php?from=3">Veiw/Print Estimated Budget Total Report</a></li>
 			            <li><a href="qreportAdmin.php?from=9">Veiw/Print ANCAC Board of Directors</a></li>
-						<li><a href="eoyProgress.php">Check EOY Status</a></li>
+						<li><a href="eoyProgress.php">Check End Of Year Status</a></li>
 			        </ul>
 			    </li>
 			</ul>';
