@@ -35,11 +35,11 @@
 	<div class='loginInfo'> 
 		<div class=login-header>
 			<div class='userInfo'>Logged in as: <?PHP echo $_SESSION['name']." (".$_SESSION['CenterName'].")"; ?></div>
-			<div class='userInfo'>ANCAC</div>
+			<div class='userInfo'> | ANCAC | </div>
 			<div class='userInfo pageTitle'><?PHP echo $page_title;?></div>
-			<div class='userInfo returnToMain'><a href=<?php echo $webroot?>index.php>Return to Main Menu</a></div>
-			<div class='userInfo help'><a href=<?php echo $webroot?>help.php>Help</a></div>
-			<div class='userInfo logoutButton'><a href=<?php echo $webroot?>logout.php>Logout</a></div>
+			<div class='userInfo returnToMain'><a href=<?php echo $webroot?>index.php> | Return to Main Menu</a></div>
+			<div class='userInfo help'><a href=<?php echo $webroot?>help.php> | Help</a></div>
+			<div class='userInfo logoutButton'><a href=<?php echo $webroot?>logout.php> | Logout</a></div>
 		</div>
 	</div>
 	
