@@ -20,7 +20,7 @@ function randomPassword() {
 if($_POST['Reset'] != 1)
 {
 	echo "<html><head><title>ANCAC: Password reset</title><br><br><link rel='stylesheet' href='login.css' type='text/css'></head>";
-	echo "<p><form method=POST action='$self'><input type=hidden name=Reset value=1><div align='center' style='width=100%;'>";
+	echo "<p><form method=POST action='forgotpw.php'><input type=hidden name=Reset value=1><div align='center' style='width=100%;'>";
 	echo "<table class='loginMain' align=center><tr><td colspan='2' class='login-header' align=center>ANCAC".
 			"<div class='login-subheader'>For Centers & Admin Office</div></td></tr> <tr><br><br><td colspan='2' class='login'><br><br>Please enter your username.</td></tr>".
 			"<tr><td class='login-left' align=right>User Name:&nbsp</td><td class='login-right'>".
