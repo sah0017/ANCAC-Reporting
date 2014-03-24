@@ -16,8 +16,10 @@
 
 <?php
 			foreach(glob('files/minutes/*.*') as $file){
-			echo ("<p><a href=".str_replace(' ','%20',$file)." target=2>".basename($file)."</a>".
-					"&nbsp&nbsp&nbsp<a href=\"delete.php?f=".basename($file)."&d=3\">Delete</a></p>");
+			echo ("<p><a href=".str_replace(' ','%20',$file).' target=target="_blank">'.basename($file)."</a>");
+			if($_SESSION['admin'] > 0){
+				echo "&nbsp&nbsp&nbsp<a href=\"delete.php?f=".basename($file)."&d=3\">Delete</a></p>";
+			}
 			}
 ?>
 
