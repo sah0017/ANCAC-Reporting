@@ -82,9 +82,9 @@
 					                       // }
 					 //	}
 					?>
-		            <li><a href=<?php echo $webroot?>"qreports.php">Enter/Update Quarterly Numbers</a></li>
-		            <li><a href=<?php echo $webroot?>"eoyreports.php">Enter Annual Budget Numbers</a></li>
-		            <li><a href=<?php echo $webroot?>"selectYear.php">Print Year To Date Reports</a></li>
+		            <li><a href="<?php echo $webroot?>qreports.php">Enter/Update Quarterly Numbers</a></li>
+		            <li><a href="<?php echo $webroot?>eoyreports.php">Enter Annual Budget Numbers</a></li>
+		            <li><a href="<?php echo $webroot?>selectYear.php">Print Year To Date Reports</a></li>
 		        </ul>
 		    </li>
 		</ul>
@@ -93,7 +93,7 @@
 		    <li>
 		        <a href="#">Special Functions</a>
 		        <ul>
-		            <li><a href=<?php echo $webroot?>"ancacdocs/index.php">View/Update Shared Docs</a></li>
+		            <li><a href="<?php echo $webroot?>ancacdocs/index.php">View/Update Shared Docs</a></li>
 		        </ul>
 		    </li>
 		</ul>
