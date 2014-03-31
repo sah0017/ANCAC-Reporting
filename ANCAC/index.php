@@ -29,11 +29,11 @@
 ?>
 
 <?PHP
-	if($_SESSION['admin'] > 0)
-	{
-		echo '<br>ANCAC<br>';
-
-	}
+//adding of logo jpeg
+	//if($_SESSION['admin'] > 0)
+	//{
+		echo "<img src=".$webroot.'"Unshaded ANCAC Logo.jpg" width="333" height="300">';
+	//}
 
 ?>
 
