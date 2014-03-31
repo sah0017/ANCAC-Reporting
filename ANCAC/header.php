@@ -82,7 +82,7 @@
 					                       // }
 					 //	}
 					?>
-		            <li><a href=<?php echo $webroot?>"qreports.php">Enter/Update Quaterly Numbers</a></li>
+		            <li><a href=<?php echo $webroot?>"qreports.php">Enter/Update Quarterly Numbers</a></li>
 		            <li><a href=<?php echo $webroot?>"eoyreports.php">Enter Annual Budget Numbers</a></li>
 		            <li><a href=<?php echo $webroot?>"selectYear.php">Print Year To Date Reports</a></li>
 		        </ul>
@@ -93,7 +93,7 @@
 		    <li>
 		        <a href="#">Special Functions</a>
 		        <ul>
-		            <li><a href=<?php echo $webroot?>"ancacdocs/">View/Update Shared Docs</a></li>
+		            <li><a href=<?php echo $webroot?>"ancacdocs/index.php">View/Update Shared Docs</a></li>
 		        </ul>
 		    </li>
 		</ul>
@@ -108,6 +108,9 @@
 			            <li><a href="' .$webroot.'LastLogin.php">View Last Login for Ctrs</a></li>
 			            <li><a href="'.$webroot.'email.php">E-mail Entire Network</a></li>
 			            <li><a href= "'.$webroot.'qreportAdmin.php?from=8">Received Snail Mail Docs</a></li>
+      					<li><a href= "'.$webroot.'excelExportYear.php">Excel Export</a></li>
+            			<li><a href= "'.$webroot.'emailForm.php">Email reminder editor</a></li>
+      		
 			        </ul>
 			    </li>
 			</ul>
@@ -116,10 +119,10 @@
 			    <li>
 			        <a href="#">Reporting</a>
 			        <ul>
-			            <li><a href="'.$webroot.'haveSubmit.php">View Current Qtr Unsumitted Centers</a></li>
-			            <li><a href="'.$webroot.'selectYearGT.php?from=2">Veiw/Print ANCAC Grant Total Report</a></li>
-			            <li><a href="'.$webroot.'selectYearGT.php?from=3">Veiw/Print Estimated Budget Total Report</a></li>
-			            <li><a href="'.$webroot.'qreportAdmin.php?from=9">Veiw/Print ANCAC Board of Directors</a></li>
+			            <li><a href="'.$webroot.'haveSubmit.php">View Current Qtr Unsubmitted Centers</a></li>
+			            <li><a href="'.$webroot.'selectYearGT.php?from=2">View/Print ANCAC Grand Total Report</a></li>
+			            <li><a href="'.$webroot.'selectYearGT.php?from=3">View/Print Estimated Budget Total Report</a></li>
+			            <li><a href="'.$webroot.'qreportAdmin.php?from=9">View/Print ANCAC Board of Directors</a></li>
 						<li><a href="'.$webroot.'eoyProgress.php">Check End Of Year Status</a></li>
 			        </ul>
 			    </li>
