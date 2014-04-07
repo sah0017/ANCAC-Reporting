@@ -37,7 +37,7 @@
 			<div class='userInfo'>Logged in as: <?PHP echo $_SESSION['name']." (".$_SESSION['CenterName'].")"; ?></div>
 			<div class='userInfo'> | ANCAC | </div>
 			<div class='userInfo pageTitle'><?PHP echo $page_title;?></div>
-			<div class='userInfo returnToMain'><a href=<?php echo $webroot?>index.php> | Return to Main Menu</a></div>
+			<div class='userInfo returnToMain'><a href=<?php echo $webroot?>index.php> | Return to Main Menu</a></div> 
 			<div class='userInfo help'><a href=<?php echo $webroot?>help.php> | Help</a></div>
 			<div class='userInfo logoutButton'><a href=<?php echo $webroot?>logout.php> | Logout</a></div>
 		</div>
@@ -52,39 +52,96 @@
 		           
 		           <?PHP 
 		            //makes the links unavailable to the centers if not in the date.
-		            //added webroots to the links
-						//if($_SESSION['admin'] == 2)
-						//{
-						//	echo <li><a href= echo .$webroot."qreportAdmin.php">Enter/Update Quaterly Numbers</a></li>;
-						//}
-						//else
-						//{
-					               // $center = $_SESSION['center'];
-					               // $sql = "SELECT completed".
-					                       // " FROM actualExpenditures ".
-					                       // "WHERE center = ".$center." AND fiscalyear = ".$fiscalYear.
-					                       // " AND quarter = ".$currentQuarter;
+		           // added webroots to the links
+				        if($_SESSION['admin'] == 2)
+						{
+							echo '<li><a href="'.$webroot.'qreportAdmin.php">Enter/Update Quarterly Numbers</a></li>';
+						}
+						else
+						{
+							
+							switch (date("m")){
+								case 10:
+									$fiscalYear = date("Y");
+									$quarter = 3;
+									if (date("j") < $Quarter4Date)
+										$Available = 1;
+									else
+										$Available = 0;
+									break;
+								case 11:
+								case 12:
+									$fiscalYear = date("Y");
+									$quarter = 4;
+									$Available = 0;
+									break;
+								case 1:
+									$fiscalYear = date("Y");
+									$quarter = 4;
+									if (date("j") < $Quarter1Date)
+										$Available = 1;
+									else
+										$Available = 0;
+									break;
+								case 2:
+									$quarter = 1;
+								case 3:
+									$fiscalYear = date("Y");
+									$quarter = 1;
+									$Available = 0;
+									break;
+								case 4:
+									$fiscalYear = date("Y");
+									$quarter = 1;
+									if (date("j") < $Quarter2Date)
+										$Available = 1;
+									else
+										$Available = 0;
+									break;
+								case 5:
+									$quarter = 2;
+								case 6:
+									$fiscalYear = date("Y");
+									$quarter = 2;
+									$Available = 0;
+									break;
+								case 7:
+									$fiscalYear = date("Y");
+									$quarter = 2;
+									if (date("j") < $Quarter3Date)
+										$Available = 1;
+									else
+										$Available = 0;
+									break;
+								case 8:
+									$quarter = 3;
+								case 9:
+									$fiscalYear = date("Y");
+									$quarter = 3;
+									$Available = 0;
+									break;
+							}
+					                $center = $_SESSION['center'];
+					                $sql = "SELECT completed FROM actualExpenditures WHERE center = ".$center." AND fiscalyear = ".$fiscalYear." AND quarter = ".$quarter;
 					
-					               // $result= @mysql_query($sql) or mysql_error();
-					               // $row = mysql_fetch_object($result);
-					
-					                //echo '<td>';
-					                //if (isset($row->completed)){
-					                     //   if ($row->completed == "INC"){
-					                         //       if ($Available == 1){
-					                         //             echo   <li><a href= echo .$webroot."editQuarter.php">Start Quaterly Numbers</a></li>;
-					                           //           echo  <li><a href= echo .$webroot."submitCQ.php">Enter/Update Quaterly Numbers</a></li>;
-					                         //       }
-					                             //   else{
-					                               // 	echo 	<li><a href="#">Start Quaterly Numbers (Unavailable)</a></li>;
-					                                 //   echo   <li><a href="#">Submitt Quaterly Numbers (Unavailables)</a></li>;
-					                         //       }
-					                       // }
-					 //	}
+					                $result= $db->get_row($sql);
+					                
+					                if (isset($result->completed)){
+					                        if ($result->completed == "INC"){
+					                                if ($Available == 1){
+					                                      echo '<li><a href="'.$webroot.'editQuarter.php">Start Quaterly Numbers</a></li>';
+					                                      echo '<li><a href="'.$webroot.'submitCQ.php">Enter/Update Quarterly Numbers</a></li>';
+					                                }
+					                                else{
+					                                	echo '<li>Start Quarterly Numbers (Unavailable)</li>';
+					                                    echo '<li>Submitt Quarterly Numbers (Unavailables)</li>';
+					                                }
+					                        }
+					                 }//end if (isset($row->completed)){
+					  }
 					?>
-		            <li><a href=<?php echo $webroot?>"qreports.php">Enter/Update Quarterly Numbers</a></li>
-		            <li><a href=<?php echo $webroot?>"eoyreports.php">Enter Annual Budget Numbers</a></li>
-		            <li><a href=<?php echo $webroot?>"selectYear.php">Print Year To Date Reports</a></li>
+		            <li><a href=<?php echo $webroot?>eoyreports.php>Enter Annual Budget Numbers</a></li>
+		            <li><a href=<?php echo $webroot?>selectYear.php>Print Year To Date Reports</a></li>
 		        </ul>
 		    </li>
 		</ul>
@@ -93,7 +150,7 @@
 		    <li>
 		        <a href="#">Special Functions</a>
 		        <ul>
-		            <li><a href=<?php echo $webroot?>"ancacdocs/index.php">View/Update Shared Docs</a></li>
+		            <li><a href=<?php echo $webroot?>ancacdocs/index.php>View/Update Shared Docs</a></li>
 		        </ul>
 		    </li>
 		</ul>
