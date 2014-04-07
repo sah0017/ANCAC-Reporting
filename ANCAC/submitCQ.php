@@ -188,11 +188,11 @@
                 }
         }
         if ($_SESSION['admin'] == 1)
-                header('Location: http://www.alabamacacs.org/ANCAC-Online/qreports.php');
+                header('Location: http://'.$_SERVER['HTTP_HOST'].$webroot.'qreports.php');
         else{
                 if (($_SESSION['admin'] == 2) || ($Available == 1)){
                         if ($error == 1)
-                                echo '"<script>alert(\'Please make sure that all values have been filled in before submitted your Quarterly Report.\'); window.location.href = \'http://www.alabamacacs.org/ANCAC-Online/editQuarter.php\';</script>"';
+                                echo '"<script>alert(\'Please make sure that all values have been filled in before submitted your Quarterly Report.\'); window.location.href = \'http://'.$_SERVER['HTTP_HOST'].$webroot.'editQuarter.php\';</script>"';
                         else{
                                 $sqlUpdate = "UPDATE actualExpenditures SET completed = 'COM', ".
                                         "username = '".$_SESSION['user']."', datemod = NOW() ".
@@ -201,10 +201,10 @@
 
                                 $resultUpdate = @mysql_query($sqlUpdate);
 
-                                header('Location: http://www.alabamacacs.org/ANCAC-Online/qreports.php');
+                                header('Location: http://'.$_SERVER['HTTP_HOST'].$webroot.'qreports.php');
                         }
                 }
                 else
-                        header('Location: http://www.alabamacacs.org/ANCAC-Online/qreports.php');
+                        header('Location: http://'.$_SERVER['HTTP_HOST'].$webroot.'qreports.php');
         }                
 ?>

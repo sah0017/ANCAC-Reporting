@@ -626,12 +626,12 @@
         if($_SESSION['admin'] > 0)
 	{
                 if ($CY == 1)
-                      header('Location: http://www.alabamacacs.org/ANCAC-Online/editBudgets.php?center='.$centerID.'&Y=1');
+                      header('Location: http://'.$_SERVER['HTTP_HOST'].$webroot.'editBudgets.php?center='.$centerID.'&Y=1');
                 else
-		      header('Location: http://www.alabamacacs.org/ANCAC-Online/editBudgets.php?center='.$centerID);
+		      header('Location: http://'.$_SERVER['HTTP_HOST'].$webroot.'editBudgets.php?center='.$centerID);
 	}
 	else
 	{
-                header('Location: http://www.alabamacacs.org/ANCAC-Online/editBudgets.php');
+                header('Location: http://'.$_SERVER['HTTP_HOST'].$webroot.'editBudgets.php');
         }
 ?>

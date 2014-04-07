@@ -48,11 +48,11 @@
         }
 
         if ($_SESSION['admin'] == 1)
-                header('Location: http://www.alabamacacs.org/ANCAC-Online/eoyreports.php?center='.$centerID);
+                header('Location: http://'.$_SERVER['HTTP_HOST'].$webroot.'eoyreports.php?center='.$centerID);
         else{
                 if (($_SESSION['admin'] == 2) || ($Available == 1)){
                         if ($error == 1)
-                                echo '"<script>alert(\'Please make sure that you have entered in the Board of Directors.\'); window.location.href = \'http://www.alabamacacs.org/ANCAC-Online/boardOfDir.php?center='.$centerID.'\';</script>"';
+                                echo '"<script>alert(\'Please make sure that you have entered in the Board of Directors.\'); window.location.href = \'http://'.$_SERVER['HTTP_HOST'].$webroot.'boardOfDir.php?center='.$centerID.'\';</script>"';
                         else{
                                 $sqlUpdate = "UPDATE eoyChecks SET BoardOfDir = '1', ".
                                         "username = '".$_SESSION['user']."', datemod = NOW() ".
@@ -60,10 +60,10 @@
 
                                 $resultUpdate = @mysql_query($sqlUpdate);
 
-                                header('Location: http://www.alabamacacs.org/ANCAC-Online/eoyreports.php?center='.$centerID);
+                                header('Location: http://'.$_SERVER['HTTP_HOST'].$webroot.'eoyreports.php?center='.$centerID);
                         }
                 }
                 else
-                        header('Location: http://www.alabamacacs.org/ANCAC-Online/eoyreports.php?center='.$centerID);
+                        header('Location: http://'.$_SERVER['HTTP_HOST'].$webroot.'eoyreports.php?center='.$centerID);
         }
 ?>
