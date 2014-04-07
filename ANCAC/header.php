@@ -140,14 +140,9 @@
 					                 }//end if (isset($row->completed)){
 					  }
 					?>
-<<<<<<< HEAD
 		            <li><a href=<?php echo $webroot?>eoyreports.php>Enter Annual Budget Numbers</a></li>
 		            <li><a href=<?php echo $webroot?>selectYear.php>Print Year To Date Reports</a></li>
-=======
-		            <li><a href="<?php echo $webroot?>qreports.php">Enter/Update Quarterly Numbers</a></li>
-		            <li><a href="<?php echo $webroot?>eoyreports.php">Enter Annual Budget Numbers</a></li>
-		            <li><a href="<?php echo $webroot?>selectYear.php">Print Year To Date Reports</a></li>
->>>>>>> refs/remotes/origin/master
+
 		        </ul>
 		    </li>
 		</ul>
@@ -156,11 +151,8 @@
 		    <li>
 		        <a href="#">Special Functions</a>
 		        <ul>
-<<<<<<< HEAD
-		            <li><a href=<?php echo $webroot?>ancacdocs/index.php>View/Update Shared Docs</a></li>
-=======
-		            <li><a href="<?php echo $webroot?>ancacdocs/index.php">View/Update Shared Docs</a></li>
->>>>>>> refs/remotes/origin/master
+ <li><a href=<?php echo $webroot?>ancacdocs/index.php>View/Update Shared Docs</a></li>
+
 		        </ul>
 		    </li>
 		</ul>
