@@ -109,7 +109,7 @@
 	$page_title = 'ANCAC: Editing Quarter ending '.$Ending.' for '.$CenterName;
 	require($root."header.php");
 
-?>
+?> <script> function perfForm() {	 document.getElementById('Performance').style.display="block";	 document.getElementById('Expenditures').style.display="none";     document.getElementById('Funds').style.display="none";     document.getElementById('perfButton').disabled=true;     document.getElementById('expButton').disabled=false;     document.getElementById('fundButton').disabled=false; } function expForm() {	 document.getElementById('Performance').style.display="none";	 document.getElementById('Expenditures').style.display="block";     document.getElementById('Funds').style.display="none";     document.getElementById('perfButton').disabled=false;     document.getElementById('expButton').disabled=true;     document.getElementById('fundButton').disabled=false; } function fundForm() {	 document.getElementById('Performance').style.display="none";	 document.getElementById('Expenditures').style.display="none";     document.getElementById('Funds').style.display="block";     document.getElementById('perfButton').disabled=false;     document.getElementById('expButton').disabled=false;     document.getElementById('fundButton').disabled=true; }  </script>
 
 <body>
 <table class='OutlineTable' align=center width="90%">
@@ -119,8 +119,8 @@
 </tr>
 <tr>
 	<td class='login' align=left>
-	<center>
-		<table border="0" width="100%" id="table1">
+
+		<table  width="100%" id="table1">
 		<tr>
 			<td>
 			<form action="updateQuarter.php" method="post">
@@ -161,7 +161,7 @@
                              $ExpenseAct = array();
                         ?>
 
-                <table width="100%" class="Admin">
+                <table id="Performance" width="100%" class="Admin" style=display:block>
                 <?PHP
 	          if($_SESSION['admin'] > 1)
         	  {
@@ -299,17 +299,15 @@
                         <td><input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
                                 onkeypress="return blockNonNumbers(this, event, false, false);" class="TextInput" name="medExamRef"
                                 value="<?PHP if(isset($row1QActual->medExamRef)){if ($row1QActual->medExamRef != -99) echo $row1QActual->medExamRef;} ?>" /></td>
-                </tr>
-                <tr>
-                        <td colspan="3"><br></td>
-                </tr>
+                </tr>                </table>
+                <table id="Expenditures" width="100%" class="Admin" style=display:none>                              
                 <tr>
                         <td><b>Quarterly Expenditures</td>
                         <td colspan="2" align="center"><b>Current Quarter ending <?PHP echo $Ending; ?></b></td>
                 </tr>
                 <tr align="center">
                         <td> </td>
-                        <td width="7%"><b>Budgeted</b></td><td width="7%"><b>Actual</b></td>
+                        <td width="25%"><b>Budgeted</b></td><td width="25%"><b>Actual</b></td>                        
                 </tr>
                 <tr align="center">
                         <td align="left">Number of full-time employees</td>
@@ -459,14 +457,14 @@
                                 echo number_format($totExpendsActual, 2); ?></b></td>
                 </tr>
                 -->
-                <tr><td colspan="13"><br></td></tr>
+                <tr><td colspan="13"><br></td></tr>                </table>                <table id="Funds" width="100%" class="Admin" style=display:none>
                 <tr>
                         <td><b>Source of Funds</td>
                         <td colspan="2" align="center"><b>Current Quarter ending <?PHP echo $Ending; ?></b></td>
                 </tr>
                 <tr align="center">
                         <td> </td>
-                        <td width="7%"><b>Budgeted</b></td><td width="7%"><b>Actual</b></td>
+                        <td width="25%"><b>Budgeted</b></td><td width="25%"><b>Actual</b></td>                        
                 </tr>
                 <tr align="center">
                         <td align="left">State of AL General Fund</td>
@@ -616,18 +614,18 @@
                                 echo number_format($totFundsActual, 2); ?></b></td>
                 </tr>
                 -->
-                </table>
+                </table>                                
                 
                                 <?PHP if ($Available == 1){ if ($_SESSION['admin'] != 1) echo '<p><input type="submit" name="submit" value="Update Quarterly Report" /></p>';} ?>
                                 <input type="hidden" name="centerID" value="<?PHP echo $centerID; ?>" />
                                 <input type="hidden" name="Quarter" value="<?PHP echo $Quarter; ?>" />
                                 <input type="hidden" name="fiscalYear" value="<?PHP echo $fiscalYear; ?>" />
                                 <input type="hidden" name="Update" value="<?PHP echo $Update; ?>" />
-                        </form>
+                        </form>                        </br>                 <button id=perfButton onclick="perfForm()" disabled=true >Performance Statistics</button><button id=expButton onclick="expForm()">Quarterly Expenditures</button><button id=fundButton onclick="fundForm()">Funding Sources</button>                        
 			</td>
 		</tr>
 		</table>
-	</center>
+
 	</td>
 </tr>
 </table>

@@ -39,7 +39,7 @@
 	$centerID = $_SESSION['center'];
 
         if ($_SESSION['admin'] == 1)
-                header('Location: http://www.alabamacacs.org/ANCAC-Online/eoyreports.php?center='.$centerID);
+                header('Location: http://'.$_SERVER['HTTP_HOST'].$webroot.'eoyreports.php?center='.$centerID);
         else{
                 if (($_SESSION['admin'] == 2) || ($Available == 1)){
                         $sqlUpdate = "UPDATE eoyChecks SET OtherExpense = '1', ".
@@ -48,10 +48,10 @@
 
                         $resultUpdate = @mysql_query($sqlUpdate);
 
-                        header('Location: http://www.alabamacacs.org/ANCAC-Online/eoyreports.php?center='.$centerID);
+                        header('Location: http://'.$_SERVER['HTTP_HOST'].$webroot.'eoyreports.php?center='.$centerID);
 
                 }
                 else
-                        header('Location: http://www.alabamacacs.org/ANCAC-Online/eoyreports.php?center='.$centerID);
+                        header('Location: http://'.$_SERVER['HTTP_HOST'].$webroot.'eoyreports.php?center='.$centerID);
         }
 ?>
