@@ -437,6 +437,7 @@
 
 		      <td colspan="2">
 
+		              <center><div class=nav><?PHP echo '<a href="editBudgets.php?center='.$center.'">Return to Editing Budgets</a>'; ?></div></center>
 		              <center><div class=nav><?PHP echo '<a href="eoyreports.php?center='.$center.'">Return to End of Year Reports Main Menu</a>'; ?></div></center>
 
 		      </td>

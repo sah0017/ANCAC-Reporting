@@ -105,7 +105,7 @@
                         echo '</td><td>1.  <a href="qreports.php">Enter 4th quarter Quarterly Numbers</a></td></tr>';
                         echo '<tr><td colspan="3">&nbsp;</td></tr>';
                          //Other Income
-                        echo '<tr><td align="center">Oct 10</td><td align="center">';
+                        /*echo '<tr><td align="center">Oct 10</td><td align="center">';
                         if ($row1->OtherIncome == 0) {
                           echo $flag_Image.'</td><td>2. a. <a href="addRemoveOI.php?center='.$center.'">Enter Other Incomes for Next Year</a>';
                           if ($Admin == 0){
@@ -157,80 +157,81 @@
                                 echo $check_Image.'</td><td>&nbsp;&nbsp;&nbsp;&nbsp;b. <a href="addRemoveEx.php?center='.$center.'">Enter Other Expenses for Next Year</a></td></tr>';
                         }
                         echo '<tr><td colspan="3">&nbsp;</td></tr>';
+                        */
                         //Estimated Budget
                         if($row1->OtherIncome == 1 && $row1->OtherExpense == 1){
                               echo '<tr><td align="center">Oct 10</td><td align="center">';
                               if ($row1->EstBudget == 0){
                                 if ($Admin == 0){
-                                        echo $flag_Image.'</td><td>3. <a href="editBudgets.php?center='.$center.'">Enter Estimated Budget for all 4 quarters for Next Year</a>';
+                                        echo $flag_Image.'</td><td>2. <a href="editBudgets.php?center='.$center.'">Enter Estimated Budget for all 4 quarters for Next Year</a>';
                                         echo '   OR   <a href="submitEB.php" onclick="javascript:return confirm(\'Are you sure you want to submit your Estimated Budget for next year?\')">Submit Estimated Budget</a></td></tr>';
                                 }
                                 else
-                                        echo $flag_Image.'</td><td>3. <a href="editBudgets.php?center='.$center.'">Enter Estimated Budget for all 4 quarters for Next Year</a></td></tr>';
+                                        echo $flag_Image.'</td><td>2. <a href="editBudgets.php?center='.$center.'">Enter Estimated Budget for all 4 quarters for Next Year</a></td></tr>';
                               }
                               else {
                                 if ($Admin == 0)
-                                    echo $check_Image.'</td><td>3.  <a href="viewBudgets.php?center='.$center.'">View/Print Estimated Budget for all 4 quarters for Next Year</a></td></tr>';
+                                    echo $check_Image.'</td><td>2.  <a href="viewBudgets.php?center='.$center.'">View/Print Estimated Budget for all 4 quarters for Next Year</a></td></tr>';
                                 else
-                                    echo $check_Image.'</td><td>3.  <a href="editBudgets.php?center='.$center.'">Enter Estimated Budget for all 4 quarters for Next Year</a></td></tr>';
+                                    echo $check_Image.'</td><td>2.  <a href="editBudgets.php?center='.$center.'">Enter Estimated Budget for all 4 quarters for Next Year</a></td></tr>';
                               }
                         }
                         else{
                               echo '<tr><td align="center">Oct 10</td><td align="center">';
-                              echo $flag_Image.'</td><td>3.  Enter Estimated Budget for all 4 quarters for Next Year (Must Complete Step 2a and 2b First)</td></tr>';
+                              echo $flag_Image.'</td><td>2.  Enter Estimated Budget for all 4 quarters for Next Year</td></tr>';
                         }
                         echo '<tr><td colspan="3">&nbsp;</td></tr>';
                         //Board of Directors
                         echo '<tr><td align="center">Oct 30</td><td align="center">';
                         if ($row1->BoardOfDir == 0) {
-                                echo $flag_Image.'</td><td>4.  <a href="boardOfDir.php?center='.$center.'">Enter Board of Directors List for Next Year</a>';
+                                echo $flag_Image.'</td><td>3.  <a href="boardOfDir.php?center='.$center.'">Enter Board of Directors List for Next Year</a>';
                                 if ($Admin == 0)
                                         echo '   OR   <a href="submitBOD.php" onclick="javascript:return confirm(\'Are you sure you want to submit the Board of Directors Report?\')">Submit Board of Directors Report</a></td></tr>';
                         }
                         else{
                            if ($Admin == 0)
-                                echo $check_Image.'</td><td>4.  <a href="BODReport.php?year='.$fiscalYear.'">View/Print Board of Directors List</a></td></tr>';
+                                echo $check_Image.'</td><td>3.  <a href="BODReport.php?year='.$fiscalYear.'">View/Print Board of Directors List</a></td></tr>';
                            else
-                                echo $check_Image.'</td><td>4.  <a href="boardOfDir.php?center='.$center.'">Enter Board of Directors List for Next Year</a></td></tr>';
+                                echo $check_Image.'</td><td>3.  <a href="boardOfDir.php?center='.$center.'">Enter Board of Directors List for Next Year</a></td></tr>';
                         }
                         //Diversity Action Plan
                         echo '<tr><td align="center">Oct 30</td><td align="center">';
                         if ($row1->DiversityActPlan == 0){
-                                echo $flag_Image.'</td><td>5.  <a href="divAction.php?center='.$center.'">Enter Diversity Action Plan for Next Year</a>';
+                                echo $flag_Image.'</td><td>4.  <a href="divAction.php?center='.$center.'">Enter Diversity Action Plan for Next Year</a>';
                                 if ($Admin == 0)
                                         echo '   OR   <a href="submitDAP.php" onclick="javascript:return confirm(\'Are you sure you want to submit the Diversity Action Plan?\')">Submit Diversity Action Plan</a></td></tr>';
                         }
                         else{
                            if ($Admin == 0)
-                                echo $check_Image.'</td><td>5.  <a href="DAPReport.php?year='.$fiscalYear.'">View/Print Diversity Action Plan</a></td></tr>';
+                                echo $check_Image.'</td><td>4.  <a href="DAPReport.php?year='.$fiscalYear.'">View/Print Diversity Action Plan</a></td></tr>';
                            else
-                                echo $check_Image.'</td><td>5.  <a href="divAction.php?center='.$center.'">Enter Diversity Action Plan for Next Year</a></td></tr>';
+                                echo $check_Image.'</td><td>4.  <a href="divAction.php?center='.$center.'">Enter Diversity Action Plan for Next Year</a></td></tr>';
                         }
                         //Budget Request
                         if($row1->EstBudget == 1){
                               echo '<tr><td align="center">Oct 30</td><td align="center">';
-                                    echo $check_Image.'</td><td>6.  <a href="budReq.php?center='.$center.'">View/Print Budget Request for Next Year</a></td></tr>';
+                                    echo $check_Image.'</td><td>5.  <a href="budReq.php?center='.$center.'">View/Print Budget Request for Next Year</a></td></tr>';
                         }
                         else{
                               echo '<tr><td align="center">Oct 30</td><td align="center">';
-                              echo $flag_Image.'</td><td>6.  View/Print Budget Request for Next Year (Must Complete Step 3 First)</td></tr>';
+                              echo $flag_Image.'</td><td>5.  View/Print Budget Request for Next Year (Must Complete Step 3 First)</td></tr>';
                         }
                         echo '<tr><td colspan="3">&nbsp;</td></tr>';
                         //Snail Mail Allocation
                         echo '<tr><td align="center">Oct 30</td><td align="center">';
                         if ($row1->AllocationReq == 0) echo $flag_Image;
                         else echo $check_Image;
-                        echo '</td><td>7.  Snail-Mail your 12 official copies of your Allocation Request Form</td></tr>';
+                        echo '</td><td>6.  Snail-Mail your 12 official copies of your Allocation Request Form</td></tr>';
                         //Snail Mail Audit
                         echo '<tr><td align="center">Aug 1</td><td align="center">';
                         if ($row1->Audit == 0) echo $flag_Image;
                         else echo $check_Image;
-                        echo '</td><td>8.  Snail-Mail your Audit</td></tr>';
+                        echo '</td><td>7.  Snail-Mail your Audit</td></tr>';
                         //Snail Mail Annual Standards
                         echo '<tr><td align="center">Aug 1</td><td align="center">';
                         if ($row1->AnnualStan == 0) echo $flag_Image;
                         else echo $check_Image;
-                        echo '</td><td>9.  Snail-Mail your Annual Standards Documentation</td></tr>';
+                        echo '</td><td>8.  Snail-Mail your Annual Standards Documentation</td></tr>';
                         //Completion of the entire End of Year stuff
                         echo '<tr><td colspan="3">&nbsp;</td></tr>';
                         echo '<tr><td colspan="3"><hr /></td></tr>';
