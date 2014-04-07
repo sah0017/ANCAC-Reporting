@@ -46,11 +46,45 @@
 	<div class='dropdownMenus'>
 		<ul class="menu">
 		    <li>
-		        <a href="#">Reports</a>
+	        
+		         <a href="#">Reports</a>
 		        <ul>
-		            <li><a href="qreports.php">Enter/Update Quaterly Numbers</a></li>
-		            <li><a href="eoyreports.php">Enter Annual Budget Numbers</a></li>
-		            <li><a href="selectYear.php">Print Year To Date Reports</a></li>
+		           
+		           <?PHP 
+		            //makes the links unavailable to the centers if not in the date.
+		            //added webroots to the links
+						//if($_SESSION['admin'] == 2)
+						//{
+						//	echo <li><a href= echo .$webroot."qreportAdmin.php">Enter/Update Quaterly Numbers</a></li>;
+						//}
+						//else
+						//{
+					               // $center = $_SESSION['center'];
+					               // $sql = "SELECT completed".
+					                       // " FROM actualExpenditures ".
+					                       // "WHERE center = ".$center." AND fiscalyear = ".$fiscalYear.
+					                       // " AND quarter = ".$currentQuarter;
+					
+					               // $result= @mysql_query($sql) or mysql_error();
+					               // $row = mysql_fetch_object($result);
+					
+					                //echo '<td>';
+					                //if (isset($row->completed)){
+					                     //   if ($row->completed == "INC"){
+					                         //       if ($Available == 1){
+					                         //             echo   <li><a href= echo .$webroot."editQuarter.php">Start Quaterly Numbers</a></li>;
+					                           //           echo  <li><a href= echo .$webroot."submitCQ.php">Enter/Update Quaterly Numbers</a></li>;
+					                         //       }
+					                             //   else{
+					                               // 	echo 	<li><a href="#">Start Quaterly Numbers (Unavailable)</a></li>;
+					                                 //   echo   <li><a href="#">Submitt Quaterly Numbers (Unavailables)</a></li>;
+					                         //       }
+					                       // }
+					 //	}
+					?>
+		            <li><a href="<?php echo $webroot?>qreports.php">Enter/Update Quarterly Numbers</a></li>
+		            <li><a href="<?php echo $webroot?>eoyreports.php">Enter Annual Budget Numbers</a></li>
+		            <li><a href="<?php echo $webroot?>selectYear.php">Print Year To Date Reports</a></li>
 		        </ul>
 		    </li>
 		</ul>
@@ -59,8 +93,7 @@
 		    <li>
 		        <a href="#">Special Functions</a>
 		        <ul>
-		            <li><a href="ancacdocs/">View/Update Shared Docs</a></li>
-		            <li><a href="#">Update Center Info</a></li>
+		            <li><a href="<?php echo $webroot?>ancacdocs/index.php">View/Update Shared Docs</a></li>
 		        </ul>
 		    </li>
 		</ul>
@@ -71,10 +104,13 @@
 			    <li>
 			        <a href="#">Admin</a>
 			        <ul>
-			            <li><a href="AcctAdmin.php">Center Administration</a></li>
-			            <li><a href="LastLogin.php">View Last Login for Ctrs</a></li>
-			            <li><a href="email.php">E-mail Entire Network</a></li>
-			            <li><a href="qreportAdmin.php?from=8">Received Snail Mail Docs</a></li>
+			            <li><a href="'.$webroot.'AcctAdmin.php">Center Administration</a></li>
+			            <li><a href="' .$webroot.'LastLogin.php">View Last Login for Ctrs</a></li>
+			            <li><a href="'.$webroot.'email.php">E-mail Entire Network</a></li>
+			            <li><a href= "'.$webroot.'qreportAdmin.php?from=8">Received Snail Mail Docs</a></li>
+      					<li><a href= "'.$webroot.'excelExportYear.php">Excel Export</a></li>
+            			<li><a href= "'.$webroot.'emailForm.php">Email reminder editor</a></li>
+      		
 			        </ul>
 			    </li>
 			</ul>
@@ -83,11 +119,11 @@
 			    <li>
 			        <a href="#">Reporting</a>
 			        <ul>
-			            <li><a href="haveSubmit.php">View Current Qtr Unsumitted Centers</a></li>
-			            <li><a href="selectYearGT.php?from=2">Veiw/Print ANCAC Grant Total Report</a></li>
-			            <li><a href="selectYearGT.php?from=3">Veiw/Print Estimated Budget Total Report</a></li>
-			            <li><a href="qreportAdmin.php?from=9">Veiw/Print ANCAC Board of Directors</a></li>
-						<li><a href="eoyProgress.php">Check End Of Year Status</a></li>
+			            <li><a href="'.$webroot.'haveSubmit.php">View Current Qtr Unsubmitted Centers</a></li>
+			            <li><a href="'.$webroot.'selectYearGT.php?from=2">View/Print ANCAC Grand Total Report</a></li>
+			            <li><a href="'.$webroot.'selectYearGT.php?from=3">View/Print Estimated Budget Total Report</a></li>
+			            <li><a href="'.$webroot.'qreportAdmin.php?from=9">View/Print ANCAC Board of Directors</a></li>
+						<li><a href="'.$webroot.'eoyProgress.php">Check End Of Year Status</a></li>
 			        </ul>
 			    </li>
 			</ul>';
