@@ -251,7 +251,7 @@
                         echo '<tr><td colspan="3">These options are not available in September.</td></tr>';
                 }
                 echo '<tr><td colspan="3">&nbsp;</td></tr>';
-		echo '<tr><td align="center"></td><td align="center"></td><td>0. <a href="/ANCAC-Online/index.php">Return to Main Menu</a></td></tr>';
+		echo '<tr><td align="center"></td><td align="center"></td><td>0. <a href="{$webroot}index.php">Return to Main Menu</a></td></tr>';
 ?>
 	           </table>
             </div>
