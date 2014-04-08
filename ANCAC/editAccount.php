@@ -86,7 +86,7 @@
                  $sqlExecute = "UPDATE directors SET name = '".$sub_User_Name."', ".
                         "username = '".$sub_User_UserName."', email = '".$sub_User_Email."', user_level = ".$sub_User_UserLevel.", ".
                         "password = '".$sub_User_Password."' ".
-                        "WHERE RID = ".$RID." ";
+                        "WHERE center = (SELECT center FROM directors WHERE RID = ".$RID.")";
 
                 //update the budgetedExpenditures table
                 $resultExecute = @mysql_query($sqlExecute);
