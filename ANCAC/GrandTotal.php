@@ -12,11 +12,9 @@ require($root."dbconn.php");
 
         $fiscalYear = $_POST['year'];
 
-	echo '<table><tr align="center"><td>FI</td><td>Forensic Investigation</td></tr><tr align="center"><td>EFA</td><td>Extended Forensic Assessment</td></tr><tr align="center"><td>ICS</td><td>Initial Counselling Sessions</td></tr><tr align="center"><td>TCS</td><td>Total Counselling Sessions</td></tr>'. //3/18/14 MH
-		'<tr align="center"><td>MDT</td><td>Cases Reviewed by the Multidisciplinary Team Meeting</td></tr><tr align="center"><td>PROS</td><td>Cases referred for Prosecution</td></tr><tr> align="center"><td>EXAM</td><td>Cases with a Medical Exam</td></tr></table>'. //3/18/14 MH
-	     '<table><tr align="center"><td>M</td><td>Male</td></tr><tr align="center"><td>F</td><td>Female</td></tr><tr align="center"><td>AA</td><td>African American</td></tr>'. //3/18/14 MH
-		'<tr align="center"><td>ASN</td><td>Asian</td></tr><tr align="center"><td>CAU</td><td>Caucasian</td></tr><tr align="center"><td>HISP</td><td>Hispanic</td></tr></table>'; //3/18/14 MH
-	 
+	echo '<table border="1" style="width:1340px"><tr align="center"><td>FI</td><td>EFA</td><td>ICS</td><td>TCS</td><td>MDT</td><td>PROS</td><td>EXAM</td></tr>'.
+		 '<tr align="center"><td>Forensic Investigation</td><td>Extended Forensic Assessment</td><td>Initial Counselling Sessions</td><td>Total Counselling Sessions</td><td>Cases Reviewed by the Multidisciplinary Team Meeting</td><td>Cases referred for Prosecution</td><td>Cases with a Medical Exam</td></tr></table>';
+	
 
         function printHeaders(){
 
