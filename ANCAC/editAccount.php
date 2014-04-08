@@ -1,141 +1,1 @@
-<?PHP
-	require("ulogin.php");
-	require($root."dbconn.php");
-
-	$t=getdate();
-        $today=date('F d, Y H:i A',$t[0]);
-        
-        //set the center that is being edited for
-        if($_SESSION['admin'] > 0){
-                //Center
-                if (isset($_GET['RID'])){
-                        $RID = $_GET['RID'];
-                }
-                else{
-                   $RID = $_POST['RID'];
-                }
-        }
-        
-        $sqlCenter = "SELECT name, username, email, user_level FROM directors ".
-             "WHERE RID = '".$RID."'";
-        $resultCenter = @mysql_query($sqlCenter) or mysql_error();
-        $rowCenter = mysql_fetch_object($resultCenter);
-        $CenterName = $rowCenter->username;
-
-	$page_title = 'Update Center Information for UserName: '.$CenterName;
-	
-	require($root."header.php");
-?>
-
-<body>
-<table class='OutlineTable' align=center width="640px">
-<tr>
-	<td class='login-header' colspan='2' align=center>Update Center Information<br></td>
-</tr>
-<tr>
-	<td class='login' align=left><br>
-	<div align="center">
-		<table border="0" width="100%" id="table1">
-		<tr>
-			<td>
-<?PHP
-        if (isset($_POST['submitted'])){
-             //Initialize the error array
-             $errors = array();
-
-             //Validate that they did enter some info
-             if (empty($_POST['User_Name'])){
-                $errors[] = 'You did not enter a Name for this User.';
-                }
-             else{
-                $sub_User_Name = $_POST['User_Name'];
-             }
-             
-             if (empty($_POST['User_UserName'])){
-                $errors[] = 'You did not enter a User Name for this User.';
-                }
-             else{
-                $sub_User_UserName = $_POST['User_UserName'];
-             }
-             
-             if (empty($_POST['User_Email'])){
-                $errors[] = 'You did not enter an Email for this User.';
-                }
-             else{
-                $sub_User_Email = $_POST['User_Email'];
-             }
-
-               //Make sure they gave a valid userlevel, (2,1,0,-1)
-               if ($_POST['User_UserLevel'] != 2 && $_POST['User_UserLevel'] != 1 && $_POST['User_UserLevel'] != 0 && $_POST['User_UserLevel'] != -1){
-                   $errors[] = 'The only valid User Levels are 2, 1, 0, or -1.';
-               }
-               else{
-                $sub_User_UserLevel = $_POST['User_UserLevel'];
-               }
-
-
-             if (empty($errors)){
-                 //Do the Update
-                 $sqlExecute = "UPDATE directors SET name = '".$sub_User_Name."', ".
-                        "username = '".$sub_User_UserName."', email = '".$sub_User_Email."', user_level = ".$sub_User_UserLevel.
-                        "WHERE center = (SELECT center FROM directors WHERE RID = ".$RID.")";
-
-                //update the budgetedExpenditures table
-                $resultExecute = @mysql_query($sqlExecute);
-              }
-              else{//report the errors
-                  echo '<br>';
-                  echo '<p class="Error"> The following error(s) occurred:<br>';
-
-                  foreach ($errors as $msg){
-                     echo " - $msg<br>\n";
-                  }
-                  echo '<br>Please try again.</p><br>';
-               }
-        }
-?>
-
-			</td>
-		</tr>
-		<tr>
-		    <td>
-		        <?PHP
-		              if($_SESSION['admin'] > 0){
-                                  echo '<form action="editAccount.php" method="post">';
-                                  echo '<p><b>Name:</b> <input type="text" name="User_Name" maxlength="40" size="75" value="';
-                                       if(isset($_POST['User_Name'])) echo $_POST['User_Name']; else echo $rowCenter->name;
-                                  echo '" /></p>';
-
-                                  echo '<p><b>UserName:</b> <input type="text" name="User_UserName" maxlength="12" size="75" value="';
-                                       if(isset($_POST['User_UserName'])) echo $_POST['User_UserName']; else echo $rowCenter->username;
-                                  echo '" /></p>';
-                                  
-                                  echo '<p><b>Email:</b> <input type="text" name="User_Email" maxlength="100" size="75" value="';
-                                       if(isset($_POST['User_Email'])) echo $_POST['User_Email']; else echo $rowCenter->email;
-                                  echo '" /></p>';
-                                  
-                                  echo '<p><b>User Level:</b> <input type="text" name="User_UserLevel" maxlength="2" size="75" value="';
-                                       if(isset($_POST['User_UserLevel'])) echo $_POST['User_UserLevel']; else echo $rowCenter->user_level;
-                                  echo '" /><br />(2=Super Admin, 1=Admin, 0=Center, -1=Inactive Account)</p>';
-                             
-
-                                  echo '<p><input type="submit" name="submit" value="Update User Information" onclick="javascript:return confirm(\'Are you sure you want to update this user?\')" /></p>';
-                                  echo '<input type="hidden" name="submitted" value="TRUE" />';
-                                  echo '<input type="hidden" name="RID" value="'.$RID.'" />';
-                                  echo '</form>';
-                                }
-                                else
-                                echo '<p>You do not have Administration access</p>';
-                        ?>
-		    </td>
-		</tr>
-		</table>
-	</div>
-	</td>
-</tr>
-</table></div>
-</body>
-<?PHP
-	require($root."footer.php");
-?>
-
+<?PHP	require("ulogin.php");	require($root."dbconn.php");	$t=getdate();        $today=date('F d, Y H:i A',$t[0]);                //set the center that is being edited for        if($_SESSION['admin'] > 0){                //Center                if (isset($_GET['RID'])){                        $RID = $_GET['RID'];                }                else{                   $RID = $_POST['RID'];                }        }        		// ATR 4/6/2014 Added new columns in the "directors" and added the columns to the SELECT statement here in order that they may be used later        $sqlCenter = "SELECT name, username, email, user_level, password, phone_number, mailing_address, CenterName, centerlevel, city, zip_code, directors.center, centers.center FROM directors, centers ".             "WHERE RID = '".$RID."' AND directors.center = centers.center";        $resultCenter = @mysql_query($sqlCenter) or mysql_error();        $rowCenter = mysql_fetch_object($resultCenter);        $CenterName = $rowCenter->username;	$page_title = 'Update Center Information for UserName: '.$CenterName;		require($root."header.php");?><body> <table class='OutlineTable' align=center width="650px"><tr>	<td class='login-header' colspan='2' align=center>Update Center Information<br></td></tr><tr>	<td class='login' align=left><br>	<div align="center">		<table border="0" width="100%" id="table1">		<tr>			<td><?PHP        if (isset($_POST['submitted'])){             //Initialize the error array             $errors = array();             //Validate that they did enter some info                          if (empty($_POST['Center_Name'])){                          	$errors[] = 'You did not enter a Center Name for this User.';                          }                          else{                          	$sub_Center_Name = $_POST['Center_Name'];                          }             			// ATR 4/7/2014 For clarification, this is for the newly named "Director Name" field             if (empty($_POST['User_Name'])){                $errors[] = 'You did not enter a Name for this User.';                }             else{                $sub_User_Name = $_POST['User_Name'];             }                          if (empty($_POST['User_UserName'])){                $errors[] = 'You did not enter a User Name for this User.';                }             else{                $sub_User_UserName = $_POST['User_UserName'];             }                          if (empty($_POST['User_Email'])){                $errors[] = 'You did not enter an Email for this User.';                }             else{                $sub_User_Email = $_POST['User_Email'];             }                          // ATR 4/6/2014 Added to check if Phone Number field has any content and assigns content to variable if true             if (empty($_POST['User_PhoneNumber'])){                          	$errors[] = 'You did not enter a Phone Number for this User.';                          }                          else{                          	$sub_User_PhoneNumber = $_POST['User_PhoneNumber'];                          }                          // ATR 4/6/2014 Added to check if Mailing Address field has any content and assigns content to variable if true             if (empty($_POST['User_MailingAddress'])){             	              	$errors[] = 'You did not enter a Mailing Address for this User.';             	              }                           else{             	              	$sub_User_MailingAddress = $_POST['User_MailingAddress'];             	              }                                       // ATR 4/6/2014 Added to check if City field has any content and assigns content to variable if true             if (empty($_POST['User_City'])){             	              	$errors[] = 'You did not enter a City for this User.';             	              }                          else{             	              	$sub_User_City = $_POST['User_City'];             	              }                          // ATR 4/6/2014 Added to check if Zip Code field has any content and assigns content to variable if true             if (empty($_POST['User_ZipCode'])){             	              	$errors[] = 'You did not enter a Zip Code for this User.';             	              }                           else{             	              	$sub_User_ZipCode = $_POST['User_ZipCode'];             	              }               //Make sure they gave a valid userlevel, (2,1,0,-1)               if ($_POST['User_UserLevel'] != 2 && $_POST['User_UserLevel'] != 1 && $_POST['User_UserLevel'] != 0 && $_POST['User_UserLevel'] != -1){                   $errors[] = 'The only valid User Levels are 2, 1, 0, or -1.';               }               else{                $sub_User_UserLevel = $_POST['User_UserLevel'];               }                          if (empty($_POST['User_Password'])){                $errors[] = 'You did not enter a Password for this User.';                }             else{                $sub_User_Password = $_POST['User_Password'];             }             if (empty($errors)){                 //Do the Update                 $sqlExecute = "UPDATE directors SET name = '".$sub_User_Name."', ".                        "username = '".$sub_User_UserName."', email = '".$sub_User_Email."', user_level = ".$sub_User_UserLevel.", ".                        "password = '".$sub_User_Password."', ".                                                // ATR 4/6/2014 From "mailing_address" to "phone_number" each is added in order that the content from the new fields                        // are added to the database table "directors"                                                "mailing_address = '".$sub_User_MailingAddress."', ".                                                "city = '".$sub_User_City."', ".                                                "zip_code = '".$sub_User_ZipCode."', ".                                                "phone_number = '".$sub_User_PhoneNumber."' ".                        "WHERE RID = ".$RID."";                //update the budgetedExpenditures table                $resultExecute = @mysql_query($sqlExecute);                                                $sqlExecute = "UPDATE centers SET CenterName = '".$sub_Center_Name."' ".                                "WHERE center = (SELECT center FROM directors WHERE RID = ".$RID.")";                                                                //update the budgetedExpenditures table                                $resultExecute = @mysql_query($sqlExecute);              }              else{//report the errors                  echo '<br>';                  echo '<p class="Error"> The following error(s) occurred:<br>';                  foreach ($errors as $msg){                     echo " - $msg<br>\n";                  }                  echo '<br>Please try again.</p><br>';               }        }?>			</td>		</tr>		<tr>		    <td>		        <?PHP		              if($_SESSION['admin'] > 0){                                  echo '<form action="editAccount.php" method="post">';                                                                                                      echo '<p><b>Center Name:</b> <input type="text" name="Center_Name" maxlength="50" size="75" value="';                                                                    if(isset($_POST['Center_Name'])) echo $_POST['Center_Name']; else echo $rowCenter->CenterName;                                                                    echo '" /></p>';                                                                    // ATR 4/6/2014 Edited the name to "Director Name"                                  echo '<p><b>Director Name:</b> <input type="text" name="User_Name" maxlength="40" size="75" value="';                                       if(isset($_POST['User_Name'])) echo $_POST['User_Name']; else echo $rowCenter->name;                                  echo '" /></p>';                                  echo '<p><b>User Name:</b> <input type="text" name="User_UserName" maxlength="12" size="75" value="';                                       if(isset($_POST['User_UserName'])) echo $_POST['User_UserName']; else echo $rowCenter->username;                                  echo '" /></p>';                                                                                                      // ATR 4/6/2014 Added a new field that allows entry of center's mailing address                                  echo '<p><b>Mailing Address:</b> <input type="text" name="User_MailingAddress" maxlength="50" size="75" value="';                                                                    if(isset($_POST['User_MailingAddress'])) echo $_POST['User_MailingAddress']; else echo $rowCenter->mailing_address;                                                                    echo '" /></p>';                                                                                                      // ATR 4/6/2014 Added a new field that allows entry of center's city                                  echo '<p><b>City:</b> <input type="text" name="User_City" maxlength="25" size="75" value="';                                                                    if(isset($_POST['User_City'])) echo $_POST['User_City']; else echo $rowCenter->city;                                                                    echo '" /></p>';                                                                                                      // ATR 4/6/2014 Added a new field that allows entry of center's zip code                                  echo '<p><b>Zip Code:</b> <input type="text" name="User_ZipCode" maxlength="25" size="75" value="';                                                                    if(isset($_POST['User_ZipCode'])) echo $_POST['User_ZipCode']; else echo $rowCenter->zip_code;                                                                    echo '" /></p>';                                                                    echo '<p><b>Email:</b> 										<input type="text" name="User_Email" maxlength="100" size="75" value="';                                       if(isset($_POST['User_Email'])) echo $_POST['User_Email']; else echo $rowCenter->email;                                  echo '" /></p>';                                                                    // ATR 4/6/2014 Added a new field that allows entry of center's phone number                                  echo '<p><b>Phone Number:</b> <input type="text" name="User_PhoneNumber" maxlength="15" size="75" value="';                                                                    if(isset($_POST['User_PhoneNumber'])) echo $_POST['User_PhoneNumber']; else echo $rowCenter->phone_number;                                                                    echo '" /></p>';                                                                                                      echo '<p><b>User Level:</b> <input type="text" name="User_UserLevel" maxlength="2" size="75" value="';                                       if(isset($_POST['User_UserLevel'])) echo $_POST['User_UserLevel']; else echo $rowCenter->user_level;                                  echo '" /><br />(2=Super Admin, 1=Admin, 0=Center, -1=Inactive Account)</p>';                                                                    echo '<p><b>Password:</b> <input type="text" name="User_Password" maxlength="15" size="75" value="';                                       if(isset($_POST['User_Password'])) echo $_POST['User_Password']; else echo $rowCenter->password;                                  echo '" /></p>';                                  echo '<p><input type="submit" name="submit" value="Update User Information" onclick="javascript:return confirm(\'Are you sure you want to update this user?\')" /></p>';                                  echo '<input type="hidden" name="submitted" value="TRUE" />';                                  echo '<input type="hidden" name="RID" value="'.$RID.'" />';                                  echo '</form>';                                }                                else                                echo '<p>You do not have Administration access</p>';                        ?>		    </td>		</tr>		</table>	</div>	</td></tr></table></div></body><?PHP	require($root."footer.php");?>
