@@ -16,7 +16,7 @@
                 }
         }
         
-        $sqlCenter = "SELECT name, username, email, user_level, password FROM directors ".
+        $sqlCenter = "SELECT name, username, email, user_level FROM directors ".
              "WHERE RID = '".$RID."'";
         $resultCenter = @mysql_query($sqlCenter) or mysql_error();
         $rowCenter = mysql_fetch_object($resultCenter);
@@ -73,19 +73,11 @@
                 $sub_User_UserLevel = $_POST['User_UserLevel'];
                }
 
-             
-             if (empty($_POST['User_Password'])){
-                $errors[] = 'You did not enter a Password for this User.';
-                }
-             else{
-                $sub_User_Password = $_POST['User_Password'];
-             }
 
              if (empty($errors)){
                  //Do the Update
                  $sqlExecute = "UPDATE directors SET name = '".$sub_User_Name."', ".
-                        "username = '".$sub_User_UserName."', email = '".$sub_User_Email."', user_level = ".$sub_User_UserLevel.", ".
-                        "password = '".$sub_User_Password."' ".
+                        "username = '".$sub_User_UserName."', email = '".$sub_User_Email."', user_level = ".$sub_User_UserLevel.
                         "WHERE center = (SELECT center FROM directors WHERE RID = ".$RID.")";
 
                 //update the budgetedExpenditures table
@@ -125,10 +117,7 @@
                                   echo '<p><b>User Level:</b> <input type="text" name="User_UserLevel" maxlength="2" size="75" value="';
                                        if(isset($_POST['User_UserLevel'])) echo $_POST['User_UserLevel']; else echo $rowCenter->user_level;
                                   echo '" /><br />(2=Super Admin, 1=Admin, 0=Center, -1=Inactive Account)</p>';
-                                  
-                                  echo '<p><b>Password:</b> <input type="text" name="User_Password" maxlength="15" size="75" value="';
-                                       if(isset($_POST['User_Password'])) echo $_POST['User_Password']; else echo $rowCenter->password;
-                                  echo '" /></p>';
+                             
 
                                   echo '<p><input type="submit" name="submit" value="Update User Information" onclick="javascript:return confirm(\'Are you sure you want to update this user?\')" /></p>';
                                   echo '<input type="hidden" name="submitted" value="TRUE" />';

@@ -45,7 +45,7 @@ require($root."header.php");
 						<td>
 
 <?PHP
-
+		$Hasher = new PasswordHash(8, false);
         if (isset($_POST['submitted'])){
 
              //Initialize the error array
@@ -119,8 +119,8 @@ require($root."header.php");
                 }
 
              else{
-
-                $sub_User_Password = $_POST['User_Password'];
+             	$hash=$Hasher->HashPassword($_POST['User_Password']);
+                $sub_User_Password = $hash;
 
              }
 
