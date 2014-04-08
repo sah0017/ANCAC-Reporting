@@ -16,7 +16,7 @@
 
 			<?php
 			foreach(glob('files/general/*.*') as $file){
-			echo ("<p><a href=".str_replace(' ','%20',$file)." target=2>".basename($file)."</a>".
+			echo ("<p><a href=".str_replace(' ','%20',$file).' target=target="_blank">'.basename($file)."</a>".
 					"&nbsp&nbsp&nbsp<a href=\"delete.php?f=".basename($file)."&d=2\">Delete</a></p>");
 			}
 			?>
@@ -27,12 +27,12 @@
 			<p>&nbsp;</p>
 			
 			<?php 		
-			if($_SESSION['admin'] > 0){
+			
 				echo('<form enctype="multipart/form-data" action="upload.php?d=2" method="POST">
 				<input type="hidden" name="MAX_FILE_SIZE" value="100000" />
 				Add a file: <input name="uploadedfile" type="file" /><input type="submit" value="Upload" />
 				</form>');
-			}
+			
 			?>
 			</td>
 		</tr>

@@ -242,10 +242,10 @@
 
         if($_SESSION['admin'] > 0)
 	{
-		header('Location: http://www.alabamacacs.org/ANCAC-Online/centerReportAdmin.php?center='.$centerID.'&year='.$fiscalYear);
+		header('Location: http://'.$_SERVER['HTTP_HOST'].$webroot.'centerReportAdmin.php?center='.$centerID.'&year='.$fiscalYear);
 	}
 	else
 	{
-                header('Location: http://www.alabamacacs.org/ANCAC-Online/qreports.php');
+                header('Location: http://'.$_SERVER['HTTP_HOST'].$webroot.'qreports.php');
         }
 ?>

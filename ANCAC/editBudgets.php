@@ -469,7 +469,7 @@
                                 echo '</tr>';
                                 }
                         }
-                ?>
+                ?>                                <tr><td colspan=5><?PHP echo '<a href="addRemoveOI.php?center='.$centerID.'">Add</a>'; ?></td></tr>
                 <!--
                 <tr align="center">
                         <td align="center"><b>Total Expenditures</b></td>
@@ -776,7 +776,7 @@
                                 echo '</tr>';
                                 }
                         }
-                ?>
+                ?>                <tr><td colspan=5><?PHP echo '<a href="addRemoveEx.php?center='.$centerID.'">Add</a>'; ?></td></tr>                
                 <!--
                 <tr align="center">
                         <td align="center"><b>Total Funds</b></td>

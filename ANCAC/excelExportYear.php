@@ -1,6 +1,11 @@
 <?PHP
-
-//this page brings up the same menu as selectYearGT.php so the user may select the year of the report to export
+/***
+ * @author TL
+ * @date 3/16/2014
+ * 
+ * Page has same functionality as selectYearGT.php except it calls upon excelExport.php instead of GrandTotal.php
+ * 
+ */
 	require("ulogin.php");
 
 
@@ -109,9 +114,10 @@
                                                   ?>
 
                                                 </select></p>
-
-                                <p><input type="submit" name="submit" value="View Report" /></p>
-
+<?php 
+//TL 4/6/2014 Changed button to display 'Download Report'
+?>                                        
+                                <p><input type="submit" name="submit" value="Download Report" /></p>
                           </form>
 
 		    </td>
