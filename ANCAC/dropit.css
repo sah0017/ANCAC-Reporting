@@ -15,7 +15,7 @@
 	background: -moz-linear-gradient(top, #efefef 0%, #bbbbbb 100%); 
 	background: -webkit-linear-gradient(top, #efefef 0%,#bbbbbb 100%);
 	box-shadow: 0px 0px 9px rgba(0,0,0,0.15);
-	padding: 0 20px;
+	width: 100%;
 	border-radius: 10px;  
 	list-style: none;
 	position: relative;
@@ -40,7 +40,8 @@
 		}
 	
 	.dropdownMenus li a {
-		display: block; padding: 25px 40px;
+		display: block; 
+		padding: 10px;
 		color: #757575; text-decoration: none;
 	}
 .dropdownMenus ul {
@@ -55,7 +56,6 @@
 		position: relative;
 	}
 		.dropdownMenus ul li a {
-			padding: 15px 40px;
 			color: #fff;
 		}	
 			.dropdownMenus ul li a:hover {
@@ -64,9 +64,11 @@
 .dropit {
     list-style: none;
 	padding: 0;
-	margin: 0 10px 0 0;
+	margin: 0 20px;
 	display: inline-block;
-	text-align:left;
+	text-align:center;
+	width: 18%;
+	
 }
 .dropit .dropit-trigger { position: relative; }
 .dropit .dropit-submenu {
@@ -75,17 +77,19 @@
     left: 0; /* dropdown left or right */
     z-index: 1000;
     display: none;
-    min-width: 150px;
+    text-align:left;
     list-style: none;
 	padding: 0;
 	margin: 0;
+	width: 100%;
 }
 .dropit .dropit-open .dropit-submenu { display: block; }
 
 .dropit-submenu li a:hover{
-	color:red;	
+	color:#ccc;	
 }
 .loginInfo{
 	height: 30px;
-    width: 100%;	
+    width: 100%;
+	margin-bottom: 10px;	
 }

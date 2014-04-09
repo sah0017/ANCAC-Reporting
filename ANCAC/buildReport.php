@@ -4,6 +4,8 @@
 //$TrnType = either 'FULL' or 'CURRENT'
 function buildReport($TrnType, $theCenter, $fiscalYear, $YTD, $Width){
    //get the current fiscal year and quarter
+   
+	//error_reporting(0);
 
   	 $sql = "SELECT fiTotal,extForenEval,intCounsSes,personnelCosts,empBenefits,travelInState,travelOutState,repairsAndMx,".
               "rentalsLease,utilComm,profServ,suppMatOper,tranEqpPurch,otherEqpPurch,debtService,misc,genFund,chilFirstTrust,".
