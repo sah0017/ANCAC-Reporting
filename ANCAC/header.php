@@ -36,7 +36,7 @@
 		<div class=login-header>
 			<div class='userInfo'>Logged in as: <?PHP echo $_SESSION['name']." (".$_SESSION['CenterName'].")"; ?></div>
 			<div class='userInfo'> | ANCAC | </div>
-			<div class='userInfo pageTitle'><?PHP echo $page_title;?></div>
+			<div class='userInfo pageTitle'> <?PHP echo $page_title;?></div>
 			<div class='userInfo returnToMain'><a href=<?php echo $webroot?>index.php> | Return to Main Menu</a></div> 
 			<div class='userInfo help'><a href=<?php echo $webroot?>help.php> | Help</a></div>
 			<div class='userInfo logoutButton'><a href=<?php echo $webroot?>logout.php> | Logout</a></div>
@@ -55,7 +55,7 @@
 		           // added webroots to the links
 				        if($_SESSION['admin'] == 2)
 						{
-							echo '<li><a href="'.$webroot.'qreportAdmin.php">Enter/Update Quarterly Numbers</a></li>';
+							echo '<li><a href="'.$webroot.'qreportAdmin.php?from=1">View/Edit Center Quarterly Numbers</a></li>';
 						}
 						else
 						{

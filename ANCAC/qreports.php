@@ -137,7 +137,7 @@
                 }
                 echo '<p>3. <a href="selectYear.php">View / Print the Year to Date report for your Center</a><br><br></p>';
                 echo '<p>&nbsp;</p>';
-		echo '<p>0. <a href="{$webroot}index.php">Return to Main Menu</p>';
+		//echo '<p>0. <a href="{$webroot}index.php">Return to Main Menu</p>';
                 echo '<p>&nbsp;</p>';
       		echo '</td>';
 	}

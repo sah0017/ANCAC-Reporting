@@ -102,7 +102,7 @@
                         echo '<tr><td align="center">Oct 10</td><td align="center">';
                         if ($row1->completed == 0) echo $flag_Image;
                         else echo $check_Image;
-                        echo '</td><td>1.  <a href="qreports.php">Enter 4th quarter Quarterly Numbers</a></td></tr>';
+                        echo '</td><td>1.  <a href="editQuarter.php">Enter 4th quarter Quarterly Numbers</a></td></tr>';
                         echo '<tr><td colspan="3">&nbsp;</td></tr>';
                          //Other Income
                         /*echo '<tr><td align="center">Oct 10</td><td align="center">';
