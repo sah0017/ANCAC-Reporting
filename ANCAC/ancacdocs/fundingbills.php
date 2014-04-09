@@ -14,13 +14,13 @@
 			<td>
 			<br><b>ANCAC FUNDING BILLS</b><br><br><br>
 			<?php			foreach(glob('files/fundingbills/*.*') as $file){			echo ("<p><a href=".str_replace(' ','%20',$file).' target=target="_blank">'.basename($file)."</a></p>");
-			if($_SESSION['admin'] > 0){
+			
 				echo "&nbsp&nbsp&nbsp<a href=\"delete.php?f=".basename($file)."&d=1\">Delete</a></p>";
-			}						}			?>
+									}			?>
 
 			<p>&nbsp;</p>
 			<p>0. <a href="index.php">Return to Documents Menu</a></p>
-			<p>&nbsp;</p>			<?php 					if($_SESSION['admin'] > 0){				echo('<form enctype="multipart/form-data" action="upload.php?d=1" method="POST">				<input type="hidden" name="MAX_FILE_SIZE" value="100000" />				Add a file: <input name="uploadedfile" type="file" /><input type="submit" value="Upload" />				</form>');			}			?>
+			<p>&nbsp;</p>			<?php 									echo('<form enctype="multipart/form-data" action="upload.php?d=1" method="POST">				<input type="hidden" name="MAX_FILE_SIZE" value="100000" />				Add a file: <input name="uploadedfile" type="file" /><input type="submit" value="Upload" />				</form>');						?>
 
 			</td>
 		</tr>
