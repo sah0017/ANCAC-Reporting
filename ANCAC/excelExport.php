@@ -11,15 +11,15 @@
 	// Include ezSQL database specific component (in this case mySQL)
 	include_once "ez_sql_mysqli.php";
 	
-	// Initialise database object and establish a connection
-	// at the same time - db_user / db_password / db_name / db_host
-	$db = new ezSQL_mysqli('ancac','','ancac','localhost');
+	// Initialise database object and establish a connection at the same time - db_user / db_password / db_name / db_host
+//TL 4/9/2014 Removed 'localhost' on the ezSQL, to hopefully fix the issue
+	$db = new ezSQL_mysqli('ancac','','ancac');
 	
 	$format = 'GrandTotalReport %d.csv';
 	$filename = sprintf($format, $_POST['year']);
 	
 
-//TL 4/7/2014 Updated to more properly meet the requirements, now doenloads a .csv file of the sql queries 
+//TL 4/7/2014 Updated to more properly meet the requirements, now downloads a .csv file of the sql queries 
 	$fiscalYear = $_POST['year'];
 
 	$fp = fopen($filename, 'w');
