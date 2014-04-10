@@ -151,8 +151,11 @@
 		    <li>
 		        <a href="#">Special Functions</a>
 		        <ul>
- <li><a href=<?php echo $webroot?>ancacdocs/index.php>View/Update Shared Docs</a></li>
-
+ 						<li><a href=<?php echo $webroot?>ancacdocs/index.php>View/Update Shared Docs</a></li>
+						<?PHP
+						if($_SESSION['admin'] == 0){
+							echo '<li><a href="'.$webroot.'editAccount.php">Edit Center</a></li>';
+						}?>
 		        </ul>
 		    </li>
 		</ul>
