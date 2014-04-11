@@ -1,16 +1,12 @@
 <?php
 
 chdir(dirname(__FILE__)); //since we call from a cron job, we have to change the current directory we are working in
-
-// Include ezSQL core
-include_once "ez_sql_core.php";
-
-// Include ezSQL database specific component (in this case mySQL)
-include_once "ez_sql_mysqli.php";
-
-// Initialise database object and establish a connection
-// at the same time - db_user / db_password / db_name / db_host
-$db = new ezSQL_mysqli('ancac','','ancac','localhost');
+//NR 04/11/14 moved all db connections to dbconn
+if(file_exists("./Variables.php"))
+	require("./Variables.php");
+else
+	require("../Variables.php");
+require($root."dbconn.php");
 
 //This is needed since we are calling from a command line, but to keep compatibility with calling from a web enviroment
 foreach ($argv as $arg) {

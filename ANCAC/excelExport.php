@@ -5,15 +5,12 @@
  * 
  * Page creates and sends the browser the .csv file to be downloaded 
  */
-	// Include ezSQL core
-	include_once "ez_sql_core.php";
-	
-	// Include ezSQL database specific component (in this case mySQL)
-	include_once "ez_sql_mysqli.php";
-	
-	// Initialise database object and establish a connection at the same time - db_user / db_password / db_name / db_host
-//TL 4/9/2014 Removed 'localhost' on the ezSQL, to hopefully fix the issue
-	$db = new ezSQL_mysqli('ancac','','ancac');
+//NR 04/11/14 moved all db connections to dbconn
+if(file_exists("./Variables.php"))
+	require("./Variables.php");
+else
+	require("../Variables.php");
+require($root."dbconn.php");
 	
 	$format = 'GrandTotalReport %d.csv';
 	$filename = sprintf($format, $_POST['year']);
