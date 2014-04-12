@@ -106,23 +106,21 @@
 									$Available = 0;
 									break;
 							}
-					                $center = $_SESSION['center'];
-					                $sql = "SELECT completed FROM actualExpenditures WHERE center = ".$center." AND fiscalyear = ".$fiscalYear." AND quarter = ".$quarter;
-					
-					                $result= $db->get_row($sql);
-					                
-					                if (isset($result->completed)){
-					                        if ($result->completed == "INC"){
-					                                if ($Available == 1){
-					                                      echo '<li><a href="'.$webroot.'editQuarter.php">Start Quaterly Numbers</a></li>';
-					                                      echo '<li><a href="'.$webroot.'submitCQ.php">Enter/Update Quarterly Numbers</a></li>';
-					                                }
-					                                else{
-					                                	echo '<li>Start Quarterly Numbers (Unavailable)</li>';
-					                                    echo '<li>Submitt Quarterly Numbers (Unavailables)</li>';
-					                                }
-					                        }
-					                 }//end if (isset($row->completed)){
+			                $center = $_SESSION['center'];
+			                $sql = "SELECT completed FROM actualExpenditures WHERE center = ".$center." AND fiscalyear = ".$fiscalYear." AND quarter = ".$quarter;
+			
+			                $result= $db->get_row($sql);
+			                
+			                        if ($result->completed == "INC"||!isset($result->completed)){
+			                                if ($Available == 1){
+			                                      echo '<li><a href="'.$webroot.'editQuarter.php">Start Quaterly Numbers</a></li>';
+			                                      echo '<li><a href="'.$webroot.'submitCQ.php">Enter/Update Quarterly Numbers</a></li>';
+			                                }
+			                                else{
+			                                	echo '<li>Start Quarterly Numbers (Unavailable)</li>';
+			                                    echo '<li>Submitt Quarterly Numbers (Unavailables)</li>';
+			                                }
+			                        }
 					  }
 					?>
 		            <li><a href=<?php echo $webroot?>eoyreports.php>Enter Annual Budget Numbers</a></li>
