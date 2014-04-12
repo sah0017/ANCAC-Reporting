@@ -109,7 +109,7 @@
 	$page_title = 'ANCAC: Editing Quarter ending '.$Ending.' for '.$CenterName;
 	require($root."header.php");
 
-?> <script> function perfForm() {	 document.getElementById('Performance').style.display="block";	 document.getElementById('Expenditures').style.display="none";     document.getElementById('Funds').style.display="none";     document.getElementById('perfButton').disabled=true;     document.getElementById('expButton').disabled=false;     document.getElementById('fundButton').disabled=false; } function expForm() {	 document.getElementById('Performance').style.display="none";	 document.getElementById('Expenditures').style.display="block";     document.getElementById('Funds').style.display="none";     document.getElementById('perfButton').disabled=false;     document.getElementById('expButton').disabled=true;     document.getElementById('fundButton').disabled=false; } function fundForm() {	 document.getElementById('Performance').style.display="none";	 document.getElementById('Expenditures').style.display="none";     document.getElementById('Funds').style.display="block";     document.getElementById('perfButton').disabled=false;     document.getElementById('expButton').disabled=false;     document.getElementById('fundButton').disabled=true; }  </script>
+?> <script> function perfForm() {	 document.getElementById('Performance').style.display="block";	 document.getElementById('Expenditures').style.display="none";     document.getElementById('Funds').style.display="none";     document.getElementById('perfButton').disabled=true;     document.getElementById('expButton').disabled=false;     document.getElementById('fundButton').disabled=false; } function expForm() {	 document.getElementById('Performance').style.display="none";	 document.getElementById('Expenditures').style.display="block";     document.getElementById('Funds').style.display="none";     document.getElementById('perfButton').disabled=false;     document.getElementById('expButton').disabled=true;     document.getElementById('fundButton').disabled=false; } function fundForm() {	 document.getElementById('Performance').style.display="none";	 document.getElementById('Expenditures').style.display="none";     document.getElementById('Funds').style.display="block";     document.getElementById('perfButton').disabled=false;     document.getElementById('expButton').disabled=false;     document.getElementById('fundButton').disabled=true; }	window.onbeforeunload = function(e){		if(window.nounloadcheck == true) return;	    message = 'Any changes will be lost if you leave the page before clicking the "Update Quarterly Report" button.';	    e = e || window.event;	    if (e) {            e.returnValue = message;        }        return message;	};  </script>
 
 <body>
 <table class='OutlineTable' align=center width="90%">
@@ -123,7 +123,7 @@
 		<table  width="100%" id="table1">
 		<tr>
 			<td>
-			<form action="updateQuarter.php" method="post">
+			<form action="updateQuarter.php" method="post" onsubmit="window.nounloadcheck = true; return true;">
 			<?PHP //grab the budgeted information to display
 			     $sql = "SELECT fiTotal,extForenEval,intCounsSes,personnelCosts,empBenefits,travelInState,travelOutState,repairsAndMx,".
               "rentalsLease,utilComm,profServ,suppMatOper,tranEqpPurch,otherEqpPurch,debtService,misc,genFund,chilFirstTrust,".
