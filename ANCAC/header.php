@@ -149,7 +149,8 @@
 			    <li>
 			        <a href="#">Admin</a>
 			        <ul>
-			            <li><a href="'.$webroot.'AcctAdmin.php">Center Administration</a></li>
+			            <li><a href="'.$webroot.'centerAdmin.php">Center Administration</a></li>
+            			<li><a href="'.$webroot.'AcctAdmin.php">User Administration</a></li>
 			            <li><a href="' .$webroot.'LastLogin.php">View Last Login for Ctrs</a></li>
 			            <li><a href="'.$webroot.'email.php">E-mail Entire Network</a></li>
 			            <li><a href= "'.$webroot.'qreportAdmin.php?from=8">Received Snail Mail Docs</a></li>
