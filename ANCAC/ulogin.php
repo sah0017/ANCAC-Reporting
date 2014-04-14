@@ -38,7 +38,7 @@
         {
 
 //----- Select one user's password from the database
-            $sql = "SELECT password,username,name,directors.center,user_level,CenterName FROM directors JOIN centers ON directors.center = centers.center ".
+            $sql = "SELECT RID,password,username,name,directors.center,user_level,CenterName FROM directors JOIN centers ON directors.center = centers.center ".
 				   "WHERE username = '".$_POST['username']."'";
             $result = @mysql_query($sql) or mysql_error();
             $row = mysql_fetch_object($result);
@@ -58,6 +58,7 @@
                 $_SESSION['user'] = $validuser;
                 $_SESSION['admin'] = $row->user_level;
                 $_SESSION['name'] = $row->name;
+                $_SESSION['RID'] = $row->RID; //NR added RID variable
                 $_SESSION['center'] = $row->center;
                 $_SESSION['CenterName'] = $row->CenterName;
 
@@ -90,6 +91,7 @@
                 $_SESSION['admin'] = $row->user_level;
                 $_SESSION['name'] = $row->name;
                 $_SESSION['center'] = $row->center;
+                $_SESSION['RID'] = $row->RID; //NR added RID variable
                 $_SESSION['CenterName'] = $row->CenterName;
                 $_SESSION['U1'] = $row->username;
                 $_SESSION['P1'] = $row->password;
