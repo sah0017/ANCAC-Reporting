@@ -5,7 +5,7 @@
     //NR 04/11/14 moved all db connections to dbconn
     //NEW WAY OF CONNECTING TO DATABASE
     // Include ezSQL core
-    include_once //"ez_sql_core.php";
+    include_once "ez_sql_core.php";
     
     // Include ezSQL database specific component (in this case mySQL)
     include_once "ez_sql_mysqli.php";

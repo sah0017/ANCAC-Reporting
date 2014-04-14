@@ -1,6 +1,6 @@
 <?php
 	require("ulogin.php");
-	$page_title = 'ANCAC: Account Administration';
+	$page_title = 'ANCAC: Reminder Email Administration';
 	require($root."header.php");
 	
 //	echo "<pre>";
