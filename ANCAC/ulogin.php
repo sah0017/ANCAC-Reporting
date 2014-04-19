@@ -57,7 +57,7 @@
             }
 			elseif($cookie != 1)
             {
-                $validuser = $username;
+                $validuser = $row->username; //NR $username was undefined
                 $_SESSION['user'] = $validuser;
                 $_SESSION['admin'] = $row->user_level;
                 $_SESSION['name'] = $row->name;
