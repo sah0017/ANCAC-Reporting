@@ -10,13 +10,16 @@
   session_start();
   header("Cache-control: private"); // IE 6 Fix.
 
-  if ($_COOKIE['DVDAdmin']) {
+  if (isset($_COOKIE['DVDAdmin'])) {
 	$_SESSION['user'] = $_COOKIE['DVDAdmin'];
   }
 
 //---GET SESSION DATA
-    $validuser = $_SESSION['user'];
-    if(!$validuser)
+  if (isset($_SESSION['user'])) {
+  	$validuser = $_SESSION['user'];
+  }
+    
+    if(!isset($validuser))
     {
 //--- Make it so this works for every page by finding the current filename.
         $self = $_SERVER['PHP_SELF'];

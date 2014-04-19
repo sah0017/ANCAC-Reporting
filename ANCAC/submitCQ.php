@@ -1,9 +1,7 @@
 <?PHP
 	require("ulogin.php");
-	require($root."dbconn.php");
-	
-	require($root."Variables.php");
-
+	require($root."dbconn.php");	$page_title = 'ANCAC: Submit Quarterly #\'s';
+	require($root."Variables.php");	require($root."header.php");
 	switch (date("m")){
                 case 10:
                      $fiscalYear = date("Y");
@@ -192,7 +190,7 @@
         else{
                 if (($_SESSION['admin'] == 2) || ($Available == 1)){
                         if ($error == 1)
-                                echo '"<script>alert(\'Please make sure that all values have been filled in before submitted your Quarterly Report.\'); window.location.href = \'http://'.$_SERVER['HTTP_HOST'].$webroot.'editQuarter.php\';</script>"';
+                                echo "<div class='basic-grey'>Please make sure that all values have been filled in before submitted your Quarterly Report.</div>";
                         else{
                                 $sqlUpdate = "UPDATE actualExpenditures SET completed = 'COM', ".
                                         "username = '".$_SESSION['user']."', datemod = NOW() ".
@@ -206,5 +204,5 @@
                 }
                 else
                         header('Location: http://'.$_SERVER['HTTP_HOST'].$webroot.'qreports.php');
-        }                
+        }                        require($root."footer.php");
 ?>

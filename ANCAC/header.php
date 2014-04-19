@@ -47,7 +47,6 @@
 							
 							switch (date("m")){
 								case 10:
-									$fiscalYear = date("Y");
 									$quarter = 3;
 									if (date("j") < $Quarter4Date)
 										$Available = 1;
@@ -56,12 +55,10 @@
 									break;
 								case 11:
 								case 12:
-									$fiscalYear = date("Y");
 									$quarter = 4;
 									$Available = 0;
 									break;
 								case 1:
-									$fiscalYear = date("Y");
 									$quarter = 4;
 									if (date("j") < $Quarter1Date)
 										$Available = 1;
@@ -71,12 +68,10 @@
 								case 2:
 									$quarter = 1;
 								case 3:
-									$fiscalYear = date("Y");
 									$quarter = 1;
 									$Available = 0;
 									break;
 								case 4:
-									$fiscalYear = date("Y");
 									$quarter = 1;
 									if (date("j") < $Quarter2Date)
 										$Available = 1;
@@ -86,12 +81,10 @@
 								case 5:
 									$quarter = 2;
 								case 6:
-									$fiscalYear = date("Y");
 									$quarter = 2;
 									$Available = 0;
 									break;
 								case 7:
-									$fiscalYear = date("Y");
 									$quarter = 2;
 									if (date("j") < $Quarter3Date)
 										$Available = 1;
@@ -101,26 +94,28 @@
 								case 8:
 									$quarter = 3;
 								case 9:
-									$fiscalYear = date("Y");
 									$quarter = 3;
 									$Available = 0;
 									break;
 							}
+							$fiscalYear = date("Y");
 			                $center = $_SESSION['center'];
 			                $sql = "SELECT completed FROM actualExpenditures WHERE center = ".$center." AND fiscalyear = ".$fiscalYear." AND quarter = ".$quarter;
 			
 			                $result= $db->get_row($sql);
-			                
-			                        if ($result['completed'] == "INC"||!isset($result['completed'])){
-			                                if ($Available == 1){
-			                                      echo '<li><a href="'.$webroot.'editQuarter.php">Start Quaterly Numbers</a></li>';
-			                                      echo '<li><a href="'.$webroot.'submitCQ.php">Enter/Update Quarterly Numbers</a></li>';
-			                                }
-			                                else{
-			                                	echo '<li>Start Quarterly Numbers (Unavailable)</li>';
-			                                    echo '<li>Submitt Quarterly Numbers (Unavailables)</li>';
-			                                }
-			                        }
+	                        if ($result->completed == "INC"){
+	                                if ($Available == 1){
+	                                      echo '<li><a href="'.$webroot.'editQuarter.php">Enter/Update Quaterly Numbers</a></li>';
+	                                      echo '<li><a href="'.$webroot.'submitCQ.php">Submit Quarterly Numbers</a></li>';
+	                                }
+	                                else{
+	                                	echo '<li><a href="#">Start Quarterly Numbers (Unavailable)</a></li>';
+	                                    echo '<li><a href="#">Submit Quarterly Numbers (Unavailables)</a></li>';
+	                                }
+	                        }
+	                        elseif($result->completed == "COM"){
+	                        	echo '<li><a href="#">Quarterly Numbers Already Submitted</a></li>';
+	                        }
 					  }
 					?>
 		            <li><a href=<?php echo $webroot?>eoyreports.php>Enter Annual Budget Numbers</a></li>
