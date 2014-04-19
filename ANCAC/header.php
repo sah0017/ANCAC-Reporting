@@ -111,7 +111,7 @@
 			
 			                $result= $db->get_row($sql);
 			                
-			                        if ($result->completed == "INC"||!isset($result->completed)){
+			                        if ($result['completed'] == "INC"||!isset($result['completed'])){
 			                                if ($Available == 1){
 			                                      echo '<li><a href="'.$webroot.'editQuarter.php">Start Quaterly Numbers</a></li>';
 			                                      echo '<li><a href="'.$webroot.'submitCQ.php">Enter/Update Quarterly Numbers</a></li>';
