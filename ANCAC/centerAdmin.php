@@ -9,7 +9,7 @@
 					<table class='centerInfoTable'>
 						<thead>
 							<tr><th colspan='4' class='centerText'><a href='editCenter.php?action=add'>Add a Center</a></th></tr>
-							<tr><th>Center Name</th><th>Center Level</th><th>Counties served</th><th>Edit</th></tr></thead>
+							<tr><th>Center Name</th><th style='padding: 0 30px'>Center Level</th><th>Counties served</th><th style='width:125px'>Edit</th></tr></thead>
 						<tbody>";
 	
 	if($_SESSION['admin'] > 0)
