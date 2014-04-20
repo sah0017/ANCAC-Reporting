@@ -132,7 +132,8 @@
  						<li><a href=<?php echo $webroot?>ancacdocs/index.php>View/Update Shared Docs</a></li>
 						<?PHP
 						if($_SESSION['admin'] == 0){
-							echo '<li><a href="'.$webroot.'editAccount.php">Edit Center</a></li>';
+							echo '<li><a href="'.$webroot.'editAccount.php">Edit User Account</a></li>';
+							echo '<li><a href="'.$webroot.'boardOfDirAdmin.php">Edit Board of Directors</a></li>';
 						}?>
 		        </ul>
 		    </li>
