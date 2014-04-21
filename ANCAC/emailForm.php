@@ -50,7 +50,7 @@
 		
 		$output = "<div class='emailForm basic-grey'>
 						<form action='' method='post' name='updateEmailMessageForm'>
-							<h1>Remider Email Form
+							<h1>Reminder Email Form
 								<span>* Denotes required info</span>
 							</h1>
 							<label>
