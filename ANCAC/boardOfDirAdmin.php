@@ -23,40 +23,45 @@
 	//set the fiscalYear
 	switch (date("m")){
 		case 10:
-			$EOYAvailable = 1;
+			$availible = 1;
 			$fiscalYear = date("Y") + 1;
+			$lastYear = date("Y");
 			break;
 		case 11:
 		case 12:
 			$fiscalYear = date("Y") + 1;
+			$lastYear = date("Y");
 			$availible = 0;
 			break;
 		case 1:
 		case 2:
 		case 3:
 			$fiscalYear = date("Y") ;
+			$lastYear = date("Y") - 1;
 			$availible = 0;
 			break;
 		case 4:
 		case 5:
 		case 6:
 			$fiscalYear = date("Y");
+			$lastYear = date("Y") - 1;
 			$availible = 0;
 			break;
 		case 7:
 		case 8:
 		case 9:
 			$fiscalYear = date("Y");
+			$lastYear = date("Y") - 1;
 			$availible = 0;
 			break;
 	}
 	
 	$output = "<div class='emailForm basic-grey boardOfDirDiv'>
-					<h1>Board of Directors for ".$CenterName."</h1>
+					<h1>Board of Directors for ".$CenterName." for FY ".$fiscalYear."</h1>
 					<table class='boardOfDirTable'>
 						<thead>
 							<tr><th colspan='8' class='centerText'><a href='editBoardOfDir.php?action=add&center=".$center."&fiscalYear=".$fiscalYear."'>Add a Board Member</a></th></tr>
-							<tr><th class='name'>Member Name</th><th class='pos'>Position</th><th class='address'>Address</th><th class='phone'>Phone</th><th class='occupation'>Occupation</th><th class='yearsOnBoard'>Years on Board</th><th>Edit</th><th>Delete</th></tr></thead>
+							<tr><th class='name'>Member Name</th><th class='pos'>Position</th><th class='address'>Address</th><th class='phone'>Phone</th><th class='occupation'>Occupation</th><th class='yearsOnBoard centerText'>Years on Board</th><th class='centerText'>Edit</th><th class='centerText'>Delete</th></tr></thead>
 						<tbody>";
 	
 	$sql = "SELECT * FROM boardOfDirItem WHERE center ='".$center."' AND fiscalyear='".$fiscalYear."'";
@@ -77,7 +82,36 @@
 		}//end if
 	}
 	
-	$output .="</tbody></table></div>";
+	$output .="</tbody></table>";
+	
+	if($availible == 1){
+		$output .= "<h1 class='previousYear'>Board of Directors for ".$CenterName." for FY ".$lastYear."</h1>
+						<table class='boardOfDirTable'>
+							<thead>
+								<tr><th class='name'>Member Name</th><th class='pos'>Position</th><th class='address'>Address</th><th class='phone'>Phone</th><th class='occupation'>Occupation</th><th class='yearsOnBoard'>Years on Board</th><th class='centerText'>Import to Current Year</th></tr></thead>
+							<tbody>";
+		
+		$sql = "SELECT * FROM boardOfDirItem WHERE center ='".$center."' AND fiscalyear='".$lastYear."'";
+		$board = $db->get_results($sql);
+		
+		$a=0;
+		foreach($board as $member){
+			//Check to see if we have a valid center
+			if($member->center){
+				//alt row styling
+				$altRowStyle=$a%2==0?' trEven':' trOdd';
+				$a++;
+				$output .="<tr class='centerInfo ".$altRowStyle."'><td class='name'>".$member->name."</td><td class='pos'>".$member->boardPosition."</td>";
+				$output .="<td class='address'>".$member->address."</td><td class='phone'>".$member->phone."</td>";
+				$output .="<td class='occupation'>".$member->occupation."</td><td class='centerText yearsOnBoard'>".$member->yearsOnBoard."</td>";
+				$output .= "<td class='centerText'><a href='editBoardOfDir.php?action=import&BODID=".$member->BODID."&center=".$center."&fiscalYear=".$fiscalYear."&previousFiscalYear=".$lastYear."'>Import</a></td></tr>";
+			}//end if
+		}
+		
+		$output .="</tbody></table>";
+	}
+	
+	$output .="</div>";
 	
 	echo $output;
 	

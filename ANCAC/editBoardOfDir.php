@@ -7,6 +7,9 @@
 	elseif($_GET['action'] == 'delete'){
 		$action = "Delete";
 	}
+	elseif($_GET['action'] == 'import'){
+		$action = "Import";
+	}
 	else{
 		$action = "Edit";
 		$redirectURL = "editBoardOfDir.php?action=edit&BODID=".$_GET['BODID']."&center=".$_GET['center']."&fiscalYear=".$_GET['fiscalYear'];
@@ -90,13 +93,35 @@
 	}
 	//They want to delete a member
 	elseif($_GET['action'] == 'delete'){
-		//drop the current rows that have our counties
+		//drop the current director
 		$sql = "DELETE FROM boardOfDirItem WHERE center='".$_GET['center']."' AND fiscalYear='".$_GET['fiscalYear']."' AND BODID='".$_GET['BODID']."'";
 		$db->query($sql);
 		
 		$output = "<div class=' basic-grey'>
 						<h1>".$action." Member
 							<span>Member Deleted sucessfully!</span>
+						</h1>
+						<a href=".$webroot."boardOfDirAdmin.php?&center=".$_GET['center'].">Back to Board of Directors</a>
+					</div>";
+	}
+	//They want to import a member
+	elseif($_GET['action'] == 'import'){
+		//move the director to the current year
+		//Get thier current info
+		$sql = "SELECT * FROM boardOfDirItem WHERE center ='".$_GET['center']."' AND fiscalyear='".$_GET['previousFiscalYear']."' AND BODID='".$_GET['BODID']."'";
+		$boardMember = $db->get_row($sql);
+		
+		//insert as new row with updated fiscal year
+		$sql = "INSERT INTO boardOfDirItem (center , fiscalyear , name , boardPosition , occupation , address , phone , yearsOnBoard , username , datemod) 
+				VALUES ( '".$_GET['center']."', '".$_GET['fiscalYear']."', '".$boardMember->name."',
+				'".$boardMember->boardPosition."', '".$boardMember->occupation."',
+				'".$boardMember->address."', '".$boardMember->phone."',
+				'".$boardMember->yearsOnBoard."', '".$_SESSION['user']."', NOW())";
+		$db->query($sql);
+		
+		$output = "<div class='basic-grey'>
+						<h1>".$action." Member
+							<span>Member Imported sucessfully!</span>
 						</h1>
 						<a href=".$webroot."boardOfDirAdmin.php?&center=".$_GET['center'].">Back to Board of Directors</a>
 					</div>";
