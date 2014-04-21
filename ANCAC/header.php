@@ -105,11 +105,11 @@
 
 	                        if (!isset($result) || $result->completed == "INC"){
 	                                if ($Available == 1){
-	                                      echo '<li><a href="'.$webroot.'editQuarter.php">Enter/Update Quaterly Numbers</a></li>';
+	                                      echo '<li><a href="'.$webroot.'editQuarter.php">Enter/Update Quarterly Numbers</a></li>';
 	                                      echo '<li><a href="'.$webroot.'submitCQ.php">Submit Quarterly Numbers</a></li>';
 	                                }
 	                                else{
-	                                	echo '<li><a href="#">Start Quarterly Numbers (Unavailable)</a></li>';
+	                                	echo '<li><a href="#">Enter/Update Quarterly Numbers (Unavailable)</a></li>';
 	                                    echo '<li><a href="#">Submit Quarterly Numbers (Unavailables)</a></li>';
 	                                }
 	                        }
