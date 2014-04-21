@@ -23,7 +23,7 @@
 			
 			<p>&nbsp;</p>
 			
-			<p>0. <a href="index.php">Return to Documents Menu</a></p>
+			
 			<p>&nbsp;</p>
 			
 			<?php 		

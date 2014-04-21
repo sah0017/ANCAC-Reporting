@@ -40,8 +40,8 @@
 		}
 		
 		$output = "<div class='emailForm basic-grey'>
-						<h1>Remider Email Form
-							<span>Email message updated sucessfully!</span>
+						<h1>Reminder Email Form
+							<span>Email message updated successfully!</span>
 						</h1>
 					</div>";
 	}
