@@ -1,4 +1,3 @@
-
 <html>
       <head>
             <title><?PHP echo $page_title; ?></title>
@@ -47,7 +46,7 @@
 							
 							switch (date("m")){
 								case 10:
-									$quarter = 3;
+									$quarter = 4;
 									if (date("j") < $Quarter4Date)
 										$Available = 1;
 									else
@@ -59,42 +58,42 @@
 									$Available = 0;
 									break;
 								case 1:
-									$quarter = 4;
+									$quarter = 1;
 									if (date("j") < $Quarter1Date)
 										$Available = 1;
 									else
 										$Available = 0;
 									break;
 								case 2:
-									$quarter = 1;
+									$quarter = 2;
 								case 3:
-									$quarter = 1;
+									$quarter = 2;
 									$Available = 0;
 									break;
 								case 4:
-									$quarter = 1;
+									$quarter = 2;
 									if (date("j") < $Quarter2Date)
 										$Available = 1;
 									else
 										$Available = 0;
 									break;
 								case 5:
-									$quarter = 2;
+									$quarter = 3;
 								case 6:
-									$quarter = 2;
+									$quarter = 3;
 									$Available = 0;
 									break;
 								case 7:
-									$quarter = 2;
+									$quarter = 32;
 									if (date("j") < $Quarter3Date)
 										$Available = 1;
 									else
 										$Available = 0;
 									break;
 								case 8:
-									$quarter = 3;
+									$quarter = 4;
 								case 9:
-									$quarter = 3;
+									$quarter = 4;
 									$Available = 0;
 									break;
 							}
