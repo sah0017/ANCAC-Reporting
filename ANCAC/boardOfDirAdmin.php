@@ -84,7 +84,8 @@
 	
 	$output .="</tbody></table>";
 	
-	if($availible == 1){
+	//admins can import any time
+	if($availible == 1 || $_SESSION['admin'] > 0 ){
 		$output .= "<h1 class='previousYear'>Board of Directors for ".$CenterName." for FY ".$lastYear."</h1>
 						<table class='boardOfDirTable'>
 							<thead>
