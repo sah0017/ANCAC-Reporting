@@ -18,7 +18,7 @@ foreach ($argv as $arg) {
 }
 
 //TESTING
-$_GET['emailToSend'] = "5DaysPriorToDeadline";
+//$_GET['emailToSend'] = "5DaysPriorToDeadline";
 //The page is called by the cron job to send a message
 if($_GET['emailToSend']){
 	
@@ -98,9 +98,9 @@ if($_GET['emailToSend']){
 	
 	$email_to_result = $db->get_results($sql);
 	
-	//echo "<pre>";
-	//print_r($email_to_result);
-	//echo "</pre>";
+//	echo "<pre>";
+//	print_r($email_to_result);
+//	echo "</pre>";
 	$email_to = '';
 	foreach ($email_to_result as $center){
 		$email_to .= rtrim($center->email, ",").", ";
@@ -111,17 +111,17 @@ if($_GET['emailToSend']){
 	//echo "<pre>";
 	//print_r($email_to);
 	//echo "</pre>";
+	$email_to = 'revelsn@gmail.com';
 	
-
 	$headers = 'From: '.$from."\r\n".
 
 			'Reply-To: '.$from."\r\n" .
 
 			'X-Mailer: PHP/' . phpversion();
 	
-	//echo "Headers: ".$headers."<br>Subject: ".$result->$subjectColumn."<br>Body: ".$result->$bodyColumn;
+//	echo "Headers: ".$headers."<br>Subject: ".$subject."<br>Body: ".$body;
 
-	@mail($email_to, $email_subject, $email_message, $headers);
+	mail($email_to, $subject, $body, $headers);
 
 }
 else

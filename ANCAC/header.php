@@ -102,7 +102,8 @@
 			                $sql = "SELECT completed FROM actualExpenditures WHERE center = ".$center." AND fiscalyear = ".$fiscalYear." AND quarter = ".$quarter;
 			
 			                $result= $db->get_row($sql);
-	                        if ($result->completed == "INC"){
+
+	                        if (!isset($result) || $result->completed == "INC"){
 	                                if ($Available == 1){
 	                                      echo '<li><a href="'.$webroot.'editQuarter.php">Enter/Update Quaterly Numbers</a></li>';
 	                                      echo '<li><a href="'.$webroot.'submitCQ.php">Submit Quarterly Numbers</a></li>';
