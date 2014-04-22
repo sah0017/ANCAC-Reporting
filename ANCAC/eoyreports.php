@@ -184,15 +184,15 @@
                         //Board of Directors
                         echo '<tr><td align="center">Oct 30</td><td align="center">';
                         if ($row1->BoardOfDir == 0) {
-                                echo $flag_Image.'</td><td>3.  <a href="boardOfDir.php?center='.$center.'">Enter Board of Directors List for Next Year</a>';
+                                echo $flag_Image.'</td><td>3.  <a href="boardOfDirAdmin.php?center='.$center.'">Enter Board of Directors List for Next Year</a>';
                                 if ($Admin == 0)
                                         echo '   OR   <a href="submitBOD.php" onclick="javascript:return confirm(\'Are you sure you want to submit the Board of Directors Report?\')">Submit Board of Directors Report</a></td></tr>';
                         }
                         else{
                            if ($Admin == 0)
-                                echo $check_Image.'</td><td>3.  <a href="BODReport.php?year='.$fiscalYear.'">View/Print Board of Directors List</a></td></tr>';
+                                echo $check_Image.'</td><td>3.  <a href="boardOfDirAdmin.php">View Board of Directors List</a></td></tr>';
                            else
-                                echo $check_Image.'</td><td>3.  <a href="boardOfDir.php?center='.$center.'">Enter Board of Directors List for Next Year</a></td></tr>';
+                                echo $check_Image.'</td><td>3.  <a href="boardOfDirAdmin.php?center='.$center.'">Enter Board of Directors List for Next Year</a></td></tr>';
                         }
                         //Diversity Action Plan
                         echo '<tr><td align="center">Oct 30</td><td align="center">';
