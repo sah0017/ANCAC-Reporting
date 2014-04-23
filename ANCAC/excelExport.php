@@ -40,13 +40,8 @@ require($root."dbconn.php");
 							actualPerfStats.quarter = actualExpenditures.quarter WHERE actualPerfStats.center = '$rowFullMember->center' 
 									AND actualPerfStats.fiscalyear = '$fiscalYear' AND actualExpenditures.completed = 'COM' ORDER BY actualPerfStats.quarter";
 		//echo $sqlLoop."<br>";
-		//$format2 = '%s ,';
-		//$memberArray[0] = sprintf($format2, (string)$rowFullMember);
-		foreach($rowFullMember as $rfm)
-		{
-			if($rfm != NULL)
-				fputcsv($fp, (array)$rowFullMember);
-		}
+		
+		fputcsv($fp, (array)$rowFullMember);
 		
 		$resultLoop = $db->get_row($sqlLoop);
 		fputcsv($fp, (array)$resultLoop);
