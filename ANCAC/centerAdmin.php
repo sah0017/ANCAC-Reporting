@@ -8,7 +8,7 @@
 					<h1>Center Info</h1>
 					<table class='centerInfoTable'>
 						<thead>
-							<tr><th colspan='4' class='centerText'><a href='editCenter.php?action=add'>Add a Center</a></th></tr>
+							<tr><th colspan='5' class='centerText'><a href='editCenter.php?action=add'>Add a Center</a></th></tr>
 							<tr><th>Center Name</th><th style='padding: 0 30px'>Center Level</th><th>Counties served</th><th class='centerText' style='width:125px'>Edit</th><th class='centerText'>Edit Board</th></tr></thead>
 						<tbody>";
 	
@@ -30,7 +30,7 @@
 			
 				
 				//Print the counties associated with the center
-				$sql = "SELECT county from centers INNER JOIN countylu on centers.center = countylu.center WHERE centers.center = ".$center->center."";
+				$sql = "SELECT county from centers INNER JOIN countyLU on centers.center = countyLU.center WHERE centers.center = ".$center->center."";
 				$counties = $db->get_results($sql);
 				$output .= "<td>";
 				foreach($counties as $centerCounty){

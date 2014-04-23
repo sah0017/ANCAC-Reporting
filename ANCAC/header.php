@@ -133,6 +133,7 @@
 						<?PHP
 						if($_SESSION['admin'] == 0){
 							echo '<li><a href="'.$webroot.'editAccount.php">Edit User Account</a></li>';
+							echo '<li><a href="'.$webroot.'editCenter.php?action=edit&centerNumber='.$_SESSION['center'].'">Edit Center</a></li>';
 							echo '<li><a href="'.$webroot.'boardOfDirAdmin.php">Edit Board of Directors</a></li>';
 						}?>
 		        </ul>
