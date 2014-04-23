@@ -12,7 +12,8 @@ else
 	require("../Variables.php");
 require($root."dbconn.php");
 	
-	$format = 'GrandTotalReport %d.csv';
+	$format = 'GrandTotalReport%d';
+//TL 04/22/2014 removed the space from the file name because Firefox does not like spaces
 	$filename = sprintf($format, $_POST['year']);
 	
 
@@ -22,6 +23,7 @@ require($root."dbconn.php");
 	$fp = fopen($filename, 'w');
          
 	$emptyArray = array();
+	//$memberArray = array();
 
 //sql to pull the information on all 'Full Member' centers
 
@@ -38,13 +40,17 @@ require($root."dbconn.php");
 							actualPerfStats.quarter = actualExpenditures.quarter WHERE actualPerfStats.center = '$rowFullMember->center' 
 									AND actualPerfStats.fiscalyear = '$fiscalYear' AND actualExpenditures.completed = 'COM' ORDER BY actualPerfStats.quarter";
 		//echo $sqlLoop."<br>";
-	
-		fputcsv($fp, (array)$rowFullMember);
+		//$format2 = '%s ,';
+		//$memberArray[0] = sprintf($format2, (string)$rowFullMember);
+		foreach($rowFullMember as $rfm)
+		{
+			if($rfm != NULL)
+				fputcsv($fp, (array)$rowFullMember);
+		}
 		
 		$resultLoop = $db->get_row($sqlLoop);
 		fputcsv($fp, (array)$resultLoop);
 		fputcsv($fp, $emptyArray);
-
 	}
 	fputcsv($fp, $emptyArray);
 
@@ -99,8 +105,8 @@ require($root."dbconn.php");
 			header("Cache-Control: must-revalidate");
 			header("Pragma: must-revalidate");
 			
-			header("Content-type: text/csv");
-			header("Content-disposition: attachment; filename=$filename");
+			header("Content-type: application/csv");
+			header("Content-disposition: attachment; filename=$filename.csv");
 			
 			readfile($filename);
 			
