@@ -89,6 +89,7 @@
 		$output .= "<h1 class='previousYear'>Board of Directors for ".$CenterName." for FY ".$lastYear."</h1>
 						<table class='boardOfDirTable'>
 							<thead>
+								<tr><th class='importAll' colspan='7'><a href='editBoardOfDir.php?action=importAll&center=".$center."&fiscalYear=".$fiscalYear."&previousFiscalYear=".$lastYear."'>Import All</a> (Only do this once)</th></tr>
 								<tr><th class='name'>Member Name</th><th class='pos'>Position</th><th class='address'>Address</th><th class='phone'>Phone</th><th class='occupation'>Occupation</th><th class='yearsOnBoard'>Years on Board</th><th class='centerText'>Import to Current Year</th></tr></thead>
 							<tbody>";
 		
@@ -96,18 +97,22 @@
 		$board = $db->get_results($sql);
 		
 		$a=0;
-		foreach($board as $member){
-			//Check to see if we have a valid center
-			if($member->center){
-				//alt row styling
-				$altRowStyle=$a%2==0?' trEven':' trOdd';
-				$a++;
-				$output .="<tr class='centerInfo ".$altRowStyle."'><td class='name'>".$member->name."</td><td class='pos'>".$member->boardPosition."</td>";
-				$output .="<td class='address'>".$member->address."</td><td class='phone'>".$member->phone."</td>";
-				$output .="<td class='occupation'>".$member->occupation."</td><td class='centerText yearsOnBoard'>".$member->yearsOnBoard."</td>";
-				$output .= "<td class='centerText'><a href='editBoardOfDir.php?action=import&BODID=".$member->BODID."&center=".$center."&fiscalYear=".$fiscalYear."&previousFiscalYear=".$lastYear."'>Import</a></td></tr>";
-			}//end if
+		if(!empty($board)){
+			foreach($board as $member){
+				//Check to see if we have a valid center
+				if($member->center){
+					//alt row styling
+					$altRowStyle=$a%2==0?' trEven':' trOdd';
+					$a++;
+					$output .="<tr class='centerInfo ".$altRowStyle."'><td class='name'>".$member->name."</td><td class='pos'>".$member->boardPosition."</td>";
+					$output .="<td class='address'>".$member->address."</td><td class='phone'>".$member->phone."</td>";
+					$output .="<td class='occupation'>".$member->occupation."</td><td class='centerText yearsOnBoard'>".$member->yearsOnBoard."</td>";
+					$output .= "<td class='centerText'><a href='editBoardOfDir.php?action=import&BODID=".$member->BODID."&center=".$center."&fiscalYear=".$fiscalYear."&previousFiscalYear=".$lastYear."'>Import</a></td></tr>";
+				}//end if
+			}//end foreach
 		}
+		else
+			$output .="<tr class='centerInfo centerText'><td colspan='7'>There are no board members for the previous year</td>";
 		
 		$output .="</tbody></table>";
 	}

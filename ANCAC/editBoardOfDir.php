@@ -10,6 +10,9 @@
 	elseif($_GET['action'] == 'import'){
 		$action = "Import";
 	}
+	elseif($_GET['action'] == 'importAll'){
+		$action = "Import All";
+	}
 	else{
 		$action = "Edit";
 		$redirectURL = "editBoardOfDir.php?action=edit&BODID=".$_GET['BODID']."&center=".$_GET['center']."&fiscalYear=".$_GET['fiscalYear'];
@@ -35,6 +38,22 @@
 		}
 		if (empty($_POST['whenElected'])){
 			$errors[] = 'You did not enter when new officers are elected.';
+		}
+		//Optional values are tested and set to '' if they don't exist
+		if (empty($_POST['position'])){
+			$_POST['position'] = "";
+		}
+		if (empty($_POST['occupation'])){
+			$_POST['occupation'] = "";
+		}
+		if (empty($_POST['address'])){
+			$_POST['address'] = "";
+		}
+		if (empty($_POST['phone'])){
+			$_POST['phone'] = "";
+		}
+		if (empty($_POST['yearsOnBoard'])){
+			$_POST['yearsOnBoard'] = "";
 		}
 		
 		if (empty($errors)){ // No errors
@@ -122,6 +141,31 @@
 		$output = "<div class='basic-grey'>
 						<h1>".$action." Member
 							<span>Member Imported sucessfully!</span>
+						</h1>
+						<a href=".$webroot."boardOfDirAdmin.php?&center=".$_GET['center'].">Back to Board of Directors</a>
+					</div>";
+	}
+	//They want to import all old members
+	elseif($_GET['action'] == 'importAll'){
+		//move the director to the current year
+		//Get thier current info
+		$sql = "SELECT * FROM boardOfDirItem WHERE center ='".$_GET['center']."' AND fiscalyear='".$_GET['previousFiscalYear']."'";
+		$boardMembers = $db->get_results($sql);
+		
+		foreach($boardMembers as $boardMember){
+			//insert as new row with updated fiscal year
+			$sql = "INSERT INTO boardOfDirItem (center , fiscalyear , name , boardPosition , occupation , address , phone , yearsOnBoard , username , datemod)
+					VALUES ( '".$_GET['center']."', '".$_GET['fiscalYear']."', '".$boardMember->name."',
+					'".$boardMember->boardPosition."', '".$boardMember->occupation."',
+					'".$boardMember->address."', '".$boardMember->phone."',
+					'".$boardMember->yearsOnBoard."', '".$_SESSION['user']."', NOW())";
+			
+			$db->query($sql);
+		}
+		
+		$output = "<div class='basic-grey'>
+						<h1>".$action." Member
+							<span>All Directors Imported sucessfully!</span>
 						</h1>
 						<a href=".$webroot."boardOfDirAdmin.php?&center=".$_GET['center'].">Back to Board of Directors</a>
 					</div>";
