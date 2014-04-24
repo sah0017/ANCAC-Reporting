@@ -16,7 +16,7 @@
 
 			<?php
 			foreach(glob('files/general/*.*') as $file){
-			echo ("<p><a href=".str_replace(' ','%20',$file).' target=target="_blank">'.basename($file)."</a>".
+			echo ("<p><a href=".str_replace(' ','%20',$file).' download target="_blank">'.basename($file)."</a>".
 					"&nbsp&nbsp&nbsp<a href=\"delete.php?f=".basename($file)."&d=2\">Delete</a></p>");
 			}
 			?>
