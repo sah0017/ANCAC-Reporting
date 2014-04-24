@@ -13,7 +13,7 @@ require($root."dbconn.php");
         $fiscalYear = $_POST['year'];
 
 	echo '<table border="1" style="width:1340px"><tr align="center"><td>FI</td><td>EFA</td><td>ICS</td><td>TCS</td><td>MDT</td><td>PROS</td><td>EXAM</td></tr>'.
-		 '<tr align="center"><td>Forensic Investigation</td><td>Extended Forensic Assessment</td><td>Initial Counselling Sessions</td><td>Total Counselling Sessions</td><td>Cases Reviewed by the Multidisciplinary Team Meeting</td><td>Cases referred for Prosecution</td><td>Cases with a Medical Exam</td></tr></table>';
+		 '<tr align="center"><td>Forensic Investigation</td><td>Extended Forensic Assessment</td><td>Initial Counseling Sessions</td><td>Total Counseling Sessions</td><td>Cases Reviewed by the Multidisciplinary Team Meeting</td><td>Cases referred for Prosecution</td><td>Cases with a Medical Exam</td></tr></table>';
 	
 
         function printHeaders(){
