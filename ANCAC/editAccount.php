@@ -190,9 +190,22 @@ require($root."header.php");
                	 
                }
                
-                $sub_User_UserLevel = $_POST['User_UserLevel'];
-                $sub_User_Center = $_POST['User_Center'];
-            
+               	if(!empty($_POST['User_UserLevel']))
+               	{
+	                $sub_User_UserLevel = $_POST['User_UserLevel'];
+               	}
+               	else
+               	{
+               		$sub_User_UserLevel = $rowUser->user_level;
+               	}            
+               	
+                if (!empty($_POST['User_Center'])){
+	                $sub_User_Center = $_POST['User_Center'];
+    			}
+    			else
+    			{
+    				$sub_User_Center = $rowUser->center;
+    			}        
 
 
 
@@ -222,8 +235,8 @@ require($root."header.php");
 
                 //update the budgetedExpenditures table
 				//echo $sqlExecute;
-                $resultExecute = mysql_query($sqlExecute);
-                
+                $resultExecute = mysql_query($sqlExecute) or mysql_error();
+                echo $resultExecute;
 
               }
 
