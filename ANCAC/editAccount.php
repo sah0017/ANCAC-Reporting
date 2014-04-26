@@ -324,22 +324,18 @@ require($root."header.php");
                                   } // end if
                                   
 
-                                  //echo '<p><b>Password:</b> <input type="text" name="User_Password" maxlength="15" size="75" value="';
+                                  
+                                  
+                                  
 
-                                       //if(isset($_POST['User_Password'])) echo $_POST['User_Password']; else echo $rowUser->password;
-
-                                  //echo '" /></p>';
-                                  
-                                  
-                                  if ($_SESSION['admin'] = 0)
-                                  	echo '<p><b>Current Password:</b> <input type="text" name="User_Password" maxlength="15" size="75" value="" /></p>';
-                                  
                                   echo '<p><b>New Password:</b> <input type="text" name="User_NewPassword" maxlength="15" size="75" value="" /></p>';
                                   
                                   echo '<p><b>Repeat New Password:</b> <input type="text" name="User_NewPassword2" maxlength="15" size="75" value="" /></p>';
                                   
-
-
+                                  
+                                  if ($_SESSION['admin'] == 0)
+                                  	echo '<p><b>Current Password (REQUIRED):</b> <input type="text" name="User_Password" maxlength="15" size="75" value="" /></p>';
+                                  
 
                                   echo '<p><input type="submit" name="submit" value="Update User Information" onclick="javascript:return confirm(\'Are you sure you want to update this user?\')" /></p>';
 
