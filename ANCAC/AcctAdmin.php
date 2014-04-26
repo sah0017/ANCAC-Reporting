@@ -20,7 +20,7 @@
              $sql = "SELECT directors.RID,directors.name,directors.username,directors.email,directors.center,directors.user_level,directors.password, centers.CenterName FROM directors left join centers on directors.center = centers.center";
 	     $result= @mysql_query($sql) or mysql_error();
 	     
-	     echo '<tr><td colspan="6" align="center"><a href="editAccount.php">Add a new log in</a></td></tr>';
+	     echo '<tr><td colspan="6" align="center"><a href="editAccount.php?RID=-1">Add a new log in</a></td></tr>';
 
 	     echo '<tr><td><b>Center</b></td><td><b>Name</b></td><td><b>User Name</b></td><td><b>Email</b></td><td><b>Password</b></td><td>&nbsp;</td></tr>';
 
