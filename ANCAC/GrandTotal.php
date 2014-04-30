@@ -12,8 +12,8 @@ require($root."dbconn.php");
 
         $fiscalYear = $_POST['year'];
 
-	echo '<table border="1" style="width:1340px"><tr align="center"><td>FI</td><td>EFA</td><td>ICS</td><td>TCS</td><td>MDT</td><td>PROS</td><td>EXAM</td></tr>'.
-		 '<tr align="center"><td>Forensic Investigation</td><td>Extended Forensic Assessment</td><td>Initial Counseling Sessions</td><td>Total Counseling Sessions</td><td>Cases Reviewed by the Multidisciplinary Team Meeting</td><td>Cases referred for Prosecution</td><td>Cases with a Medical Exam</td></tr></table>';
+	echo '<table align="center" width="85%" class="legendTable"><tr align="center" class="legendHeader"><td>FI</td><td>EFA</td><td>ICS</td><td>TCS</td><td>MDT</td><td>PROS</td><td>EXAM</td></tr>'. //4/8/14
+		 '<tr align="center" class="legendRow"><td>Forensic Investigation</td><td>Extended Forensic Assessment</td><td>Initial Counselling Sessions</td><td>Total Counselling Sessions</td><td>Cases Reviewed by the Multidisciplinary Team Meeting</td><td>Cases referred for Prosecution</td><td>Cases with a Medical Exam</td></tr></table>'; //4/8/14
 	
 
         function printHeaders(){
@@ -510,11 +510,11 @@ require($root."dbconn.php");
 
                                                 $YearfiOther = $YearfiOther + $rowLoop->fiOther;
 
-                                                echo '<td class="TotalCell">'.$rowLoop->extForenEval.'</td>';
+                                                echo '<td class="">'.$rowLoop->extForenEval.'</td>';
 
                                                 $YearextForenEval = $YearextForenEval + $rowLoop->extForenEval;
 
-                                                echo '<td class="TotalCell">'.$rowLoop->intCounsSes.'</td>';
+                                                echo '<td class="">'.$rowLoop->intCounsSes.'</td>';
 
                                                 $YearintCounsSes = $YearintCounsSes + $rowLoop->intCounsSes;
 
@@ -536,7 +536,7 @@ require($root."dbconn.php");
 
                                                 $totalServices = $rowLoop->fiTotal + $rowLoop->extForenEval + $rowLoop->intCounsSes;
 
-                                                echo '<td class="BoldText">'.$totalServices.'</td>';
+                                                echo '<td class="">'.$totalServices.'</td>';
 
                                                 $YearTotalService = $YearTotalService + $totalServices;
 
@@ -730,9 +730,9 @@ require($root."dbconn.php");
 
                                         echo '<td>'.$YearfiOther.'</td>';
 
-                                        echo '<td class="TotalCell">'.$YearextForenEval.'</td>';
+                                        echo '<td class="">'.$YearextForenEval.'</td>';
 
-                                        echo '<td class="TotalCell">'.$YearintCounsSes.'</td>';
+                                        echo '<td class="">'.$YearintCounsSes.'</td>';
 
                                         echo '<td>'.$YeartotCounSes.'</td>';
 
@@ -742,7 +742,7 @@ require($root."dbconn.php");
 
                                         echo '<td>'.$YearmedExamRef.'</td>';
 
-                                        echo '<td class="TotalCell">'.$YearTotalService.'</td>';
+                                        echo '<td class="">'.$YearTotalService.'</td>';
 
 
 
@@ -780,71 +780,71 @@ require($root."dbconn.php");
 
                         $GRANDTOTAL1fiTotal = $GRANDTOTAL1fiTotal + $FULL1fiTotal;
 
-                        echo '<td class="TotalCell">'.$FULL1fi0to6.'</td>';
+                        echo '<td class="">'.$FULL1fi0to6.'</td>';
 
                         $GRANDTOTAL1fi0to6 = $GRANDTOTAL1fi0to6 + $FULL1fi0to6;
 
-                        echo '<td class="TotalCell">'.$FULL1fi7to12.'</td>';
+                        echo '<td class="">'.$FULL1fi7to12.'</td>';
 
                         $GRANDTOTAL1fi7to12 = $GRANDTOTAL1fi7to12 + $FULL1fi7to12;
 
-                        echo '<td class="TotalCell">'.$FULL1fi13to18.'</td>';
+                        echo '<td class="">'.$FULL1fi13to18.'</td>';
 
                         $GRANDTOTAL1fi13to18 = $GRANDTOTAL1fi13to18 + $FULL1fi13to18;
 
-                        echo '<td class="TotalCell">'.$FULL1fiMale.'</td>';
+                        echo '<td class="">'.$FULL1fiMale.'</td>';
 
                         $GRANDTOTAL1fiMale = $GRANDTOTAL1fiMale + $FULL1fiMale;
 
-                        echo '<td class="TotalCell">'.$FULL1fiFemale.'</td>';
+                        echo '<td class="">'.$FULL1fiFemale.'</td>';
 
                         $GRANDTOTAL1fiFemale = $GRANDTOTAL1fiFemale + $FULL1fiFemale;
 
-                        echo '<td class="TotalCell">'.$FULL1fiAfrAmerican.'</td>';
+                        echo '<td class="">'.$FULL1fiAfrAmerican.'</td>';
 
                         $GRANDTOTAL1fiAfrAmerican = $GRANDTOTAL1fiAfrAmerican + $FULL1fiAfrAmerican;
 
-                        echo '<td class="TotalCell">'.$FULL1fiAsian.'</td>';
+                        echo '<td class="">'.$FULL1fiAsian.'</td>';
 
                         $GRANDTOTAL1fiAsian = $GRANDTOTAL1fiAsian + $FULL1fiAsian;
 
-                        echo '<td class="TotalCell">'.$FULL1fiCauc.'</td>';
+                        echo '<td class="">'.$FULL1fiCauc.'</td>';
 
                         $GRANDTOTAL1fiCauc = $GRANDTOTAL1fiCauc + $FULL1fiCauc;
 
-                        echo '<td class="TotalCell">'.$FULL1fiHispanic.'</td>';
+                        echo '<td class="">'.$FULL1fiHispanic.'</td>';
 
                         $GRANDTOTAL1fiHispanic = $GRANDTOTAL1fiHispanic + $FULL1fiHispanic;
 
-                        echo '<td class="TotalCell">'.$FULL1fiOther.'</td>';
+                        echo '<td class="">'.$FULL1fiOther.'</td>';
 
                         $GRANDTOTAL1fiOther = $GRANDTOTAL1fiOther + $FULL1fiOther;
 
-                        echo '<td class="TotalCell">'.$FULL1extForenEval.'</td>';
+                        echo '<td class="">'.$FULL1extForenEval.'</td>';
 
                         $GRANDTOTAL1extForenEval = $GRANDTOTAL1extForenEval + $FULL1extForenEval;
 
-                        echo '<td class="TotalCell">'.$FULL1intCounsSes.'</td>';
+                        echo '<td class="">'.$FULL1intCounsSes.'</td>';
 
                         $GRANDTOTAL1intCounsSes = $GRANDTOTAL1intCounsSes + $FULL1intCounsSes;
 
-                        echo '<td class="TotalCell">'.$FULL1totCounSes.'</td>';
+                        echo '<td class="">'.$FULL1totCounSes.'</td>';
 
                         $GRANDTOTAL1totCounSes = $GRANDTOTAL1totCounSes + $FULL1totCounSes;
 
-                        echo '<td class="TotalCell">'.$FULL1multDisTeamMeet.'</td>';
+                        echo '<td class="">'.$FULL1multDisTeamMeet.'</td>';
 
                         $GRANDTOTAL1multDisTeamMeet = $GRANDTOTAL1multDisTeamMeet + $FULL1multDisTeamMeet;
 
-                        echo '<td class="TotalCell">'.$FULL1prosCases.'</td>';
+                        echo '<td class="">'.$FULL1prosCases.'</td>';
 
                         $GRANDTOTAL1prosCases = $GRANDTOTAL1prosCases + $FULL1prosCases;
 
-                        echo '<td class="TotalCell">'.$FULL1medExamRef.'</td>';
+                        echo '<td class="">'.$FULL1medExamRef.'</td>';
 
                         $GRANDTOTAL1medExamRefl = $GRANDTOTAL1medExamRefl + $FULL1medExamRef;
 
-                        echo '<td class="BoldText">'.$FULL1TotalService.'</td></tr>';
+                        echo '<td class="">'.$FULL1TotalService.'</td></tr>';
 
                         $GRANDTOTAL1TotalService = $GRANDTOTAL1TotalService + $FULL1TotalService;
 
@@ -854,71 +854,71 @@ require($root."dbconn.php");
 
                         $GRANDTOTAL2fiTotal = $GRANDTOTAL2fiTotal + $FULL2fiTotal;
 
-                        echo '<td class="TotalCell">'.$FULL2fi0to6.'</td>';
+                        echo '<td class="">'.$FULL2fi0to6.'</td>';
 
                         $GRANDTOTAL2fi0to6 = $GRANDTOTAL2fi0to6 + $FULL2fi0to6;
 
-                        echo '<td class="TotalCell">'.$FULL2fi7to12.'</td>';
+                        echo '<td class="">'.$FULL2fi7to12.'</td>';
 
                         $GRANDTOTAL2fi7to12 = $GRANDTOTAL2fi7to12 + $FULL2fi7to12;
 
-                        echo '<td class="TotalCell">'.$FULL2fi13to18.'</td>';
+                        echo '<td class="">'.$FULL2fi13to18.'</td>';
 
                         $GRANDTOTAL2fi13to18 = $GRANDTOTAL2fi13to18 + $FULL2fi13to18;
 
-                        echo '<td class="TotalCell">'.$FULL2fiMale.'</td>';
+                        echo '<td class="">'.$FULL2fiMale.'</td>';
 
                         $GRANDTOTAL2fiMale = $GRANDTOTAL2fiMale + $FULL2fiMale;
 
-                        echo '<td class="TotalCell">'.$FULL2fiFemale.'</td>';
+                        echo '<td class="">'.$FULL2fiFemale.'</td>';
 
                         $GRANDTOTAL2fiFemale = $GRANDTOTAL2fiFemale + $FULL2fiFemale;
 
-                        echo '<td class="TotalCell">'.$FULL2fiAfrAmerican.'</td>';
+                        echo '<td class="">'.$FULL2fiAfrAmerican.'</td>';
 
                         $GRANDTOTAL2fiAfrAmerican = $GRANDTOTAL2fiAfrAmerican + $FULL2fiAfrAmerican;
 
-                        echo '<td class="TotalCell">'.$FULL2fiAsian.'</td>';
+                        echo '<td class="">'.$FULL2fiAsian.'</td>';
 
                         $GRANDTOTAL2fiAsian = $GRANDTOTAL2fiAsian + $FULL2fiAsian;
 
-                        echo '<td class="TotalCell">'.$FULL2fiCauc.'</td>';
+                        echo '<td class="">'.$FULL2fiCauc.'</td>';
 
                         $GRANDTOTAL2fiCauc = $GRANDTOTAL2fiCauc + $FULL2fiCauc;
 
-                        echo '<td class="TotalCell">'.$FULL2fiHispanic.'</td>';
+                        echo '<td class="">'.$FULL2fiHispanic.'</td>';
 
                         $GRANDTOTAL2fiHispanic = $GRANDTOTAL2fiHispanic + $FULL2fiHispanic;
 
-                        echo '<td class="TotalCell">'.$FULL2fiOther.'</td>';
+                        echo '<td class="">'.$FULL2fiOther.'</td>';
 
                         $GRANDTOTAL2fiOther = $GRANDTOTAL2fiOther + $FULL2fiOther;
 
-                        echo '<td class="TotalCell">'.$FULL2extForenEval.'</td>';
+                        echo '<td class="">'.$FULL2extForenEval.'</td>';
 
                         $GRANDTOTAL2extForenEval = $GRANDTOTAL2extForenEval + $FULL2extForenEval;
 
-                        echo '<td class="TotalCell">'.$FULL2intCounsSes.'</td>';
+                        echo '<td class="">'.$FULL2intCounsSes.'</td>';
 
                         $GRANDTOTAL2intCounsSes = $GRANDTOTAL2intCounsSes + $FULL2intCounsSes;
 
-                        echo '<td class="TotalCell">'.$FULL2totCounSes.'</td>';
+                        echo '<td class="">'.$FULL2totCounSes.'</td>';
 
                         $GRANDTOTAL2totCounSes = $GRANDTOTAL2totCounSes + $FULL2totCounSes;
 
-                        echo '<td class="TotalCell">'.$FULL2multDisTeamMeet.'</td>';
+                        echo '<td class="">'.$FULL2multDisTeamMeet.'</td>';
 
                         $GRANDTOTAL2multDisTeamMeet = $GRANDTOTAL2multDisTeamMeet + $FULL2multDisTeamMeet;
 
-                        echo '<td class="TotalCell">'.$FULL2prosCases.'</td>';
+                        echo '<td class="">'.$FULL2prosCases.'</td>';
 
                         $GRANDTOTAL2prosCases = $GRANDTOTAL2prosCases + $FULL2prosCases;
 
-                        echo '<td class="TotalCell">'.$FULL2medExamRef.'</td>';
+                        echo '<td class="">'.$FULL2medExamRef.'</td>';
 
                         $GRANDTOTAL2medExamRefl = $GRANDTOTAL2medExamRefl + $FULL2medExamRef;
 
-                        echo '<td class="BoldText">'.$FULL2TotalService.'</td></tr>';
+                        echo '<td class="">'.$FULL2TotalService.'</td></tr>';
 
                         $GRANDTOTAL2TotalService = $GRANDTOTAL2TotalService + $FULL2TotalService;
 
@@ -928,71 +928,71 @@ require($root."dbconn.php");
 
                         $GRANDTOTAL3fiTotal = $GRANDTOTAL3fiTotal + $FULL3fiTotal;
 
-                        echo '<td class="TotalCell">'.$FULL3fi0to6.'</td>';
+                        echo '<td class="">'.$FULL3fi0to6.'</td>';
 
                         $GRANDTOTAL3fi0to6 = $GRANDTOTAL3fi0to6 + $FULL3fi0to6;
 
-                        echo '<td class="TotalCell">'.$FULL3fi7to12.'</td>';
+                        echo '<td class="">'.$FULL3fi7to12.'</td>';
 
                         $GRANDTOTAL3fi7to12 = $GRANDTOTAL3fi7to12 + $FULL3fi7to12;
 
-                        echo '<td class="TotalCell">'.$FULL3fi13to18.'</td>';
+                        echo '<td class="">'.$FULL3fi13to18.'</td>';
 
                         $GRANDTOTAL3fi13to18 = $GRANDTOTAL3fi13to18 + $FULL3fi13to18;
 
-                        echo '<td class="TotalCell">'.$FULL3fiMale.'</td>';
+                        echo '<td class="">'.$FULL3fiMale.'</td>';
 
                         $GRANDTOTAL3fiMale = $GRANDTOTAL3fiMale + $FULL3fiMale;
 
-                        echo '<td class="TotalCell">'.$FULL3fiFemale.'</td>';
+                        echo '<td class="">'.$FULL3fiFemale.'</td>';
 
                         $GRANDTOTAL3fiFemale = $GRANDTOTAL3fiFemale + $FULL3fiFemale;
 
-                        echo '<td class="TotalCell">'.$FULL3fiAfrAmerican.'</td>';
+                        echo '<td class="">'.$FULL3fiAfrAmerican.'</td>';
 
                         $GRANDTOTAL3fiAfrAmerican = $GRANDTOTAL3fiAfrAmerican + $FULL3fiAfrAmerican;
 
-                        echo '<td class="TotalCell">'.$FULL3fiAsian.'</td>';
+                        echo '<td class="">'.$FULL3fiAsian.'</td>';
 
                         $GRANDTOTAL3fiAsian = $GRANDTOTAL3fiAsian + $FULL3fiAsian;
 
-                        echo '<td class="TotalCell">'.$FULL3fiCauc.'</td>';
+                        echo '<td class="">'.$FULL3fiCauc.'</td>';
 
                         $GRANDTOTAL3fiCauc = $GRANDTOTAL3fiCauc + $FULL3fiCauc;
 
-                        echo '<td class="TotalCell">'.$FULL3fiHispanic.'</td>';
+                        echo '<td class="">'.$FULL3fiHispanic.'</td>';
 
                         $GRANDTOTAL3fiHispanic = $GRANDTOTAL3fiHispanic + $FULL3fiHispanic;
 
-                        echo '<td class="TotalCell">'.$FULL3fiOther.'</td>';
+                        echo '<td class="">'.$FULL3fiOther.'</td>';
 
                         $GRANDTOTAL3fiOther = $GRANDTOTAL3fiOther + $FULL3fiOther;
 
-                        echo '<td class="TotalCell">'.$FULL3extForenEval.'</td>';
+                        echo '<td class="">'.$FULL3extForenEval.'</td>';
 
                         $GRANDTOTAL3extForenEval = $GRANDTOTAL3extForenEval + $FULL3extForenEval;
 
-                        echo '<td class="TotalCell">'.$FULL3intCounsSes.'</td>';
+                        echo '<td class="">'.$FULL3intCounsSes.'</td>';
 
                         $GRANDTOTAL3intCounsSes = $GRANDTOTAL3intCounsSes + $FULL3intCounsSes;
 
-                        echo '<td class="TotalCell">'.$FULL3totCounSes.'</td>';
+                        echo '<td class="">'.$FULL3totCounSes.'</td>';
 
                         $GRANDTOTAL3totCounSes = $GRANDTOTAL3totCounSes + $FULL3totCounSes;
 
-                        echo '<td class="TotalCell">'.$FULL3multDisTeamMeet.'</td>';
+                        echo '<td class="">'.$FULL3multDisTeamMeet.'</td>';
 
                         $GRANDTOTAL3multDisTeamMeet = $GRANDTOTAL3multDisTeamMeet + $FULL3multDisTeamMeet;
 
-                        echo '<td class="TotalCell">'.$FULL3prosCases.'</td>';
+                        echo '<td class="">'.$FULL3prosCases.'</td>';
 
                         $GRANDTOTAL3prosCases = $GRANDTOTAL3prosCases + $FULL3prosCases;
 
-                        echo '<td class="TotalCell">'.$FULL3medExamRef.'</td>';
+                        echo '<td class="">'.$FULL3medExamRef.'</td>';
 
                         $GRANDTOTAL3medExamRefl = $GRANDTOTAL3medExamRefl + $FULL3medExamRef;
 
-                        echo '<td class="BoldText">'.$FULL3TotalService.'</td></tr>';
+                        echo '<td class="">'.$FULL3TotalService.'</td></tr>';
 
                         $GRANDTOTAL3TotalService = $GRANDTOTAL3TotalService + $FULL3TotalService;
 
@@ -1002,71 +1002,71 @@ require($root."dbconn.php");
 
                         $GRANDTOTAL4fiTotal = $GRANDTOTAL4fiTotal + $FULL4fiTotal;
 
-                        echo '<td class="TotalCell">'.$FULL4fi0to6.'</td>';
+                        echo '<td class="">'.$FULL4fi0to6.'</td>';
 
                         $GRANDTOTAL4fi0to6 = $GRANDTOTAL4fi0to6 + $FULL4fi0to6;
 
-                        echo '<td class="TotalCell">'.$FULL4fi7to12.'</td>';
+                        echo '<td class="">'.$FULL4fi7to12.'</td>';
 
                         $GRANDTOTAL4fi7to12 = $GRANDTOTAL4fi7to12 + $FULL4fi7to12;
 
-                        echo '<td class="TotalCell">'.$FULL4fi13to18.'</td>';
+                        echo '<td class="">'.$FULL4fi13to18.'</td>';
 
                         $GRANDTOTAL4fi13to18 = $GRANDTOTAL4fi13to18 + $FULL4fi13to18;
 
-                        echo '<td class="TotalCell">'.$FULL4fiMale.'</td>';
+                        echo '<td class="">'.$FULL4fiMale.'</td>';
 
                         $GRANDTOTAL4fiMale = $GRANDTOTAL4fiMale + $FULL4fiMale;
 
-                        echo '<td class="TotalCell">'.$FULL4fiFemale.'</td>';
+                        echo '<td class="">'.$FULL4fiFemale.'</td>';
 
                         $GRANDTOTAL4fiFemale = $GRANDTOTAL4fiFemale + $FULL4fiFemale;
 
-                        echo '<td class="TotalCell">'.$FULL4fiAfrAmerican.'</td>';
+                        echo '<td class="">'.$FULL4fiAfrAmerican.'</td>';
 
                         $GRANDTOTAL4fiAfrAmerican = $GRANDTOTAL4fiAfrAmerican + $FULL4fiAfrAmerican;
 
-                        echo '<td class="TotalCell">'.$FULL4fiAsian.'</td>';
+                        echo '<td class="">'.$FULL4fiAsian.'</td>';
 
                         $GRANDTOTAL4fiAsian = $GRANDTOTAL4fiAsian + $FULL4fiAsian;
 
-                        echo '<td class="TotalCell">'.$FULL4fiCauc.'</td>';
+                        echo '<td class="">'.$FULL4fiCauc.'</td>';
 
                         $GRANDTOTAL4fiCauc = $GRANDTOTAL4fiCauc + $FULL4fiCauc;
 
-                        echo '<td class="TotalCell">'.$FULL4fiHispanic.'</td>';
+                        echo '<td class="">'.$FULL4fiHispanic.'</td>';
 
                         $GRANDTOTAL4fiHispanic = $GRANDTOTAL4fiHispanic + $FULL4fiHispanic;
 
-                        echo '<td class="TotalCell">'.$FULL4fiOther.'</td>';
+                        echo '<td class="">'.$FULL4fiOther.'</td>';
 
                         $GRANDTOTAL4fiOther = $GRANDTOTAL4fiOther + $FULL4fiOther;
 
-                        echo '<td class="TotalCell">'.$FULL4extForenEval.'</td>';
+                        echo '<td class="">'.$FULL4extForenEval.'</td>';
 
                         $GRANDTOTAL4extForenEval = $GRANDTOTAL4extForenEval + $FULL4extForenEval;
 
-                        echo '<td class="TotalCell">'.$FULL4intCounsSes.'</td>';
+                        echo '<td class="">'.$FULL4intCounsSes.'</td>';
 
                         $GRANDTOTAL4intCounsSes = $GRANDTOTAL4intCounsSes + $FULL4intCounsSes;
 
-                        echo '<td class="TotalCell">'.$FULL4totCounSes.'</td>';
+                        echo '<td class="">'.$FULL4totCounSes.'</td>';
 
                         $GRANDTOTAL4totCounSes = $GRANDTOTAL4totCounSes + $FULL4totCounSes;
 
-                        echo '<td class="TotalCell">'.$FULL4multDisTeamMeet.'</td>';
+                        echo '<td class="">'.$FULL4multDisTeamMeet.'</td>';
 
                         $GRANDTOTAL4multDisTeamMeet = $GRANDTOTAL4multDisTeamMeet + $FULL4multDisTeamMeet;
 
-                        echo '<td class="TotalCell">'.$FULL4prosCases.'</td>';
+                        echo '<td class="">'.$FULL4prosCases.'</td>';
 
                         $GRANDTOTAL4prosCases = $GRANDTOTAL4prosCases + $FULL4prosCases;
 
-                        echo '<td class="TotalCell">'.$FULL4medExamRef.'</td>';
+                        echo '<td class="">'.$FULL4medExamRef.'</td>';
 
                         $GRANDTOTAL4medExamRefl = $GRANDTOTAL4medExamRefl + $FULL4medExamRef;
 
-                        echo '<td class="BoldText">'.$FULL4TotalService.'</td></tr>';
+                        echo '<td class="">'.$FULL4TotalService.'</td></tr>';
 
                         $GRANDTOTAL4TotalService = $GRANDTOTAL4TotalService + $FULL4TotalService;
 
@@ -1118,11 +1118,11 @@ require($root."dbconn.php");
 
                         $FULLTOTALextForenEval = $FULL1extForenEval+$FULL2extForenEval+$FULL3extForenEval+$FULL4extForenEval;
 
-                        echo '<td class="TotalCell">'.$FULLTOTALextForenEval.'</td>';
+                        echo '<td class="">'.$FULLTOTALextForenEval.'</td>';
 
                         $FULLTOTALintCounsSes = $FULL1intCounsSes+$FULL2intCounsSes+$FULL3intCounsSes+$FULL4intCounsSes;
 
-                        echo '<td class="TotalCell">'.$FULLTOTALintCounsSes.'</td>';
+                        echo '<td class="">'.$FULLTOTALintCounsSes.'</td>';
 
                         $FULLTOTALtotCounSes = $FULL1totCounSes+$FULL2totCounSes+$FULL3totCounSes+$FULL4totCounSes;
 
@@ -1142,7 +1142,7 @@ require($root."dbconn.php");
 
                         $FULLTOTALTotalService = $FULL1TotalService+$FULL2TotalService+$FULL3TotalService+$FULL4TotalService;
 
-                        echo '<td class="TotalCell">'.$FULLTOTALTotalService.'</td></tr>';
+                        echo '<td class="">'.$FULLTOTALTotalService.'</td></tr>';
 
                 }
 
@@ -1438,7 +1438,7 @@ require($root."dbconn.php");
 
                                                 echo '<td align="center">'.$rowLoop->quarter.'</td>';
 
-                                                echo '<td class="TotalCell">'.$rowLoop->fiTotal.'</td>';
+                                                echo '<td class="">'.$rowLoop->fiTotal.'</td>';
 
                                                 $YearfiTotal = $YearfiTotal + $rowLoop->fiTotal;
 
@@ -1482,11 +1482,11 @@ require($root."dbconn.php");
 
                                                 $YearfiOther = $YearfiOther + $rowLoop->fiOther;
 
-                                                echo '<td class="TotalCell">'.$rowLoop->extForenEval.'</td>';
+                                                echo '<td class="">'.$rowLoop->extForenEval.'</td>';
 
                                                 $YearextForenEval = $YearextForenEval + $rowLoop->extForenEval;
 
-                                                echo '<td class="TotalCell">'.$rowLoop->intCounsSes.'</td>';
+                                                echo '<td class="">'.$rowLoop->intCounsSes.'</td>';
 
                                                 $YearintCounsSes = $YearintCounsSes + $rowLoop->intCounsSes;
 
@@ -1508,7 +1508,7 @@ require($root."dbconn.php");
 
                                                 $totalServices = $rowLoop->fiTotal + $rowLoop->extForenEval + $rowLoop->intCounsSes;
 
-                                                echo '<td class="BoldText">'.$totalServices.'</td>';
+                                                echo '<td class="">'.$totalServices.'</td>';
 
                                                 $YearTotalService = $YearTotalService + $totalServices;
 
@@ -1680,7 +1680,7 @@ require($root."dbconn.php");
 
                                         echo '<tr align="right" class="BoldText"><td>TOTAL</td><td></td>';
 
-                                        echo '<td class="TotalCell">'.$YearfiTotal.'</td>';
+                                        echo '<td class="">'.$YearfiTotal.'</td>';
 
                                         echo '<td>'.$Yearfi0to6.'</td>';
 
@@ -1702,9 +1702,9 @@ require($root."dbconn.php");
 
                                         echo '<td>'.$YearfiOther.'</td>';
 
-                                        echo '<td class="TotalCell">'.$YearextForenEval.'</td>';
+                                        echo '<td class="">'.$YearextForenEval.'</td>';
 
-                                        echo '<td class="TotalCell">'.$YearintCounsSes.'</td>';
+                                        echo '<td class="">'.$YearintCounsSes.'</td>';
 
                                         echo '<td>'.$YeartotCounSes.'</td>';
 
@@ -1714,7 +1714,7 @@ require($root."dbconn.php");
 
                                         echo '<td>'.$YearmedExamRef.'</td>';
 
-                                        echo '<td class="TotalCell">'.$YearTotalService.'</td>';
+                                        echo '<td class="">'.$YearTotalService.'</td>';
 
 
 
@@ -1748,297 +1748,297 @@ require($root."dbconn.php");
 
                         echo '<tr align="right"><td colspan="2" align="left"><b>TOTAL 1ST QTR</b></td>';
 
-                        echo '<td class="TotalCell">'.$FULL1fiTotal.'</td>';
+                        echo '<td class="">'.$FULL1fiTotal.'</td>';
 
                         $GRANDTOTAL1fiTotal = $GRANDTOTAL1fiTotal + $FULL1fiTotal;
 
-                        echo '<td class="TotalCell">'.$FULL1fi0to6.'</td>';
+                        echo '<td class="">'.$FULL1fi0to6.'</td>';
 
                         $GRANDTOTAL1fi0to6 = $GRANDTOTAL1fi0to6 + $FULL1fi0to6;
 
-                        echo '<td class="TotalCell">'.$FULL1fi7to12.'</td>';
+                        echo '<td class="">'.$FULL1fi7to12.'</td>';
 
                         $GRANDTOTAL1fi7to12 = $GRANDTOTAL1fi7to12 + $FULL1fi7to12;
 
-                        echo '<td class="TotalCell">'.$FULL1fi13to18.'</td>';
+                        echo '<td class="">'.$FULL1fi13to18.'</td>';
 
                         $GRANDTOTAL1fi13to18 = $GRANDTOTAL1fi13to18 + $FULL1fi13to18;
 
-                        echo '<td class="TotalCell">'.$FULL1fiMale.'</td>';
+                        echo '<td class="">'.$FULL1fiMale.'</td>';
 
                         $GRANDTOTAL1fiMale = $GRANDTOTAL1fiMale + $FULL1fiMale;
 
-                        echo '<td class="TotalCell">'.$FULL1fiFemale.'</td>';
+                        echo '<td class="">'.$FULL1fiFemale.'</td>';
 
                         $GRANDTOTAL1fiFemale = $GRANDTOTAL1fiFemale + $FULL1fiFemale;
 
-                        echo '<td class="TotalCell">'.$FULL1fiAfrAmerican.'</td>';
+                        echo '<td class="">'.$FULL1fiAfrAmerican.'</td>';
 
                         $GRANDTOTAL1fiAfrAmerican = $GRANDTOTAL1fiAfrAmerican + $FULL1fiAfrAmerican;
 
-                        echo '<td class="TotalCell">'.$FULL1fiAsian.'</td>';
+                        echo '<td class="">'.$FULL1fiAsian.'</td>';
 
                         $GRANDTOTAL1fiAsian = $GRANDTOTAL1fiAsian + $FULL1fiAsian;
 
-                        echo '<td class="TotalCell">'.$FULL1fiCauc.'</td>';
+                        echo '<td class="">'.$FULL1fiCauc.'</td>';
 
                         $GRANDTOTAL1fiCauc = $GRANDTOTAL1fiCauc + $FULL1fiCauc;
 
-                        echo '<td class="TotalCell">'.$FULL1fiHispanic.'</td>';
+                        echo '<td class="">'.$FULL1fiHispanic.'</td>';
 
                         $GRANDTOTAL1fiHispanic = $GRANDTOTAL1fiHispanic + $FULL1fiHispanic;
 
-                        echo '<td class="TotalCell">'.$FULL1fiOther.'</td>';
+                        echo '<td class="">'.$FULL1fiOther.'</td>';
 
                         $GRANDTOTAL1fiOther = $GRANDTOTAL1fiOther + $FULL1fiOther;
 
-                        echo '<td class="TotalCell">'.$FULL1extForenEval.'</td>';
+                        echo '<td class="">'.$FULL1extForenEval.'</td>';
 
                         $GRANDTOTAL1extForenEval = $GRANDTOTAL1extForenEval + $FULL1extForenEval;
 
-                        echo '<td class="TotalCell">'.$FULL1intCounsSes.'</td>';
+                        echo '<td class="">'.$FULL1intCounsSes.'</td>';
 
                         $GRANDTOTAL1intCounsSes = $GRANDTOTAL1intCounsSes + $FULL1intCounsSes;
 
-                        echo '<td class="TotalCell">'.$FULL1totCounSes.'</td>';
+                        echo '<td class="">'.$FULL1totCounSes.'</td>';
 
                         $GRANDTOTAL1totCounSes = $GRANDTOTAL1totCounSes + $FULL1totCounSes;
 
-                        echo '<td class="TotalCell">'.$FULL1multDisTeamMeet.'</td>';
+                        echo '<td class="">'.$FULL1multDisTeamMeet.'</td>';
 
                         $GRANDTOTAL1multDisTeamMeet = $GRANDTOTAL1multDisTeamMeet + $FULL1multDisTeamMeet;
 
-                        echo '<td class="TotalCell">'.$FULL1prosCases.'</td>';
+                        echo '<td class="">'.$FULL1prosCases.'</td>';
 
                         $GRANDTOTAL1prosCases = $GRANDTOTAL1prosCases + $FULL1prosCases;
 
-                        echo '<td class="TotalCell">'.$FULL1medExamRef.'</td>';
+                        echo '<td class="">'.$FULL1medExamRef.'</td>';
 
                         $GRANDTOTAL1medExamRefl = $GRANDTOTAL1medExamRefl + $FULL1medExamRef;
 
-                        echo '<td class="BoldText">'.$FULL1TotalService.'</td></tr>';
+                        echo '<td class="">'.$FULL1TotalService.'</td></tr>';
 
                         $GRANDTOTAL1TotalService = $GRANDTOTAL1TotalService + $FULL1TotalService;
 
                         echo '<tr align="right"><td colspan="2" align="left"><b>TOTAL 2ND QTR</b></td>';
 
-                        echo '<td class="TotalCell">'.$FULL2fiTotal.'</td>';
+                        echo '<td class="">'.$FULL2fiTotal.'</td>';
 
                         $GRANDTOTAL2fiTotal = $GRANDTOTAL2fiTotal + $FULL2fiTotal;
 
-                        echo '<td class="TotalCell">'.$FULL2fi0to6.'</td>';
+                        echo '<td class="">'.$FULL2fi0to6.'</td>';
 
                         $GRANDTOTAL2fi0to6 = $GRANDTOTAL2fi0to6 + $FULL2fi0to6;
 
-                        echo '<td class="TotalCell">'.$FULL2fi7to12.'</td>';
+                        echo '<td class="">'.$FULL2fi7to12.'</td>';
 
                         $GRANDTOTAL2fi7to12 = $GRANDTOTAL2fi7to12 + $FULL2fi7to12;
 
-                        echo '<td class="TotalCell">'.$FULL2fi13to18.'</td>';
+                        echo '<td class="">'.$FULL2fi13to18.'</td>';
 
                         $GRANDTOTAL2fi13to18 = $GRANDTOTAL2fi13to18 + $FULL2fi13to18;
 
-                        echo '<td class="TotalCell">'.$FULL2fiMale.'</td>';
+                        echo '<td class="">'.$FULL2fiMale.'</td>';
 
                         $GRANDTOTAL2fiMale = $GRANDTOTAL2fiMale + $FULL2fiMale;
 
-                        echo '<td class="TotalCell">'.$FULL2fiFemale.'</td>';
+                        echo '<td class="">'.$FULL2fiFemale.'</td>';
 
                         $GRANDTOTAL2fiFemale = $GRANDTOTAL2fiFemale + $FULL2fiFemale;
 
-                        echo '<td class="TotalCell">'.$FULL2fiAfrAmerican.'</td>';
+                        echo '<td class="">'.$FULL2fiAfrAmerican.'</td>';
 
                         $GRANDTOTAL2fiAfrAmerican = $GRANDTOTAL2fiAfrAmerican + $FULL2fiAfrAmerican;
 
-                        echo '<td class="TotalCell">'.$FULL2fiAsian.'</td>';
+                        echo '<td class="">'.$FULL2fiAsian.'</td>';
 
                         $GRANDTOTAL2fiAsian = $GRANDTOTAL2fiAsian + $FULL2fiAsian;
 
-                        echo '<td class="TotalCell">'.$FULL2fiCauc.'</td>';
+                        echo '<td class="">'.$FULL2fiCauc.'</td>';
 
                         $GRANDTOTAL2fiCauc = $GRANDTOTAL2fiCauc + $FULL2fiCauc;
 
-                        echo '<td class="TotalCell">'.$FULL2fiHispanic.'</td>';
+                        echo '<td class="">'.$FULL2fiHispanic.'</td>';
 
                         $GRANDTOTAL2fiHispanic = $GRANDTOTAL2fiHispanic + $FULL2fiHispanic;
 
-                        echo '<td class="TotalCell">'.$FULL2fiOther.'</td>';
+                        echo '<td class="">'.$FULL2fiOther.'</td>';
 
                         $GRANDTOTAL2fiOther = $GRANDTOTAL2fiOther + $FULL2fiOther;
 
-                        echo '<td class="TotalCell">'.$FULL2extForenEval.'</td>';
+                        echo '<td class="">'.$FULL2extForenEval.'</td>';
 
                         $GRANDTOTAL2extForenEval = $GRANDTOTAL2extForenEval + $FULL2extForenEval;
 
-                        echo '<td class="TotalCell">'.$FULL2intCounsSes.'</td>';
+                        echo '<td class="">'.$FULL2intCounsSes.'</td>';
 
                         $GRANDTOTAL2intCounsSes = $GRANDTOTAL2intCounsSes + $FULL2intCounsSes;
 
-                        echo '<td class="TotalCell">'.$FULL2totCounSes.'</td>';
+                        echo '<td class="">'.$FULL2totCounSes.'</td>';
 
                         $GRANDTOTAL2totCounSes = $GRANDTOTAL2totCounSes + $FULL2totCounSes;
 
-                        echo '<td class="TotalCell">'.$FULL2multDisTeamMeet.'</td>';
+                        echo '<td class="">'.$FULL2multDisTeamMeet.'</td>';
 
                         $GRANDTOTAL2multDisTeamMeet = $GRANDTOTAL2multDisTeamMeet + $FULL2multDisTeamMeet;
 
-                        echo '<td class="TotalCell">'.$FULL2prosCases.'</td>';
+                        echo '<td class="">'.$FULL2prosCases.'</td>';
 
                         $GRANDTOTAL2prosCases = $GRANDTOTAL2prosCases + $FULL2prosCases;
 
-                        echo '<td class="TotalCell">'.$FULL2medExamRef.'</td>';
+                        echo '<td class="">'.$FULL2medExamRef.'</td>';
 
                         $GRANDTOTAL2medExamRefl = $GRANDTOTAL2medExamRefl + $FULL2medExamRef;
 
-                        echo '<td class="BoldText">'.$FULL2TotalService.'</td></tr>';
+                        echo '<td class="">'.$FULL2TotalService.'</td></tr>';
 
                         $GRANDTOTAL2TotalService = $GRANDTOTAL2TotalService + $FULL2TotalService;
 
                         echo '<tr align="right"><td colspan="2" align="left"><b>TOTAL 3RD QTR</b></td>';
 
-                        echo '<td class="TotalCell">'.$FULL3fiTotal.'</td>';
+                        echo '<td class="">'.$FULL3fiTotal.'</td>';
 
                         $GRANDTOTAL3fiTotal = $GRANDTOTAL3fiTotal + $FULL3fiTotal;
 
-                        echo '<td class="TotalCell">'.$FULL3fi0to6.'</td>';
+                        echo '<td class="">'.$FULL3fi0to6.'</td>';
 
                         $GRANDTOTAL3fi0to6 = $GRANDTOTAL3fi0to6 + $FULL3fi0to6;
 
-                        echo '<td class="TotalCell">'.$FULL3fi7to12.'</td>';
+                        echo '<td class="">'.$FULL3fi7to12.'</td>';
 
                         $GRANDTOTAL3fi7to12 = $GRANDTOTAL3fi7to12 + $FULL3fi7to12;
 
-                        echo '<td class="TotalCell">'.$FULL3fi13to18.'</td>';
+                        echo '<td class="">'.$FULL3fi13to18.'</td>';
 
                         $GRANDTOTAL3fi13to18 = $GRANDTOTAL3fi13to18 + $FULL3fi13to18;
 
-                        echo '<td class="TotalCell">'.$FULL3fiMale.'</td>';
+                        echo '<td class="">'.$FULL3fiMale.'</td>';
 
                         $GRANDTOTAL3fiMale = $GRANDTOTAL3fiMale + $FULL3fiMale;
 
-                        echo '<td class="TotalCell">'.$FULL3fiFemale.'</td>';
+                        echo '<td class="">'.$FULL3fiFemale.'</td>';
 
                         $GRANDTOTAL3fiFemale = $GRANDTOTAL3fiFemale + $FULL3fiFemale;
 
-                        echo '<td class="TotalCell">'.$FULL3fiAfrAmerican.'</td>';
+                        echo '<td class="">'.$FULL3fiAfrAmerican.'</td>';
 
                         $GRANDTOTAL3fiAfrAmerican = $GRANDTOTAL3fiAfrAmerican + $FULL3fiAfrAmerican;
 
-                        echo '<td class="TotalCell">'.$FULL3fiAsian.'</td>';
+                        echo '<td class="">'.$FULL3fiAsian.'</td>';
 
                         $GRANDTOTAL3fiAsian = $GRANDTOTAL3fiAsian + $FULL3fiAsian;
 
-                        echo '<td class="TotalCell">'.$FULL3fiCauc.'</td>';
+                        echo '<td class="">'.$FULL3fiCauc.'</td>';
 
                         $GRANDTOTAL3fiCauc = $GRANDTOTAL3fiCauc + $FULL3fiCauc;
 
-                        echo '<td class="TotalCell">'.$FULL3fiHispanic.'</td>';
+                        echo '<td class="">'.$FULL3fiHispanic.'</td>';
 
                         $GRANDTOTAL3fiHispanic = $GRANDTOTAL3fiHispanic + $FULL3fiHispanic;
 
-                        echo '<td class="TotalCell">'.$FULL3fiOther.'</td>';
+                        echo '<td class="">'.$FULL3fiOther.'</td>';
 
                         $GRANDTOTAL3fiOther = $GRANDTOTAL3fiOther + $FULL3fiOther;
 
-                        echo '<td class="TotalCell">'.$FULL3extForenEval.'</td>';
+                        echo '<td class="">'.$FULL3extForenEval.'</td>';
 
                         $GRANDTOTAL3extForenEval = $GRANDTOTAL3extForenEval + $FULL3extForenEval;
 
-                        echo '<td class="TotalCell">'.$FULL3intCounsSes.'</td>';
+                        echo '<td class="">'.$FULL3intCounsSes.'</td>';
 
                         $GRANDTOTAL3intCounsSes = $GRANDTOTAL3intCounsSes + $FULL3intCounsSes;
 
-                        echo '<td class="TotalCell">'.$FULL3totCounSes.'</td>';
+                        echo '<td class="">'.$FULL3totCounSes.'</td>';
 
                         $GRANDTOTAL3totCounSes = $GRANDTOTAL3totCounSes + $FULL3totCounSes;
 
-                        echo '<td class="TotalCell">'.$FULL3multDisTeamMeet.'</td>';
+                        echo '<td class="">'.$FULL3multDisTeamMeet.'</td>';
 
                         $GRANDTOTAL3multDisTeamMeet = $GRANDTOTAL3multDisTeamMeet + $FULL3multDisTeamMeet;
 
-                        echo '<td class="TotalCell">'.$FULL3prosCases.'</td>';
+                        echo '<td class="">'.$FULL3prosCases.'</td>';
 
                         $GRANDTOTAL3prosCases = $GRANDTOTAL3prosCases + $FULL3prosCases;
 
-                        echo '<td class="TotalCell">'.$FULL3medExamRef.'</td>';
+                        echo '<td class="">'.$FULL3medExamRef.'</td>';
 
                         $GRANDTOTAL3medExamRefl = $GRANDTOTAL3medExamRefl + $FULL3medExamRef;
 
-                        echo '<td class="BoldText">'.$FULL3TotalService.'</td></tr>';
+                        echo '<td class="">'.$FULL3TotalService.'</td></tr>';
 
                         $GRANDTOTAL3TotalService = $GRANDTOTAL3TotalService + $FULL3TotalService;
 
                         echo '<tr align="right"><td colspan="2" align="left"><b>TOTAL 4TH QTR</b></td>';
 
-                        echo '<td class="TotalCell">'.$FULL4fiTotal.'</td>';
+                        echo '<td class="">'.$FULL4fiTotal.'</td>';
 
                         $GRANDTOTAL4fiTotal = $GRANDTOTAL4fiTotal + $FULL4fiTotal;
 
-                        echo '<td class="TotalCell">'.$FULL4fi0to6.'</td>';
+                        echo '<td class="">'.$FULL4fi0to6.'</td>';
 
                         $GRANDTOTAL4fi0to6 = $GRANDTOTAL4fi0to6 + $FULL4fi0to6;
 
-                        echo '<td class="TotalCell">'.$FULL4fi7to12.'</td>';
+                        echo '<td class="">'.$FULL4fi7to12.'</td>';
 
                         $GRANDTOTAL4fi7to12 = $GRANDTOTAL4fi7to12 + $FULL4fi7to12;
 
-                        echo '<td class="TotalCell">'.$FULL4fi13to18.'</td>';
+                        echo '<td class="">'.$FULL4fi13to18.'</td>';
 
                         $GRANDTOTAL4fi13to18 = $GRANDTOTAL4fi13to18 + $FULL4fi13to18;
 
-                        echo '<td class="TotalCell">'.$FULL4fiMale.'</td>';
+                        echo '<td class="">'.$FULL4fiMale.'</td>';
 
                         $GRANDTOTAL4fiMale = $GRANDTOTAL4fiMale + $FULL4fiMale;
 
-                        echo '<td class="TotalCell">'.$FULL4fiFemale.'</td>';
+                        echo '<td class="">'.$FULL4fiFemale.'</td>';
 
                         $GRANDTOTAL4fiFemale = $GRANDTOTAL4fiFemale + $FULL4fiFemale;
 
-                        echo '<td class="TotalCell">'.$FULL4fiAfrAmerican.'</td>';
+                        echo '<td class="">'.$FULL4fiAfrAmerican.'</td>';
 
                         $GRANDTOTAL4fiAfrAmerican = $GRANDTOTAL4fiAfrAmerican + $FULL4fiAfrAmerican;
 
-                        echo '<td class="TotalCell">'.$FULL4fiAsian.'</td>';
+                        echo '<td class="">'.$FULL4fiAsian.'</td>';
 
                         $GRANDTOTAL4fiAsian = $GRANDTOTAL4fiAsian + $FULL4fiAsian;
 
-                        echo '<td class="TotalCell">'.$FULL4fiCauc.'</td>';
+                        echo '<td class="">'.$FULL4fiCauc.'</td>';
 
                         $GRANDTOTAL4fiCauc = $GRANDTOTAL4fiCauc + $FULL4fiCauc;
 
-                        echo '<td class="TotalCell">'.$FULL4fiHispanic.'</td>';
+                        echo '<td class="">'.$FULL4fiHispanic.'</td>';
 
                         $GRANDTOTAL4fiHispanic = $GRANDTOTAL4fiHispanic + $FULL4fiHispanic;
 
-                        echo '<td class="TotalCell">'.$FULL4fiOther.'</td>';
+                        echo '<td class="">'.$FULL4fiOther.'</td>';
 
                         $GRANDTOTAL4fiOther = $GRANDTOTAL4fiOther + $FULL4fiOther;
 
-                        echo '<td class="TotalCell">'.$FULL4extForenEval.'</td>';
+                        echo '<td class="">'.$FULL4extForenEval.'</td>';
 
                         $GRANDTOTAL4extForenEval = $GRANDTOTAL4extForenEval + $FULL4extForenEval;
 
-                        echo '<td class="TotalCell">'.$FULL4intCounsSes.'</td>';
+                        echo '<td class="">'.$FULL4intCounsSes.'</td>';
 
                         $GRANDTOTAL4intCounsSes = $GRANDTOTAL4intCounsSes + $FULL4intCounsSes;
 
-                        echo '<td class="TotalCell">'.$FULL4totCounSes.'</td>';
+                        echo '<td class="">'.$FULL4totCounSes.'</td>';
 
                         $GRANDTOTAL4totCounSes = $GRANDTOTAL4totCounSes + $FULL4totCounSes;
 
-                        echo '<td class="TotalCell">'.$FULL4multDisTeamMeet.'</td>';
+                        echo '<td class="">'.$FULL4multDisTeamMeet.'</td>';
 
                         $GRANDTOTAL4multDisTeamMeet = $GRANDTOTAL4multDisTeamMeet + $FULL4multDisTeamMeet;
 
-                        echo '<td class="TotalCell">'.$FULL4prosCases.'</td>';
+                        echo '<td class="">'.$FULL4prosCases.'</td>';
 
                         $GRANDTOTAL4prosCases = $GRANDTOTAL4prosCases + $FULL4prosCases;
 
-                        echo '<td class="TotalCell">'.$FULL4medExamRef.'</td>';
+                        echo '<td class="">'.$FULL4medExamRef.'</td>';
 
                         $GRANDTOTAL4medExamRefl = $GRANDTOTAL4medExamRefl + $FULL4medExamRef;
 
-                        echo '<td class="BoldText">'.$FULL4TotalService.'</td></tr>';
+                        echo '<td class="">'.$FULL4TotalService.'</td></tr>';
 
                         $GRANDTOTAL4TotalService = $GRANDTOTAL4TotalService + $FULL4TotalService;
 
@@ -2046,7 +2046,7 @@ require($root."dbconn.php");
 
                         $FULLTOTALfiTotal = $FULL1fiTotal+$FULL2fiTotal+$FULL3fiTotal+$FULL4fiTotal;
 
-                        echo '<td class="TotalCell">'.$FULLTOTALfiTotal.'</td>';
+                        echo '<td class="">'.$FULLTOTALfiTotal.'</td>';
 
                         $FULLTOTALfi0to6 = $FULL1fi0to6+$FULL2fi0to6+$FULL3fi0to6+$FULL4fi0to6;
 
@@ -2090,11 +2090,11 @@ require($root."dbconn.php");
 
                         $FULLTOTALextForenEval = $FULL1extForenEval+$FULL2extForenEval+$FULL3extForenEval+$FULL4extForenEval;
 
-                        echo '<td class="TotalCell">'.$FULLTOTALextForenEval.'</td>';
+                        echo '<td class="">'.$FULLTOTALextForenEval.'</td>';
 
                         $FULLTOTALintCounsSes = $FULL1intCounsSes+$FULL2intCounsSes+$FULL3intCounsSes+$FULL4intCounsSes;
 
-                        echo '<td class="TotalCell">'.$FULLTOTALintCounsSes.'</td>';
+                        echo '<td class="">'.$FULLTOTALintCounsSes.'</td>';
 
                         $FULLTOTALtotCounSes = $FULL1totCounSes+$FULL2totCounSes+$FULL3totCounSes+$FULL4totCounSes;
 
@@ -2114,7 +2114,7 @@ require($root."dbconn.php");
 
                         $FULLTOTALTotalService = $FULL1TotalService+$FULL2TotalService+$FULL3TotalService+$FULL4TotalService;
 
-                        echo '<td class="TotalCell">'.$FULLTOTALTotalService.'</td></tr>';
+                        echo '<td class="">'.$FULLTOTALTotalService.'</td></tr>';
 
                 }
 
@@ -2454,11 +2454,11 @@ require($root."dbconn.php");
 
                                                 $YearfiOther = $YearfiOther + $rowLoop->fiOther;
 
-                                                echo '<td class="TotalCell">'.$rowLoop->extForenEval.'</td>';
+                                                echo '<td class="">'.$rowLoop->extForenEval.'</td>';
 
                                                 $YearextForenEval = $YearextForenEval + $rowLoop->extForenEval;
 
-                                                echo '<td class="TotalCell">'.$rowLoop->intCounsSes.'</td>';
+                                                echo '<td class="">'.$rowLoop->intCounsSes.'</td>';
 
                                                 $YearintCounsSes = $YearintCounsSes + $rowLoop->intCounsSes;
 
@@ -2480,7 +2480,7 @@ require($root."dbconn.php");
 
                                                 $totalServices = $rowLoop->fiTotal + $rowLoop->extForenEval + $rowLoop->intCounsSes;
 
-                                                echo '<td class="BoldText">'.$totalServices.'</td>';
+                                                echo '<td class="">'.$totalServices.'</td>';
 
                                                 $YearTotalService = $YearTotalService + $totalServices;
 
@@ -2674,9 +2674,9 @@ require($root."dbconn.php");
 
                                         echo '<td>'.$YearfiOther.'</td>';
 
-                                        echo '<td class="TotalCell">'.$YearextForenEval.'</td>';
+                                        echo '<td class="">'.$YearextForenEval.'</td>';
 
-                                        echo '<td class="TotalCell">'.$YearintCounsSes.'</td>';
+                                        echo '<td class="">'.$YearintCounsSes.'</td>';
 
                                         echo '<td>'.$YeartotCounSes.'</td>';
 
@@ -2686,7 +2686,7 @@ require($root."dbconn.php");
 
                                         echo '<td>'.$YearmedExamRef.'</td>';
 
-                                        echo '<td class="TotalCell">'.$YearTotalService.'</td>';
+                                        echo '<td class="">'.$YearTotalService.'</td>';
 
 
 
@@ -2724,71 +2724,71 @@ require($root."dbconn.php");
 
                         $GRANDTOTAL1fiTotal = $GRANDTOTAL1fiTotal + $FULL1fiTotal;
 
-                        echo '<td class="TotalCell">'.$FULL1fi0to6.'</td>';
+                        echo '<td class="">'.$FULL1fi0to6.'</td>';
 
                         $GRANDTOTAL1fi0to6 = $GRANDTOTAL1fi0to6 + $FULL1fi0to6;
 
-                        echo '<td class="TotalCell">'.$FULL1fi7to12.'</td>';
+                        echo '<td class="">'.$FULL1fi7to12.'</td>';
 
                         $GRANDTOTAL1fi7to12 = $GRANDTOTAL1fi7to12 + $FULL1fi7to12;
 
-                        echo '<td class="TotalCell">'.$FULL1fi13to18.'</td>';
+                        echo '<td class="">'.$FULL1fi13to18.'</td>';
 
                         $GRANDTOTAL1fi13to18 = $GRANDTOTAL1fi13to18 + $FULL1fi13to18;
 
-                        echo '<td class="TotalCell">'.$FULL1fiMale.'</td>';
+                        echo '<td class="">'.$FULL1fiMale.'</td>';
 
                         $GRANDTOTAL1fiMale = $GRANDTOTAL1fiMale + $FULL1fiMale;
 
-                        echo '<td class="TotalCell">'.$FULL1fiFemale.'</td>';
+                        echo '<td class="">'.$FULL1fiFemale.'</td>';
 
                         $GRANDTOTAL1fiFemale = $GRANDTOTAL1fiFemale + $FULL1fiFemale;
 
-                        echo '<td class="TotalCell">'.$FULL1fiAfrAmerican.'</td>';
+                        echo '<td class="">'.$FULL1fiAfrAmerican.'</td>';
 
                         $GRANDTOTAL1fiAfrAmerican = $GRANDTOTAL1fiAfrAmerican + $FULL1fiAfrAmerican;
 
-                        echo '<td class="TotalCell">'.$FULL1fiAsian.'</td>';
+                        echo '<td class="">'.$FULL1fiAsian.'</td>';
 
                         $GRANDTOTAL1fiAsian = $GRANDTOTAL1fiAsian + $FULL1fiAsian;
 
-                        echo '<td class="TotalCell">'.$FULL1fiCauc.'</td>';
+                        echo '<td class="">'.$FULL1fiCauc.'</td>';
 
                         $GRANDTOTAL1fiCauc = $GRANDTOTAL1fiCauc + $FULL1fiCauc;
 
-                        echo '<td class="TotalCell">'.$FULL1fiHispanic.'</td>';
+                        echo '<td class="">'.$FULL1fiHispanic.'</td>';
 
                         $GRANDTOTAL1fiHispanic = $GRANDTOTAL1fiHispanic + $FULL1fiHispanic;
 
-                        echo '<td class="TotalCell">'.$FULL1fiOther.'</td>';
+                        echo '<td class="">'.$FULL1fiOther.'</td>';
 
                         $GRANDTOTAL1fiOther = $GRANDTOTAL1fiOther + $FULL1fiOther;
 
-                        echo '<td class="TotalCell">'.$FULL1extForenEval.'</td>';
+                        echo '<td class="">'.$FULL1extForenEval.'</td>';
 
                         $GRANDTOTAL1extForenEval = $GRANDTOTAL1extForenEval + $FULL1extForenEval;
 
-                        echo '<td class="TotalCell">'.$FULL1intCounsSes.'</td>';
+                        echo '<td class="">'.$FULL1intCounsSes.'</td>';
 
                         $GRANDTOTAL1intCounsSes = $GRANDTOTAL1intCounsSes + $FULL1intCounsSes;
 
-                        echo '<td class="TotalCell">'.$FULL1totCounSes.'</td>';
+                        echo '<td class="">'.$FULL1totCounSes.'</td>';
 
                         $GRANDTOTAL1totCounSes = $GRANDTOTAL1totCounSes + $FULL1totCounSes;
 
-                        echo '<td class="TotalCell">'.$FULL1multDisTeamMeet.'</td>';
+                        echo '<td class="">'.$FULL1multDisTeamMeet.'</td>';
 
                         $GRANDTOTAL1multDisTeamMeet = $GRANDTOTAL1multDisTeamMeet + $FULL1multDisTeamMeet;
 
-                        echo '<td class="TotalCell">'.$FULL1prosCases.'</td>';
+                        echo '<td class="">'.$FULL1prosCases.'</td>';
 
                         $GRANDTOTAL1prosCases = $GRANDTOTAL1prosCases + $FULL1prosCases;
 
-                        echo '<td class="TotalCell">'.$FULL1medExamRef.'</td>';
+                        echo '<td class="">'.$FULL1medExamRef.'</td>';
 
                         $GRANDTOTAL1medExamRefl = $GRANDTOTAL1medExamRefl + $FULL1medExamRef;
 
-                        echo '<td class="BoldText">'.$FULL1TotalService.'</td></tr>';
+                        echo '<td class="">'.$FULL1TotalService.'</td></tr>';
 
                         $GRANDTOTAL1TotalService = $GRANDTOTAL1TotalService + $FULL1TotalService;
 
@@ -2798,71 +2798,71 @@ require($root."dbconn.php");
 
                         $GRANDTOTAL2fiTotal = $GRANDTOTAL2fiTotal + $FULL2fiTotal;
 
-                        echo '<td class="TotalCell">'.$FULL2fi0to6.'</td>';
+                        echo '<td class="">'.$FULL2fi0to6.'</td>';
 
                         $GRANDTOTAL2fi0to6 = $GRANDTOTAL2fi0to6 + $FULL2fi0to6;
 
-                        echo '<td class="TotalCell">'.$FULL2fi7to12.'</td>';
+                        echo '<td class="">'.$FULL2fi7to12.'</td>';
 
                         $GRANDTOTAL2fi7to12 = $GRANDTOTAL2fi7to12 + $FULL2fi7to12;
 
-                        echo '<td class="TotalCell">'.$FULL2fi13to18.'</td>';
+                        echo '<td class="">'.$FULL2fi13to18.'</td>';
 
                         $GRANDTOTAL2fi13to18 = $GRANDTOTAL2fi13to18 + $FULL2fi13to18;
 
-                        echo '<td class="TotalCell">'.$FULL2fiMale.'</td>';
+                        echo '<td class="">'.$FULL2fiMale.'</td>';
 
                         $GRANDTOTAL2fiMale = $GRANDTOTAL2fiMale + $FULL2fiMale;
 
-                        echo '<td class="TotalCell">'.$FULL2fiFemale.'</td>';
+                        echo '<td class="">'.$FULL2fiFemale.'</td>';
 
                         $GRANDTOTAL2fiFemale = $GRANDTOTAL2fiFemale + $FULL2fiFemale;
 
-                        echo '<td class="TotalCell">'.$FULL2fiAfrAmerican.'</td>';
+                        echo '<td class="">'.$FULL2fiAfrAmerican.'</td>';
 
                         $GRANDTOTAL2fiAfrAmerican = $GRANDTOTAL2fiAfrAmerican + $FULL2fiAfrAmerican;
 
-                        echo '<td class="TotalCell">'.$FULL2fiAsian.'</td>';
+                        echo '<td class="">'.$FULL2fiAsian.'</td>';
 
                         $GRANDTOTAL2fiAsian = $GRANDTOTAL2fiAsian + $FULL2fiAsian;
 
-                        echo '<td class="TotalCell">'.$FULL2fiCauc.'</td>';
+                        echo '<td class="">'.$FULL2fiCauc.'</td>';
 
                         $GRANDTOTAL2fiCauc = $GRANDTOTAL2fiCauc + $FULL2fiCauc;
 
-                        echo '<td class="TotalCell">'.$FULL2fiHispanic.'</td>';
+                        echo '<td class="">'.$FULL2fiHispanic.'</td>';
 
                         $GRANDTOTAL2fiHispanic = $GRANDTOTAL2fiHispanic + $FULL2fiHispanic;
 
-                        echo '<td class="TotalCell">'.$FULL2fiOther.'</td>';
+                        echo '<td class="">'.$FULL2fiOther.'</td>';
 
                         $GRANDTOTAL2fiOther = $GRANDTOTAL2fiOther + $FULL2fiOther;
 
-                        echo '<td class="TotalCell">'.$FULL2extForenEval.'</td>';
+                        echo '<td class="">'.$FULL2extForenEval.'</td>';
 
                         $GRANDTOTAL2extForenEval = $GRANDTOTAL2extForenEval + $FULL2extForenEval;
 
-                        echo '<td class="TotalCell">'.$FULL2intCounsSes.'</td>';
+                        echo '<td class="">'.$FULL2intCounsSes.'</td>';
 
                         $GRANDTOTAL2intCounsSes = $GRANDTOTAL2intCounsSes + $FULL2intCounsSes;
 
-                        echo '<td class="TotalCell">'.$FULL2totCounSes.'</td>';
+                        echo '<td class="">'.$FULL2totCounSes.'</td>';
 
                         $GRANDTOTAL2totCounSes = $GRANDTOTAL2totCounSes + $FULL2totCounSes;
 
-                        echo '<td class="TotalCell">'.$FULL2multDisTeamMeet.'</td>';
+                        echo '<td class="">'.$FULL2multDisTeamMeet.'</td>';
 
                         $GRANDTOTAL2multDisTeamMeet = $GRANDTOTAL2multDisTeamMeet + $FULL2multDisTeamMeet;
 
-                        echo '<td class="TotalCell">'.$FULL2prosCases.'</td>';
+                        echo '<td class="">'.$FULL2prosCases.'</td>';
 
                         $GRANDTOTAL2prosCases = $GRANDTOTAL2prosCases + $FULL2prosCases;
 
-                        echo '<td class="TotalCell">'.$FULL2medExamRef.'</td>';
+                        echo '<td class="">'.$FULL2medExamRef.'</td>';
 
                         $GRANDTOTAL2medExamRefl = $GRANDTOTAL2medExamRefl + $FULL2medExamRef;
 
-                        echo '<td class="BoldText">'.$FULL2TotalService.'</td></tr>';
+                        echo '<td class="">'.$FULL2TotalService.'</td></tr>';
 
                         $GRANDTOTAL2TotalService = $GRANDTOTAL2TotalService + $FULL2TotalService;
 
@@ -2872,71 +2872,71 @@ require($root."dbconn.php");
 
                         $GRANDTOTAL3fiTotal = $GRANDTOTAL3fiTotal + $FULL3fiTotal;
 
-                        echo '<td class="TotalCell">'.$FULL3fi0to6.'</td>';
+                        echo '<td class="">'.$FULL3fi0to6.'</td>';
 
                         $GRANDTOTAL3fi0to6 = $GRANDTOTAL3fi0to6 + $FULL3fi0to6;
 
-                        echo '<td class="TotalCell">'.$FULL3fi7to12.'</td>';
+                        echo '<td class="">'.$FULL3fi7to12.'</td>';
 
                         $GRANDTOTAL3fi7to12 = $GRANDTOTAL3fi7to12 + $FULL3fi7to12;
 
-                        echo '<td class="TotalCell">'.$FULL3fi13to18.'</td>';
+                        echo '<td class="">'.$FULL3fi13to18.'</td>';
 
                         $GRANDTOTAL3fi13to18 = $GRANDTOTAL3fi13to18 + $FULL3fi13to18;
 
-                        echo '<td class="TotalCell">'.$FULL3fiMale.'</td>';
+                        echo '<td class="">'.$FULL3fiMale.'</td>';
 
                         $GRANDTOTAL3fiMale = $GRANDTOTAL3fiMale + $FULL3fiMale;
 
-                        echo '<td class="TotalCell">'.$FULL3fiFemale.'</td>';
+                        echo '<td class="">'.$FULL3fiFemale.'</td>';
 
                         $GRANDTOTAL3fiFemale = $GRANDTOTAL3fiFemale + $FULL3fiFemale;
 
-                        echo '<td class="TotalCell">'.$FULL3fiAfrAmerican.'</td>';
+                        echo '<td class="">'.$FULL3fiAfrAmerican.'</td>';
 
                         $GRANDTOTAL3fiAfrAmerican = $GRANDTOTAL3fiAfrAmerican + $FULL3fiAfrAmerican;
 
-                        echo '<td class="TotalCell">'.$FULL3fiAsian.'</td>';
+                        echo '<td class="">'.$FULL3fiAsian.'</td>';
 
                         $GRANDTOTAL3fiAsian = $GRANDTOTAL3fiAsian + $FULL3fiAsian;
 
-                        echo '<td class="TotalCell">'.$FULL3fiCauc.'</td>';
+                        echo '<td class="">'.$FULL3fiCauc.'</td>';
 
                         $GRANDTOTAL3fiCauc = $GRANDTOTAL3fiCauc + $FULL3fiCauc;
 
-                        echo '<td class="TotalCell">'.$FULL3fiHispanic.'</td>';
+                        echo '<td class="">'.$FULL3fiHispanic.'</td>';
 
                         $GRANDTOTAL3fiHispanic = $GRANDTOTAL3fiHispanic + $FULL3fiHispanic;
 
-                        echo '<td class="TotalCell">'.$FULL3fiOther.'</td>';
+                        echo '<td class="">'.$FULL3fiOther.'</td>';
 
                         $GRANDTOTAL3fiOther = $GRANDTOTAL3fiOther + $FULL3fiOther;
 
-                        echo '<td class="TotalCell">'.$FULL3extForenEval.'</td>';
+                        echo '<td class="">'.$FULL3extForenEval.'</td>';
 
                         $GRANDTOTAL3extForenEval = $GRANDTOTAL3extForenEval + $FULL3extForenEval;
 
-                        echo '<td class="TotalCell">'.$FULL3intCounsSes.'</td>';
+                        echo '<td class="">'.$FULL3intCounsSes.'</td>';
 
                         $GRANDTOTAL3intCounsSes = $GRANDTOTAL3intCounsSes + $FULL3intCounsSes;
 
-                        echo '<td class="TotalCell">'.$FULL3totCounSes.'</td>';
+                        echo '<td class="">'.$FULL3totCounSes.'</td>';
 
                         $GRANDTOTAL3totCounSes = $GRANDTOTAL3totCounSes + $FULL3totCounSes;
 
-                        echo '<td class="TotalCell">'.$FULL3multDisTeamMeet.'</td>';
+                        echo '<td class="">'.$FULL3multDisTeamMeet.'</td>';
 
                         $GRANDTOTAL3multDisTeamMeet = $GRANDTOTAL3multDisTeamMeet + $FULL3multDisTeamMeet;
 
-                        echo '<td class="TotalCell">'.$FULL3prosCases.'</td>';
+                        echo '<td class="">'.$FULL3prosCases.'</td>';
 
                         $GRANDTOTAL3prosCases = $GRANDTOTAL3prosCases + $FULL3prosCases;
 
-                        echo '<td class="TotalCell">'.$FULL3medExamRef.'</td>';
+                        echo '<td class="">'.$FULL3medExamRef.'</td>';
 
                         $GRANDTOTAL3medExamRefl = $GRANDTOTAL3medExamRefl + $FULL3medExamRef;
 
-                        echo '<td class="BoldText">'.$FULL3TotalService.'</td></tr>';
+                        echo '<td class="">'.$FULL3TotalService.'</td></tr>';
 
                         $GRANDTOTAL3TotalService = $GRANDTOTAL3TotalService + $FULL3TotalService;
 
@@ -2946,71 +2946,71 @@ require($root."dbconn.php");
 
                         $GRANDTOTAL4fiTotal = $GRANDTOTAL4fiTotal + $FULL4fiTotal;
 
-                        echo '<td class="TotalCell">'.$FULL4fi0to6.'</td>';
+                        echo '<td class="">'.$FULL4fi0to6.'</td>';
 
                         $GRANDTOTAL4fi0to6 = $GRANDTOTAL4fi0to6 + $FULL4fi0to6;
 
-                        echo '<td class="TotalCell">'.$FULL4fi7to12.'</td>';
+                        echo '<td class="">'.$FULL4fi7to12.'</td>';
 
                         $GRANDTOTAL4fi7to12 = $GRANDTOTAL4fi7to12 + $FULL4fi7to12;
 
-                        echo '<td class="TotalCell">'.$FULL4fi13to18.'</td>';
+                        echo '<td class="">'.$FULL4fi13to18.'</td>';
 
                         $GRANDTOTAL4fi13to18 = $GRANDTOTAL4fi13to18 + $FULL4fi13to18;
 
-                        echo '<td class="TotalCell">'.$FULL4fiMale.'</td>';
+                        echo '<td class="">'.$FULL4fiMale.'</td>';
 
                         $GRANDTOTAL4fiMale = $GRANDTOTAL4fiMale + $FULL4fiMale;
 
-                        echo '<td class="TotalCell">'.$FULL4fiFemale.'</td>';
+                        echo '<td class="">'.$FULL4fiFemale.'</td>';
 
                         $GRANDTOTAL4fiFemale = $GRANDTOTAL4fiFemale + $FULL4fiFemale;
 
-                        echo '<td class="TotalCell">'.$FULL4fiAfrAmerican.'</td>';
+                        echo '<td class="">'.$FULL4fiAfrAmerican.'</td>';
 
                         $GRANDTOTAL4fiAfrAmerican = $GRANDTOTAL4fiAfrAmerican + $FULL4fiAfrAmerican;
 
-                        echo '<td class="TotalCell">'.$FULL4fiAsian.'</td>';
+                        echo '<td class="">'.$FULL4fiAsian.'</td>';
 
                         $GRANDTOTAL4fiAsian = $GRANDTOTAL4fiAsian + $FULL4fiAsian;
 
-                        echo '<td class="TotalCell">'.$FULL4fiCauc.'</td>';
+                        echo '<td class="">'.$FULL4fiCauc.'</td>';
 
                         $GRANDTOTAL4fiCauc = $GRANDTOTAL4fiCauc + $FULL4fiCauc;
 
-                        echo '<td class="TotalCell">'.$FULL4fiHispanic.'</td>';
+                        echo '<td class="">'.$FULL4fiHispanic.'</td>';
 
                         $GRANDTOTAL4fiHispanic = $GRANDTOTAL4fiHispanic + $FULL4fiHispanic;
 
-                        echo '<td class="TotalCell">'.$FULL4fiOther.'</td>';
+                        echo '<td class="">'.$FULL4fiOther.'</td>';
 
                         $GRANDTOTAL4fiOther = $GRANDTOTAL4fiOther + $FULL4fiOther;
 
-                        echo '<td class="TotalCell">'.$FULL4extForenEval.'</td>';
+                        echo '<td class="">'.$FULL4extForenEval.'</td>';
 
                         $GRANDTOTAL4extForenEval = $GRANDTOTAL4extForenEval + $FULL4extForenEval;
 
-                        echo '<td class="TotalCell">'.$FULL4intCounsSes.'</td>';
+                        echo '<td class="">'.$FULL4intCounsSes.'</td>';
 
                         $GRANDTOTAL4intCounsSes = $GRANDTOTAL4intCounsSes + $FULL4intCounsSes;
 
-                        echo '<td class="TotalCell">'.$FULL4totCounSes.'</td>';
+                        echo '<td class="">'.$FULL4totCounSes.'</td>';
 
                         $GRANDTOTAL4totCounSes = $GRANDTOTAL4totCounSes + $FULL4totCounSes;
 
-                        echo '<td class="TotalCell">'.$FULL4multDisTeamMeet.'</td>';
+                        echo '<td class="">'.$FULL4multDisTeamMeet.'</td>';
 
                         $GRANDTOTAL4multDisTeamMeet = $GRANDTOTAL4multDisTeamMeet + $FULL4multDisTeamMeet;
 
-                        echo '<td class="TotalCell">'.$FULL4prosCases.'</td>';
+                        echo '<td class="">'.$FULL4prosCases.'</td>';
 
                         $GRANDTOTAL4prosCases = $GRANDTOTAL4prosCases + $FULL4prosCases;
 
-                        echo '<td class="TotalCell">'.$FULL4medExamRef.'</td>';
+                        echo '<td class="">'.$FULL4medExamRef.'</td>';
 
                         $GRANDTOTAL4medExamRefl = $GRANDTOTAL4medExamRefl + $FULL4medExamRef;
 
-                        echo '<td class="BoldText">'.$FULL4TotalService.'</td></tr>';
+                        echo '<td class="">'.$FULL4TotalService.'</td></tr>';
 
                         $GRANDTOTAL4TotalService = $GRANDTOTAL4TotalService + $FULL4TotalService;
 
@@ -3062,11 +3062,11 @@ require($root."dbconn.php");
 
                         $FULLTOTALextForenEval = $FULL1extForenEval+$FULL2extForenEval+$FULL3extForenEval+$FULL4extForenEval;
 
-                        echo '<td class="TotalCell">'.$FULLTOTALextForenEval.'</td>';
+                        echo '<td class="">'.$FULLTOTALextForenEval.'</td>';
 
                         $FULLTOTALintCounsSes = $FULL1intCounsSes+$FULL2intCounsSes+$FULL3intCounsSes+$FULL4intCounsSes;
 
-                        echo '<td class="TotalCell">'.$FULLTOTALintCounsSes.'</td>';
+                        echo '<td class="">'.$FULLTOTALintCounsSes.'</td>';
 
                         $FULLTOTALtotCounSes = $FULL1totCounSes+$FULL2totCounSes+$FULL3totCounSes+$FULL4totCounSes;
 
@@ -3086,7 +3086,7 @@ require($root."dbconn.php");
 
                         $FULLTOTALTotalService = $FULL1TotalService+$FULL2TotalService+$FULL3TotalService+$FULL4TotalService;
 
-                        echo '<td class="TotalCell">'.$FULLTOTALTotalService.'</td></tr>';
+                        echo '<td class="">'.$FULLTOTALTotalService.'</td></tr>';
 
                 }
 
@@ -3120,153 +3120,153 @@ require($root."dbconn.php");
 
                 echo '<td class="TotalCell">'.$GRANDTOTAL1fiTotal.'</td>';
 
-                echo '<td class="TotalCell">'.$GRANDTOTAL1fi0to6.'</td>';
+                echo '<td class="">'.$GRANDTOTAL1fi0to6.'</td>';
 
-                echo '<td class="TotalCell">'.$GRANDTOTAL1fi7to12.'</td>';
+                echo '<td class="">'.$GRANDTOTAL1fi7to12.'</td>';
 
-                echo '<td class="TotalCell">'.$GRANDTOTAL1fi13to18.'</td>';
+                echo '<td class="">'.$GRANDTOTAL1fi13to18.'</td>';
 
-                echo '<td class="TotalCell">'.$GRANDTOTAL1fiMale.'</td>';
+                echo '<td class="">'.$GRANDTOTAL1fiMale.'</td>';
 
-                echo '<td class="TotalCell">'.$GRANDTOTAL1fiFemale.'</td>';
+                echo '<td class="">'.$GRANDTOTAL1fiFemale.'</td>';
 
-                echo '<td class="TotalCell">'.$GRANDTOTAL1fiAfrAmerican.'</td>';
+                echo '<td class="">'.$GRANDTOTAL1fiAfrAmerican.'</td>';
 
-                echo '<td class="TotalCell">'.$GRANDTOTAL1fiAsian.'</td>';
+                echo '<td class="">'.$GRANDTOTAL1fiAsian.'</td>';
 
-                echo '<td class="TotalCell">'.$GRANDTOTAL1fiCauc.'</td>';
+                echo '<td class="">'.$GRANDTOTAL1fiCauc.'</td>';
 
-                echo '<td class="TotalCell">'.$GRANDTOTAL1fiHispanic.'</td>';
+                echo '<td class="">'.$GRANDTOTAL1fiHispanic.'</td>';
 
-                echo '<td class="TotalCell">'.$GRANDTOTAL1fiOther.'</td>';
+                echo '<td class="">'.$GRANDTOTAL1fiOther.'</td>';
 
-                echo '<td class="TotalCell">'.$GRANDTOTAL1extForenEval.'</td>';
+                echo '<td class="">'.$GRANDTOTAL1extForenEval.'</td>';
 
-                echo '<td class="TotalCell">'.$GRANDTOTAL1intCounsSes.'</td>';
+                echo '<td class="">'.$GRANDTOTAL1intCounsSes.'</td>';
 
-                echo '<td class="TotalCell">'.$GRANDTOTAL1totCounSes.'</td>';
+                echo '<td class="">'.$GRANDTOTAL1totCounSes.'</td>';
 
-                echo '<td class="TotalCell">'.$GRANDTOTAL1multDisTeamMeet.'</td>';
+                echo '<td class="">'.$GRANDTOTAL1multDisTeamMeet.'</td>';
 
-                echo '<td class="TotalCell">'.$GRANDTOTAL1prosCases.'</td>';
+                echo '<td class="">'.$GRANDTOTAL1prosCases.'</td>';
 
-                echo '<td class="TotalCell">'.$GRANDTOTAL1medExamRefl.'</td>';
+                echo '<td class="">'.$GRANDTOTAL1medExamRefl.'</td>';
 
-                echo '<td class="BoldText">'.$GRANDTOTAL1TotalService.'</td></tr>';
+                echo '<td class="">'.$GRANDTOTAL1TotalService.'</td></tr>';
 
                 echo '<tr align="right"><td colspan="2" align="left"><b>TOTAL 2ND QTR</b></td>';
 
                 echo '<td class="TotalCell">'.$GRANDTOTAL2fiTotal.'</td>';
 
-                echo '<td class="TotalCell">'.$GRANDTOTAL2fi0to6.'</td>';
+                echo '<td class="">'.$GRANDTOTAL2fi0to6.'</td>';
 
-                echo '<td class="TotalCell">'.$GRANDTOTAL2fi7to12.'</td>';
+                echo '<td class="">'.$GRANDTOTAL2fi7to12.'</td>';
 
-                echo '<td class="TotalCell">'.$GRANDTOTAL2fi13to18.'</td>';
+                echo '<td class="">'.$GRANDTOTAL2fi13to18.'</td>';
 
-                echo '<td class="TotalCell">'.$GRANDTOTAL2fiMale.'</td>';
+                echo '<td class="">'.$GRANDTOTAL2fiMale.'</td>';
 
-                echo '<td class="TotalCell">'.$GRANDTOTAL2fiFemale.'</td>';
+                echo '<td class="">'.$GRANDTOTAL2fiFemale.'</td>';
 
-                echo '<td class="TotalCell">'.$GRANDTOTAL2fiAfrAmerican.'</td>';
+                echo '<td class="">'.$GRANDTOTAL2fiAfrAmerican.'</td>';
 
-                echo '<td class="TotalCell">'.$GRANDTOTAL2fiAsian.'</td>';
+                echo '<td class="">'.$GRANDTOTAL2fiAsian.'</td>';
 
-                echo '<td class="TotalCell">'.$GRANDTOTAL2fiCauc.'</td>';
+                echo '<td class="">'.$GRANDTOTAL2fiCauc.'</td>';
 
-                echo '<td class="TotalCell">'.$GRANDTOTAL2fiHispanic.'</td>';
+                echo '<td class="">'.$GRANDTOTAL2fiHispanic.'</td>';
 
-                echo '<td class="TotalCell">'.$GRANDTOTAL2fiOther.'</td>';
+                echo '<td class="">'.$GRANDTOTAL2fiOther.'</td>';
 
-                echo '<td class="TotalCell">'.$GRANDTOTAL2extForenEval.'</td>';
+                echo '<td class="">'.$GRANDTOTAL2extForenEval.'</td>';
 
-                echo '<td class="TotalCell">'.$GRANDTOTAL2intCounsSes.'</td>';
+                echo '<td class="">'.$GRANDTOTAL2intCounsSes.'</td>';
 
-                echo '<td class="TotalCell">'.$GRANDTOTAL2totCounSes.'</td>';
+                echo '<td class="">'.$GRANDTOTAL2totCounSes.'</td>';
 
-                echo '<td class="TotalCell">'.$GRANDTOTAL2multDisTeamMeet.'</td>';
+                echo '<td class="">'.$GRANDTOTAL2multDisTeamMeet.'</td>';
 
-                echo '<td class="TotalCell">'.$GRANDTOTAL2prosCases.'</td>';
+                echo '<td class="">'.$GRANDTOTAL2prosCases.'</td>';
 
-                echo '<td class="TotalCell">'.$GRANDTOTAL2medExamRefl.'</td>';
+                echo '<td class="">'.$GRANDTOTAL2medExamRefl.'</td>';
 
-                echo '<td class="BoldText">'.$GRANDTOTAL2TotalService.'</td></tr>';
+                echo '<td class="">'.$GRANDTOTAL2TotalService.'</td></tr>';
 
                 echo '<tr align="right"><td colspan="2" align="left"><b>TOTAL 3RD QTR</b></td>';
 
                 echo '<td class="TotalCell">'.$GRANDTOTAL3fiTotal.'</td>';
 
-                echo '<td class="TotalCell">'.$GRANDTOTAL3fi0to6.'</td>';
+                echo '<td class="">'.$GRANDTOTAL3fi0to6.'</td>';
 
-                echo '<td class="TotalCell">'.$GRANDTOTAL3fi7to12.'</td>';
+                echo '<td class="">'.$GRANDTOTAL3fi7to12.'</td>';
 
-                echo '<td class="TotalCell">'.$GRANDTOTAL3fi13to18.'</td>';
+                echo '<td class="">'.$GRANDTOTAL3fi13to18.'</td>';
 
-                echo '<td class="TotalCell">'.$GRANDTOTAL3fiMale.'</td>';
+                echo '<td class="">'.$GRANDTOTAL3fiMale.'</td>';
 
-                echo '<td class="TotalCell">'.$GRANDTOTAL3fiFemale.'</td>';
+                echo '<td class="">'.$GRANDTOTAL3fiFemale.'</td>';
 
-                echo '<td class="TotalCell">'.$GRANDTOTAL3fiAfrAmerican.'</td>';
+                echo '<td class="">'.$GRANDTOTAL3fiAfrAmerican.'</td>';
 
-                echo '<td class="TotalCell">'.$GRANDTOTAL3fiAsian.'</td>';
+                echo '<td class="">'.$GRANDTOTAL3fiAsian.'</td>';
 
-                echo '<td class="TotalCell">'.$GRANDTOTAL3fiCauc.'</td>';
+                echo '<td class="">'.$GRANDTOTAL3fiCauc.'</td>';
 
-                echo '<td class="TotalCell">'.$GRANDTOTAL3fiHispanic.'</td>';
+                echo '<td class="">'.$GRANDTOTAL3fiHispanic.'</td>';
 
-                echo '<td class="TotalCell">'.$GRANDTOTAL3fiOther.'</td>';
+                echo '<td class="">'.$GRANDTOTAL3fiOther.'</td>';
 
-                echo '<td class="TotalCell">'.$GRANDTOTAL3extForenEval.'</td>';
+                echo '<td class="">'.$GRANDTOTAL3extForenEval.'</td>';
 
-                echo '<td class="TotalCell">'.$GRANDTOTAL3intCounsSes.'</td>';
+                echo '<td class="">'.$GRANDTOTAL3intCounsSes.'</td>';
 
-                echo '<td class="TotalCell">'.$GRANDTOTAL3totCounSes.'</td>';
+                echo '<td class="">'.$GRANDTOTAL3totCounSes.'</td>';
 
-                echo '<td class="TotalCell">'.$GRANDTOTAL3multDisTeamMeet.'</td>';
+                echo '<td class="">'.$GRANDTOTAL3multDisTeamMeet.'</td>';
 
-                echo '<td class="TotalCell">'.$GRANDTOTAL3prosCases.'</td>';
+                echo '<td class="">'.$GRANDTOTAL3prosCases.'</td>';
 
-                echo '<td class="TotalCell">'.$GRANDTOTAL3medExamRefl.'</td>';
+                echo '<td class="">'.$GRANDTOTAL3medExamRefl.'</td>';
 
-                echo '<td class="BoldText">'.$GRANDTOTAL3TotalService.'</td></tr>';
+                echo '<td class="">'.$GRANDTOTAL3TotalService.'</td></tr>';
 
                 echo '<tr align="right"><td colspan="2" align="left"><b>TOTAL 4TH QTR</b></td>';
 
                 echo '<td class="TotalCell">'.$GRANDTOTAL4fiTotal.'</td>';
 
-                echo '<td class="TotalCell">'.$GRANDTOTAL4fi0to6.'</td>';
+                echo '<td class="">'.$GRANDTOTAL4fi0to6.'</td>';
 
-                echo '<td class="TotalCell">'.$GRANDTOTAL4fi7to12.'</td>';
+                echo '<td class="">'.$GRANDTOTAL4fi7to12.'</td>';
 
-                echo '<td class="TotalCell">'.$GRANDTOTAL4fi13to18.'</td>';
+                echo '<td class="">'.$GRANDTOTAL4fi13to18.'</td>';
 
-                echo '<td class="TotalCell">'.$GRANDTOTAL4fiMale.'</td>';
+                echo '<td class="">'.$GRANDTOTAL4fiMale.'</td>';
 
-                echo '<td class="TotalCell">'.$GRANDTOTAL4fiFemale.'</td>';
+                echo '<td class="">'.$GRANDTOTAL4fiFemale.'</td>';
 
-                echo '<td class="TotalCell">'.$GRANDTOTAL4fiAfrAmerican.'</td>';
+                echo '<td class="">'.$GRANDTOTAL4fiAfrAmerican.'</td>';
 
-                echo '<td class="TotalCell">'.$GRANDTOTAL4fiAsian.'</td>';
+                echo '<td class="">'.$GRANDTOTAL4fiAsian.'</td>';
 
-                echo '<td class="TotalCell">'.$GRANDTOTAL4fiCauc.'</td>';
+                echo '<td class="">'.$GRANDTOTAL4fiCauc.'</td>';
 
-                echo '<td class="TotalCell">'.$GRANDTOTAL4fiHispanic.'</td>';
+                echo '<td class="">'.$GRANDTOTAL4fiHispanic.'</td>';
 
-                echo '<td class="TotalCell">'.$GRANDTOTAL4fiOther.'</td>';
+                echo '<td class="">'.$GRANDTOTAL4fiOther.'</td>';
 
-                echo '<td class="TotalCell">'.$GRANDTOTAL4extForenEval.'</td>';
+                echo '<td class="">'.$GRANDTOTAL4extForenEval.'</td>';
 
-                echo '<td class="TotalCell">'.$GRANDTOTAL4intCounsSes.'</td>';
+                echo '<td class="">'.$GRANDTOTAL4intCounsSes.'</td>';
 
-                echo '<td class="TotalCell">'.$GRANDTOTAL4totCounSes.'</td>';
+                echo '<td class="">'.$GRANDTOTAL4totCounSes.'</td>';
 
-                echo '<td class="TotalCell">'.$GRANDTOTAL4multDisTeamMeet.'</td>';
+                echo '<td class="">'.$GRANDTOTAL4multDisTeamMeet.'</td>';
 
-                echo '<td class="TotalCell">'.$GRANDTOTAL4prosCases.'</td>';
+                echo '<td class="">'.$GRANDTOTAL4prosCases.'</td>';
 
-                echo '<td class="TotalCell">'.$GRANDTOTAL4medExamRefl.'</td>';
+                echo '<td class="">'.$GRANDTOTAL4medExamRefl.'</td>';
 
-                echo '<td class="BoldText">'.$GRANDTOTAL4TotalService.'</td></tr>';
+                echo '<td class="">'.$GRANDTOTAL4TotalService.'</td></tr>';
 
                 echo '<tr align="right" class="BoldText"><td colspan="2" align="center">TOTAL</td>';
 
@@ -3316,11 +3316,11 @@ require($root."dbconn.php");
 
                 $FULLTOTALextForenEval = $GRANDTOTAL1extForenEval+$GRANDTOTAL2extForenEval+$GRANDTOTAL3extForenEval+$GRANDTOTAL4extForenEval;
 
-                echo '<td class="TotalCell">'.$FULLTOTALextForenEval.'</td>';
+                echo '<td class="">'.$FULLTOTALextForenEval.'</td>';
 
                 $FULLTOTALintCounsSes = $GRANDTOTAL1intCounsSes+$GRANDTOTAL2intCounsSes+$GRANDTOTAL3intCounsSes+$GRANDTOTAL4intCounsSes;
 
-                echo '<td class="TotalCell">'.$FULLTOTALintCounsSes.'</td>';
+                echo '<td class="">'.$FULLTOTALintCounsSes.'</td>';
 
                 $FULLTOTALtotCounSes = $GRANDTOTAL1totCounSes+$GRANDTOTAL2totCounSes+$GRANDTOTAL3totCounSes+$GRANDTOTAL4totCounSes;
 
@@ -3340,7 +3340,7 @@ require($root."dbconn.php");
 
                 $FULLTOTALTotalService = $GRANDTOTAL1TotalService+$GRANDTOTAL2TotalService+$GRANDTOTAL3TotalService+$GRANDTOTAL4TotalService;
 
-                echo '<td class="TotalCell">'.$FULLTOTALTotalService.'</td></tr>';
+                echo '<td class="">'.$FULLTOTALTotalService.'</td></tr>';
 
                 echo '</table></center>';
 
