@@ -84,7 +84,7 @@
 									$Available = 0;
 									break;
 								case 7:
-									$quarter = 32;
+									$quarter = 3;
 									if (date("j") < $Quarter3Date)
 										$Available = 1;
 									else
@@ -117,8 +117,9 @@
 	                        	echo '<li><a href="#">Quarterly Numbers Already Submitted</a></li>';
 	                        }
 					  }
-					?>
-		            <li><a href=<?php echo $webroot?>eoyreports.php>Enter Annual Budget Numbers</a></li>
+					if($quarter == 4 && $Available == 1)
+						echo "<li><a href=".$webroot."eoyreports.php>Enter Annual Budget Numbers</a></li>"
+		            ?>
 		            <li><a href=<?php echo $webroot?>selectYear.php>Print Year To Date Reports</a></li>
 
 		        </ul>
