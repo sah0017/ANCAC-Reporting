@@ -34,6 +34,7 @@ $t=getdate();
 				        	
 				        	$sqlInsert="INSERT INTO `directors` (`RID`, `name`, `username`, `email`, `center`, `user_level`, `password`, `lastlogin`, `mailing_address`) VALUES ($RID, '', '', '', '99', '0', '', '0000-00-00 00:00:00', '');";
 				        	$resultInsert = @mysql_query($sqlInsert);
+				        	header("Location: {$webroot}editAccount.php?RID={$RID} ");
 				        	
 				        	
 				        } // end if
@@ -215,7 +216,7 @@ require($root."header.php");
 				if (!empty($_POST['User_NewPassword'])){
                  $sqlExecute = "UPDATE directors SET name = '".$sub_User_Name."', ".
 
-                        "username = '".$sub_User_UserName."', email = '".$sub_User_Email."', user_level = ".$sub_User_UserLevel.", center = ".$sub_User_Center." ".
+                        "username = '".$sub_User_UserName."', email = '".$sub_User_Email."', user_level = ".$sub_User_UserLevel.", center = ".$sub_User_Center.", ".
 
                         "password = '".$hash."' ".
 
@@ -230,13 +231,18 @@ require($root."header.php");
 						"WHERE RID = ".$RID." ;";
 					
 				 }
+				 //update the budgetedExpenditures table
+				 //echo $sqlExecute;
+                 $resultExecute = mysql_query($sqlExecute) or mysql_error();
+                 echo $sqlExecute;
+                
+				 echo "Update sucessful."; 
+				 echo "</br><a href=AcctAdmin.php>Return to User Administration page</a>";
+				 die();
 
 
 
-                //update the budgetedExpenditures table
-				//echo $sqlExecute;
-                $resultExecute = mysql_query($sqlExecute) or mysql_error();
-                echo $resultExecute;
+
 
               }
 
