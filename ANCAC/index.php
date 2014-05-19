@@ -6,11 +6,6 @@
 	switch (date("m")){
                 case 10:
                         $EOYAvailable = 1;
-                        //The below was commented out since they say they want it to be good for the rest of October
-//                        if (date("j") < 11)
- //                               $EOYAvailable = 1;
-  //                      else
-   //                             $EOYAvailable = 0;
                         break;
                 case 1:
                 case 2:
