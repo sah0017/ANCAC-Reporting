@@ -21,7 +21,7 @@ $file = str_replace(array('/', '..'), '', $_GET['f']);
 $filePath = realpath($path.$file);
 if($filePath !== FALSE){
 	unlink($filePath);
-	echo "file '".$_GET['f']."' deleted.</br><a href='".$_SERVER['HTTP_REFERER']."'>Return to prevoius page</a>";
+	echo "file '".$_GET['f']."' deleted.</br><a href='".$_SERVER['HTTP_REFERER']."'>Return to previous page</a>";
 }
 
 ?>

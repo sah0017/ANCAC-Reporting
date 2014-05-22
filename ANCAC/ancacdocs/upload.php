@@ -31,6 +31,11 @@
 			    echo "There was an error uploading the file, please try again!";
 			}
 
+
+			echo "</br><a href='".$_SERVER['HTTP_REFERER']."'>Return to previous page</a>";
+			
+				
+
 	}
 	else{
 	echo("An error occured");
