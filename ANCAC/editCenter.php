@@ -237,7 +237,15 @@
 							<span>* Counties Served:</span>
 						</label>";
 			foreach($listOfCounties as $county){
-				$output .= "<div class='tinyWidth'><input type='checkbox' name='counties[]' value='".$county."'/>".$county."</div>";
+				$output .= "<div class='tinyWidth'><input type='checkbox' name='counties[]' value='".$county."'";
+				
+				//show counties served as checked
+				foreach($counties as $centerCounty){
+					if ($centerCounty->county == $county)
+						$output .= " checked ";
+				}
+				
+				$output .= "/>".$county."</div>";
 			}
 		}
 		else{
