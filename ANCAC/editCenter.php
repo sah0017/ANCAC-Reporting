@@ -111,7 +111,9 @@
 				//Remove trailing "," and " "
 				$sql = substr($sql, 0, -2).") AND countyLU.center NOT IN ('".$centerNumber."')";
 				$currentlyAssignedCounties = $db->get_results($sql);
-				
+
+/* commented out to allow multiple centers to serve the same county		
+ * 		
 				//drop the current rows that have our counties
 				$sql = "DELETE FROM countyLU WHERE county IN (";
 				foreach ($_POST['counties'] as $county)
@@ -119,6 +121,8 @@
 				//Remove trailing "," and " "
 				$sql = substr($sql, 0, -2).")";
 				$db->query($sql);
+*
+*/
 				
 				//drop our current counties
 				$sql = "DELETE FROM countyLU WHERE center = '".$centerNumber."'";
