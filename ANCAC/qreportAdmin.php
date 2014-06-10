@@ -57,7 +57,7 @@
 		      echo '<tr align="left">';
 		      echo '<td>';
 		      if($From == 1)
-		               echo '<a href="selectYear.php?center='.$row->center.'&from=1">'.$row->CenterName.'</a>';
+		               echo '<a href="centerReportAdmin.php?center='.$row->center.'">'.$row->CenterName.'</a>';
                       if($From == 2)
 		               echo '<a href="editBudgetsTOP.php?center='.$row->center.'">'.$row->CenterName.'</a>';
                       if($From == 5)
@@ -69,7 +69,7 @@
                       if($From == 8)
                                echo '<a href="SnailMail.php?center='.$row->center.'">'.$row->CenterName.'</a>';
                       if($From == 9)
-                               echo '<a href="selectYear.php?center='.$row->center.'&from=2">'.$row->CenterName.'</a>';
+                               echo '<a href="BODReport.php?center='.$row->center.'">'.$row->CenterName.'</a>';
 		      echo '</td>';
                       echo '</tr>';
 		}

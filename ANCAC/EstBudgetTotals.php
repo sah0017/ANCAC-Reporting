@@ -11,7 +11,7 @@ require($root."dbconn.php");
 
 
 
-        $fiscalYear = $_POST['year'];
+        $fiscalYear = $_SESSION['year'];
 
 
 

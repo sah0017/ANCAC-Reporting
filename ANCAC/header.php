@@ -14,6 +14,12 @@
       		<link rel='stylesheet' href='<?php echo $webroot?>login.css' type='text/css' media='screen'>
       		<link rel='stylesheet' href='<?php echo $webroot?>print.css' type='text/css' media='print'>
       </head>
+      
+      <?php 
+      if(!isset($_SESSION['year'])){
+		 $_SESSION['year'] = date("Y");
+	  }
+      ?>
 
 <div class=nav>
 	<div class='loginInfo'> 
@@ -24,6 +30,10 @@
 			<div class='userInfo returnToMain'><a href=<?php echo $webroot?>index.php> | Return to Main Menu</a></div> 
 			<div class='userInfo help'><a href=<?php echo $webroot?>help.php> | Help</a></div>
 			<div class='userInfo logoutButton'><a href=<?php echo $webroot?>logout.php> | Logout</a></div>
+			<div class='userInfo'> | Selected Fiscal Year:<?php echo $_SESSION['year']?> | </div>
+			<div class='userInfo selectYear'><a href=<?php echo $webroot?>selectSessionYear.php> Select Year</a></div>
+			
+			
 		</div>
 	</div>
 	
@@ -120,7 +130,7 @@
 					if($quarter == 4 && $Available == 1)
 						echo "<li><a href=".$webroot."eoyreports.php>Enter Annual Budget Numbers</a></li>"
 		            ?>
-		            <li><a href=<?php echo $webroot?>selectYear.php>Print Year To Date Reports</a></li>
+		            <li><a href=<?php echo $webroot?>centerReportAdmin.php>Print Year To Date Reports</a></li>
 
 		        </ul>
 		    </li>
@@ -164,8 +174,8 @@
 			        <a href="#">Reporting</a>
 			        <ul>
 			            <li><a href="'.$webroot.'haveSubmit.php">View Current Qtr Unsubmitted Centers</a></li>
-			            <li><a href="'.$webroot.'selectYearGT.php?from=2">View/Print ANCAC Grand Total Report</a></li>
-			            <li><a href="'.$webroot.'selectYearGT.php?from=3">View/Print Estimated Budget Total Report</a></li>
+			            <li><a href="'.$webroot.'GrandTotal.php">View/Print ANCAC Grand Total Report</a></li>
+			            <li><a href="'.$webroot.'EstBudgetTotals.php">View/Print Estimated Budget Total Report</a></li>
 			            <li><a href="'.$webroot.'qreportAdmin.php?from=9">View/Print ANCAC Board of Directors</a></li>
 						<li><a href="'.$webroot.'eoyProgress.php">Check End Of Year Status</a></li>
 			        </ul>
