@@ -1,21 +1,9 @@
 <?PHP
 	require("ulogin.php");
 	//require("/home/cust1/user1224426/data/dbconn.php");
-	
-	$From = $_GET['from'];
-	if($From == 2)
-	         $page_title = 'Select a Year: Grand Total Report';
-        if($From == 3)
-                 $page_title = 'Select a Year: Estimated Budget Totals Report';
-        if($From == 4)
-                 $page_title = 'Select a Year: Board of Directors List';
-        if($From == 5)
-                 $page_title = 'Select a Year: Estimated Budget for all 4 Quarters';
-        if($From == 6)
-                 $page_title = 'Select a Year: Budget Request';
-        if($From == 7)
-                 $page_title = 'Select a Year: Diversity Action Plan';
-
+	if(isset($_POST['year'])){		$_SESSION['year']=$_POST['year'];
+		header('Location: http://'.$_SERVER['SERVER_NAME'].$webroot);	}
+	
 
 	require($root."header.php");
 
@@ -32,14 +20,7 @@
 		<table border="0" width="300px" id="table1">
 		<tr>
 		    <td>
-		        <?PHP if($From == 2) echo '<form action="GrandTotal.php" method="post">'; 
-                           if($From == 3) echo '<form action="EstBudgetTotals.php" method="post">';
-                           
-                           if($From == 4) echo '<form action="AllBODReport.php" method="post">';
-                           if($From == 5) echo '<form action="AllEstBud.php" method="post">';
-                           if($From == 6) echo '<form action="AllBudReq.php" method="post">';
-                           if($From == 7) echo '<form action="AllDAP.php" method="post">';
-                        ?>
+		        <form action="selectSessionYear.php" method="post">
                                 <p>Select Year:  <select name="year" id="year">
                                                   <?PHP
                                                         switch (date("m")){
@@ -76,7 +57,7 @@
                                                   }
                                                   ?>
                                                 </select></p>
-                                <p><input type="submit" name="submit" value="View Report" /></p>
+                                <p><input type="submit" name="submit" value="Set Selection" /></p>
                           </form>
 		    </td>
 		</tr>

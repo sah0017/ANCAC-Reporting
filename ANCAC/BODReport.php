@@ -22,10 +22,12 @@
 	require($root."header.php");
 
         //Get the fiscal year from the select Year page drop down
-        if(isset($_POST['year']))
-                $fiscalYear = $_POST['year'];
-        else
-                $fiscalYear = $_GET['year'];
+        //if(isset($_POST['year']))
+        //        $fiscalYear = $_POST['year'];
+        //else
+        //        $fiscalYear = $_GET['year'];
+        
+	$fiscalYear = $_SESSION['year'];
 ?>
 
 <body>

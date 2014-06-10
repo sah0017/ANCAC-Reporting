@@ -5,7 +5,7 @@
 	$page_title = 'ANCAC: All Diversity Action Plans';
 	require($root."header.php");
 
-        $fiscalYear = $_POST['year'];
+        $fiscalYear = $_SESSION['year'];
         
         function printPercent($TopNumber, $BottomNumber){
                 $percent = ($TopNumber/$BottomNumber) * 100;

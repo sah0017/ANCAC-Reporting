@@ -5,7 +5,7 @@
 	$page_title = 'ANCAC: All Budget Requests';
 	require($root."header.php");
 
-        $fiscalYear = $_POST['year'];
+        $fiscalYear = $_SESSION['year'];
 ?>
 
 <?php

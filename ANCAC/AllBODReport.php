@@ -5,7 +5,7 @@
 	$page_title = 'ANCAC: All Board of Directors Listings';
 	require($root."header.php");
 
-        $fiscalYear = $_POST['year'];
+        $fiscalYear = $_SESSION['year'];
 ?>
 
 <?php

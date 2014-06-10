@@ -135,7 +135,7 @@
                                 echo '<p>2. Submit current Quarterly Report to Home Office (Unavailable)<br><br></p>';
                         }
                 }
-                echo '<p>3. <a href="selectYear.php">View / Print the Year to Date report for your Center</a><br><br></p>';
+                echo '<p>3. <a href="centerReportAdmin.php">View / Print the Year to Date report for your Center</a><br><br></p>';
                 echo '<p>&nbsp;</p>';
 		//echo '<p>0. <a href="{$webroot}index.php">Return to Main Menu</p>';
                 echo '<p>&nbsp;</p>';
