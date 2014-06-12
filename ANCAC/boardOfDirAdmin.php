@@ -56,8 +56,17 @@
 			break;
 	}
 	
+	//get header info
+	$sqlInfo = "SELECT boardMeet, termLength, whenElected FROM boardOfDirHeader WHERE center = '".$center."' AND fiscalyear = '".$fiscalYear."'";
+	$info = $db->get_row($sqlInfo);
+	if(!isset($info)){
+		//initialize the "default" variables for header to ""
+		$info = (object) array("boardMeet" => "Undefined", "termLength" => "Undefined", "whenElected" => "Undefined");
+	}
+	
 	$output = "<div class='emailForm basic-grey boardOfDirDiv'>
 					<h1>Board of Directors for ".$CenterName." for FY ".$fiscalYear."</h1>
+					<h2>Board meetings: ".$info->boardMeet." | Elections: ".$info->whenElected."| Term length: ".$info->termLength." | <a href='editBoardOfDirInfo.php?center=".$center."&fiscalYear=".$fiscalYear."'>Edit Info</a></h2>
 					<table class='boardOfDirTable'>
 						<thead>
 							<tr><th colspan='8' class='centerText'><a href='editBoardOfDir.php?action=add&center=".$center."&fiscalYear=".$fiscalYear."'>Add a Board Member</a></th></tr>

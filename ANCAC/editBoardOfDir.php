@@ -29,16 +29,6 @@
 		if (empty($_POST['name'])){
 			$errors[] = 'You did not enter a Member Name.';
 		}
-		//Header info must be entered
-		if (empty($_POST['boardMeet'])){
-			$errors[] = 'You did not enter how often the Board meets.';
-		}
-		if (empty($_POST['termLength'])){
-			$errors[] = 'You did not enter the length of each term.';
-		}
-		if (empty($_POST['whenElected'])){
-			$errors[] = 'You did not enter when new officers are elected.';
-		}
 		//Optional values are tested and set to '' if they don't exist
 		if (empty($_POST['position'])){
 			$_POST['position'] = "";
@@ -79,18 +69,6 @@
 				$db->query($sql);
 			}
 			
-			//Header Info is updated no matter what
-			
-			//First we delete the current info (just to be safe)
-			//drop the current rows that have our counties
-			$sql = "DELETE FROM boardOfDirHeader WHERE center='".$_GET['center']."' AND fiscalYear='".$_GET['fiscalYear']."'";
-			$db->query($sql);
-			
-			$sql = "INSERT INTO boardOfDirHeader (center , fiscalyear, boardMeet, termLength, whenElected, username, datemod)
-						VALUES ( '".$_GET['center']."', '".$_GET['fiscalYear']."', '".htmlspecialchars_decode($_POST['boardMeet'])."',
-						'".htmlspecialchars_decode($_POST['termLength'])."', '".htmlspecialchars_decode($_POST['whenElected'])."',
-						'".$_SESSION['user']."', NOW())";
-			$db->query($sql);
 			
 			$output = "<div class=' basic-grey'>
 						<h1>".$action." Member
@@ -131,6 +109,7 @@
 		$boardMember = $db->get_row($sql);
 		
 		//insert as new row with updated fiscal year
+		$boardMember->yearsOnBoard++;
 		$sql = "INSERT INTO boardOfDirItem (center , fiscalyear , name , boardPosition , occupation , address , phone , yearsOnBoard , username , datemod) 
 				VALUES ( '".$_GET['center']."', '".$_GET['fiscalYear']."', '".$boardMember->name."',
 				'".$boardMember->boardPosition."', '".$boardMember->occupation."',
@@ -154,6 +133,7 @@
 		
 		foreach($boardMembers as $boardMember){
 			//insert as new row with updated fiscal year
+			$boardMember->yearsOnBoard++;
 			$sql = "INSERT INTO boardOfDirItem (center , fiscalyear , name , boardPosition , occupation , address , phone , yearsOnBoard , username , datemod)
 					VALUES ( '".$_GET['center']."', '".$_GET['fiscalYear']."', '".$boardMember->name."',
 					'".$boardMember->boardPosition."', '".$boardMember->occupation."',
@@ -184,14 +164,7 @@
 				"boardPosition" => "", "yearsOnBoard" => "");
 		}
 
-		//get header info
-		$sqlHeader = "SELECT center, fiscalYear, boardMeet, termLength, whenElected FROM boardOfDirHeader WHERE center = '".$_GET['center']."' AND fiscalyear = '".$_GET['fiscalYear']."'";
-		$header = $db->get_row($sqlHeader);
-		if(!isset($header)){
-			//initialize the "default" variables for header to ""
-			$header = (object) array("center" => "", "fiscalYear" => "", "boardMeet" => "", "termLength" => "",
-					"whenElected" => "");
-		}
+
 
 		$output = "<div class='emailForm basic-grey'>
 						<form action='' method='post' name='editCenter'>
@@ -223,21 +196,6 @@
 								<input type='text' name='yearsOnBoard' value='".$memberInfo->yearsOnBoard."'/>
 							</label>
 							";
-		//Header stuff
-		$output .= "<label class='emptyFormDivider'>
-					</label>
-					<label>
-						<span>* How often does the board meet:</span>
-						<input type='text' name='boardMeet' value='".$header->boardMeet."'/>
-					</label>
-					<label>
-						<span>* What is the length of each term:</span>
-						<input type='text' name='termLength' value='".$header->termLength."'/>
-					</label>
-					<label class=''>
-						<span>* When are new officers elected:</span>
-						<input type='text' name='whenElected' value='".$header->whenElected."'/>
-					</label>";
 		
 		$output .= "<label>
 						<input type='submit' value='Submit'>
