@@ -17,12 +17,12 @@
 <?PHP
 	if($_SESSION['admin'] > 0)
 	{
-             $sql = "SELECT directors.RID,directors.name,directors.username,directors.email,directors.center,directors.user_level,directors.password, centers.CenterName FROM directors left join centers on directors.center = centers.center";
+             $sql = "SELECT directors.RID,directors.name,directors.username,directors.email,directors.center,directors.user_level, centers.CenterName FROM directors left join centers on directors.center = centers.center";
 	     $result= @mysql_query($sql) or mysql_error();
 	     
-	     echo '<tr><td colspan="6" align="center"><a href="editAccount.php?RID=-1">Add a new log in</a></td></tr>';
+	     echo '<tr><td colspan="5" align="center"><a href="editAccount.php?RID=-1">Add a new log in</a></td></tr>';
 
-	     echo '<tr><td><b>Center</b></td><td><b>Name</b></td><td><b>User Name</b></td><td><b>Email</b></td><td><b>Password</b></td><td>&nbsp;</td></tr>';
+	     echo '<tr><td><b>Center</b></td><td><b>Name</b></td><td><b>User Name</b></td><td><b>Email</b></td><td>&nbsp;</td></tr>';
 
 	     while ($row = mysql_fetch_object($result)) {
 	           echo '<tr align="left">';
@@ -30,7 +30,6 @@
 	           echo '<td>'.$row->name.'</td>';
 	           echo '<td>'.$row->username.'</td>';
 	           echo '<td>'.$row->email.'</td>';
-                   echo '<td>'.$row->password.'</td>';
                    echo '<td><a href="editAccount.php?RID='.$row->RID.'">Edit Account</a></td>';
                    echo '</tr>';
 		}
