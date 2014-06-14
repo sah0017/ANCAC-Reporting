@@ -12,8 +12,8 @@ require($root."dbconn.php");
 
         $fiscalYear = $_SESSION['year'];
 
-	echo '<table align="center" width="85%" border="black" class="legendTable"><tr align="center" class="legendHeader"><td>FI</td><td>EFA</td><td>ICS</td><td>TCS</td><td>MDT</td><td>PROS</td><td>EXAM</td></tr>'. //4/8/14
-		 '<tr align="center" class="legendRow"><td>Forensic Investigation</td><td>Extended Forensic Assessment</td><td>Initial Counselling Sessions</td><td>Total Counselling Sessions</td><td>Cases Reviewed by the Multidisciplinary Team Meeting</td><td>Cases referred for Prosecution</td><td>Cases with a Medical Exam</td></tr></table>'; //4/8/14
+	echo '<table align="center" width="85%" border="black" class="legendTable"><tr align="center" class="legendHeader"><td>FI</td><td>EFA</td><td>ICS</td><td>EXAM</td><td>PROS</td><td>MDT</td><td>TCS</td></tr>'. //4/8/14
+		 '<tr align="center" class="legendRow"><td>Forensic Investigation</td><td>Extended Forensic Assessment</td><td>Initial Counselling Sessions</td><td>Cases with a Medical Exam</td><td>Cases referred for Prosecution</td><td>Cases Reviewed by the Multidisciplinary Team Meeting</td><td>Total Counselling Sessions</td></tr></table>'; //4/8/14
 	
 
         function printHeaders(){
