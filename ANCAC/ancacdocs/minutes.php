@@ -30,7 +30,6 @@
 			<?php 		
 		
 				echo('<form enctype="multipart/form-data" action="upload.php?d=3" method="POST">
-				<input type="hidden" name="MAX_FILE_SIZE" value="100000" />
 				Add a file: <input name="uploadedfile" type="file" /><input type="submit" value="Upload" />
 				</form>');
 			
