@@ -31,6 +31,25 @@ require($root."dbconn.php");
 
 	$numRecFullMember = $db->get_results($sqlFullMember);
 	
+//Add headers from GrandTotal to the Excel Export
+        $grandTotalheader = array('Tot.SVCS.' , 'Center + FI' , 'E.F.A' , 'I.C.S' , 'Exam' , 'Pros.' , 'M.D.T.' , 'T.C.S.' , '0-6' , '7-12' , '13-18' , 'M' , 'F' , 'AA' , 'ASN' , 'CAU.' , 'HISP.' , 'QTR');
+        
+       fputcsv($fp, (array)$grandTotalheader);
+       fputcsv($fp, $emptyArray);
+        /* foreach($grandTotalheader as $columheader)
+         {
+        
+             fputcsv($fp, (array)$columheader);
+		
+                
+		$resultLoop = $db->get_row($columheader);
+		fputcsv($fp, (array)$resultLoop);
+		fputcsv($fp, $emptyArray);
+        
+        }//end of foreach
+       */
+                
+                
 	foreach ($numRecFullMember as $rowFullMember) 
 	{
 		
