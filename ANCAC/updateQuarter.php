@@ -66,6 +66,9 @@
         $prosCases = set_Variable($_POST['prosCases'], "int");
         $medExamRef = set_Variable($_POST['medExamRef'], "int");
         $fullTimeEmp = set_Variable($_POST['fullTimeEmp'], "float");
+        $fi18plus = set_Variable($_POST['fi18plus'], "int");
+        //$trafficking = set_Variable($_POST['trafficking'], "int");
+        
         
         if ($_POST['chkCompleteQuarter'] == 'yes') $CompleteQuarter = 1;
            else $CompleteQuarter = 0;
@@ -98,7 +101,7 @@
                 }
 
                 $sqlExecute = "UPDATE actualPerfStats SET fiTotal = '".$fiTotal."', fi0to6 = '".$fi0to6."', ".
-                        "fi7to12 = '".$fi7to12."', fi13to18 = '".$fi13to18."', fiMale = '".$fiMale."', ".
+                        "fi7to12 = '".$fi7to12."', fi13to18 = '".$fi13to18."', fi18plus = '".$fi18plus."', fiMale = '".$fiMale."', ".
                         "fiFemale = '".$fiFemale."', fiAfrAmerican = '".$fiAfrAmerican."', fiAsian = '".$fiAsian."', ".
                         "fiCauc = '".$fiCauc."', fiHispanic = '".$fiHispanic."', fiOther = '".$fiOther."', ".
                         "extForenEval = '".$extForenEval."', intCounsSes = '".$intCounsSes."', multDisTeamMeet = '".$multDisTeamMeet."', ".
@@ -158,12 +161,12 @@
                 //}
 
                 $sqlExecute = "INSERT INTO `actualPerfStats` ( `center` , `fiscalyear` , `quarter` , `username` , ".
-                        "`datemod` , `fiTotal` , `fi0to6` , `fi7to12` , `fi13to18` , ".
+                        "`datemod` , `fiTotal` , `fi0to6` , `fi7to12` , `fi13to18` , `fi18plus` , ".
                         "`fiMale` , `fiFemale` , `fiAfrAmerican` , `fiAsian` , `fiCauc` , ".
                         "`fiHispanic` , `fiOther` , `extForenEval` , `intCounsSes` , `totCounSes` , `multDisTeamMeet` , ".
                         "`prosCases` , `medExamRef`  ) ".
                         "VALUES ('".$centerID."', '".$fiscalYear."', '".$Quarter."', '".$_SESSION['user']."', ".
-                        "NOW(), '".$fiTotal."', '".$fi0to6."', '".$fi7to12."', '".$fi13to18."', ".
+                        "NOW(), '".$fiTotal."', '".$fi0to6."', '".$fi7to12."', '".$fi13to18."', '".$fi18plus."', ".
                         "'".$fiMale."', '".$fiFemale."', '".$fiAfrAmerican."', '".$fiAsian."', '".$fiCauc."', ".
                         "'".$fiHispanic."', '".$fiOther."', '".$extForenEval."', '".$intCounsSes."', '".$totCounSes."', '".$multDisTeamMeet."', ".
                         "'".$prosCases."', '".$medExamRef."')";

@@ -20,7 +20,7 @@ function buildReport($TrnType, $theCenter, $fiscalYear, $YTD, $Width){
           $result = @mysql_query($sql) or mysql_error();
           $row1QBudgeted = mysql_fetch_object($result);
 
-          $sql = "SELECT fiTotal,fi0to6,fi7to12,fi13to18,fiMale,fiFemale,fiAfrAmerican,fiAsian,".
+          $sql = "SELECT fiTotal,fi0to6,fi7to12,fi13to18,fi18plus,fiMale,fiFemale,fiAfrAmerican,fiAsian,".
               "fiCauc,fiHispanic,fiOther,extForenEval,intCounsSes,totCounSes,multDisTeamMeet,prosCases,medExamRef,".
               "fullTimeEmp,personnelCosts,empBenefits,travelInState,travelOutState,repairsAndMx,".
               "rentalsLease,utilComm,profServ,suppMatOper,tranEqpPurch,otherEqpPurch,debtService,misc,genFund,chilFirstTrust,".
@@ -48,7 +48,7 @@ function buildReport($TrnType, $theCenter, $fiscalYear, $YTD, $Width){
           $result = @mysql_query($sql) or mysql_error();
           $row2QBudgeted = mysql_fetch_object($result);
 
-          $sql = "SELECT fiTotal,fi0to6,fi7to12,fi13to18,fiMale,fiFemale,fiAfrAmerican,fiAsian,".
+          $sql = "SELECT fiTotal,fi0to6,fi7to12,fi13to18,fi18plus,fiMale,fiFemale,fiAfrAmerican,fiAsian,".
               "fiCauc,fiHispanic,fiOther,extForenEval,intCounsSes,totCounSes,multDisTeamMeet,prosCases,medExamRef,".
               "fullTimeEmp,personnelCosts,empBenefits,travelInState,travelOutState,repairsAndMx,".
               "rentalsLease,utilComm,profServ,suppMatOper,tranEqpPurch,otherEqpPurch,debtService,misc,genFund,chilFirstTrust,".
@@ -76,7 +76,7 @@ function buildReport($TrnType, $theCenter, $fiscalYear, $YTD, $Width){
           $result = @mysql_query($sql) or mysql_error();
           $row3QBudgeted = mysql_fetch_object($result);
 
-          $sql = "SELECT fiTotal,fi0to6,fi7to12,fi13to18,fiMale,fiFemale,fiAfrAmerican,fiAsian,".
+          $sql = "SELECT fiTotal,fi0to6,fi7to12,fi13to18,fi18plus,fiMale,fiFemale,fiAfrAmerican,fiAsian,".
               "fiCauc,fiHispanic,fiOther,extForenEval,intCounsSes,totCounSes,multDisTeamMeet,prosCases,medExamRef,".
               "fullTimeEmp,personnelCosts,empBenefits,travelInState,travelOutState,repairsAndMx,".
               "rentalsLease,utilComm,profServ,suppMatOper,tranEqpPurch,otherEqpPurch,debtService,misc,genFund,chilFirstTrust,".
@@ -104,7 +104,7 @@ function buildReport($TrnType, $theCenter, $fiscalYear, $YTD, $Width){
           $result = @mysql_query($sql) or mysql_error();
           $row4QBudgeted = mysql_fetch_object($result);
 
-          $sql = "SELECT fiTotal,fi0to6,fi7to12,fi13to18,fiMale,fiFemale,fiAfrAmerican,fiAsian,".
+          $sql = "SELECT fiTotal,fi0to6,fi7to12,fi13to18,fi18plus,fiMale,fiFemale,fiAfrAmerican,fiAsian,".
               "fiCauc,fiHispanic,fiOther,extForenEval,intCounsSes,totCounSes,multDisTeamMeet,prosCases,medExamRef,".
               "fullTimeEmp,personnelCosts,empBenefits,travelInState,travelOutState,repairsAndMx,".
               "rentalsLease,utilComm,profServ,suppMatOper,tranEqpPurch,otherEqpPurch,debtService,misc,genFund,chilFirstTrust,".
@@ -331,10 +331,56 @@ function buildReport($TrnType, $theCenter, $fiscalYear, $YTD, $Width){
            $fi13to18ActTot = $Q1Act + $Q2Act + $Q3Act + $Q4Act;
            echo '<td><b>'.$fi13to18ActTot.'</b></td>'.
                 '</tr>';
+           
            echo '<tr align="center">'.
-                '<td align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b) Gender:&nbsp;&nbsp;&nbsp;Male</td>'.
+                '<td align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;18+</td>'.
                 '<td class="Disable"></td>'.
                 '<td>';
+           if(isset($row1QActual->fi18plus)) {
+           	if ($row1QActual->fi18plus != -99){
+           		echo $row1QActual->fi18plus;
+           		$Q1Act = $row1QActual->fi18plus;
+           	}else $Q1Act = 0;
+           }else $Q1Act = 0;
+           echo '</td>'.
+           		'<td class="Disable"></td>'.
+           		'<td>';
+           if(isset($row2QActual->fi18plus)) {
+           	if ($row2QActual->fi18plus != -99){
+           		echo $row2QActual->fi18plus;
+           		$Q2Act = $row2QActual->fi18plus;
+           	}else $Q2Act = 0;
+           }else $Q2Act = 0;
+           echo '</td>'.
+           		'<td class="Disable"></td>'.
+           		'<td>';
+           if(isset($row3QActual->fi18plus)) {
+           	if ($row3QActual->fi18plus != -99){
+           		echo $row3QActual->fi18plus;
+           		$Q3Act = $row3QActual->fi18plus;
+           	}else $Q3Act = 0;
+           }else $Q3Act = 0;
+           echo '</td>'.
+           		'<td class="Disable"></td>'.
+           		'<td>';
+           if(isset($row4QActual->fi18plus)) {
+           	if ($row4QActual->fi18plus != -99){
+           		echo $row4QActual->fi18plus;
+           		$Q4Act = $row4QActual->fi18plus;
+           	}else $Q4Act = 0;
+           }else $Q4Act = 0;
+           echo '</td>'.
+           		'<td class="Disable"></td>';
+           //'<td><input type="text" class="DisableInput" disabled="true" name="fi18plusBudTot" value="" /></td>'.
+           $fi18plusActTot = $Q1Act + $Q2Act + $Q3Act + $Q4Act;
+           echo '<td><b>'.$fi18plusActTot.'</b></td>'.
+           		'</tr>';
+           
+           
+           echo '<tr align="center">'.
+           		'<td align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b) Gender:&nbsp;&nbsp;&nbsp;Male</td>'.
+           		'<td class="Disable"></td>'.
+           		'<td>';           
            if(isset($row1QActual->fiMale)) {
                 if ($row1QActual->fiMale != -99){
                   echo $row1QActual->fiMale;

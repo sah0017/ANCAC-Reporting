@@ -140,7 +140,7 @@
                              $row1QBudgeted = mysql_fetch_object($result);
 
                          //grab the actual info if there is any
-                              $sql = "SELECT fiTotal,fi0to6,fi7to12,fi13to18,fiMale,fiFemale,fiAfrAmerican,fiAsian,".
+                              $sql = "SELECT fiTotal,fi0to6,fi7to12,fi13to18,fi18plus,humanTrafficking,fiMale,fiFemale,fiAfrAmerican,fiAsian,".
               "fiCauc,fiHispanic,fiOther,extForenEval,intCounsSes,totCounSes,multDisTeamMeet,prosCases,medExamRef,".
               "fullTimeEmp,personnelCosts,empBenefits,travelInState,travelOutState,repairsAndMx,".
               "rentalsLease,utilComm,profServ,suppMatOper,tranEqpPurch,otherEqpPurch,debtService,misc,genFund,chilFirstTrust,".
@@ -208,7 +208,7 @@
                         <td><input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
                                 onkeypress="return blockNonNumbers(this, event, false, false);" class="TextInput" name="fi13to18"
                                 value="<?PHP if(isset($row1QActual->fi13to18)){if ($row1QActual->fi13to18 != -99) echo $row1QActual->fi13to18;} ?>" /></td>
-                </tr>
+                </tr>                                <tr align="center">                        <td align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;18+</td>                        <td class="Disable"></td>                        <td><input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"                                onkeypress="return blockNonNumbers(this, event, false, false);" class="TextInput" name="fi18plus"                                value="<?PHP if(isset($row1QActual->fi18plus)){if ($row1QActual->fi18plus != -99) echo $row1QActual->fi18plus;} ?>" /></td>                </tr>
                 <tr align="center">
                         <td align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b) Gender:&nbsp;&nbsp;&nbsp;Male</td>
                         <td class="Disable"></td>
@@ -614,7 +614,7 @@
                                 echo number_format($totFundsActual, 2); ?></b></td>
                 </tr>
                 -->
-                </table>                                
+                </table>                <table id="Trafficking" width="100%" class="Admin" style=display:none>                                </table>
                 
                                 <?PHP if ($Available == 1){ if ($_SESSION['admin'] != 1) echo '<p><input type="submit" name="submit" value="Update Quarterly Report" /></p>';} ?>
                                 <input type="hidden" name="centerID" value="<?PHP echo $centerID; ?>" />
