@@ -20,14 +20,14 @@ require($root."dbconn.php");
 
                 echo '<tr class="BoldText" align="center"><td align="left" width="28%">Center</td><td>QTR</td><td class="TotalCell"><h3>TOT. SVCS.</h3></td><td class="TotalCell">FI</td><td class="TotalCell">E.F.A.</td><td class="TotalCell">I.C.S.</td>'. //3/18/14 MH
 						
-			'<td>EXAM</td><td>PROS.</td><td>M.D.T.</td><td>T.C.S.</td><td>0-6</td><td>7-12</td><td>13-18</td><td>M</td><td>F</td><td>AA</td><td>ASN</td><td>CAU.</td><td>HISP.</td><td>OTHER</td></tr>'; //3/18/14 MH
+			'<td>EXAM</td><td>PROS.</td><td>M.D.T.</td><td>T.C.S.</td><td>0-6</td><td>7-12</td><td>13-18</td><<td>18+</td><td>M</td><td>F</td><td>AA</td><td>ASN</td><td>CAU.</td><td>HISP.</td><td>OTHER</td></tr>'; //3/18/14 MH
 		 }
 
 	function printTotalHeaders($Title){
 
                 echo '<tr class="BoldText" align="center"><td align="left" width="28%" colspan="2">'.$Title.'</td><td class="TotalCell"><h3>TOT. SVCS.</h3></td><td class="TotalCell">FI</td><td class="TotalCell">E.F.A.</td><td class="TotalCell">I.C.S.</td>'. //3/18/14 MH
 						
-			'<td>EXAM</td><td>PROS.</td><td>M.D.T.</td><td>T.C.S.</td><td>0-6</td><td>7-12</td><td>13-18</td><td>M</td><td>F</td><td>AA</td><td>ASN</td><td>CAU.</td><td>HISP.</td><td>OTHER</td></tr>'; //3/18/14 MH
+			'<td>EXAM</td><td>PROS.</td><td>M.D.T.</td><td>T.C.S.</td><td>0-6</td><td>7-12</td><td>13-18</td><td>18+</td><td>M</td><td>F</td><td>AA</td><td>ASN</td><td>CAU.</td><td>HISP.</td><td>OTHER</td></tr>'; //3/18/14 MH
 		 }
 
          function removeDefaults($testValue){
@@ -55,7 +55,9 @@ require($root."dbconn.php");
                 $GRANDTOTAL1fi7to12 = 0;
 
                 $GRANDTOTAL1fi13to18 = 0;
-
+                
+                $GRANDTOTAL1fi18plus = 0;
+                
                 $GRANDTOTAL1fiMale = 0;
 
                 $GRANDTOTAL1fiFemale = 0;
@@ -92,6 +94,8 @@ require($root."dbconn.php");
 
                 $GRANDTOTAL2fi13to18 = 0;
 
+                $GRANDTOTAL2fi18plus = 0;
+                
                 $GRANDTOTAL2fiMale = 0;
 
                 $GRANDTOTAL2fiFemale = 0;
@@ -127,7 +131,9 @@ require($root."dbconn.php");
                 $GRANDTOTAL3fi7to12 = 0;
 
                 $GRANDTOTAL3fi13to18 = 0;
-
+                
+                $GRANDTOTAL3fi18plus = 0;
+                
                 $GRANDTOTAL3fiMale = 0;
 
                 $GRANDTOTAL3fiFemale = 0;
@@ -163,7 +169,9 @@ require($root."dbconn.php");
                 $GRANDTOTAL4fi7to12 = 0;
 
                 $GRANDTOTAL4fi13to18 = 0;
-
+                
+                $GRANDTOTAL4fi18plus = 0;
+                
                 $GRANDTOTAL4fiMale = 0;
 
                 $GRANDTOTAL4fiFemale = 0;
@@ -227,7 +235,9 @@ require($root."dbconn.php");
                         $FULL1fi7to12 = 0;
 
                         $FULL1fi13to18 = 0;
-
+                        
+                        $FULL1fi18plus = 0;
+                        
                         $FULL1fiMale = 0;
 
                         $FULL1fiFemale = 0;
@@ -263,7 +273,9 @@ require($root."dbconn.php");
                         $FULL2fi7to12 = 0;
 
                         $FULL2fi13to18 = 0;
-
+                        
+                        $FULL2fi18plus = 0;
+                        
                         $FULL2fiMale = 0;
 
                         $FULL2fiFemale = 0;
@@ -299,7 +311,9 @@ require($root."dbconn.php");
                         $FULL3fi7to12 = 0;
 
                         $FULL3fi13to18 = 0;
-
+                        
+                        $FULL3fi18plus = 0;
+                        
                         $FULL3fiMale = 0;
 
                         $FULL3fiFemale = 0;
@@ -335,7 +349,9 @@ require($root."dbconn.php");
                         $FULL4fi7to12 = 0;
 
                         $FULL4fi13to18 = 0;
-
+                        
+                        $FULL4fi18plus = 0;
+                        
                         $FULL4fiMale = 0;
 
                         $FULL4fiFemale = 0;
@@ -372,7 +388,7 @@ require($root."dbconn.php");
 
 
 
-                                $sqlLoop = "SELECT fiTotal, fi0to6, fi7to12, fi13to18, fiMale, fiFemale, fiAfrAmerican, fiAsian, fiCauc, fiHispanic, fiOther, extForenEval, ".
+                                $sqlLoop = "SELECT fiTotal, fi0to6, fi7to12, fi13to18, fi18plus, fiMale, fiFemale, fiAfrAmerican, fiAsian, fiCauc, fiHispanic, fiOther, extForenEval, ".
 
                                         "intCounsSes, totCounSes, multDisTeamMeet, prosCases, medExamRef, actualPerfStats.quarter FROM actualPerfStats JOIN actualExpenditures ON actualPerfStats.center = actualExpenditures.center ".
 
@@ -417,7 +433,9 @@ require($root."dbconn.php");
                                         $Yearfi7to12 = 0;
 
                                         $Yearfi13to18 = 0;
-
+                                        
+                                        $Yearfi18plus = 0;
+                                        
                                         $YearfiMale = 0;
 
                                         $YearfiFemale = 0;
@@ -481,7 +499,11 @@ require($root."dbconn.php");
                                                 echo '<td>'.$rowLoop->fi13to18.'</td>';
 
                                                 $Yearfi13to18 = $Yearfi13to18 + $rowLoop->fi13to18;
-
+                                                
+                                                echo '<td>'.$rowLoop->fi18plus.'</td>';
+                                                
+                                                $Yearfi13to18 = $Yearfi18plus + $rowLoop->fi18plus;
+                                                
                                                 echo '<td>'.$rowLoop->fiMale.'</td>';
 
                                                 $YearfiMale = $YearfiMale + $rowLoop->fiMale;
@@ -553,7 +575,9 @@ require($root."dbconn.php");
                                                   $FULL1fi7to12 = $FULL1fi7to12 + $rowLoop->fi7to12;
 
                                                   $FULL1fi13to18 = $FULL1fi13to18 + $rowLoop->fi13to18;
-
+                                                  
+                                                  $FULL1fi18plus = $FULL1fi18plus + $rowLoop->fi18plus;
+                                                  
                                                   $FULL1fiMale = $FULL1fiMale + $rowLoop->fiMale;
 
                                                   $FULL1fiFemale = $FULL1fiFemale + $rowLoop->fiFemale;
@@ -593,7 +617,9 @@ require($root."dbconn.php");
                                                   $FULL2fi7to12 = $FULL2fi7to12 + $rowLoop->fi7to12;
 
                                                   $FULL2fi13to18 = $FULL2fi13to18 + $rowLoop->fi13to18;
-
+                                                  
+                                                  $FULL2fi18plus = $FULL2fi18plus + $rowLoop->fi18plus;
+                                                  
                                                   $FULL2fiMale = $FULL2fiMale + $rowLoop->fiMale;
 
                                                   $FULL2fiFemale = $FULL2fiFemale + $rowLoop->fiFemale;
@@ -633,7 +659,9 @@ require($root."dbconn.php");
                                                   $FULL3fi7to12 = $FULL3fi7to12 + $rowLoop->fi7to12;
 
                                                   $FULL3fi13to18 = $FULL3fi13to18 + $rowLoop->fi13to18;
-
+                                                  
+                                                  $FULL3fi18plus = $FULL3fi18plus + $rowLoop->fi18plus;
+                                                  
                                                   $FULL3fiMale = $FULL3fiMale + $rowLoop->fiMale;
 
                                                   $FULL3fiFemale = $FULL3fiFemale + $rowLoop->fiFemale;
@@ -673,7 +701,9 @@ require($root."dbconn.php");
                                                   $FULL4fi7to12 = $FULL4fi7to12 + $rowLoop->fi7to12;
 
                                                   $FULL4fi13to18 = $FULL4fi13to18 + $rowLoop->fi13to18;
-
+                                                  
+                                                  $FULL4fi18plus = $FULL4fi18plus + $rowLoop->fi18plus;
+                                                  
                                                   $FULL4fiMale = $FULL4fiMale + $rowLoop->fiMale;
 
                                                   $FULL4fiFemale = $FULL4fiFemale + $rowLoop->fiFemale;
@@ -715,7 +745,9 @@ require($root."dbconn.php");
                                         echo '<td>'.$Yearfi7to12.'</td>';
 
                                         echo '<td>'.$Yearfi13to18.'</td>';
-
+                                        
+                                        echo '<td>'.$Yearfi18plus.'</td>';
+                                        
                                         echo '<td>'.$YearfiMale.'</td>';
 
                                         echo '<td>'.$YearfiFemale.'</td>';
@@ -791,7 +823,11 @@ require($root."dbconn.php");
                         echo '<td class="">'.$FULL1fi13to18.'</td>';
 
                         $GRANDTOTAL1fi13to18 = $GRANDTOTAL1fi13to18 + $FULL1fi13to18;
-
+                        
+                        echo '<td class="">'.$FULL1fi18plus.'</td>';
+                        
+                        $GRANDTOTAL1fi18plus = $GRANDTOTAL1fi18plus + $FULL1fi18plus;
+                        
                         echo '<td class="">'.$FULL1fiMale.'</td>';
 
                         $GRANDTOTAL1fiMale = $GRANDTOTAL1fiMale + $FULL1fiMale;
@@ -865,7 +901,11 @@ require($root."dbconn.php");
                         echo '<td class="">'.$FULL2fi13to18.'</td>';
 
                         $GRANDTOTAL2fi13to18 = $GRANDTOTAL2fi13to18 + $FULL2fi13to18;
-
+                        
+                        echo '<td class="">'.$FULL2fi18plus.'</td>';
+                        
+                        $GRANDTOTAL2fi18plus = $GRANDTOTAL2fi18plus + $FULL2fi18plus;
+                        
                         echo '<td class="">'.$FULL2fiMale.'</td>';
 
                         $GRANDTOTAL2fiMale = $GRANDTOTAL2fiMale + $FULL2fiMale;
@@ -939,6 +979,10 @@ require($root."dbconn.php");
                         echo '<td class="">'.$FULL3fi13to18.'</td>';
 
                         $GRANDTOTAL3fi13to18 = $GRANDTOTAL3fi13to18 + $FULL3fi13to18;
+                        
+                        echo '<td class="">'.$FULL3fi18plus.'</td>';
+                        
+                        $GRANDTOTAL3fi18plus = $GRANDTOTAL3fi18plus + $FULL3fi18plus;
 
                         echo '<td class="">'.$FULL3fiMale.'</td>';
 
@@ -1014,6 +1058,10 @@ require($root."dbconn.php");
 
                         $GRANDTOTAL4fi13to18 = $GRANDTOTAL4fi13to18 + $FULL4fi13to18;
 
+                        echo '<td class="">'.$FULL4fi18plus.'</td>';
+                        
+                        $GRANDTOTAL4fi18plus = $GRANDTOTAL4fi18plus + $FULL4fi18plus;
+                        
                         echo '<td class="">'.$FULL4fiMale.'</td>';
 
                         $GRANDTOTAL4fiMale = $GRANDTOTAL4fiMale + $FULL4fiMale;
@@ -1087,6 +1135,11 @@ require($root."dbconn.php");
                         $FULLTOTALfi13to18 = $FULL1fi13to18+$FULL2fi13to18+$FULL3fi13to18+$FULL4fi13to18;
 
                         echo '<td>'.$FULLTOTALfi13to18.'</td>';
+                        
+                        $FULLTOTALfi18plus = $FULL1fi18plus+$FULL2fi18plus+$FULL3fi18plus+$FULL4fi18plus;
+                        
+                        echo '<td>'.$FULLTOTALfi18plus.'</td>';
+                        
 
                         $FULLTOTALfiMale = $FULL1fiMale+$FULL2fiMale+$FULL3fiMale+$FULL4fiMale;
 
@@ -1191,7 +1244,9 @@ require($root."dbconn.php");
                         $FULL1fi7to12 = 0;
 
                         $FULL1fi13to18 = 0;
-
+                        
+                        $FULL1fi18plus = 0;
+                        
                         $FULL1fiMale = 0;
 
                         $FULL1fiFemale = 0;
@@ -1228,6 +1283,8 @@ require($root."dbconn.php");
 
                         $FULL2fi13to18 = 0;
 
+                        $FULL2fi18plus = 0;
+          
                         $FULL2fiMale = 0;
 
                         $FULL2fiFemale = 0;
@@ -1264,6 +1321,8 @@ require($root."dbconn.php");
 
                         $FULL3fi13to18 = 0;
 
+                        $FULL3fi18plus = 0;
+                        
                         $FULL3fiMale = 0;
 
                         $FULL3fiFemale = 0;
@@ -1299,7 +1358,9 @@ require($root."dbconn.php");
                         $FULL4fi7to12 = 0;
 
                         $FULL4fi13to18 = 0;
-
+                        
+                        $FULL4fi18 = 0;
+                        
                         $FULL4fiMale = 0;
 
                         $FULL4fiFemale = 0;
@@ -1342,7 +1403,7 @@ require($root."dbconn.php");
 
                                         
 
-                                $sqlLoop = "SELECT fiTotal, fi0to6, fi7to12, fi13to18, fiMale, fiFemale, fiAfrAmerican, fiAsian, fiCauc, fiHispanic, fiOther, extForenEval, ".
+                                $sqlLoop = "SELECT fiTotal, fi0to6, fi7to12, fi13to18, fi18plus, fiMale, fiFemale, fiAfrAmerican, fiAsian, fiCauc, fiHispanic, fiOther, extForenEval, ".
 
                                         "intCounsSes, totCounSes, multDisTeamMeet, prosCases, medExamRef, actualPerfStats.quarter FROM actualPerfStats JOIN actualExpenditures ON actualPerfStats.center = actualExpenditures.center ".
 
@@ -1389,6 +1450,8 @@ require($root."dbconn.php");
                                         $Yearfi7to12 = 0;
 
                                         $Yearfi13to18 = 0;
+                                        
+                                        $Yearfi18plus = 0;
 
                                         $YearfiMale = 0;
 
@@ -1453,6 +1516,10 @@ require($root."dbconn.php");
                                                 echo '<td>'.$rowLoop->fi13to18.'</td>';
 
                                                 $Yearfi13to18 = $Yearfi13to18 + $rowLoop->fi13to18;
+                                                
+                                                echo '<td>'.$rowLoop->fi18plus.'</td>';
+                                                
+                                                $Yearfi18plus = $Yearfi18plus + $rowLoop->fi18plus;
 
                                                 echo '<td>'.$rowLoop->fiMale.'</td>';
 
@@ -1526,6 +1593,8 @@ require($root."dbconn.php");
 
                                                   $FULL1fi13to18 = $FULL1fi13to18 + $rowLoop->fi13to18;
 
+                                                  $FULL1fi18plus = $FULL1fi18plus + $rowLoop->fi18plus;
+                                                  
                                                   $FULL1fiMale = $FULL1fiMale + $rowLoop->fiMale;
 
                                                   $FULL1fiFemale = $FULL1fiFemale + $rowLoop->fiFemale;
@@ -1566,6 +1635,8 @@ require($root."dbconn.php");
 
                                                   $FULL2fi13to18 = $FULL2fi13to18 + $rowLoop->fi13to18;
 
+                                                  $FULL2fi18plus = $FULL2fi18plus + $rowLoop->fi18plus;
+                                                  
                                                   $FULL2fiMale = $FULL2fiMale + $rowLoop->fiMale;
 
                                                   $FULL2fiFemale = $FULL2fiFemale + $rowLoop->fiFemale;
@@ -1606,6 +1677,8 @@ require($root."dbconn.php");
 
                                                   $FULL3fi13to18 = $FULL3fi13to18 + $rowLoop->fi13to18;
 
+                                                  $FULL3fi18plus = $FULL3fi18plus + $rowLoop->fi18plus;
+                                                  
                                                   $FULL3fiMale = $FULL3fiMale + $rowLoop->fiMale;
 
                                                   $FULL3fiFemale = $FULL3fiFemale + $rowLoop->fiFemale;
@@ -1646,6 +1719,8 @@ require($root."dbconn.php");
 
                                                   $FULL4fi13to18 = $FULL4fi13to18 + $rowLoop->fi13to18;
 
+                                                  $FULL4fi18plus = $FULL4fi18plus + $rowLoop->fi18plus;
+                                                  
                                                   $FULL4fiMale = $FULL4fiMale + $rowLoop->fiMale;
 
                                                   $FULL4fiFemale = $FULL4fiFemale + $rowLoop->fiFemale;
@@ -1687,6 +1762,8 @@ require($root."dbconn.php");
                                         echo '<td>'.$Yearfi7to12.'</td>';
 
                                         echo '<td>'.$Yearfi13to18.'</td>';
+                                        
+                                        echo '<td>'.$Yearfi18plus.'</td>';
 
                                         echo '<td>'.$YearfiMale.'</td>';
 
@@ -1763,6 +1840,10 @@ require($root."dbconn.php");
                         echo '<td class="">'.$FULL1fi13to18.'</td>';
 
                         $GRANDTOTAL1fi13to18 = $GRANDTOTAL1fi13to18 + $FULL1fi13to18;
+                        
+                        echo '<td class="">'.$FULL1fi18plus.'</td>';
+                        
+                        $GRANDTOTAL1fi18plus = $GRANDTOTAL1fi18plus + $FULL1fi18plus;
 
                         echo '<td class="">'.$FULL1fiMale.'</td>';
 
@@ -1837,6 +1918,10 @@ require($root."dbconn.php");
                         echo '<td class="">'.$FULL2fi13to18.'</td>';
 
                         $GRANDTOTAL2fi13to18 = $GRANDTOTAL2fi13to18 + $FULL2fi13to18;
+                        
+                        echo '<td class="">'.$FULL2fi18plus.'</td>';
+                        
+                        $GRANDTOTAL2fi18plus = $GRANDTOTAL2fi18plus + $FULL2fi18plus;
 
                         echo '<td class="">'.$FULL2fiMale.'</td>';
 
@@ -1911,6 +1996,10 @@ require($root."dbconn.php");
                         echo '<td class="">'.$FULL3fi13to18.'</td>';
 
                         $GRANDTOTAL3fi13to18 = $GRANDTOTAL3fi13to18 + $FULL3fi13to18;
+                        
+                        echo '<td class="">'.$FULL3fi18plus.'</td>';
+                        
+                        $GRANDTOTAL3fi18plus = $GRANDTOTAL3fi18plus + $FULL3fi18plus;
 
                         echo '<td class="">'.$FULL3fiMale.'</td>';
 
@@ -1985,6 +2074,10 @@ require($root."dbconn.php");
                         echo '<td class="">'.$FULL4fi13to18.'</td>';
 
                         $GRANDTOTAL4fi13to18 = $GRANDTOTAL4fi13to18 + $FULL4fi13to18;
+                        
+                        echo '<td class="">'.$FULL4fi18plus.'</td>';
+                        
+                        $GRANDTOTAL4fi18plus = $GRANDTOTAL4fi18plus + $FULL4fi18plus;
 
                         echo '<td class="">'.$FULL4fiMale.'</td>';
 
@@ -2059,6 +2152,10 @@ require($root."dbconn.php");
                         $FULLTOTALfi13to18 = $FULL1fi13to18+$FULL2fi13to18+$FULL3fi13to18+$FULL4fi13to18;
 
                         echo '<td>'.$FULLTOTALfi13to18.'</td>';
+                        
+                        $FULLTOTALfi18plus = $FULL1fi18plus+$FULL2fi18plus+$FULL3fi18plus+$FULL4fi18plus;
+                        
+                        echo '<td>'.$FULLTOTALfi18plus.'</td>';
 
                         $FULLTOTALfiMale = $FULL1fiMale+$FULL2fiMale+$FULL3fiMale+$FULL4fiMale;
 
@@ -2200,6 +2297,8 @@ require($root."dbconn.php");
 
                         $FULL2fi13to18 = 0;
 
+                        $FULL2fi18plus = 0;
+                        
                         $FULL2fiMale = 0;
 
                         $FULL2fiFemale = 0;
@@ -2235,6 +2334,9 @@ require($root."dbconn.php");
                         $FULL3fi7to12 = 0;
 
                         $FULL3fi13to18 = 0;
+                        
+                        $FULL3fi18plus = 0;
+                        
 
                         $FULL3fiMale = 0;
 
@@ -2271,6 +2373,9 @@ require($root."dbconn.php");
                         $FULL4fi7to12 = 0;
 
                         $FULL4fi13to18 = 0;
+                        
+                        $FULL4fi18plus = 0;
+                        
 
                         $FULL4fiMale = 0;
 
@@ -2314,7 +2419,7 @@ require($root."dbconn.php");
 
                                         
 
-                                $sqlLoop = "SELECT fiTotal, fi0to6, fi7to12, fi13to18, fiMale, fiFemale, fiAfrAmerican, fiAsian, fiCauc, fiHispanic, fiOther, extForenEval, ".
+                                $sqlLoop = "SELECT fiTotal, fi0to6, fi7to12, fi13to18, fi18plus, fiMale, fiFemale, fiAfrAmerican, fiAsian, fiCauc, fiHispanic, fiOther, extForenEval, ".
 
                                         "intCounsSes, totCounSes, multDisTeamMeet, prosCases, medExamRef, actualPerfStats.quarter FROM actualPerfStats JOIN actualExpenditures ON actualPerfStats.center = actualExpenditures.center ".
 
@@ -2362,6 +2467,8 @@ require($root."dbconn.php");
 
                                         $Yearfi13to18 = 0;
 
+                                        $Yearfi18plus = 0;
+                                        
                                         $YearfiMale = 0;
 
                                         $YearfiFemale = 0;
@@ -2425,6 +2532,10 @@ require($root."dbconn.php");
                                                 echo '<td>'.$rowLoop->fi13to18.'</td>';
 
                                                 $Yearfi13to18 = $Yearfi13to18 + $rowLoop->fi13to18;
+                                                
+                                                echo '<td>'.$rowLoop->fi18plus.'</td>';
+                                                
+                                                $Yearfi18plus = $Yearfi18plus + $rowLoop->fi18plus;
 
                                                 echo '<td>'.$rowLoop->fiMale.'</td>';
 
@@ -2498,6 +2609,8 @@ require($root."dbconn.php");
 
                                                   $FULL1fi13to18 = $FULL1fi13to18 + $rowLoop->fi13to18;
 
+                                                  $FULL1fi13to18 = $FULL1fi18plus + $rowLoop->fi18plus;
+                                                  
                                                   $FULL1fiMale = $FULL1fiMale + $rowLoop->fiMale;
 
                                                   $FULL1fiFemale = $FULL1fiFemale + $rowLoop->fiFemale;
@@ -2538,6 +2651,8 @@ require($root."dbconn.php");
 
                                                   $FULL2fi13to18 = $FULL2fi13to18 + $rowLoop->fi13to18;
 
+                                                  $FULL2fi18plus = $FULL2fi18plus + $rowLoop->fi18plus;
+                                                  
                                                   $FULL2fiMale = $FULL2fiMale + $rowLoop->fiMale;
 
                                                   $FULL2fiFemale = $FULL2fiFemale + $rowLoop->fiFemale;
@@ -2578,6 +2693,8 @@ require($root."dbconn.php");
 
                                                   $FULL3fi13to18 = $FULL3fi13to18 + $rowLoop->fi13to18;
 
+                                                  $FULL3fi18plus = $FULL3fi18plus + $rowLoop->fi18plus;
+                                                  
                                                   $FULL3fiMale = $FULL3fiMale + $rowLoop->fiMale;
 
                                                   $FULL3fiFemale = $FULL3fiFemale + $rowLoop->fiFemale;
@@ -2618,6 +2735,8 @@ require($root."dbconn.php");
 
                                                   $FULL4fi13to18 = $FULL4fi13to18 + $rowLoop->fi13to18;
 
+                                                  $FULL4fi18plus = $FULL4fi18plus + $rowLoop->fi18plus;
+                                                  
                                                   $FULL4fiMale = $FULL4fiMale + $rowLoop->fiMale;
 
                                                   $FULL4fiFemale = $FULL4fiFemale + $rowLoop->fiFemale;
@@ -2660,6 +2779,8 @@ require($root."dbconn.php");
 
                                         echo '<td>'.$Yearfi13to18.'</td>';
 
+                                        echo '<td>'.$Yearfi18plus.'</td>';
+                                        
                                         echo '<td>'.$YearfiMale.'</td>';
 
                                         echo '<td>'.$YearfiFemale.'</td>';
@@ -2735,6 +2856,10 @@ require($root."dbconn.php");
                         echo '<td class="">'.$FULL1fi13to18.'</td>';
 
                         $GRANDTOTAL1fi13to18 = $GRANDTOTAL1fi13to18 + $FULL1fi13to18;
+                        
+                        echo '<td class="">'.$FULL1fi18plus.'</td>';
+                        
+                        $GRANDTOTAL1fi18plus = $GRANDTOTAL1fi18plus + $FULL1fi18plus;
 
                         echo '<td class="">'.$FULL1fiMale.'</td>';
 
@@ -2809,6 +2934,10 @@ require($root."dbconn.php");
                         echo '<td class="">'.$FULL2fi13to18.'</td>';
 
                         $GRANDTOTAL2fi13to18 = $GRANDTOTAL2fi13to18 + $FULL2fi13to18;
+                        
+                        echo '<td class="">'.$FULL2fi18plus.'</td>';
+                        
+                        $GRANDTOTAL2fi18plus = $GRANDTOTAL2fi18plus + $FULL2fi18plus;
 
                         echo '<td class="">'.$FULL2fiMale.'</td>';
 
@@ -2883,6 +3012,10 @@ require($root."dbconn.php");
                         echo '<td class="">'.$FULL3fi13to18.'</td>';
 
                         $GRANDTOTAL3fi13to18 = $GRANDTOTAL3fi13to18 + $FULL3fi13to18;
+                        
+                        echo '<td class="">'.$FULL3fi18plus.'</td>';
+                        
+                        $GRANDTOTAL3fi18plus = $GRANDTOTAL3fi18plus + $FULL3fi18plus;
 
                         echo '<td class="">'.$FULL3fiMale.'</td>';
 
@@ -2957,6 +3090,10 @@ require($root."dbconn.php");
                         echo '<td class="">'.$FULL4fi13to18.'</td>';
 
                         $GRANDTOTAL4fi13to18 = $GRANDTOTAL4fi13to18 + $FULL4fi13to18;
+                        
+                        echo '<td class="">'.$FULL4fi18plus.'</td>';
+                        
+                        $GRANDTOTAL4fi18plus = $GRANDTOTAL4fi18plus + $FULL4fi18plus;
 
                         echo '<td class="">'.$FULL4fiMale.'</td>';
 
@@ -3031,6 +3168,10 @@ require($root."dbconn.php");
                         $FULLTOTALfi13to18 = $FULL1fi13to18+$FULL2fi13to18+$FULL3fi13to18+$FULL4fi13to18;
 
                         echo '<td>'.$FULLTOTALfi13to18.'</td>';
+                        
+                        $FULLTOTALfi18plus = $FULL1fi18plus+$FULL2fi18plus+$FULL3fi18plus+$FULL4fi18plus;
+                        
+                        echo '<td>'.$FULLTOTALfi18plus.'</td>';
 
                         $FULLTOTALfiMale = $FULL1fiMale+$FULL2fiMale+$FULL3fiMale+$FULL4fiMale;
 
@@ -3126,6 +3267,8 @@ require($root."dbconn.php");
 
                 echo '<td class="">'.$GRANDTOTAL1fi13to18.'</td>';
 
+                echo '<td class="">'.$GRANDTOTAL1fi18plus.'</td>';
+                
                 echo '<td class="">'.$GRANDTOTAL1fiMale.'</td>';
 
                 echo '<td class="">'.$GRANDTOTAL1fiFemale.'</td>';
@@ -3202,6 +3345,8 @@ require($root."dbconn.php");
 
                 echo '<td class="">'.$GRANDTOTAL3fi13to18.'</td>';
 
+                echo '<td class="">'.$GRANDTOTAL3fi18plus.'</td>';
+                
                 echo '<td class="">'.$GRANDTOTAL3fiMale.'</td>';
 
                 echo '<td class="">'.$GRANDTOTAL3fiFemale.'</td>';
@@ -3240,6 +3385,8 @@ require($root."dbconn.php");
 
                 echo '<td class="">'.$GRANDTOTAL4fi13to18.'</td>';
 
+                echo '<td class="">'.$GRANDTOTAL4fi18plus.'</td>';
+                
                 echo '<td class="">'.$GRANDTOTAL4fiMale.'</td>';
 
                 echo '<td class="">'.$GRANDTOTAL4fiFemale.'</td>';
@@ -3284,6 +3431,10 @@ require($root."dbconn.php");
 
                 $FULLTOTALfi13to18 = $GRANDTOTAL1fi13to18+$GRANDTOTAL2fi13to18+$GRANDTOTAL3fi13to18+$GRANDTOTAL4fi13to18;
 
+                echo '<td>'.$FULLTOTALfi13to18.'</td>';
+                
+                $FULLTOTALfi18plus = $GRANDTOTAL1fi18plus+$GRANDTOTAL2fi18plus+$GRANDTOTAL3fi18plus+$GRANDTOTAL4fi18plus;
+                
                 echo '<td>'.$FULLTOTALfi13to18.'</td>';
 
                 $FULLTOTALfiMale = $GRANDTOTAL1fiMale+$GRANDTOTAL2fiMale+$GRANDTOTAL3fiMale+$GRANDTOTAL4fiMale;
