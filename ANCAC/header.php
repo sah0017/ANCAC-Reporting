@@ -146,6 +146,7 @@
 							echo '<li><a href="'.$webroot.'editAccount.php?RID='.$_SESSION['RID'].'">Edit User Account</a></li>';
 							echo '<li><a href="'.$webroot.'editCenter.php?action=edit&centerNumber='.$_SESSION['center'].'">Edit Center</a></li>';
 							echo '<li><a href="'.$webroot.'boardOfDirAdmin.php">Edit Board of Directors</a></li>';
+							echo '<li><a href="'.$webroot.'countryForm.php">Add to "Country of Origin" list</a></li>';
 						}?>
 		        </ul>
 		    </li>
