@@ -299,7 +299,7 @@
                         <td><input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"
                                 onkeypress="return blockNonNumbers(this, event, false, false);" class="TextInput" name="medExamRef"
                                 value="<?PHP if(isset($row1QActual->medExamRef)){if ($row1QActual->medExamRef != -99) echo $row1QActual->medExamRef;} ?>" /></td>
-                </tr>                </table>
+                </tr>                                <tr align="center">                        <td align="left">5) Number of trafficking cases</td>                        <td class="Disable"></td>                        <td><input type="text" onblur="extractNumber(this,0,false);" onkeyup="extractNumber(this,0,false);"                                onkeypress="return blockNonNumbers(this, event, false, false);" class="TextInput" name="humanTrafficking"                                value="<?PHP if(isset($row1QActual->humanTrafficking)){if ($row1QActual->humanTrafficking != -99) echo $row1QActual->humanTrafficking;} ?>" /></td>                </tr>                </table>
                 <table id="Expenditures" width="100%" class="Admin" style=display:none>                              
                 <tr>
                         <td><b>Quarterly Expenditures</td>

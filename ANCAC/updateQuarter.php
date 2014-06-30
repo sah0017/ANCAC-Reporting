@@ -67,7 +67,7 @@
         $medExamRef = set_Variable($_POST['medExamRef'], "int");
         $fullTimeEmp = set_Variable($_POST['fullTimeEmp'], "float");
         $fi18plus = set_Variable($_POST['fi18plus'], "int");
-        //$trafficking = set_Variable($_POST['trafficking'], "int");
+        $humanTrafficking = set_Variable($_POST['humanTrafficking'], "int");
         
         
         if ($_POST['chkCompleteQuarter'] == 'yes') $CompleteQuarter = 1;
@@ -105,7 +105,7 @@
                         "fiFemale = '".$fiFemale."', fiAfrAmerican = '".$fiAfrAmerican."', fiAsian = '".$fiAsian."', ".
                         "fiCauc = '".$fiCauc."', fiHispanic = '".$fiHispanic."', fiOther = '".$fiOther."', ".
                         "extForenEval = '".$extForenEval."', intCounsSes = '".$intCounsSes."', multDisTeamMeet = '".$multDisTeamMeet."', ".
-                        "prosCases = '".$prosCases."', medExamRef = '".$medExamRef."', ".
+                        "prosCases = '".$prosCases."', medExamRef = '".$medExamRef."', humanTrafficking = '".$humanTrafficking."', ".
                         "username = '".$_SESSION['user']."', datemod = NOW(), totCounSes = '".$totCounSes."' ".
                         "WHERE center = '".$centerID."' AND fiscalyear = '".$fiscalYear."' ".
                         "AND quarter = '".$Quarter."'";
@@ -164,12 +164,12 @@
                         "`datemod` , `fiTotal` , `fi0to6` , `fi7to12` , `fi13to18` , `fi18plus` , ".
                         "`fiMale` , `fiFemale` , `fiAfrAmerican` , `fiAsian` , `fiCauc` , ".
                         "`fiHispanic` , `fiOther` , `extForenEval` , `intCounsSes` , `totCounSes` , `multDisTeamMeet` , ".
-                        "`prosCases` , `medExamRef`  ) ".
+                        "`prosCases` , `medExamRef`, `humanTrafficking`  ) ".
                         "VALUES ('".$centerID."', '".$fiscalYear."', '".$Quarter."', '".$_SESSION['user']."', ".
                         "NOW(), '".$fiTotal."', '".$fi0to6."', '".$fi7to12."', '".$fi13to18."', '".$fi18plus."', ".
                         "'".$fiMale."', '".$fiFemale."', '".$fiAfrAmerican."', '".$fiAsian."', '".$fiCauc."', ".
                         "'".$fiHispanic."', '".$fiOther."', '".$extForenEval."', '".$intCounsSes."', '".$totCounSes."', '".$multDisTeamMeet."', ".
-                        "'".$prosCases."', '".$medExamRef."')";
+                        "'".$prosCases."', '".$medExamRef."', '".$humanTrafficking."' )";
 
                 //insert into the actualPerfStats table
                 $resultExecute = @mysql_query($sqlExecute);
@@ -241,6 +241,35 @@
                 //Run the Executed statement to insert the Other Income
                 $resultExecute = @mysql_query($sqlExecute);
               }
+        }//END of the IF for Other Income
+        
+        
+        //Now update the Country of Origin stuff
+        $sqlOC = "SELECT id FROM originCountries";
+        $resultOC = @mysql_query($sqlOC) or mysql_error();
+        
+        $numRecords = mysql_num_rows($resultOC);
+        
+        if ($numRecords > 0){
+        	while ($row = mysql_fetch_object($resultOC)) {
+        		//Actual
+        		$ocInputBox = "OC".$row->id;
+        		$ocPostValue = set_Variable($_POST[$ocInputBox], "int");
+        
+        		//update
+        		if ($Update == 1){
+        			$sqlExecute = "UPDATE originStats SET country = '".$ocPostValue."' ".
+        					"WHERE center = '".$centerID."' AND fiscalyear = '".$fiscalYear."' ".
+        					"AND quarter = '".$Quarter."' AND country = '".$row->id."'";
+        		}
+        		//insert
+        		else{
+        			$sqlExecute = "INSERT INTO `originStats` ( `center` , `fiscalyear` , `quarter` , `country` , `count` ) ".
+        					"VALUES ('".$centerID."', '".$fiscalYear."', '".$Quarter."', '".$row->id."', '".$ocPostValue."')";
+        		}
+        		//Run the Executed statement to insert the Other Income
+        		$resultExecute = @mysql_query($sqlExecute);
+        	}
         }//END of the IF for Other Income
 
         if($_SESSION['admin'] > 0)

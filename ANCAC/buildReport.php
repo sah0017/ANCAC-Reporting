@@ -21,7 +21,7 @@ function buildReport($TrnType, $theCenter, $fiscalYear, $YTD, $Width){
           $row1QBudgeted = mysql_fetch_object($result);
 
           $sql = "SELECT fiTotal,fi0to6,fi7to12,fi13to18,fi18plus,fiMale,fiFemale,fiAfrAmerican,fiAsian,".
-              "fiCauc,fiHispanic,fiOther,extForenEval,intCounsSes,totCounSes,multDisTeamMeet,prosCases,medExamRef,".
+              "fiCauc,fiHispanic,fiOther,extForenEval,intCounsSes,totCounSes,multDisTeamMeet,prosCases,medExamRef,humanTrafficking,".
               "fullTimeEmp,personnelCosts,empBenefits,travelInState,travelOutState,repairsAndMx,".
               "rentalsLease,utilComm,profServ,suppMatOper,tranEqpPurch,otherEqpPurch,debtService,misc,genFund,chilFirstTrust,".
               "capOutlay,unitedWay,adeca,natlChilAlliance,chilTrustFund,deptOfHR,countyComm,cityCouncil,localGrants,areaSchools,".
@@ -49,7 +49,7 @@ function buildReport($TrnType, $theCenter, $fiscalYear, $YTD, $Width){
           $row2QBudgeted = mysql_fetch_object($result);
 
           $sql = "SELECT fiTotal,fi0to6,fi7to12,fi13to18,fi18plus,fiMale,fiFemale,fiAfrAmerican,fiAsian,".
-              "fiCauc,fiHispanic,fiOther,extForenEval,intCounsSes,totCounSes,multDisTeamMeet,prosCases,medExamRef,".
+              "fiCauc,fiHispanic,fiOther,extForenEval,intCounsSes,totCounSes,multDisTeamMeet,prosCases,medExamRef,humanTrafficking,".
               "fullTimeEmp,personnelCosts,empBenefits,travelInState,travelOutState,repairsAndMx,".
               "rentalsLease,utilComm,profServ,suppMatOper,tranEqpPurch,otherEqpPurch,debtService,misc,genFund,chilFirstTrust,".
               "capOutlay,unitedWay,adeca,natlChilAlliance,chilTrustFund,deptOfHR,countyComm,cityCouncil,localGrants,areaSchools,".
@@ -77,7 +77,7 @@ function buildReport($TrnType, $theCenter, $fiscalYear, $YTD, $Width){
           $row3QBudgeted = mysql_fetch_object($result);
 
           $sql = "SELECT fiTotal,fi0to6,fi7to12,fi13to18,fi18plus,fiMale,fiFemale,fiAfrAmerican,fiAsian,".
-              "fiCauc,fiHispanic,fiOther,extForenEval,intCounsSes,totCounSes,multDisTeamMeet,prosCases,medExamRef,".
+              "fiCauc,fiHispanic,fiOther,extForenEval,intCounsSes,totCounSes,multDisTeamMeet,prosCases,medExamRef,humanTrafficking,".
               "fullTimeEmp,personnelCosts,empBenefits,travelInState,travelOutState,repairsAndMx,".
               "rentalsLease,utilComm,profServ,suppMatOper,tranEqpPurch,otherEqpPurch,debtService,misc,genFund,chilFirstTrust,".
               "capOutlay,unitedWay,adeca,natlChilAlliance,chilTrustFund,deptOfHR,countyComm,cityCouncil,localGrants,areaSchools,".
@@ -105,7 +105,7 @@ function buildReport($TrnType, $theCenter, $fiscalYear, $YTD, $Width){
           $row4QBudgeted = mysql_fetch_object($result);
 
           $sql = "SELECT fiTotal,fi0to6,fi7to12,fi13to18,fi18plus,fiMale,fiFemale,fiAfrAmerican,fiAsian,".
-              "fiCauc,fiHispanic,fiOther,extForenEval,intCounsSes,totCounSes,multDisTeamMeet,prosCases,medExamRef,".
+              "fiCauc,fiHispanic,fiOther,extForenEval,intCounsSes,totCounSes,multDisTeamMeet,prosCases,medExamRef,humanTrafficking,".
               "fullTimeEmp,personnelCosts,empBenefits,travelInState,travelOutState,repairsAndMx,".
               "rentalsLease,utilComm,profServ,suppMatOper,tranEqpPurch,otherEqpPurch,debtService,misc,genFund,chilFirstTrust,".
               "capOutlay,unitedWay,adeca,natlChilAlliance,chilTrustFund,deptOfHR,countyComm,cityCouncil,localGrants,areaSchools,".
@@ -952,6 +952,48 @@ function buildReport($TrnType, $theCenter, $fiscalYear, $YTD, $Width){
            $medExamRefActTot = $Q1Act + $Q2Act + $Q3Act + $Q4Act;
            echo '<td><b>'.$medExamRefActTot.'</b></td>'.
                 '</tr>';
+           echo '<tr align="center">'.
+           		'<td align="left">5) Number of trafficking cases</td>'.
+           		'<td class="Disable"></td>'.
+           		'<td>';
+           if(isset($row1QActual->humanTrafficking)) {
+           	if ($row1QActual->humanTrafficking != -99){
+           		echo $row1QActual->humanTrafficking;
+           		$Q1Act = $row1QActual->humanTrafficking;
+           	}else $Q1Act = 0;
+           }else $Q1Act = 0;
+           echo '</td>'.
+           		'<td class="Disable"></td>'.
+           		'<td>';
+           if(isset($row2QActual->humanTrafficking)) {
+           	if ($row2QActual->humanTrafficking != -99){
+           		echo $row2QActual->humanTrafficking;
+           		$Q2Act = $row2QActual->humanTrafficking;
+           	}else $Q2Act = 0;
+           }else $Q2Act = 0;
+           echo '</td>'.
+           		'<td class="Disable"></td>'.
+           		'<td>';
+           if(isset($row3QActual->humanTrafficking)) {
+           	if ($row3QActual->humanTrafficking != -99){
+           		echo $row3QActual->humanTrafficking;
+           		$Q3Act = $row3QActual->humanTrafficking;
+           	}else $Q3Act = 0;
+           }else $Q3Act = 0;
+           echo '</td>'.
+           		'<td class="Disable"></td>'.
+           		'<td>';
+           if(isset($row4QActual->humanTrafficking)) {
+           	if ($row4QActual->humanTrafficking != -99){
+           		echo $row4QActual->humanTrafficking;
+           		$Q4Act = $row4QActual->humanTrafficking;
+           	}else $Q4Act = 0;
+           }else $Q4Act = 0;
+           echo '</td>'.
+           		'<td class="Disable"></td>';
+           $humanTraffickingActTot = $Q1Act + $Q2Act + $Q3Act + $Q4Act;
+           echo '<td><b>'.$humanTraffickingActTot.'</b></td>'.
+           		'</tr>';
 
            //Initialize the error array
            $Expense1QBud = array();
