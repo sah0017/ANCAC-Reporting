@@ -111,7 +111,7 @@ if($_GET['emailToSend']){
 	//echo "<pre>";
 	//print_r($email_to);
 	//echo "</pre>";
-	$email_to = 'revelsn@gmail.com';
+	//$email_to = 'revelsn@gmail.com';
 	
 	$headers = 'From: '.$from."\r\n".
 
