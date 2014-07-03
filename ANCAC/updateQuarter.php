@@ -248,29 +248,21 @@
         $sqlOC = "SELECT id FROM originCountries";
         $resultOC = @mysql_query($sqlOC) or mysql_error();
         
-        $numRecords = mysql_num_rows($resultOC);
-        
-        if ($numRecords > 0){
+
         	while ($row = mysql_fetch_object($resultOC)) {
         		//Actual
         		$ocInputBox = "OC".$row->id;
         		$ocPostValue = set_Variable($_POST[$ocInputBox], "int");
         
-        		//update
-        		if ($Update == 1){
-        			$sqlExecute = "UPDATE originStats SET country = '".$ocPostValue."' ".
-        					"WHERE center = '".$centerID."' AND fiscalyear = '".$fiscalYear."' ".
-        					"AND quarter = '".$Quarter."' AND country = '".$row->id."'";
-        		}
-        		//insert
-        		else{
-        			$sqlExecute = "INSERT INTO `originStats` ( `center` , `fiscalyear` , `quarter` , `country` , `count` ) ".
-        					"VALUES ('".$centerID."', '".$fiscalYear."', '".$Quarter."', '".$row->id."', '".$ocPostValue."')";
-        		}
+        		//insert or update
+        		
+        			$sqlExecute = "INSERT INTO `originStats` ( `center` , `fiscalYear` , `quarter` , `country` , `count` ) ".
+        					"VALUES ('".$centerID."', '".$fiscalYear."', '".$Quarter."', '".$row->id."', '".$ocPostValue."')".
+        					"ON DUPLICATE KEY UPDATE count = '".$ocPostValue."'";
+        	
         		//Run the Executed statement to insert the Other Income
         		$resultExecute = @mysql_query($sqlExecute);
         	}
-        }//END of the IF for Other Income
 
         if($_SESSION['admin'] > 0)
 	{
