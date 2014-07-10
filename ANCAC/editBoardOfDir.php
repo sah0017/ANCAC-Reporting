@@ -21,6 +21,7 @@
 	require($root."header.php");
 
 	
+	
 	//They've subbmitted the form
 	if(isset($_POST['name'])){
 		$errors = array();
@@ -65,7 +66,7 @@
 								phone = '".htmlspecialchars_decode($_POST['phone'])."',
 								occupation = '".htmlspecialchars_decode($_POST['occupation'])."',
 								yearsOnBoard = '".htmlspecialchars_decode($_POST['yearsOnBoard'])."'
-								WHERE BODID = '".$_GET['BODID']."'";
+								WHERE BODID = '".$_GET['BODID']."' AND center = '".$_GET['center']."' AND fiscalyear = '".$_GET['fiscalYear']."'";
 				$db->query($sql);
 			}
 			
@@ -155,7 +156,7 @@
 		
 		if($_GET['action'] == 'edit'){
 			//get current center info to populate the form
-			$sql = "SELECT * from boardOfDirItem WHERE BODID = '".$_GET['BODID']."'";
+			$sql = "SELECT * from boardOfDirItem WHERE BODID = '".$_GET['BODID']."' AND center = '".$_GET['center']."' AND fiscalyear = '".$_GET['fiscalYear']."'";
 			$memberInfo = $db->get_row($sql);
 		}
 		else{
