@@ -176,7 +176,7 @@
 			        <a href="#">Reporting</a>
 			        <ul>
 			            <li><a href="'.$webroot.'haveSubmit.php">View Current Qtr Unsubmitted Centers</a></li>
-			            <li><a href="'.$webroot.'GrandTotal.php">View/Print ANCAC Grand Total Report</a></li>
+			            <li><a href="'.$webroot.'GrandTotalReport.php">View/Print ANCAC Grand Total Report</a></li>
 			            <li><a href="'.$webroot.'EstBudgetTotals.php">View/Print Estimated Budget Total Report</a></li>
 			            <li><a href="'.$webroot.'qreportAdmin.php?from=9">View/Print ANCAC Board of Directors</a></li>
 						<li><a href="'.$webroot.'eoyProgress.php">Check End Of Year Status</a></li>
