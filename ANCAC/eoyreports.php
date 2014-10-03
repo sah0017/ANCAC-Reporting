@@ -159,7 +159,7 @@
                         echo '<tr><td colspan="3">&nbsp;</td></tr>';
                         */
                         //Estimated Budget
-                        if($row1->OtherIncome == 1 && $row1->OtherExpense == 1){
+                        //if($row1->OtherIncome == 1 && $row1->OtherExpense == 1){
                               echo '<tr><td align="center">Oct 10</td><td align="center">';
                               if ($row1->EstBudget == 0){
                                 if ($Admin == 0){
@@ -175,11 +175,11 @@
                                 else
                                     echo $check_Image.'</td><td>2.  <a href="editBudgets.php?center='.$center.'">Enter Estimated Budget for all 4 quarters for Next Year</a></td></tr>';
                               }
-                        }
+                        /*}
                         else{
                               echo '<tr><td align="center">Oct 10</td><td align="center">';
                               echo $flag_Image.'</td><td>2.  Enter Estimated Budget for all 4 quarters for Next Year</td></tr>';
-                        }
+                        }*/
                         echo '<tr><td colspan="3">&nbsp;</td></tr>';
                         //Board of Directors
                         echo '<tr><td align="center">Oct 30</td><td align="center">';
