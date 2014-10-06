@@ -24,38 +24,38 @@
         //Get the fiscal year from the select Year page drop down
         //COMMENT :: THIS WAS REMOVED BUT IF WE WANT TO SELECT THE YEAR JUST CHANGE IT BACK
         //if(isset($_POST['year']))
-        //        $fiscalYear = $_POST['year'];
+        //        $FiscalYear = $_POST['year'];
         //else
-        //        $fiscalYear = $_GET['year'];
+        //        $FiscalYear = $_GET['year'];
         switch (date("m")){
                 case 10:
                 case 11:
                 case 12:
-                     $fiscalYear = date("Y") + 1;
+                     $FiscalYear = date("Y") + 1;
                      break;
                 case 1:
                 case 2:
                 case 3:
-                     $fiscalYear = date("Y");
+                     $FiscalYear = date("Y");
                      break;
                 case 4:
                 case 5:
                 case 6:
-                     $fiscalYear = date("Y");
+                     $FiscalYear = date("Y");
                      break;
                 case 7:
                 case 8:
                 case 9:
-                     $fiscalYear = date("Y");
+                     $FiscalYear = date("Y");
                      break;
          }
-         $lastYear = $fiscalYear - 1;
+         $lastYear = $FiscalYear - 1;
 ?>
 
 <body>
 <table class='OutlineTable' align=center width="55%">
 <tr>
-	<td class='login-header' colspan='2' align=center>Budget Request for <?PHP echo $CenterName; ?> - FY <?PHP echo $lastYear.' - '.$fiscalYear; ?><br /></td>
+	<td class='login-header' colspan='2' align=center>Budget Request for <?PHP echo $CenterName; ?> - FY <?PHP echo $lastYear.' - '.$FiscalYear; ?><br /></td>
 </tr>
 <tr>
 	<td class='login' align=left>
@@ -69,7 +69,7 @@
                         " sum(deptOfHR) as deptOfHR, sum(countyComm) as countyComm, sum(cityCouncil) as cityCouncil,".
                         " sum(localGrants) as localGrants, sum(areaSchools) as areaSchools, sum(corpDonations) as corpDonations,".
                         " sum(privDonations) as privDonations, sum(fundraisers) as fundraisers, sum(bankInterest) as bankInterest".
-                        " FROM budgetedSourceFunds WHERE center = '".$center."' AND fiscalyear = '".$fiscalYear."'";
+                        " FROM budgetedSourceFunds WHERE center = '".$center."' AND fiscalyear = '".$FiscalYear."'";
 
                 $resultBODCY = @mysql_query($sqlBODCY) or mysql_error();
                 $rowFunds = mysql_fetch_object($resultBODCY);
@@ -79,7 +79,7 @@
                         " sum(utilComm) as utilComm, sum(profServ) as profServ, sum(suppMatOper) as suppMatOper,".
                         " sum(tranEqpPurch) as tranEqpPurch, sum(otherEqpPurch) as otherEqpPurch, sum(debtService) as debtService,".
                         " sum(misc) as misc, sum(capOutlay) as capOutlay".
-                        " FROM budgetedExpenditures WHERE center = '".$center."' AND fiscalyear = '".$fiscalYear."'";
+                        " FROM budgetedExpenditures WHERE center = '".$center."' AND fiscalyear = '".$FiscalYear."'";
 
                 $resultExp = @mysql_query($sqlExp) or mysql_error();
                 $rowExp = mysql_fetch_object($resultExp);
@@ -121,14 +121,14 @@
                          echo '<tr><td>Bank Interest</td><td align="right">$'.$rowFunds->bankInterest.'</td></tr>';
                          $TotalRevenue = $TotalRevenue + $rowFunds->bankInterest;
                          //OTHER INCOMES
-                        $sqlOI = "SELECT OIncomeID, IncomeName FROM otherIncomeLU WHERE center = '".$center."' AND fiscalyear = '".$fiscalYear."' ORDER BY OIncomeID";
+                        $sqlOI = "SELECT OIncomeID, IncomeName FROM otherIncomeLU WHERE center = '".$center."' AND fiscalyear = '".$FiscalYear."' ORDER BY OIncomeID";
                         $resultOI = @mysql_query($sqlOI) or mysql_error();
 
                         $numRecords = mysql_num_rows($resultOI);
                         if ($numRecords > 0){
                                 while ($row = mysql_fetch_object($resultOI)) {
                                         $sqlOIValue = "SELECT sum(oiValue) as oiValue".
-                                        " FROM budgetedOtherIncome WHERE center = '".$center."' AND fiscalyear = '".$fiscalYear."' AND OIncomeID = '".$row->OIncomeID."'";
+                                        " FROM budgetedOtherIncome WHERE center = '".$center."' AND fiscalyear = '".$FiscalYear."' AND OIncomeID = '".$row->OIncomeID."'";
                                         $resultOIValue = @mysql_query($sqlOIValue) or mysql_error();
                                         $rowOIFunds = mysql_fetch_object($resultOIValue);
                                         echo '<tr><td>'.$row->IncomeName.'</td><td align="right">$'.$rowOIFunds->oiValue.'</td></tr>';
@@ -168,14 +168,14 @@
                          echo '<tr><td>Miscellaneous</td><td align="right">$'.$rowExp->misc.'</td></tr>';
                          $TotalExpenditures = $TotalExpenditures + $rowExp->misc;
                          //OTHER EXPENDITURES
-                         $sqlOE = "SELECT OExpenseID, ExpenseName FROM otherExpenseLU WHERE center = '".$center."' AND fiscalyear = '".$fiscalYear."' ORDER BY OExpenseID";
+                         $sqlOE = "SELECT OExpenseID, ExpenseName FROM otherExpenseLU WHERE center = '".$center."' AND fiscalyear = '".$FiscalYear."' ORDER BY OExpenseID";
                         $resultOE = @mysql_query($sqlOE) or mysql_error();
 
                         $numRecords = mysql_num_rows($resultOE);
                         if ($numRecords > 0){
                                 while ($row = mysql_fetch_object($resultOE)) {
                                         $sqlOEValue = "SELECT sum(oeValue) as oeValue".
-                                        " FROM budgetedOtherExpense WHERE center = '".$center."' AND fiscalyear = '".$fiscalYear."' AND OExpenseID = '".$row->OExpenseID."'";
+                                        " FROM budgetedOtherExpense WHERE center = '".$center."' AND fiscalyear = '".$FiscalYear."' AND OExpenseID = '".$row->OExpenseID."'";
                                         $resultOEValue = @mysql_query($sqlOEValue) or mysql_error();
                                         $rowOEFunds = mysql_fetch_object($resultOEValue);
                                         echo '<tr><td>'.$row->ExpenseName.'</td><td align="right">$'.$rowOEFunds->oeValue.'</td></tr>';
