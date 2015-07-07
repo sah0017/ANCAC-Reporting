@@ -1,6 +1,6 @@
 <?php
-    $connect = mysql_connect('localhost', 'ancac', '') or die("could not connect to server");
-    $db_select = @mysql_select_db('ancac') or die("could not select the database");
+    $connect = mysqli_connect('localhost', 'ancac', '') or die("could not connect to server");
+    $db_select = @mysqli_select_db('ancac') or die("could not select the database");
     
     //NR 04/11/14 moved all db connections to dbconn
     //NEW WAY OF CONNECTING TO DATABASE
